@@ -63,7 +63,9 @@ generate_conditional_login_ui <- function(config, module_manager = NULL) {
     login_module_path <- "scripts/global_scripts/10_rshinyapp_components/login/login_module.R"
   }
 
-  if (file.exists(login_module_path)) {
+  if (!exists("loginModuleUI") && file.exists("modules/module_login_brandedge.R")) {
+    source("modules/module_login_brandedge.R", local = FALSE)
+  } else if (!exists("loginModuleUI") && file.exists(login_module_path)) {
     source(login_module_path, local = FALSE)
   }
 
@@ -93,11 +95,7 @@ generate_conditional_login_ui <- function(config, module_manager = NULL) {
       condition = "output.user_logged_in == false",
       div(
         class = "login-gradient",
-        # 使用 Supabase 登入 UI（全面取代舊版 bcrypt 登入）
-        if (exists("loginSupabaseUI")) {
-          cat("🔐 [UI Generator] 使用 Supabase 登入 UI\n")
-
-          # 取得 app title 和 subtitle
+        local({
           app_title <- tryCatch({
             if (exists("global_language_content_static", envir = .GlobalEnv)) {
               lang_content <- get("global_language_content_static", envir = .GlobalEnv)
@@ -117,7 +115,6 @@ generate_conditional_login_ui <- function(config, module_manager = NULL) {
             config$app_info$name %||% "登入"
           })
 
-          # 取得 app subtitle（從 YAML 讀取，用於登入頁面副標題）
           app_subtitle <- tryCatch({
             if (exists("global_language_content_static", envir = .GlobalEnv)) {
               lang_content <- get("global_language_content_static", envir = .GlobalEnv)
@@ -137,14 +134,18 @@ generate_conditional_login_ui <- function(config, module_manager = NULL) {
             NULL
           })
 
-          # 取得 app icon（從 config 讀取，預設使用 global_scripts 中的 icon）
-          # 路徑: global_assets/ 對應 scripts/global_scripts/
           app_icon <- config$app_info$icon %||% config$ui$login$icon %||% "global_assets/24_assets/icons/app_icon.png"
 
-          loginSupabaseUI("login1", title = app_title, subtitle = app_subtitle, app_icon = app_icon)
-        } else {
-          stop("❌ loginSupabaseUI 函數不存在，請確認 Supabase 登入模組已載入 (scripts/global_scripts/11_rshinyapp_utils/supabase_auth/)")
-        }
+          if (exists("loginModuleUI")) {
+            cat("🔐 [UI Generator] 使用本地 bcrypt 登入 UI\n")
+            loginModuleUI("login1", app_title = app_title, app_icon = app_icon)
+          } else if (exists("loginSupabaseUI")) {
+            cat("🔐 [UI Generator] 使用 Supabase 登入 UI\n")
+            loginSupabaseUI("login1", title = app_title, subtitle = app_subtitle, app_icon = app_icon)
+          } else {
+            stop("❌ 找不到登入 UI 函數，請確認本地 bcrypt 登入模組已載入")
+          }
+        })
       )
     ),
 

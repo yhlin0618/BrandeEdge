@@ -211,7 +211,7 @@ loginModuleServer <- function(id, lang_texts = reactive(NULL)) {
       }
 
       # Verify password
-      if (bcrypt::checkpw(input$login_pw, row$password_hash)) {
+      if (bcrypt::checkpw(input$login_pw, row$hash)) {
         if (row$role != "admin")
           db_execute("UPDATE users SET login_count=login_count+1 WHERE id=?", params = list(row$id))
 

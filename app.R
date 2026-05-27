@@ -164,23 +164,21 @@ if (file.exists("config/packages.R")) {
 }
 
 # ==========================================
-# 載入 Supabase 登入模組（必須在 UI 生成器之前）
-# 模組位於 global_scripts，可透過 git subrepo 在各專案共用
+# 載入登入模組（必須在 UI 生成器之前）
 # ==========================================
-# 認證工具在 11_rshinyapp_utils（工具類）
+# Supabase 模組保留路徑供未來切換使用；目前部署使用本地 bcrypt 登入。
 supabase_auth_path <- "scripts/global_scripts/11_rshinyapp_utils/supabase_auth"
-# 登入元件在 10_rshinyapp_components（元件類）
 login_component_path <- "scripts/global_scripts/10_rshinyapp_components/login"
+USE_SUPABASE_AUTH <<- FALSE
 
-if (file.exists(file.path(supabase_auth_path, "module_supabase_auth.R")) &&
-    file.exists(file.path(login_component_path, "module_login_supabase.R"))) {
-  source(file.path(supabase_auth_path, "module_supabase_auth.R"))
-  source(file.path(login_component_path, "module_login_supabase.R"))
-  USE_SUPABASE_AUTH <<- TRUE  # 設定全域變數，表示使用 Supabase 登入
-  message("✅ 已載入 Supabase 登入模組 (from global_scripts)")
+if (file.exists("modules/module_login_brandedge.R")) {
+  source("modules/module_login_brandedge.R")
+  message("✅ 已載入 BrandEdge 本地 bcrypt 登入模組")
+} else if (file.exists("modules/module_login.R")) {
+  source("modules/module_login.R")
+  message("✅ 已載入本地 bcrypt 登入模組")
 } else {
-  USE_SUPABASE_AUTH <<- FALSE
-  stop("❌ 找不到 Supabase 登入模組")
+  stop("❌ 找不到本地 bcrypt 登入模組")
 }
 
 # ==========================================
@@ -338,6 +336,16 @@ get_db_connection <- function() {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       )
     ")
+  }
+
+  existing_users <- DBI::dbGetQuery(con, "SELECT COUNT(*) AS count FROM users")
+  if (as.integer(existing_users$count[1]) == 0) {
+    DBI::dbExecute(
+      con,
+      "INSERT INTO users (username, hash, role, login_count) VALUES (?, ?, 'admin', 0)",
+      params = list("admin", bcrypt::hashpw("admin123"))
+    )
+    message("✅ 已建立本地管理員帳號 admin / admin123")
   }
 
   if (!DBI::dbExistsTable(con, "rawdata")) {
@@ -816,22 +824,13 @@ message("========================================")
 # ==========================================
 message("載入 BrandEdge 模組...")
 
-# 載入登入模組（如果 Supabase 已在上方載入則跳過）
+# 載入登入模組（本地 bcrypt）
 if (!exists("USE_SUPABASE_AUTH") || !USE_SUPABASE_AUTH) {
-  # Supabase 模組尚未載入，這是備用路徑（通常不會執行）
-  if (file.exists(file.path(supabase_auth_path, "module_supabase_auth.R")) &&
-      file.exists(file.path(login_component_path, "module_login_supabase.R"))) {
-    source(file.path(supabase_auth_path, "module_supabase_auth.R"))
-    source(file.path(login_component_path, "module_login_supabase.R"))
-    USE_SUPABASE_AUTH <<- TRUE
-    message("✅ 已載入 Supabase 登入模組 (fallback)")
-  } else if (file.exists("modules/module_login_brandedge.R")) {
-    # 備用方案 1：BrandEdge 專用登入模組（bcrypt）
+  if (file.exists("modules/module_login_brandedge.R")) {
     source("modules/module_login_brandedge.R")
     USE_SUPABASE_AUTH <<- FALSE
     message("✅ 已載入 BrandEdge 登入模組（bcrypt）")
   } else if (file.exists("modules/module_login.R")) {
-    # 備用方案 2：通用登入模組（bcrypt）
     source("modules/module_login.R")
     USE_SUPABASE_AUTH <<- FALSE
     message("✅ 已載入通用登入模組（bcrypt）")
