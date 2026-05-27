@@ -1,0 +1,112 @@
+title: "📊 屬性評分分析"
+subtitle: "分析產品屬性並計算評分"
+
+settings:
+  attributes: "1. 選擇屬性數量"
+  generated_attributes: "2. 生成的屬性"
+  scoring_title: "3. 評分"
+  sample_size: "每個品牌評論抽樣數量："
+  review_count: "2. 選擇要分析的顧客評論則數"
+  start_scoring: "3. 請點擊 [開始評分]"
+
+buttons:
+  generate_attributes: "產生屬性"
+  start_scoring: "開始評分"
+  proceed: "下一步 ➡️"
+  calculate_score: "計算評分"
+  save_criteria: "儲存標準"
+  load_template: "載入範本"
+  export_results: "匯出結果"
+  reset_all: "重設全部"
+
+  placeholders:
+    enter_criteria: "輸入評分標準"
+    select_category: "選擇分類"
+    weight_value: "權重值 (0-100)"
+
+messages:
+  success:
+    score_calculated: "✅ 評分計算完成！"
+    criteria_saved: "✅ 評分標準已儲存！"
+    template_loaded: "✅ 範本載入成功！"
+    results_exported: "✅ 結果匯出完成！"
+    attributes_extracted: "已成功萃取"
+    scoring_complete: "評分完成！已對"
+    data_ready: "✅ 評分資料已準備完成，可以進行後續分析"
+
+  error:
+    calculation_failed: "❌ 評分計算失敗"
+    invalid_criteria: "❌ 評分標準不正確"
+    save_failed: "❌ 儲存失敗"
+    template_not_found: "❌ 找不到範本"
+    api_failed: "❌ API 呼叫失敗："
+    no_data: "❌ 沒有可用於評分的資料"
+    attribute_generation_failed: "❌ 產生屬性失敗：{error}"
+    attribute_parse_failed: "⚠️ 無法解析足夠的屬性（需要 {required} 個，僅解析出 {found} 個）"
+    prompt_failed: "❌ 無法準備 prompt"
+    extraction_failed: "屬性萃取失敗："
+    check_api: "請確認 OpenAI API 設定正確且有足夠配額"
+    scoring_failed: "評分失敗："
+
+  labels:
+    product_attributes: "個產品屬性："
+    reviews_scored: "則評論進行評分"
+
+  warning:
+    incomplete_data: "⚠️ 資料不完整"
+    low_confidence: "⚠️ 信心度較低"
+    weight_sum_error: "⚠️ 權重總和不為100%"
+    scoring_warning: "⚠️ 評分完成，但有 {error_count}/{total} 筆資料因 API 錯誤而跳過"
+
+  info:
+    calculating: "🔄 正在計算評分..."
+    loading: "📂 正在載入資料..."
+    processing: "⚙️ 正在處理..."
+    analyzing_attributes: "正在分析屬性..."
+    scoring_in_progress: "評分中…"
+    processing_item: "處理第 {current}/{total} 筆 (品牌: {brand})"
+    generating_attributes: "從顧客評論中產生屬性..."
+    attributes_generated: "✅ 已產生 {count} 個屬性：{attrs}"
+    attributes_generated_notify: "✅ 已產生 {count} 個屬性！"
+    scoring_completed: "✅ 已完成 {count} 筆評分"
+    preparing_analysis: "準備屬性分析..."
+    scoring_success: "✅ 評分完成！成功處理 {total} 筆資料"
+    scoring_complete: "✅ 評分完成並已存入 processed_data"
+    merging_data: "➡️ 進入資料合併！"
+    merge_success: "🎯 AI 評分完成！共 {count} 筆變體評分"
+    export_preparing: "📊 準備匯出結果..."
+
+score_types:
+  basic: "基礎評分"
+  weighted: "加權評分"
+  comparative: "比較評分"
+  custom: "自訂評分"
+
+criteria_categories:
+  performance: "效能表現"
+  quality: "品質指標"
+  reliability: "可靠性"
+  efficiency: "效率"
+
+console:
+  attributes_generated: "✅ 已產生 {count} 個屬性"
+  starting_score: "開始評分程序..."
+  processing_batch: "處理批次 {batch}/{total}..."
+  prompt_failed: "❌ Prompt 準備失敗："
+  start_extraction: "🚀 開始屬性萃取，目標屬性數："
+  partial_extraction: "⚠️ 只萃取到"
+  partial_extraction_suffix: "個屬性，少於目標數"
+  extraction_success: "✅ 成功萃取"
+  extraction_failed: "❌ 屬性萃取失敗："
+  attributes_count: "個屬性"
+  start_scoring: "🚀 開始評分，樣本數："
+  attributes_num: "，屬性數："
+  scoring_complete: "✅ 評分完成，共"
+  reviews_count: "則評論"
+  scoring_failed: "❌ 評分失敗："
+
+help:
+  score_calculation: "評分系統支援多種計算方法，可根據需求選擇適合的評分模式"
+  weight_setting: "權重設定影響各項指標的重要性，總和應為100%"
+  threshold_config: "門檻值用於判定評分等級和品質分類"
+

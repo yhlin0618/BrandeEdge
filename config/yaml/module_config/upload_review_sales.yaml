@@ -1,0 +1,199 @@
+# ==========================================
+# InsightForge 資料上傳模組配置
+# ==========================================
+# Module: upload_review_sales
+# Path: modules/module_upload_review_sales.R
+# Version: 2.1.0
+
+module:
+  id: "upload_review_sales"
+  name: "upload_module"
+  description: "insightforge_review_sales_upload"
+  version: "2.1.0"
+  path: "modules/module_upload_review_sales.R"
+  type: "data_upload"
+  icon: "upload"
+
+# UI 配置
+ui:
+  title_key: "title"
+  card_status: "primary"
+
+  sections:
+    reviews:
+      title_key: "sections.reviews"
+      hint_id: "upload_reviews"
+      required: true
+      show_notification: true
+      notification_file: "notification.md"
+
+    sales:
+      title_key: "sections.sales"
+      hint_id: "upload_sales"
+      required: false
+
+  buttons:
+    upload:
+      id: "load_btn"
+      label_key: "buttons.upload"
+      class: "btn-success"
+
+    next:
+      id: "to_step2"
+      label_key: "buttons.next"
+      class: "btn-info"
+
+# 資料限制設定
+data_limits:
+  reviews:
+    max_brands: 10
+    max_records_per_brand: 500
+    total_max_records: 5000
+    min_records_per_brand: 10
+
+  sales:
+    max_brands: 10
+    max_records_per_brand: 2000
+    total_max_records: 20000
+
+# 檔案設定
+file_settings:
+  max_file_size_mb: 50
+  max_files_per_upload: 20
+  accepted_formats:
+    - ".xlsx"
+    - ".xls"
+    - ".csv"
+
+  encoding:
+    csv: "UTF-8"
+    auto_detect: true
+
+# 資料驗證規則
+validation:
+  max_rows: 1000
+  max_brands: 20
+
+  reviews:
+    required_columns:
+      - name: "Variation"
+        type: "character"
+        description_key: "validation.variation_desc"
+
+      - name: "Title"
+        type: "character"
+        description_key: "validation.title_desc"
+        allow_empty: true
+
+      - name: "Body"
+        type: "character"
+        description_key: "validation.body_desc"
+        min_length: 10
+
+    optional_columns:
+      - name: "Rating"
+        type: "numeric"
+        range: [1, 5]
+
+      - name: "Date"
+        type: "date"
+        format: "YYYY-MM-DD"
+
+  sales:
+    required_columns:
+      - name: "Variation"
+        type: "character"
+        description_key: "validation.variation_desc"
+
+      - name: "Sales"
+        type: "numeric"
+        min_value: 0
+        description_key: "validation.sales_desc"
+
+    optional_columns:
+      - name: "Time"
+        type: "date"
+        description_key: "validation.time_desc"
+
+      - name: "Revenue"
+        type: "numeric"
+        min_value: 0
+
+# 資料處理設定
+processing:
+  auto_merge: true
+  remove_duplicates: true
+
+  sampling:
+    enabled: true
+    method: "random"
+    preserve_distribution: true
+
+  transformation:
+    trim_whitespace: true
+    standardize_variation_names: true
+    handle_missing_values:
+      strategy: "remove"
+      impute_method: "mean"
+
+# 儲存設定
+storage:
+  database:
+    reviews_table: "rawdata"
+    sales_table: "salesdata"
+    format: "json"
+    compress: false
+
+  backup:
+    enabled: true
+    location: "backups/uploads/"
+    retention_days: 30
+
+# 錯誤處理
+error_handling:
+  show_detailed_errors: true
+  log_errors: true
+
+  recovery:
+    auto_retry: true
+    max_retries: 3
+    retry_delay: 1000
+
+# 效能優化
+performance:
+  chunk_size: 1000
+  parallel_processing: false
+
+# 通知設定
+notifications:
+  upload_success:
+    type: "message"
+    duration: 5
+    template_key: "notifications.upload_success"
+
+  upload_error:
+    type: "error"
+    duration: 10
+    template_key: "notifications.upload_error"
+
+  data_limit_warning:
+    type: "warning"
+    duration: 8
+    template_key: "notifications.data_limit_warning"
+
+# 進階設定
+advanced:
+  enable_preview: true
+
+preview:
+  max_rows: 1000
+
+  smart_matching:
+    enabled: true
+    patterns:
+      sales: ["_sales", "_sales_zh", "_revenue"]
+      reviews: ["_review", "_reviews_zh", "_comment"]
+
+  auto_categorization:
+    enabled: true
+    confidence_threshold: 0.8

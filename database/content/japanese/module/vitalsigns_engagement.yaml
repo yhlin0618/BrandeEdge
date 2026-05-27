@@ -1,0 +1,551 @@
+# ==========================================
+# VitalSigns - Engagement Module Language Content (Japanese)
+# ==========================================
+# エンゲージメント分析モジュール言語コンテンツ（日本語）
+# Version: 1.0.0
+# Last Updated: 2025-10-11
+
+# モジュール基本情報
+title: "エンゲージメント分析"
+subtitle: "顧客アクティビティ、参加パターン、コンバージョン効率の追跡"
+description: "顧客エンゲージメントの評価、コンバージョンファネル分析、行動パターンの特定、インタラクション戦略の最適化"
+
+# UI ブロック
+ui:
+  sections:
+    overview: "エンゲージメント概要"
+    engagement_distribution: "エンゲージメントスコア分布"
+    activity_levels: "アクティビティレベル分布"
+    conversion_funnel: "コンバージョンファネル分析"
+    purchase_timing: "購入タイミングパターン"
+    behavior_patterns: "行動パターン分析"
+    rfe_analysis: "RFE 分析"
+    ai_insights: "AI インサイト"
+
+  # コントロールパネル
+  controls:
+    title: "分析コントロール"
+    engagement_dimensions: "エンゲージメントディメンション"
+    activity_threshold: "アクティビティ閾値"
+    funnel_stages: "ファネルステージ"
+
+  # ボタン
+  buttons:
+    calculate_engagement: "エンゲージメントを計算"
+    analyze_funnel: "ファネルを分析"
+    identify_patterns: "パターンを特定"
+    generate_insights: "AI インサイトを生成"
+    export_segments: "顧客グループデータをエクスポート"
+    start_ai_analysis: "AI分析を開始"
+    download_reactivation: "再活性化顧客リストをダウンロード"
+    download_loyalty: "ロイヤルティ分析をダウンロード"
+
+  # KPI カード
+  kpis:
+    cai: "顧客活性度指数 (CAI)"
+    conversion_rate: "コンバージョン率"
+    purchase_frequency: "購入頻度"
+    inter_purchase_time: "平均再購入時間"
+    reactivation_rate: "再活性化率"
+
+  # カードタイトル
+  cards:
+    activity_distribution: "顧客活性度分布"
+    conversion_funnel: "コンバージョンファネル"
+    purchase_patterns: "購入頻度とサイクル分析"
+    reactivation_opportunity: "顧客再活性化機会"
+    loyalty_ladder: "ロイヤルティラダー"
+    ai_analysis: "🤖 AI分析と推奨事項"
+
+  # タブラベル
+  tabs:
+    frequency_analysis: "頻度分析"
+    reactivation_analysis: "再活性化分析"
+    loyalty_strategy: "ロイヤルティ戦略"
+    reactivation_list: "再活性化顧客リスト"
+
+  # ヘルプテキスト
+  help:
+    chart_explanation: "📊 チャートの説明"
+    activity_distribution_desc: "この散布図は、顧客の活性度と消費の関係を示しています："
+    activity_distribution_x: "X軸：活性度指数（CAI）、正の値は活動の増加、負の値は活動の減少を示す"
+    activity_distribution_y: "Y軸：総消費額"
+    activity_distribution_color: "ポイントの色：購入頻度を表す（緑=高頻度、赤=低頻度）"
+    activity_distribution_size: "ポイントのサイズ：消費額も反映"
+    activity_distribution_ideal: "理想的な状態は、ほとんどの顧客が右上隅に集中している（高活性度、高消費）"
+    funnel_desc: "ファネルチャートは、初回購入からロイヤルティまでの顧客コンバージョンプロセスを示しています："
+    funnel_first: "1回購入：初回購入顧客ベース（100％）"
+    funnel_second: "2回購入：2回目購入コンバージョン率 = 2回購入顧客数 ÷ 総顧客数"
+    funnel_regular: "3-4回購入：常連顧客コンバージョン率"
+    funnel_loyal: "≥5回購入：ロイヤル顧客コンバージョン率"
+    funnel_note: "コンバージョン率が高いほど、顧客ロイヤルティ管理が成功している"
+    patterns_desc: "散布図は、各顧客の購入頻度とサイクルの関係を示しています："
+    patterns_x: "X軸：購入頻度（総購入回数）"
+    patterns_y: "Y軸：平均購入サイクル（購入間の日数）"
+    patterns_size: "ポイントのサイズ：総消費額"
+    patterns_color: "色：顧客価値セグメント"
+    patterns_ideal: "理想的な顧客は右下にあります：高頻度、短サイクル、高消費"
+
+  # 単位
+  units:
+    times: "回"
+    days: "日"
+    people: "人"
+    customers: "名"
+
+  # チャートラベル
+  charts:
+    no_data: "データがありません"
+    no_activity_data: "有効な活性度データがありません"
+    customer_id: "顧客ID"
+    purchase_count: "購入回数"
+    total_spending: "総消費額"
+    activity_index: "活性度指数（CAI）"
+    activity_vs_spending: "顧客活性度 vs 総消費額"
+    purchase_frequency_label: "購入頻度"
+    avg_days_between_purchases: "平均再購入日数"
+    funnel_title: "顧客購入コンバージョンファネル"
+    funnel_stage: "購入ステージ"
+    customer_count: "顧客数"
+    conversion_rate: "コンバージョン率"
+    stage_1_purchase: "1回購入"
+    stage_2_purchases: "2回購入"
+    stage_3_4_purchases: "3-4回購入"
+    stage_5_plus_purchases: "≥5回購入"
+    frequency_cycle_analysis: "購入頻度とサイクル分析"
+    reactivation_title: "顧客再活性化機会分析"
+    days_since_last_purchase: "最終購入からの日数"
+    urgency_score: "緊急度スコア"
+    loyalty_ladder_title: "顧客ロイヤルティラダー"
+    loyalty_tier: "ロイヤルティ階層"
+    average_purchase_value: "平均購入単価"
+
+  # 価値セグメント
+  value_segments:
+    high: "高価値"
+    medium_high: "中高価値"
+    medium_low: "中低価値"
+    low: "低価値"
+
+  # 緊急度レベル
+  urgency_levels:
+    urgent: "緊急"
+    important: "重要"
+    normal: "通常"
+
+  # ロイヤルティ階層
+  loyalty_tiers:
+    first_time: "初回購入"
+    occasional: "時々購入"
+    regular: "常連客"
+    loyal: "ロイヤル顧客"
+    ambassador: "ブランドアンバサダー"
+
+  # アクション
+  actions:
+    immediate_contact: "即時連絡"
+    priority_outreach: "優先アウトリーチ"
+    routine_communication: "定期的なコミュニケーション"
+    upgrade_to_regular: "常連客へアップグレード"
+    upgrade_to_loyal: "ロイヤル顧客へアップグレード"
+    upgrade_to_ambassador: "ブランドアンバサダーへアップグレード"
+    maintain_relationship: "関係を維持"
+    exclusive_benefits: "特別な特典を提供"
+
+# 指標定義
+metrics:
+  # コア指標
+  active_customers:
+    name: "アクティブ顧客数"
+    short_name: "アクティブ顧客"
+    description: "指定期間内に購入行動があった顧客数"
+    icon: "user-check"
+    unit: "人"
+    color: "success"
+
+  activity_rate:
+    name: "アクティブ率"
+    short_name: "アクティブ率"
+    description: "アクティブ顧客が全顧客に占める割合"
+    icon: "chart-line"
+    unit: "%"
+    color: "primary"
+
+  avg_engagement_score:
+    name: "平均エンゲージメントスコア"
+    short_name: "エンゲージメント"
+    description: "5つのディメンションに基づく総合エンゲージメント評価"
+    icon: "fire"
+    unit: "点"
+    color: "warning"
+
+  conversion_rate:
+    name: "コンバージョン率"
+    short_name: "コンバージョン率"
+    description: "訪問者から購入へのコンバージョン割合"
+    icon: "funnel"
+    unit: "%"
+    color: "info"
+
+# エンゲージメントディメンション（5ディメンション）
+engagement_dimensions:
+  purchase_frequency:
+    name: "購入頻度"
+    short_name: "頻度"
+    description: "購入回数"
+    weight: 0.25
+    icon: "🔁"
+    formula: "購入回数 / 期間"
+
+  recency:
+    name: "最近のインタラクション"
+    short_name: "最近性"
+    description: "最後の購入時刻"
+    weight: 0.20
+    icon: "🕒"
+    formula: "現在日付 - 最後の購入日"
+
+  monetary:
+    name: "消費価値"
+    short_name: "価値"
+    description: "累積消費金額"
+    weight: 0.25
+    icon: "💰"
+    formula: "総消費金額"
+
+  engagement_depth:
+    name: "インタラクション深度"
+    short_name: "深度"
+    description: "各インタラクションの深さ"
+    weight: 0.15
+    icon: "📊"
+    formula: "平均注文額 × 購入多様性"
+
+  behavioral_consistency:
+    name: "行動一貫性"
+    short_name: "一貫性"
+    description: "購入行動の安定度"
+    weight: 0.15
+    icon: "🎯"
+    formula: "購入間隔標準偏差の逆数"
+
+# アクティビティレベル
+activity_levels:
+  highly_active:
+    name: "高アクティブ"
+    short_name: "高アクティブ"
+    description: "頻繁に購入し、高度に参加する顧客"
+    min_score: 75
+    color: "success"
+    icon: "🔥"
+    characteristics:
+      - "購入頻度が高い"
+      - "最近購入している"
+      - "消費金額が大きい"
+      - "エンゲージメントが深い"
+
+  moderately_active:
+    name: "中アクティブ"
+    short_name: "中アクティブ"
+    description: "定期的に購入し、安定して参加する顧客"
+    min_score: 50
+    color: "primary"
+    icon: "⚡"
+    characteristics:
+      - "購入頻度は中程度"
+      - "時々購入"
+      - "消費金額は中程度"
+      - "基本的なエンゲージメント"
+
+  low_active:
+    name: "低アクティブ"
+    short_name: "低アクティブ"
+    description: "時々購入し、エンゲージメントが低い顧客"
+    min_score: 25
+    color: "warning"
+    icon: "💤"
+    characteristics:
+      - "購入頻度が低い"
+      - "長期間購入していない"
+      - "消費金額が小さい"
+      - "エンゲージメントが低い"
+
+  inactive:
+    name: "非アクティブ"
+    short_name: "非アクティブ"
+    description: "長期間購入せず、エンゲージメントがない顧客"
+    min_score: 0
+    color: "danger"
+    icon: "😴"
+    characteristics:
+      - "長い間購入していない"
+      - "ほとんどインタラクションなし"
+      - "チャーンリスクが高い"
+      - "再活性化が必要"
+
+# エンゲージメント顧客グループ
+engagement_segments:
+  super_users:
+    name: "スーパーユーザー"
+    description: "高頻度、高価値、高エンゲージメントのコア顧客"
+    criteria: "高頻度 + 高価値 + 高アクティブ"
+    color: "success"
+    icon: "👑"
+    percentage_range: "5-10%"
+
+  engaged_users:
+    name: "エンゲージユーザー"
+    description: "定期的に購入し、安定して参加する主力顧客"
+    criteria: "中高頻度 + 中高価値"
+    color: "primary"
+    icon: "⭐"
+    percentage_range: "20-30%"
+
+  casual_users:
+    name: "カジュアルユーザー"
+    description: "時々購入し、低度に参加する顧客"
+    criteria: "低頻度 + 低価値"
+    color: "warning"
+    icon: "👤"
+    percentage_range: "40-50%"
+
+  at_risk_users:
+    name: "リスクユーザー"
+    description: "長期間購入せず、エンゲージメントが低下している顧客"
+    criteria: "長期間非アクティブ + エンゲージメント低下"
+    color: "danger"
+    icon: "⚠️"
+    percentage_range: "10-20%"
+
+# コンバージョンファネル
+conversion_funnel:
+  stages:
+    awareness:
+      name: "認知ステージ"
+      short_name: "認知"
+      description: "ブランドや製品を知る"
+      order: 1
+      icon: "👁️"
+
+    consideration:
+      name: "検討ステージ"
+      short_name: "検討"
+      description: "購入を検討する"
+      order: 2
+      icon: "🤔"
+
+    purchase:
+      name: "購入ステージ"
+      short_name: "購入"
+      description: "初回購入を完了"
+      order: 3
+      icon: "🛒"
+
+    repeat:
+      name: "リピート購入ステージ"
+      short_name: "リピート"
+      description: "リピート購入顧客になる"
+      order: 4
+      icon: "🔄"
+
+  metrics:
+    funnel_conversion_rate:
+      name: "ファネルコンバージョン率"
+      description: "最初のステージから最���のステージまでの全体コンバージョン率"
+
+    stage_conversion_rate:
+      name: "ステージコンバージョン率"
+      description: "単一ステージのコンバージョン率"
+
+    drop_off_rate:
+      name: "離脱率"
+      description: "あるステージで離脱する割合"
+
+# 行動パターン
+behavior_patterns:
+  types:
+    binge_buyer:
+      name: "集中購入者"
+      description: "短期間に集中して購入する顧客"
+      icon: "⚡"
+
+    steady_buyer:
+      name: "安定購入者"
+      description: "一定の周期で安定して購入する顧客"
+      icon: "📈"
+
+    seasonal_buyer:
+      name: "季節購入者"
+      description: "特定の季節や時期にのみ購入する顧客"
+      icon: "🗓️"
+
+    impulse_buyer:
+      name: "衝動購入者"
+      description: "不規則で予測困難な購入パターンの顧客"
+      icon: "💫"
+
+# チャート設定
+charts:
+  engagement_score_distribution:
+    title: "エンゲージメントスコア分布"
+    x_axis: "エンゲージメントスコア"
+    y_axis: "顧客数"
+    tooltip: "スコア {score}: {count} 人の顧客"
+
+  activity_levels_chart:
+    title: "アクティビティレベル分布"
+    tooltip: "{level}: {count} 人の顧客 ({percentage}%)"
+
+  conversion_funnel_chart:
+    title: "コンバージョンファネル"
+    tooltip: "{stage}: {count} 人 ({rate}% コンバージョン)"
+
+  purchase_timing_heatmap:
+    title: "購入タイミングヒートマップ"
+    x_axis: "曜日"
+    y_axis: "時間帯"
+    tooltip: "{day} {hour}時: {count} 回の購入"
+
+  behavior_pattern_chart:
+    title: "行動パターン分布"
+    tooltip: "{pattern}: {count} 人の顧客 ({percentage}%)"
+
+# メッセージテキスト
+messages:
+  success:
+    analysis_complete: "✅ エンゲージメント分析が完了しました"
+    funnel_analyzed: "✅ ファネル分析が完了しました"
+    patterns_identified: "✅ 行動パターンが特定されました"
+    insights_generated: "✅ AI インサイトが生成されました"
+
+  processing:
+    calculating_engagement: "エンゲージメントスコアを計算中..."
+    analyzing_funnel: "ファネルを分析中..."
+    identifying_patterns: "行動パターンを特定中..."
+
+  error:
+    insufficient_data: "❌ データ不足、エンゲージメント分析を実行できません"
+    no_activity_data: "❌ アクティビティデータがありません"
+    calculation_failed: "❌ 計算に失敗しました"
+
+  warning:
+    low_engagement: "⚠️ 全体的なエンゲージメントが低いです（{score}点）"
+    high_inactive_rate: "⚠️ 非アクティブ顧客率が高いです（{rate}%）"
+    poor_conversion: "⚠️ コンバージョン率が低いです（{rate}%）"
+
+  info:
+    engagement_calculated: "{count} 人の顧客のエンゲージメントを計算しました"
+    patterns_found: "{count} 個の行動パターンが見つかりました"
+    funnel_stages_analyzed: "{stages} 個のファネルステージを分析しました"
+
+# AI 分析タイプ
+ai_analysis:
+  types:
+    engagement_drivers:
+      name: "エンゲージメントドライバー"
+      description: "顧客エンゲージメントに影響する主要要因を分析"
+      prompt_category: "engagement_drivers"
+
+    funnel_optimization:
+      name: "ファネル最適化"
+      description: "コンバージョンファネルのボトルネックを特定"
+      prompt_category: "funnel_optimization"
+
+    behavior_insights:
+      name: "行動インサイト"
+      description: "顧客行動パターンと購入動機を理解"
+      prompt_category: "behavior_insights"
+
+    activation_strategies:
+      name: "活性化戦略"
+      description: "低アクティブ顧客の再活性化方法を提案"
+      prompt_category: "activation_strategies"
+
+  # AI 分析タイトル（フォールバック表示用）
+  fallback_titles:
+    ai_result: "🤖 AI分析結果"
+    frequency_insights: "📊 購入頻度インサイト（デフォルト分析）"
+    reactivation_assessment: "🔔 再活性化機会評価（デフォルト分析）"
+    loyalty_strategy: "🏆 ロイヤルティラダー戦略"
+    reactivation_plan: "📋 顧客再活性化マーケティング計画"
+    marketing_suggestions: "💡 マーケティング提案"
+    reactivation_strategy_title: "🎯 再活性化戦略"
+    upgrade_strategy_title: "📈 アップグレード戦略"
+    execution_plan: "📧 実行計画"
+
+  # AI 分析テキストテンプレート
+  fallback_text:
+    avg_frequency_label: "平均購入頻度は"
+    customer_count_label: "合計"
+    customers_need_reactivation: "名の顧客が再活性化が必要"
+    potential_value: "潜在価値："
+    customer_distribution: "顧客ロイヤルティ分布分析"
+    reactivation_total: "再活性化が必要な顧客総数："
+
+  # デフォルト分析提案
+  frequency_suggestions:
+    low_frequency: "低頻度顧客：初回購入オファーを開始し、2回目購入のハードルを下げる"
+    medium_frequency: "中頻度顧客：定期的にパーソナライズされた商品推奨をプッシュ"
+    high_frequency: "高頻度顧客：VIP限定特典を提供し、ロイヤルティを維持"
+
+  reactivation_strategies:
+    s1_sleepy: "S1 眠い：「お待ちしております」メール + 小額オファー"
+    s2_half_asleep: "S2 半睡状態：期間限定大幅割引 + 新商品推奨"
+    s3_deep_sleep: "S3 深い眠り：アンケート + 再活性化リワード"
+
+  loyalty_upgrade_strategies:
+    first_to_occasional: "初回→時々：初回購入後7日以内に2回目購入インセンティブを提供"
+    occasional_to_regular: "時々→常連：累積消費リワードプログラムを開始"
+    regular_to_loyal: "常連→ロイヤル：VIP限定特典"
+    loyal_to_ambassador: "ロイヤル→アンバサダー：紹介リワードプログラム + 専属カスタマーサービス"
+
+  reactivation_execution_plan:
+    wave1: "第1波：パーソナライズされたケアメールを送信"
+    wave2: "第2波：期間限定限定オファーを提供"
+    wave3: "第3波：新商品推奨 + 購入ボーナス"
+    wave4: "第4波：最終最後通牒オファー"
+    timing_note: "各波の間隔を7-10日に設定し、開封率とコンバージョン率を追跡することを推奨"
+
+# 説明テキスト
+help:
+  overview: |
+    エンゲージメント分析モジュールは顧客のアクティビティレベルと参加パターンの評価を支援します。
+    ファネル分析と行動パターンを通じて、顧客エンゲージメントを深く理解します。
+
+  engagement_scoring: |
+    エンゲージメントスコアリングシステム：
+    5つのディメンションに基づく加重計算：
+    1. 購入頻度 (25%)：購入回数が多いほどスコアが高い
+    2. 最近のインタラクション (20%)：最近活動しているほどスコアが高い
+    3. 消費価値 (25%)：消費金額が高いほどスコアが高い
+    4. エンゲージメント深度 (15%)：各インタラクションが深いほどスコアが高い
+    5. 行動一貫性 (15%)：購入パターンが安定しているほどスコアが高い
+
+  activity_levels: |
+    アクティビティレベル定義：
+    - 高アクティブ (75-100点)：頻繁に購入し、高度に参加
+    - 中アクティブ (50-74点)：定期的に購入し、安定して参加
+    - 低アクティブ (25-49点)：時々購入し、低度に参加
+    - 非アクティブ (0-24点)：長期間購入せず、再活性化が必要
+
+  conversion_funnel: |
+    コンバージョンファネル分析：
+    - 顧客の購入プロセスを異なるステージに分解
+    - 各ステージのコンバージョン率と離脱率を測定
+    - ボトルネックを特定してコンバージョンを最適化
+    - 認知 → 検討 → 購入 → リピート
+
+  best_practices: |
+    分析推奨事項：
+    1. 定期的にエンゲージメント指標を追跡し、トレンドを理解
+    2. ファネルのボトルネックを特定し、最適化施策を実施
+    3. 異なる顧客グループの行動パターンを分析
+    4. 低アクティブ顧客の再活性化戦略を策定
+    5. AI インサイトを活用してパーソナライズされたエンゲージメント戦略を実施
+
+# ヒントテキスト
+hints:
+  engagement_score: "エンゲージメントスコアが高いほど、顧客がブランドと密接に関与していることを示します。"
+  activity_levels: "高アクティブとスーパーユーザーは最も価値のある顧客グループで、特別な注意を払う必要があります。"
+  conversion_funnel: "ファネルの各ステージの離脱率に注目し、改善の機会を見つけます。"
+  behavior_patterns: "顧客の行動パターンを理解することで、コミュニケーションとマーケティングのタイミングを最適化できます。"

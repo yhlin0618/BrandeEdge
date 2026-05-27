@@ -1,0 +1,85 @@
+analysis_name,var_id,prompt
+"Attribute Extraction","extract_attributes","system: You are a product attribute analysis expert specializing in extracting important product attributes from customer reviews. Please respond in English.
+user: From the following reviews, extract the {num_attributes} most important product attributes that customers care about and frequently mention.
+
+Important: Return ONLY attribute names, separated by commas. NO numbering, NO JSON format, NO explanations.
+Example format: Screen Quality, Battery Life, Processor Performance, Camera Function, Design
+
+Review content: {sample_reviews}"
+"Attribute Scoring","score_attributes","system: You are a product review analysis expert who scores product attributes based on review content. Please respond in English.
+user: Based on the following review, score these attributes (1-5 scale). Reply in JSON format: {""scores"": {""Attribute1"": score, ""Attribute2"": score, ...}}
+Attribute list: {attributes}
+Review: {review_text}"
+"Brand Identity Strategy","brand_identity_strategy","system: You are a brand strategy expert skilled in building high-recognition brand strategies. Please respond in English.
+user: Brand: {brand_name}
+Unique attributes: {unique_attributes}
+Provide 5 specific brand identity building strategies, each within 50 words. Reply in markdown list format."
+"Positioning Strategy Recommendations","positioning_strategy","system: You are a data analyst. Please respond in English.
+user: Based on the following brand positioning data including attributes to emphasize, attributes to change, attributes to improve, and brand weaknesses, provide corresponding marketing strategies and advertising copy recommendations for each of the four analysis dimensions. If all four dimensions have no attributes, do not present anything or provide marketing suggestions. Keep within 300 words. Reply in markdown format. Data: {features}"
+"Market Track Analysis","market_track_analysis","system: You are a market analysis expert specializing in identifying high-growth opportunities. Please respond in English.
+user: Based on the following product attribute market performance data, analyze which attributes have the highest growth potential and market opportunities.
+Attribute performance: {attribute_performance}
+Reply in JSON format, including growth potential score (1-10) and specific recommendations for each attribute."
+"Target Market Profile","market_profile_analysis","system: You are a market segmentation expert skilled in analyzing brand positioning. Please respond in English.
+user: Based on the following brand's attribute scores, analyze its market positioning (Leader Brand/Niche Brand/Mass Brand/Challenger Brand).
+Brand: {brand_name}
+Attribute scores: {attribute_scores}
+Market average: {market_average}
+Provide market positioning analysis and strategy recommendations within 300 words."
+"Ideal Point Analysis","ideal_point_analysis","system: You are a brand optimization expert focusing on reducing the distance between brands and ideal points. Please respond in English.
+user: Brand: {brand_name}
+Current scores: {current_scores}
+Ideal point scores: {ideal_scores}
+Attributes with largest gaps: {gap_attributes}
+Provide improvement strategies focusing on how to close the gap with ideal points."
+"PCA Positioning Interpretation","pca_interpretation","system: You are a statistical analysis expert skilled in interpreting principal component analysis results. Please respond in English.
+user: Below is the brand positioning in principal component space:
+PC1 contributing attributes: {pc1_attributes}
+PC2 contributing attributes: {pc2_attributes}
+Brand coordinates: {brand_coordinates}
+Explain the brand's positioning implications in the market within 200 words."
+"DNA Insights Analysis","dna_insights_analysis","system: You are a brand strategy analysis expert skilled in providing deep strategic insights from brand DNA data. Please respond in English.
+user: Below is brand performance data across attributes:
+{brands_data}
+
+Attributes with greatest differentiation: {top_diff_attrs}
+
+Based on the data, analyze:
+1. What attributes should each brand strengthen? Why?
+2. What attributes should each brand improve? Why?
+3. Provide specific competitive strategy recommendations
+4. Identify potential market opportunities
+
+Reply in bullet points, 50-100 words per brand, maximum 500 words total. Focus on specific attribute performance differences shown in the data."
+"Customer Preference Analysis","customer_preference_analysis","system: You are a market analysis expert specializing in target customer research. Please respond in English.
+user: Based on the following market segmentation data, analyze target customer preferences for each segment:
+{segment_data}
+Analyze:
+1. Target customer characteristics for each segment
+2. Core needs and preferences of customers
+3. Key factors in purchase decisions
+4. Brand communication strategy recommendations
+Reply in Markdown format with headers and bullet points."
+"Market Opportunities Analysis","market_opportunities_analysis","system: You are a business strategy consultant focusing on identifying market opportunities. Please respond in English.
+user: Based on the following market segmentation analysis, identify potential market opportunities:
+Current market situation:
+{market_data}
+Analyze:
+1. Unmet market needs
+2. Competitive white space
+3. Segments with highest growth potential
+4. Specific market entry strategies
+5. Risk assessment and mitigation recommendations
+Reply in Markdown format with specific, actionable recommendations."
+"Segment Naming","segment_naming","system: You are a market analysis expert skilled in creating meaningful names for market segments. Please respond in English.
+user: Based on the following brand cluster characteristics, name this market segment:
+Average score: {avg_score}
+Number of top attributes: {top_attributes}
+Key attributes: {key_attributes}
+Brand list: {brands}
+Market share: {market_share}
+
+Provide a concise and powerful segment name (e.g., Premium Trust Seekers, Feature-Rich Enthusiasts, Quality Focused Buyers), and briefly describe its characteristics.
+Reply format:
+Name: [Segment Name]
+Characteristics: [Description within 50 words]"

@@ -1,0 +1,195 @@
+# ==========================================
+# Common Text - English
+# ==========================================
+
+# Application Information
+app:
+  title: "InsightForge<br>Precision Marketing Platform"
+  subtitle: "AI-Driven Precision Marketing Analytics Platform"
+  version: "Version"
+  loading: "Loading..."
+  welcome: "Welcome to InsightForge"
+
+
+# Common Buttons
+buttons:
+  submit: "Submit"
+  cancel: "Cancel"
+  save: "Save"
+  delete: "Delete"
+  edit: "Edit"
+  download: "Download"
+  upload: "Upload"
+  refresh: "Refresh"
+  back: "Back"
+  next: "Next"
+  previous: "Previous"
+  search: "Search"
+  filter: "Filter"
+  export: "Export"
+  import: "Import"
+  analyze: "Analyze"
+  generate: "Generate"
+  apply: "Apply"
+  reset: "Reset"
+  close: "Close"
+  help: "Help"
+  settings: "Settings"
+  logout: "Logout"
+
+# Status Messages
+status:
+  success: "Success"
+  error: "Error"
+  warning: "Warning"
+  info: "Information"
+  processing: "Processing..."
+  completed: "Completed"
+  failed: "Failed"
+  pending: "Pending"
+  ready: "Ready"
+
+# Validation Messages
+validation:
+  required: "This field is required"
+  invalid_format: "Invalid format"
+  invalid_email: "Please enter a valid email address"
+  password_mismatch: "Passwords do not match"
+  file_too_large: "File is too large"
+  invalid_file_type: "Unsupported file type"
+  min_length: "Minimum {min} characters required"
+  max_length: "Maximum {max} characters allowed"
+
+# Confirmation Dialogs
+confirm:
+  title: "Confirm Action"
+  delete: "Are you sure you want to delete?"
+  save: "Are you sure you want to save changes?"
+  cancel: "Are you sure you want to cancel? Unsaved changes will be lost."
+  logout: "Are you sure you want to logout?"
+
+# Notification Messages
+notifications:
+  save_success: "Save successful"
+  save_failed: "Save failed"
+  delete_success: "Delete successful"
+  delete_failed: "Delete failed"
+  upload_success: "Upload successful"
+  upload_failed: "Upload failed"
+  download_ready: "File is ready for download"
+  session_expired: "Session expired, please login again"
+
+# Navigation
+navigation:
+  home: "Home"
+  dashboard: "Dashboard"
+  modules: "Modules"
+  reports: "Reports"
+  settings: "Settings"
+  profile: "Profile"
+  help: "Help Documentation"
+  about: "About"
+
+# Page Titles
+pages:
+  login: "Login"
+  upload: "Data Upload"
+  scoring: "Customer Scoring"
+  regression_merge: "Sales Model"
+  sales_model: "Sales Model"
+  keyword_ads: "Keyword Ads"
+  product_dev: "Product Development"
+  product_dev_insightforge: "Product Development"
+  upload_review_sales: "Data Upload"
+  sales_model_insightforge: "Sales Model"
+  keyword_ads_insightforge: "Keyword Ads"
+  wo_b_v2: "W.O. Analysis"
+  score_v2: "Score Analysis"
+  about: "About Us"
+  # Page Groups
+  groups:
+    analysis_flow: "Analysis Flow"
+    settings: "Settings"
+
+# Table
+table:
+  no_data: "No data available"
+  showing: "Showing"
+  of: "of"
+  entries: "entries"
+  search: "Search table"
+  filter: "Filter"
+  sort_asc: "Sort ascending"
+  sort_desc: "Sort descending"
+
+# System Messages
+system:
+  working_directory_set: "Working directory set to: {path}"
+  cannot_set_working_directory: "Cannot automatically set working directory"
+  config_load_failed: "Configuration load failed: {error}"
+  language_load_failed: "⚠️ Language content load failed: {error}"
+  using_minimal_config: "Using minimal configuration"
+  unnamed: "Untitled"
+  fallback_app_name: "Application"
+
+  # Loading Messages
+  loading:
+    env_file: "✅ Loaded .env file"
+    config: "✅ Loaded config/config.R"
+    packages: "✅ Loaded config/packages.R"
+    openai_utils: "✅ Loaded OpenAI utility functions"
+    hint_system: "✅ Loaded hint system"
+    prompt_manager: "✅ Loaded prompt management system"
+    language_manager: "✅ Loaded language management system"
+    resource_paths: "✅ Set resource paths"
+    language_content: "✅ Loaded language content: {language}"
+    login_module: "✅ Loaded login module: {path}"
+    module_success: "✅ Loaded module: {name}"
+    module_failed: "⚠️ Failed to load module {name}: {error}"
+
+  # Application Status Messages
+  app_status:
+    title: "Application: {name}"
+    version: "Version: {version}"
+    environment: "Environment: {environment}"
+
+  # Database Messages
+  database:
+    connect_success: "✅ Database connection successful: {type}"
+    connect_failed: "⚠️ Database connection failed: {error}"
+    status_disconnected: "Disconnected"
+    icon_disconnected: "❌"
+
+  # UI Messages
+  ui:
+    function_menu: "Function Menu"
+    content_area: "Content Area"
+    system_initializing: "System Initializing"
+    check_config_file: "Please check configuration file"
+    loading_content: "Loading content..."
+    page_loading: "Loading page content..."
+    select_from_menu: "Please select a function from the left menu"
+
+  # Notification Messages
+  notifications:
+    welcome: "Welcome!"
+    data_upload_success: "Data upload successful!"
+    switch_to_scoring: "Switch to Scoring"
+    enter_sales_model: "✅ Enter Sales Model Analysis"
+    switch_to: "Switch to:"
+
+# Language Switcher
+language:
+  switched_to: "Language switched to {language}"
+
+# Footer
+footer:
+  copyright: "© 2024 All Rights Reserved"
+  terms: "Terms of Service"
+  privacy: "Privacy Policy"
+  contact: "Contact Us"
+
+# App Display Names (based on display_key and language)
+app_display:
+  insightforge: "Precision Marketing Platform"
+  brandedge: "Brand Positioning Engine"

@@ -1,0 +1,136 @@
+# VitalSigns Retention Module - English
+# Customer Retention Module
+
+title: "Customer Retention Analysis"
+subtitle: "Customer Status Monitoring and Churn Risk Management"
+description: "Track customer lifecycle, identify churn risks, develop retention strategies, and maintain customer base stability"
+
+ui:
+  kpis:
+    retention_rate: "Customer Retention Rate"
+    churn_rate: "Customer Churn Rate"
+    at_risk_customers: "At-Risk Customers"
+    core_ratio: "Core Customer Ratio"
+    dormant_prediction: "Dormant Prediction"
+    dormant_prediction_footer: "Next 30 Days"
+    new_customers: "New Customers (N)"
+    core_customers: "Core Customers (E0)"
+    drowsy_customers: "Drowsy Customers (S1)"
+    semi_sleeping: "Semi-Dormant (S2)"
+    sleeping_customers: "Sleeping Customers (S3)"
+
+  cards:
+    customer_structure: "Customer Status Structure"
+    churn_risk_analysis: "Churn Risk Analysis"
+    ai_analysis: "🤖 AI Analysis & Recommendations"
+
+  ai_tabs:
+    retention_analysis: "Retention Analysis"
+    new_customer_strategy: "New Customer Strategy"
+    core_customer_deepening: "Core Customer Deepening"
+    drowsy_awakening: "Drowsy Awakening"
+    semi_dormant_retention: "Semi-Dormant Retention"
+    sleeping_activation: "Sleeping Activation"
+    structure_optimization: "Structure Optimization"
+
+  charts:
+    customer_structure_title: "Customer Status Distribution (N→E0→S1→S2→S3)"
+    risk_distribution_title: "Churn Risk Assessment"
+
+  buttons:
+    download_structure: "Download CSV"
+    download_risk: "Download CSV"
+
+server:
+  notifications:
+    ai_analysis_failed: "AI Analysis Failed"
+    data_loading: "Loading retention data..."
+    calculation_complete: "Calculation Complete"
+
+  customer_types:
+    N: "New Customers"
+    E0: "Core Customers"
+    S1: "Drowsy Customers"
+    S2: "Semi-Dormant"
+    S3: "Sleeping Customers"
+
+  risk_levels:
+    low: "Low Risk"
+    medium: "Medium Risk"
+    high: "High Risk"
+    critical: "Critical Risk"
+
+  charts:
+    customer_count: "Customer Count"
+    customer_status: "Customer Status"
+    ratio: "Ratio"
+    people_unit: " people"
+
+  ai_analysis:
+    retention:
+      title: "📊 Retention Health Assessment"
+      current_rate: "Current Retention Rate"
+      excellent: "Excellent Performance"
+      needs_improvement: "Needs Improvement"
+      suggestions_title: "💡 Suggested Strategies"
+      suggestion1: "Prioritize"
+      at_risk_suffix: " at-risk customers"
+      suggestion2: "Strengthen core customer engagement to improve loyalty"
+      suggestion3: "Establish customer churn early warning system"
+
+    new_customer:
+      title: "🆕 New Customer Characteristics"
+      count_prefix: "Total of "
+      count_suffix: " new customers"
+      strategy_title: "🎯 Second Purchase Enhancement Strategy"
+      suggestion1: "Send thank you notes and coupons 7-14 days after first purchase"
+      suggestion2: "Recommend related products to increase AOV"
+      suggestion3: "Build exclusive community for new customers to increase engagement"
+
+    core_customer:
+      title: "🏆 Core Customer Analysis"
+      count_prefix: "Total of "
+      count_suffix: " core customers"
+      strategy_title: "💎 VIP Management Strategy"
+      suggestion1: "Establish VIP membership program with exclusive benefits"
+      suggestion2: "Provide personalized service and priority support"
+      suggestion3: "Regularly host exclusive events to strengthen engagement"
+      suggestion4: "Recommend high-value products to increase AOV"
+
+    drowsy:
+      title: "😴 Drowsy Customer Diagnosis"
+      count_prefix: "Total of "
+      count_suffix: " drowsy customers"
+      strategy_title: "🔔 Awakening Strategy"
+      suggestion1: "Send personalized care messages"
+      suggestion2: "Offer limited-time exclusive promotions"
+      suggestion3: "Recommend new or bestselling products"
+
+    semi_dormant:
+      title: "😴 Semi-Dormant Customer Analysis"
+      count_prefix: "Total of "
+      count_suffix: " semi-dormant customers"
+      strategy_title: "⚡ Deep Awakening Strategy"
+      suggestion1: "Offer substantial discount coupons to stimulate repurchase"
+      suggestion2: "Launch BOGO or spend-and-save campaigns"
+      suggestion3: "Multi-channel reminders for abandoned carts"
+      suggestion4: "Survey to understand churn reasons and improve"
+
+    sleeping:
+      title: "💤 Sleeping Customer Analysis"
+      count_prefix: "Total of "
+      count_suffix: " sleeping customers"
+      strategy_title: "♻️ Reactivation Strategy"
+      suggestion1: "Send 'We Miss You' themed emails"
+      suggestion2: "Offer significant discounts or gifts"
+      suggestion3: "Reintroduce brand value and improvements"
+
+    structure:
+      title: "📊 Structure Health"
+      description: "Customer structure analysis shows current status distribution"
+      optimization_title: "🎯 Optimization Goals"
+      goal1: "Increase core customer ratio to 30%+"
+      goal2: "Reduce sleeping customer ratio to under 20%"
+      goal3: "Maintain balance between new customer acquisition and churn"
+
+language: "en_US"

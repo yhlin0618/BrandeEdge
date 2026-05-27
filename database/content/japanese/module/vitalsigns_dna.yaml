@@ -1,0 +1,1763 @@
+# ==========================================
+# VitalSigns - DNA Module Language Content (Japanese)
+# ==========================================
+# 顧客DNA分析モジュール言語コンテンツ（日本語）
+# Version: 1.0.0
+# Last Updated: 2025-10-13
+
+# モジュール基本情報
+title: "顧客DNA分析"
+subtitle: "深層顧客グループ分析、RFMセグメント化、AI強化インサイト"
+description: "7次元DNA分析、スマートセグメント化、RFM顧客プロファイル、AI駆動の行動インサイトとマーケティング提案"
+
+# UI ブロック
+ui:
+  sections:
+    overview: "DNA分析概要"
+    metric_selection: "顧客タグ"
+    distribution_charts: "分布チャート"
+    clustering: "顧客グループ分析"
+    rfm_segments: "RFM顧客グループ"
+    customer_lifecycle: "顧客ライフサイクル"
+    ai_analysis: "AI詳細分析結果"
+    attribute_extraction: "属性抽出"
+    instructions: "操作説明"
+    analysis_tools: "分析ツール"
+    view_options: "表示オプション"
+    visualization: "ビジュアル分析"
+    stat_summary: "統計概要"
+    customer_info: "顧客情報"
+
+  # コントロールパネル
+  controls:
+    title: "分析コントロール"
+    metric_buttons_title: "DNA 指標選択"
+    clustering_params: "セグメント化パラメータ"
+    rfm_settings: "RFM 設定"
+    ai_options: "AI 分析オプション"
+    section1: "1. "
+    section2: "2. "
+    section3: "3. "
+
+  # 表示モード
+  view_modes:
+    charts: "統計グラフ"
+    ai_results: "AI分析結果"
+    segmentation: "顧客セグメント"
+
+  # タブタイトル
+  tabs:
+    dna_analysis: "顧客タグ分析"
+    statistics: "統計"
+    explanation: "結果説明"
+    email_mapping: "顧客IDマッピング"
+    ai_analysis: "AI 分析"
+
+  # オプション
+  options:
+    convert_to_text: "数値を高中低テキストに変換"
+    download_data: "分析データをダウンロード"
+
+  # ボタン
+  buttons:
+    # 分析ボタン
+    start_clustering: "顧客セグメント化を実行"
+    calculate_rfm: "RFM を計算"
+    run_ai_analysis: "AI強化分析を実行"
+    extract_attributes: "属性を抽出"
+    generate_profiles: "顧客グループプロファイルを生成"
+
+    # エクスポートボタン
+    export_segments: "セグメント化結果をエクスポート"
+    export_insights: "AI インサイトをエクスポート"
+    download_report: "完全レポートをダウンロード"
+    download_full_list: "完全顧客リストをダウンロード"
+
+  # セクションヘッダー
+  headers:
+    ai_advice: "AIマーケティング提案"
+    customer_list: "詳細顧客リスト"
+
+  # 表示モード
+  display_mode:
+    text_classification: "表示モード：テキスト分類（高/中/低）"
+    numeric_format: "表示モード：数値（小数点以下2桁）"
+
+  # DataTable 言語オプション
+  datatable:
+    pagination_info: "_TOTAL_ 件中 _START_ から _END_ を表示"
+    search: "検索"
+    length_menu: "_MENU_ 件表示"
+    first_page: "最初"
+    last_page: "最後"
+    next: "次へ"
+    previous: "前へ"
+
+  # セグメンテーションメッセージ
+  segmentation:
+    hint_label: "ヒント"
+    hint_message: "顧客セグメンテーション分析を実行してください"
+    empty_message: "『顧客クラスタリング実行』ボタンをクリックして分析を開始"
+    message_label: "メッセージ"
+    empty_data_message: "セグメンテーションデータが空です。データを確認してください"
+
+# DNA 指標定義（7次元）
+dna_metrics:
+  # M - 消費金額
+  monetary:
+    name: "M - 消費金額"
+    short_name: "M"
+    full_name: "Monetary"
+    description: "顧客の総消費金額"
+    icon: "💰"
+    unit: "円"
+    interpretation: "消費金額が高いほど、顧客価値が大きい"
+
+  # R - 最近の購入
+  recency:
+    name: "R - 最近の購入"
+    short_name: "R"
+    full_name: "Recency"
+    description: "最後の購入からの日数"
+    icon: "🕒"
+    unit: "日"
+    interpretation: "日数が少ないほど、顧客がアクティブ"
+    reverse: true  # 数値が小さいほど良い
+
+  # F - 購入頻度
+  frequency:
+    name: "F - 購入頻度"
+    short_name: "F"
+    full_name: "Frequency"
+    description: "購入の総回数"
+    icon: "🔁"
+    unit: "回"
+    interpretation: "購入回数が多いほど、ロイヤリティが高い"
+
+  # IPT - 購入間隔
+  ipt:
+    name: "IPT - 購入周期"
+    short_name: "IPT"
+    full_name: "Inter-Purchase Time"
+    description: "平均購入間隔日数"
+    icon: "⏱️"
+    unit: "日"
+    interpretation: "間隔が短いほど、購入頻度が高い"
+    reverse: true
+
+  # CAI - 活動指数
+  cai:
+    name: "CAI - 顧客アクティビティ"
+    short_name: "CAI"
+    full_name: "Customer Activity Index"
+    description: "総合アクティビティ度指標"
+    icon: "📈"
+    unit: "指数"
+    range: [0, 1]
+    interpretation: "指数が高いほど、顧客がアクティブ"
+
+  # PCV - 過去価値
+  pcv:
+    name: "PCV - 過去価値"
+    short_name: "PCV"
+    full_name: "Past Customer Value"
+    description: "履歴総消費価値"
+    icon: "💎"
+    unit: "円"
+    interpretation: "履歴価値が高いほど、顧客が重要"
+
+  # CRI - 安定度指標
+  cri:
+    name: "CRI - 顧客安定度"
+    short_name: "CRI"
+    full_name: "Customer Richness Index"
+    description: "購入安定性評価"
+    icon: "🎯"
+    unit: "スコア"
+    interpretation: "スコアが高いほど、購入が安定"
+
+  # NES - 顧客ステータス
+  nes:
+    name: "NES - 顧客ステータス"
+    short_name: "NES"
+    full_name: "New/Engaged/Sleeping"
+    description: "顧客ライフサイクルステータス"
+    icon: "🔄"
+    unit: "ステータス"
+    interpretation: "顧客のアクティブ段階を追跡"
+
+# RFM 分析
+rfm_analysis:
+  # 11個のRFM顧客グループ
+  segments:
+    champions:
+      name: "Champions"
+      japanese_name: "チャンピオン顧客"
+      description: "最高の顧客、高頻度高価値で最近購入"
+      criteria: "R=5, F=5, M=5"
+      icon: "👑"
+      color: "#28a745"
+      characteristics:
+        - "購入頻度が最高"
+        - "消費金額が最大"
+        - "最近もアクティブ"
+        - "ブランドロイヤリティが非常に高い"
+      strategy: "最高レベルの待遇を提供し、関係を維持"
+      percentage_range: "5-10%"
+
+    loyal_customers:
+      name: "Loyal Customers"
+      japanese_name: "ロイヤル顧客"
+      description: "頻繁に購入し安定した顧客"
+      criteria: "R>=3, F>=4"
+      icon: "💎"
+      color: "#17a2b8"
+      characteristics:
+        - "購入頻度が高い"
+        - "消費が安定"
+        - "関係が長期"
+      strategy: "ロイヤリティ報酬を提供し、推薦を奨励"
+      percentage_range: "10-15%"
+
+    potential_loyalists:
+      name: "Potential Loyalists"
+      japanese_name: "潜在ロイヤル顧客"
+      description: "最近購入しロイヤル顧客になる可能性がある"
+      criteria: "R>=4, F>=2, M>=3"
+      icon: "⭐"
+      color: "#ffc107"
+      characteristics:
+        - "最近購入している"
+        - "一定の消費がある"
+        - "育成価値が高い"
+      strategy: "会員プログラムを提供し、インタラクションを増やす"
+      percentage_range: "10-15%"
+
+    recent_customers:
+      name: "Recent Customers"
+      japanese_name: "新規顧客"
+      description: "最近初回購入した新規顧客"
+      criteria: "R>=4, F=1"
+      icon: "🆕"
+      color: "#20c997"
+      characteristics:
+        - "参加したばかり"
+        - "育成が必要"
+        - "可能性は未知"
+      strategy: "新規顧客特典を提供し、信頼を構築"
+      percentage_range: "15-20%"
+
+    promising:
+      name: "Promising"
+      japanese_name: "有望顧客"
+      description: "最近購入し、消費金額が大きい"
+      criteria: "R>=3, F<=2, M>=4"
+      icon: "💫"
+      color: "#6610f2"
+      characteristics:
+        - "客単価が高い"
+        - "頻度は向上の余地あり"
+        - "成長の可能性あり"
+      strategy: "クロスセルで頻度を向上"
+      percentage_range: "5-10%"
+
+    need_attention:
+      name: "Need Attention"
+      japanese_name: "要注意"
+      description: "かつて良い顧客だったが、最近購入していない"
+      criteria: "R<=3, F>=3, M>=3"
+      icon: "⚠️"
+      color: "#fd7e14"
+      characteristics:
+        - "過去のパフォーマンスが良好"
+        - "最近冷めている"
+        - "再活性化が必要"
+      strategy: "ケアメッセージと限定オファーを送信"
+      percentage_range: "5-10%"
+
+    about_to_sleep:
+      name: "About to Sleep"
+      japanese_name: "スリープ寸前"
+      description: "購入頻度が低下し、チャーンリスクあり"
+      criteria: "R<=3, F<=3, M>=2"
+      icon: "😴"
+      color: "#e83e8c"
+      characteristics:
+        - "アクティビティが低下"
+        - "チャーンの兆候"
+        - "活性化が必要"
+      strategy: "パーソナライズオファーで再吸引"
+      percentage_range: "10-15%"
+
+    at_risk:
+      name: "At Risk"
+      japanese_name: "リスク"
+      description: "かつてロイヤル顧客だったが、今はチャーンリスクあり"
+      criteria: "R<=2, F>=3, M>=3"
+      icon: "🚨"
+      color: "#dc3545"
+      characteristics:
+        - "過去の価値が高い"
+        - "長期間購入していない"
+        - "チャーンリスクが大きい"
+      strategy: "緊急回復、原因を理解"
+      percentage_range: "5-10%"
+
+    cant_lose_them:
+      name: "Can't Lose Them"
+      japanese_name: "失えない顧客"
+      description: "高価値顧客だが、長期間購入していない"
+      criteria: "R<=2, F>=4, M>=5"
+      icon: "💔"
+      color: "#721c24"
+      characteristics:
+        - "履歴価値が非常に高い"
+        - "チャーンリスクが非常に大きい"
+        - "必ず回復が必要"
+      strategy: "最高優先度で回復、上層部が介入"
+      percentage_range: "2-5%"
+
+    hibernating:
+      name: "Hibernating"
+      japanese_name: "休眠顧客"
+      description: "長期間購入していない"
+      criteria: "R<=2, F<=2, M<=2"
+      icon: "💤"
+      color: "#6c757d"
+      characteristics:
+        - "長期間インタラクションなし"
+        - "低価値"
+        - "再活性化コストが高い"
+      strategy: "低コストで再活性化を試みる"
+      percentage_range: "10-15%"
+
+    lost:
+      name: "Lost"
+      japanese_name: "離脱顧客"
+      description: "チャーンした顧客"
+      criteria: "R<=1, F<=2, M<=2"
+      icon: "❌"
+      color: "#343a40"
+      characteristics:
+        - "すでにチャーン"
+        - "価値が低い"
+        - "投資は推奨しない"
+      strategy: "原因を記録し、製品/サービスを改善"
+      percentage_range: "10-20%"
+
+# 顧客ライフサイクル
+customer_lifecycle:
+  title: "顧客ステータス"
+  stages:
+    new_customer:
+      name: "新規顧客"
+      short_name: "新規"
+      full_name: "新規顧客"
+      description: "初回購入の顧客"
+      icon: "🆕"
+      color: "success"
+      criteria: "購入回数 = 1"
+      strategy: "信頼を構築し、リピート購入を奨励"
+
+    repeat_customer:
+      name: "リピート顧客"
+      short_name: "リピート"
+      full_name: "リピート購入顧客"
+      description: "リピート購入がある顧客"
+      icon: "🔄"
+      color: "primary"
+      criteria: "購入回数 >= 2 かつ 最近の購入 <= 90日"
+      strategy: "ロイヤリティを高め、頻度を向上"
+
+    dormant_customer:
+      name: "休眠顧客"
+      short_name: "休眠"
+      full_name: "休眠顧客"
+      description: "長期間購入していない顧客"
+      icon: "😴"
+      color: "warning"
+      criteria: "最近の購入 > 90日 かつ <= 180日"
+      strategy: "再活性化アクション、再エンゲージメント"
+
+    churned_customer:
+      name: "離脱顧客"
+      short_name: "離脱"
+      full_name: "離脱顧客"
+      description: "チャーンした顧客"
+      icon: "❌"
+      color: "danger"
+      criteria: "最近の購入 > 180日"
+      strategy: "原因を分析し、サービスを改善"
+
+# スマートセグメント化
+clustering:
+  # セグメント化方法
+  methods:
+    kmeans:
+      name: "K-means クラスタリング"
+      description: "距離ベースの高速セグメント化方法"
+      parameters:
+        min_clusters: 2
+        max_clusters: 8
+        default_clusters: 5
+
+    hierarchical:
+      name: "階層的クラスタリング"
+      description: "顧客セグメントツリー構造を構築"
+      parameters:
+        method: "ward.D2"
+        distance_metric: "euclidean"
+
+  # 最適クラスタ数
+  optimal_clusters:
+    title: "最適クラスタ数分析"
+    methods:
+      elbow:
+        name: "エルボー法"
+        description: "SSE低下率の変化点を見つける"
+      silhouette:
+        name: "シルエット係数"
+        description: "セグメント化品質を評価"
+
+  # クラスタ命名
+  naming:
+    ai_naming:
+      name: "AIスマート命名"
+      description: "セグメント特性に基づいて有意義な名前を自動生成"
+    manual_naming:
+      name: "手動命名"
+      description: "各セグメントに自分で名前を付ける"
+
+# AI 強化分析
+ai_analysis:
+  types:
+    metric_description:
+      name: "指標説明"
+      description: "選択した指標のビジネス的意義を説明"
+      prompt_category: "dna_metric_description"
+      icon: "📊"
+
+    distribution_insight:
+      name: "分布インサイト"
+      description: "指標分布の特徴と異常を分析"
+      prompt_category: "dna_distribution_insight"
+      icon: "📈"
+
+    segment_profiling:
+      name: "セグメントプロファイリング"
+      description: "各セグメントの詳細プロファイルを生成"
+      prompt_category: "dna_segment_profiling"
+      icon: "👥"
+
+    marketing_recommendations:
+      name: "マーケティング推奨事項"
+      description: "異なるセグメントのマーケティング戦略推奨"
+      prompt_category: "dna_marketing_recommendations"
+      icon: "💡"
+
+    churn_prediction:
+      name: "チャーン予測"
+      description: "チャーンリスクを特定し、回復戦略を提供"
+      prompt_category: "dna_churn_prediction"
+      icon: "⚠️"
+
+    cross_sell_opportunities:
+      name: "クロスセル機会"
+      description: "潜在的なクロスセル機会を発見"
+      prompt_category: "cross_sell_opportunities"
+      icon: "🎁"
+
+# 属性抽出
+attribute_extraction:
+  title: "DNA属性抽出"
+  description: "顧客行動から主要な属性と特徴を抽出"
+
+  methods:
+    ai_extraction:
+      name: "AI自動抽出"
+      description: "AIを使用して属性を自動的に識別および抽出"
+      max_attributes: 30
+      min_attributes: 5
+
+    rule_based:
+      name: "ルールベース抽出"
+      description: "事前定義されたルールに基づいて属性を抽出"
+
+  attribute_categories:
+    behavioral:
+      name: "行動属性"
+      description: "購買行動関連の特徴"
+      examples: ["高頻度購入", "夜間ショッピング傾向", "週末ショッピング"]
+
+    value_based:
+      name: "価値属性"
+      description: "消費価値関連の特徴"
+      examples: ["高注文価値", "割引に敏感", "品質志向"]
+
+    loyalty:
+      name: "ロイヤリティ属性"
+      description: "ロイヤリティ関連の特徴"
+      examples: ["長期顧客", "ブランド支持者", "紹介者"]
+
+# チャート設定
+charts:
+  histogram_title: "分布ヒストグラム"
+
+  # ツールチップとホバーテキストのチャートラベル
+  labels:
+    value: "値"
+    count: "カウント"
+    percentage: "割合"
+
+  # チャート軸タイトル
+  axes:
+    value: "値"
+    count: "カウント"
+    frequency: "頻度"
+    customer_count: "顧客数"
+    nes_status: "NESステータス"
+
+  # チャートタイトル
+  titles:
+    distribution: "分布図"
+    histogram: "ヒストグラム"
+    nes_distribution: "NESステータス分布"
+
+  # 指標分布ヒストグラム
+  metric_histogram:
+    title: "{metric} 分布"
+    x_axis: "{metric}"
+    y_axis: "顧客数"
+    tooltip: "{bin}: {count} 名の顧客"
+
+  # 散布図
+  scatter_plot:
+    title: "{x_metric} 対 {y_metric}"
+    x_axis: "{x_metric}"
+    y_axis: "{y_metric}"
+    tooltip: "顧客 {id}: {x}={x_value}, {y}={y_value}"
+
+  # セグメント化結果散布図
+  clustering_scatter:
+    title: "顧客セグメント化結果"
+    x_axis: "次元 1"
+    y_axis: "次元 2"
+    tooltip: "セグメント {segment}: {count} 名の顧客"
+
+  # RFM ヒートマップ
+  rfm_heatmap:
+    title: "RFM 分布ヒートマップ"
+    x_axis: "Frequency (F)"
+    y_axis: "Recency (R)"
+    color: "Monetary (M)"
+    tooltip: "R={r}, F={f}, M={m}: {count} 名の顧客"
+
+  # セグメント特徴レーダーチャート
+  segment_radar:
+    title: "セグメント特徴レーダーチャート"
+    dimensions: ["M", "R", "F", "IPT", "CAI", "PCV", "CRI"]
+    tooltip: "{segment} - {dimension}: {value}"
+
+  # ライフサイクル分布
+  lifecycle_pie:
+    title: "顧客ライフサイクル分布"
+    tooltip: "{stage}: {count} 名の顧客 ({percentage}%)"
+
+  # エルボーチャート
+  elbow_chart:
+    title: "最適クラスタ数分析（エルボー法）"
+    x_axis: "クラスタ数"
+    y_axis: "SSE（クラスタ内平方和）"
+    tooltip: "{k} クラスタ: SSE = {sse}"
+
+  # シルエットチャート
+  silhouette_chart:
+    title: "最適クラスタ数分析（シルエット係数）"
+    x_axis: "クラスタ数"
+    y_axis: "平均シルエット係数"
+    tooltip: "{k} クラスタ: 係数 = {score}"
+
+# 単位テキスト
+units:
+  days: "日"
+  times: "回"
+  people: "名"
+
+# メッセージテキスト
+messages:
+  # 成功メッセージ
+  success:
+    dna_calculated: "✅ DNA指標計算が完了しました"
+    dna_calculation_complete: "DNA分析計算完了"
+    clustering_complete: "✅ 顧客セグメント化が完了しました、{count} セグメント作成"
+    cluster_updated: "{k} セグメントに更新しました"
+    rfm_complete: "✅ RFM分析が完了しました"
+    ai_analysis_complete: "✅ AI分析が完了しました"
+    ai_complete: "✅ AI強化分析完了！"
+    segmentation_complete: "✅ %s セグメントグループ化完了！"
+    navigate_to_dna: "DNA分析に移動中..."
+    attributes_extracted: "✅ {count} 個の属性を抽出しました"
+    data_loaded_from_step1: "✅ ステップ1からデータをロード、{records}件のレコード、{customers}名の顧客。DNA分析を自動開始しています..."
+    filtered_customers: "✅ フィルタ後の顧客: %s トランザクション: %s"
+    dna_analysis_complete: "🎉 DNA分析完了！"
+    dna_and_ai_complete: "✅ DNA分析とAIインサイトが完了しました！"
+    dna_complete_ai_unavailable: "✅ DNA分析完了！（AIインサイトは一時的に利用できません）"
+    email_mapping_complete: "✅ メールマッピング完了: {count}名のユニーク顧客"
+    data_processing_complete: "✅ データ処理完了、有効レコード: {records} 顧客数: {customers}"
+    files_merge_complete: "マージ完了、合計{count}件のレコード"
+
+  # 処理中メッセージ
+  processing:
+    calculating_dna: "DNA指標を計算中..."
+    performing_clustering: "顧客セグメント化を実行中..."
+    calculating_rfm: "RFMスコアを計算中..."
+    generating_ai_insights: "🤖 AIインサイトを生成中..."
+    generating_ai_results: "AI分析結果を生成中、しばらくお待ちください..."
+    extracting_attributes: "属性を抽出中..."
+    auto_start_analysis: "🚀 DNA分析を自動開始..."
+    preparing_data: "📊 分析データを準備中..."
+    executing_dna: "🧬 DNA分析を実行中..."
+    processing_files: "ファイル処理を開始..."
+    reading_file: "ファイルを読み込み中: {filename}"
+    merging_files: "ファイルをマージ中..."
+    segmenting_metric: "📊 %s 指標のセグメントグループ化を実行中..."
+
+  # エラーメッセージ
+  error:
+    insufficient_data: "❌ データ不足、DNA分析を実行できません"
+    clustering_failed: "❌ セグメント化に失敗しました"
+    calculation_error: "DNA計算エラー:"
+    clustering_error: "セグメント化エラー:"
+    update_error: "更新失敗:"
+    ai_analysis_error: "AI分析エラー:"
+    no_qualified_customers: "❌ 最低トランザクション要件を満たす顧客がいません"
+    dna_analysis_error: "❌ DNA分析エラー: {error}"
+    analysis_error: "❌ 分析エラー: %s"
+    segment_not_found: "%s 指標のセグメントデータが見つかりません"
+    no_data_to_proceed: "まずデータをアップロードしてください"
+    function_not_exists: "❌ analysis_dna 関数が見つかりません。global_scriptsを確認してください"
+    processing_error: "処理エラー: {error}"
+    field_detection_failed: "エラー: 必要なフィールドを検出できません"
+    missing_required_fields: "必要なフィールドが不足: {fields}"
+    dna_result_empty: "DNA分析結果が空または形式が正しくありません"
+    invalid_data_structure: "data_by_customerが有効なデータ構造ではありません"
+    data_conversion_error: "データ変換エラー: {error}"
+    complex_data_structure: "データ形式を変換できません: 複雑なデータ構造"
+    ai_analysis_unavailable: "AI分析は一時的に利用できません。後でもう一度お試しください。"
+
+  # 警告メッセージ
+  warning:
+    ai_not_enabled: "AI分析機能が有効になっていません"
+    rfm_calculation_failed: "❌ RFM計算に失敗しました"
+    ai_analysis_failed: "❌ AI分析に失敗しました"
+    few_customers: "⚠️ 顧客数が少ない（{count} 名）、セグメント化結果の精度が低い可能性があります"
+    high_lost_percentage: "⚠️ 離脱顧客の割合が高い（{percentage}%）"
+    low_champions_percentage: "⚠️ チャンピオン顧客の割合が低い（{percentage}%）"
+    no_metric_selected: "⚠️ 分析指標を選択してください"
+    metric_not_found: "⚠️ %s のデータフィールドが見つかりません"
+    run_clustering_first: "まず顧客セグメント化分析を実行してください"
+    no_dna_analysis: "⚠️ まずDNA分析を実行してください"
+
+  # 情報メッセージ
+  info:
+    customers_analyzed: "{count} 名の顧客のDNAを分析しました"
+    optimal_clusters: "推奨クラスタ数: {k}"
+    rfm_segments_found: "{count} 個のRFMセグメントを特定しました"
+    waiting_data: "⏳ データアップロードと分析を待っています..."
+    upload_instructions: "まず「データアップロード」ページで取引データをアップロードしてください。システムが自動的にDNA分析を実行します。"
+    waiting_upload: "ファイルアップロード待ち..."
+    no_ai_analysis: "まずAI分析を実行してください"
+    click_ai_button: "左側の「AI分析を実行」ボタンをクリックして分析を開始"
+    select_metric: "分析指標を選択してください"
+    click_metric_button: "左側の任意の指標ボタンをクリックすると、自動的に顧客セグメンテーションが実行されます"
+    segmentation_required: "まず顧客セグメント分析を実行してから、指標を選択して結果を表示してください"
+    ai_insights_pending: "DNA分析を実行すると、AIが詳細な顧客インサイトと提案を提供します。"
+
+  # ファイル処理
+  file_handling:
+    files_selected: "選択済み"
+    files_count: "個のファイル"
+    files_list_separator: ":\n"
+    files_uploaded: "アップロード済み"
+    preparing_process: "処理準備中..."
+
+# 進捗メッセージ（withProgress 専用）
+progress:
+  dna_calculation: "DNA指標を計算中..."
+  processing_data: "取引データを処理中..."
+  rfm_segmentation: "RFMセグメンテーションを計算中..."
+  customer_status: "顧客ステータスを割り当て中..."
+  elbow_method: "エルボー法を計算中..."
+  complete: "完了!"
+  customer_segmentation: "顧客セグメンテーションを実行中..."
+  kmeans_clustering: "K-meansクラスタリング分析中..."
+  ai_analysis: "AI分析を実行中..."
+  ai_metric_description: "指標説明中..."
+  ai_distribution_insight: "分布インサイト生成中..."
+  ai_segment_profiling: "セグメントプロファイリング中..."
+  ai_marketing_recommendations: "マーケティング推奨事項生成中..."
+  ai_churn_prediction: "チャーン予測中..."
+
+# 説明テキスト
+help:
+  step1: "ステップ1："
+  step1_desc: "分析したい顧客タグをクリックしてください。例えば、購入金額をクリックできます。"
+  step2: "ステップ2："
+  step2_desc: "分析ツールをクリックしてください。例えば、顧客セグメンテーションを実行をクリックできます。"
+  step3: "ステップ3："
+  step3_desc: "表示オプションをクリックしてください。例えば、統計グラフをクリックできます。"
+  repeat_steps: "上記の手順を繰り返してください。例えば、顧客の最近の来店時間を確認したい場合は、上記の手順を繰り返して分析結果とAIマーケティング提案を表示できます。"
+
+  overview: |
+    顧客DNA分析は最も包括的な顧客分析モジュールで、以下を提供します：
+    - 7次元の顧客DNA指標
+    - スマートセグメント化とセグメント命名
+    - 11種類のRFMセグメントプロファイル
+    - AI駆動のインサイトと推奨事項
+
+  dna_metrics: |
+    7つのDNA次元の説明：
+
+    1. M（Monetary）- 総消費金額、顧客価値を反映
+    2. R（Recency）- 最後の購入からの日数、アクティビティレベルを反映
+    3. F（Frequency）- 購入回数、ロイヤリティを反映
+    4. IPT（Inter-Purchase Time）- 平均購入間隔、購入サイクルを反映
+    5. CAI（Customer Activity Index）- 総合アクティビティ指標
+    6. PCV（Past Customer Value）- 履歴総価値
+    7. CRI（Customer Richness Index）- 購入安定性スコア
+
+  clustering: |
+    スマートセグメント化：
+    - K-meansまたは階層的クラスタリングを使用
+    - 最適クラスタ数を自動的に見つける
+    - AIスマートセグメント命名
+    - セグメント特徴プロファイルを生成
+
+    セグメント化は以下に役立ちます：
+    - 類似の顧客グループを識別
+    - 差別化戦略を開発
+    - 精密マーケティング展開
+    - リソース配分を最適化
+
+  rfm_segments: |
+    11種類のRFMセグメント：
+
+    高価値セグメント：
+    1. Champions（チャンピオン）：最高の顧客
+    2. Loyal Customers（ロイヤル顧客）：安定した高価値
+    3. Can't Lose Them（失えない）：高価値だがチャーンリスク
+
+    成長可能性セグメント：
+    4. Potential Loyalists（潜在ロイヤル）：育成可能
+    5. Promising（有望）：高注文価値
+    6. Recent Customers（新規顧客）：新規顧客
+
+    要注意セグメント：
+    7. Need Attention（要注意）：冷却中
+    8. About to Sleep（スリープ寸前）：アクティビティ低下
+    9. At Risk（リスク）：高チャーンリスク
+
+    低価値セグメント：
+    10. Hibernating（休眠）：長期間インタラクションなし
+    11. Lost（離脱）：すでにチャーン
+
+  ai_analysis: |
+    AI強化分析：
+    GPT-4を活用してスマートインサイトを提供：
+    - 指標説明：指標のビジネス的意義を解釈
+    - 分布インサイト：分布特性と異常を発見
+    - セグメントプロファイリング：詳細なセグメント説明を生成
+    - マーケティング推奨事項：精密なマーケティング戦略を提供
+    - チャーン予測：チャーンを予測し回復推奨を提供
+    - クロスセル：販売機会を発見
+
+  best_practices: |
+    分析推奨事項：
+    1. まず各指標分布を確認し、顧客全体の状況を把握
+    2. スマートセグメント化を実行し、異なるセグメントを識別
+    3. RFMセグメントを分析し、顧客ライフサイクル段階を理解
+    4. AIインサイトを使用して深い分析と推奨を取得
+    5. 異なるセグメントに対して差別化戦略を開発
+    6. セグメントの変化を定期的に追跡し、戦略を調整
+
+# ヒントテキスト
+hints:
+  metric_selection: "顧客タグをクリックすると、各タグの視覚化グラフを表示できます"
+  clustering: "スマートセグメント化は類似の顧客グループを自動的に見つけます。グループ特性に基づいて有意義な名前を生成するAI命名機能の使用をお勧めします。"
+  rfm_segments: "RFMセグメントは業界標準の顧客分類です。チャンピオンとリスク顧客に焦点を当て、差別化戦略を開発してください。"
+  ai_analysis: "AI強化分析は深いインサイトと具体的な推奨事項を提供します。「セグメントプロファイリング」と「マーケティング推奨事項」機能を優先することをお勧めします。"
+  lifecycle: "顧客ライフサイクル分析は顧客段階を理解し、対応する育成または回復戦略を開発するのに役立ちます。"
+
+# 統計用語
+statistics:
+  mean: "平均値"
+  median: "中央値"
+  std_dev: "標準偏差"
+  min: "最小値"
+  max: "最大値"
+  q1: "第1四分位数 (Q1)"
+  q3: "第3四分位数 (Q3)"
+  iqr: "四分位範囲 (IQR)"
+  skewness: "歪度"
+  kurtosis: "尖度"
+  definition: "定義"
+  quartiles: "25パーセンタイル/75パーセンタイル"
+  variance: "分散"
+  total_customers: "総顧客数"
+  avg_r_value: "平均R値"
+  avg_f_value: "平均F値"
+  avg_m_value: "平均M値"
+  avg_clv: "平均CLV"
+
+  # NES 顧客ステータス
+  nes_status:
+    title: "顧客ステータス分布"
+    status: "ステータス"
+    count: "人数"
+    percentage: "割合"
+
+  # 統計ラベル（表示用）
+  labels:
+    stat_summary: "統計概要"
+    mean: "平均数"
+    median: "中央値"
+    q25: "第25パーセンタイル"
+    q75: "第75パーセンタイル"
+    variance_degree: "分散度"
+    ai_marketing_suggestions: "AIマーケティング提案"
+    ai_marketing_suggestions_80_20: "AIマーケティング提案（80/20の法則）"
+    metric_description: "指標説明"
+    customer: "顧客"
+
+  # 単位
+  units:
+    people: "名"
+    days: "日"
+    times: "回"
+    score: "点"
+    dollar: "$"
+
+  # 統計説明文（括弧内の説明用）
+  explanations:
+    # M - 購入金額
+    mean_monetary: "顧客の平均購入金額"
+    mean_pcv: "顧客平均過去消費総額"
+    mean_cri: "顧客平均安定度スコア"
+    median_monetary: "半数の顧客がこれより高い金額を購入"
+    q25_monetary: "25%の顧客がこれより低い金額を購入"
+    q75_monetary: "75%の顧客がこれより低い金額を購入"
+    variance_high_monetary: "顧客間の購入金額の差が大きい"
+    variance_low_monetary: "顧客間の購入金額の差が小さい"
+
+    # R - 最終購入
+    mean_recency: "顧客の平均最終購入からの日数"
+    median_recency: "半数の顧客の最近の購入時期"
+    q25_recency: "25%の顧客がこの日数以内に購入"
+    q75_recency: "75%の顧客がこの日数以内に購入"
+    variance_high_recency: "顧客間の購入時期の差が大きい"
+    variance_low_recency: "顧客間の購入時期の差が小さい"
+
+    # F - 購入頻度
+    mean_frequency: "顧客の平均購入回数"
+    median_frequency: "半数の顧客がこれより多く購入"
+    q25_frequency: "25%の顧客がこれより少なく購入"
+    q75_frequency: "75%の顧客がこれより少なく購入"
+    variance_high_frequency: "顧客間の購入頻度の差が大きい"
+    variance_low_frequency: "顧客間の購入頻度の差が小さい"
+
+    # IPT - 購入サイクル
+    mean_ipt: "顧客の平均購入間隔日数"
+    median_ipt: "半数の顧客がこれより短い購入サイクル"
+    q25_ipt: "25%の顧客がこれより短い購入サイクル"
+    q75_ipt: "75%の顧客がこれより短い購入サイクル"
+    variance_high_ipt: "顧客間の購入サイクルの差が大きい"
+    variance_low_ipt: "顧客間の購入サイクルの差が小さい"
+
+    # CAI - 活動度
+    mean_cai: "顧客の平均活動度指数"
+    median_cai: "半数の顧客がこれより高い活動度"
+    q25_cai: "25%の顧客がこれより高い活動度"
+    q75_cai: "75%の顧客がこれより低い活動度"
+    variance_high_cai: "顧客間の活動度の差が大きい"
+    variance_low_cai: "顧客間の活動度の差が小さい"
+
+    # PCV - 過去価値
+    median_pcv: "半数の顧客が過去にこれより多く消費"
+    q25_pcv: "25%の顧客が過去にこれより多く消費"
+    q75_pcv: "75%の顧客が過去にこれより少なく消費"
+    variance_high_pcv: "顧客間の過去消費の差が大きい"
+    variance_low_pcv: "顧客間の過去消費の差が小さい"
+
+    # CRI - 安定度
+    median_cri: "半数の顧客がこれより高い安定度"
+    q25_cri: "25%の顧客がこれより高い安定度"
+    q75_cri: "75%の顧客がこれより低い安定度"
+    variance_high_cri: "顧客間の安定度の差が大きい"
+    variance_low_cri: "顧客間の安定度の差が小さい"
+
+  # AIマーケティング提案
+  marketing_suggestions:
+    # Monetary (M) - 購入金額
+    monetary:
+      high_value: "VIPサービス"
+      mid_value: "アップグレード推奨"
+      low_value: "入門オファー"
+
+    # Recency (R) - 最近の購入
+    recency:
+      active_customers: "アクティブ顧客"
+      cross_selling: "クロスセル"
+      inactive_customers: "非アクティブ顧客"
+      winback_campaign: "呼び戻しキャンペーン"
+      high_active: "維持戦略"
+      mid_active: "定期的なフォロー"
+      mid_active_action: "定期的なフォロー"
+      low_active: "再活性化戦略"
+
+    # Frequency (F) - 購入頻度
+    frequency:
+      high_frequency: "高頻度顧客"
+      high_frequency_action: "VIPプログラム"
+      mid_frequency: "中頻度顧客"
+      mid_frequency_action: "ロイヤルティ報酬"
+      low_frequency: "低頻度顧客"
+      low_frequency_action: "トライアル特典"
+
+    # IPT - 購入サイクル
+    ipt:
+      short_cycle: "短周期顧客"
+      short_cycle_action: "定期リマインダー"
+      mid_cycle: "中周期顧客"
+      mid_cycle_action: "定期的プッシュ"
+      long_cycle: "長周期顧客"
+      long_cycle_action: "特別インセンティブ"
+
+    # PCV - 過去価値
+    pcv:
+      high_contributor: "高貢献顧客"
+      high_contributor_action: "専用オファー"
+      mid_contributor: "中貢献顧客"
+      mid_contributor_action: "アップグレードプラン"
+      low_contributor: "低貢献顧客"
+      low_contributor_action: "育成戦略"
+
+    # CRI - 顧客安定度
+    cri:
+      high_stability: "VIPメンテナンス戦略"
+      mid_stability: "ロイヤルティ向上プログラム"
+      low_stability: "引き留め活性化プラン"
+
+# Marketing labels for PCV metric description display
+marketing:
+  pcv_high_value: "専属VIPサービス"
+  pcv_mid_value: "アップグレードプラン"
+  pcv_low_value: "アクティベーション戦略"
+
+# アクション推奨テンプレート
+action_templates:
+  champions:
+    - "VIP専用特典を提供"
+    - "ブランド決定への参加を招待"
+    - "新製品への優先アクセス"
+    - "最高優先サービスを提供"
+
+  at_risk:
+    - "パーソナライズされた回復オファーを送信"
+    - "積極的に連絡してニーズを理解"
+    - "専任カスタマーサポートを提供"
+    - "特別イベントに招待"
+
+  hibernating:
+    - "大幅割引で再活性化"
+    - "新製品を紹介して引き付ける"
+    - "チャーン理由を理解"
+    - "低コストバッチアウトリーチ"
+
+# AI 分析拡張テキスト
+ai_analysis_extended:
+  analysis_focus: "分析フォーカス"
+  analysis_time: "分析時間"
+  total_customers: "総顧客数"
+  customers_unit: "人"
+  key_insights: "主要インサイト"
+  deep_insights: "AI 詳細分析"
+  pareto_rule: "80/20ルール検証"
+  high_value_customers: "高価値顧客"
+  contributed: "貢献した"
+  of_revenue: "の収益"
+  metric_focus: "指標分析フォーカス"
+  through_metric: "を通じて"
+  through: "を通じて"
+  metric: "指標"
+  identified: "識別された"
+  identified_segments: "、"
+  different_segments: "の異なるセグメント"
+  strategy_suggestion: "戦略提案"
+  refer_recommendations: "以下のセグメントマーケティング推奨事項を参照して、差別化戦略を策定してください"
+
+# AI 深度分析とマーケティング推奨
+ai_insights:
+  # 分布インサイトセクション
+  distribution:
+    title: "分布インサイト"
+    title_80_20: "分布分析（80/20ルール）"
+    low_value: "低価値"
+    mid_value: "中価値"
+    high_value: "高価値"
+    low_stability: "低安定性（下位20%）"
+    mid_stability: "中安定性（中位60%）"
+    high_stability: "高安定性（上位20%）"
+    80_20_rule: "80/20検証"
+    80_20_verification: "80/20検証"
+    top_20_contribution: "上位20%の顧客が"
+    customers_contribute: "の顧客が貢献"
+    revenue: "の収益"
+
+  # 戦略セクション
+  strategy:
+    title: "戦略提案"
+    healthy_structure: "安定した顧客構造は健全です"
+    needs_improvement: "顧客安定性を強化する必要があります"
+
+  # データなしメッセージ
+  no_stability_data: "安定性データがありません"
+
+  # 顧客ステータス分布ラベル
+  nes_distribution:
+    title: "顧客ステータス分布"
+    new_customer: "新規顧客"
+    core_customer: "コア顧客"
+    dozing_customer: "うとうと顧客"
+    half_asleep_customer: "半睡眠顧客"
+    sleeping_customer: "休眠顧客"
+    entry_customer: "エントリー顧客"
+    engaged_customer: "エンゲージ顧客"
+    high_engaged_customer: "高エンゲージ顧客"
+    overall_assessment_label: "総合評価："
+    assessment_high: "高エンゲージメント顧客グループが大きく、深いサービス開発に適しています"
+    assessment_low: "顧客エンゲージメントを強化する必要があり、エントリーレベルのサービス開発を推奨します"
+    assessment_average: "顧客エンゲージメント分布は平均的です"
+
+  # データなしメッセージ
+  no_nes_data: "NESステータスデータがありません"
+
+  # マーケティング推奨（アクション推奨付き）
+  marketing_suggestions:
+    title: "AIマーケティング推奨"
+    new_customer: "新規顧客：オンボーディングプログラム"
+    core_customer: "コア顧客：VIPトリートメントプログラム"
+    dozing_customer: "うとうと/半睡眠顧客：目覚めオファー"
+    sleeping_customer: "休眠顧客：再活性化戦略"
+
+# モジュール設定（言語システム用）
+modules:
+  vitalsigns_dna:
+    statistics:
+      definition: "定義："
+      calculation_method: "計算方法："
+      management_implication: "管理上の意味："
+      summary: "統計概要："
+      average_score: "平均スコア："
+      mean: "平均値："
+      median: "中央値："
+      quartiles: "25%/75%パーセンタイル："
+      variance: "分散："
+      overall_profile: "全体のプロファイル："
+    metric_analysis:
+      pareto_rule_grouping: "80/20ルールグループ分け："
+      high_stability: "高安定"
+      high_stability_top20: "高安定（トップ20%"
+      mid_stability: "中安定"
+      mid_stability_middle60: "中安定（ミドル60%）"
+      low_stability: "低安定"
+      low_stability_bottom20: "低安定（ボトム20%"
+      stability_interpretation: "安定レベル解釈："
+      score_unit: "点"
+      people_unit: "名"
+      cri_title: "顧客安定性指標分析"
+      cri_definition: "顧客取引安定度総合評価"
+      cri_calculation: "RFM加重スコア（0.3×R + 0.3×F + 0.4×M）を0-100点に正規化"
+      cri_meaning: "安定貢献顧客群を識別し、80/20法則を採用してリソース配分を最適化"
+      nes_title: "顧客ステータス分析"
+      new_customer: "新規"
+      main_customer: "主力"
+      sleeping_customer: "休眠"
+      cri_dispersed: "安定度の差が大きく、差別化されたサービス戦略が必要"
+      cri_concentrated: "安定度が比較的平均的"
+      pcv_title: "過去価値分析"
+      pcv_definition: "歴史的累積消費総額"
+      marketing_suggestions: "マーケティング推奨"
+      high_value: "高価値"
+      mid_value: "中価値"
+      low_value: "低価値"
+      pareto_segmentation: "80/20セグメンテーション"
+      calculation_method: "計算方法"
+      management_implication: "管理上の意味"
+      overall_profile: "全体のプロファイル"
+    marketing:
+      cri_top_20_desc: "VIP安定顧客、忠誠心を維持するための専用サービスを提供"
+      cri_middle_60_desc: "一般的な安定顧客、定期的なケアで価値を向上"
+      cri_bottom_20_desc: "不安定なリスク顧客、積極的な保持戦略が必要"
+      pcv_high_value: "専用VIPサービス"
+      pcv_mid_value: "価値向上プログラム"
+      pcv_low_value: "アクティベーション戦略"
+
+# 指標分析テキスト
+metric_analysis:
+  monetary_title: "購入金額分析"
+  monetary_definition: "平均単回購入金額"
+  monetary_dispersed: "購入金額の分散が大きい"
+  monetary_concentrated: "購入金額が比較的集中している"
+  recency_title: "最終購入時期分析"
+  recency_definition: "最後の購入からの日数"
+  recency_dispersed: "来店時期の分散が大きい"
+  recency_concentrated: "来店時期が比較的一貫している"
+  frequency_title: "購入頻度分析"
+  frequency_definition: "観察期間内の総購入回数"
+  frequency_dispersed: "購入頻度の差が大きく、セグメント管理が必要"
+  frequency_concentrated: "購入頻度が比較的一貫している"
+  ipt_title: "購入サイクル分析"
+  ipt_definition: "平均購入間隔日数"
+  ipt_dispersed: "購入サイクルの差が大きく、セグメント管理が必要"
+  ipt_concentrated: "購入サイクルが比較的一貫している"
+  cai_title: "顧客活動度分析"
+  cai_definition: "購買行動トレンド指標（>0活動傾向、<0静止傾向）"
+  cai_meaning: "顧客の将来行動を予測し、早期に離脱リスクを識別"
+  cai_dispersed: "活動度の差が大きく、セグメント管理が必要"
+  cai_concentrated: "活動度が比較的一貫している"
+  management_meaning: "管理的意味"
+  statistical_summary: "統計概要"
+  status_distribution: "ステータス分布"
+  trending_active: "活動傾向"
+  stable: "安定"
+  trending_static: "静止傾向"
+  marketing_suggestions: "マーケティング提案"
+  active_customers: "活動的顧客"
+  active_suggestion: "成長の勢いを活かし、新製品を推奨"
+  stable_customers: "安定顧客"
+  stable_suggestion: "サービスレベルを維持し、定期的にケア"
+  static_customers: "静止顧客"
+  static_suggestion: "緊急回復措置、特別オファー"
+  insufficient_data: "データ不足"
+
+  # CAI Analysis - Detailed Labels
+  cai_analysis_title: "顧客活動度分析"
+  cai_definition_label: "定義："
+  cai_definition_text: "購買行動トレンド指標（>0活動傾向、<0静止傾向）"
+  cai_management_meaning_label: "管理的意味："
+  cai_management_meaning_text: "顧客の将来行動を予測し、早期に離脱リスクを識別"
+  cai_stat_summary_label: "統計概要："
+  cai_mean_label: "平均数："
+  cai_median_label: "中央値："
+  cai_quartiles_label: "25パーセンタイル/75パーセンタイル："
+  cai_variance_label: "分散："
+  cai_overall_profile_label: "全体像："
+  cai_profile_high_variance: "活動度の差が大きく、セグメント管理が必要"
+  cai_profile_low_variance: "活動度が比較的一貫している"
+  cai_pareto_label: "80/20分類："
+  cai_high_activity: "高活動"
+  cai_mid_activity: "中活動"
+  cai_low_activity: "低活動"
+  cai_status_distribution_label: "ステータス分布："
+  cai_trending_active_label: "活動傾向(>0)："
+  cai_stable_label: "安定(≈0)："
+  cai_trending_static_label: "静止傾向(<0)："
+  cai_marketing_suggestions_label: "マーケティング提案："
+  cai_active_customers_label: "活動的顧客："
+  cai_active_suggestion: "成長の勢いを活かし、新製品を推奨"
+  cai_stable_customers_label: "安定顧客："
+  cai_stable_suggestion: "サービスレベルを維持し、定期的にケア"
+  cai_static_customers_label: "静止顧客："
+  cai_static_suggestion: "緊急回復措置、特別オファー"
+  cai_no_data: "データ不足"
+  no_ipt_data: "購入サイクルデータなし"
+  overall_profile: "全体像"
+  pareto_segmentation: "80/20分類"
+  cycle_segmentation: "サイクル分類"
+  high_value: "高価値"
+  mid_value: "中価値"
+  low_value: "低価値"
+  high_active: "高アクティブ"
+  mid_active: "中アクティブ"
+  low_active: "非アクティブ"
+  high_frequency: "高頻度顧客"
+  mid_frequency: "中頻度顧客"
+  low_frequency: "低頻度顧客"
+  short_cycle: "短サイクル顧客"
+  mid_cycle: "中サイクル顧客"
+  long_cycle: "長サイクル顧客"
+  high_activity: "高活動"
+  mid_activity: "中活動"
+  low_activity: "低活動"
+  people_unit: "名"
+  days_unit: "日"
+  times_unit: "回"
+
+# 分布インサイトテキスト
+distribution_insights:
+  title: "分布インサイト"
+  title_colon: "分布インサイト："
+
+  # M - 購入金額インサイト
+  monetary:
+    most_common_amount: "最も一般的な金額"
+    high_mid_low_ratio: "高/中/低比率"
+    need_differentiation: "差別化戦略が必要"
+    relatively_homogeneous: "比較的均質な顧客基盤"
+
+  # R - 最近購入インサイト
+  recency:
+    within_30_days: "30日以内"
+    days_31_to_90: "31-90日"
+    over_90_days: ">90日"
+    unit_people: "名"
+
+  # F - 購入頻度インサイト
+  frequency:
+    one_time_purchase: "1回購入"
+    two_to_three_times: "2-3回"
+    over_three_times: ">3回"
+
+  # IPT - 購入サイクルインサイト
+  ipt:
+    cycle_30_days_or_less: "≤30日サイクル"
+    cycle_31_to_90_days: "31-90日サイクル"
+    cycle_over_90_days: ">90日サイクル"
+    cycle_variance_high: "サイクルの分散が大きい"
+    cycle_variance_low: "サイクルが比較的安定"
+    no_ipt_data: "購入サイクルデータなし"
+
+  # CAI - 活動インサイト
+  cai:
+    trending_static: "静止傾向"
+    stable_consumption: "安定消費"
+    trending_active: "活動傾向"
+    activity_good: "顧客活動度が良好"
+    needs_improvement: "活動度の改善が必要"
+    no_activity_data: "活動データなし"
+    range_static: "(≤0.1)"
+    range_stable: "(0.1-0.9)"
+    range_active: "(>0.9)"
+
+  # NES - ライフサイクルインサイト
+  nes:
+    most_common_status: "最も一般的な顧客ステータス"
+    total_customers: "合計"
+    unit_customers: "名の顧客"
+
+  # 共通
+  common:
+    unit_people: "名"
+    unit_days: "日"
+    unit_times: "回"
+
+# フォールバック分析テキスト
+fallback_analysis:
+  monetary:
+    title: "購入金額分析"
+    definition: "定義：平均単回購入金額"
+    overall_profile: "全体像："
+    profile_scattered: "購入金額の分散が大きい"
+    profile_concentrated: "購入金額が比較的集中している"
+    grouping_80_20: "80/20分類："
+    high_value: "高価値"
+    mid_value: "中価値"
+    low_value: "低価値"
+    unit_people: "名"
+
+  recency:
+    title: "最終購入時期分析"
+    definition: "定義：最後の購入からの日数"
+    overall_profile: "全体像："
+    profile_scattered: "来店時期の分散が大きい"
+    profile_consistent: "来店時期が比較的一貫している"
+    grouping_80_20: "80/20分類："
+    highly_active: "高アクティブ"
+    moderately_active: "中アクティブ"
+    inactive: "非アクティブ"
+    unit_people: "名"
+    unit_days: "日"
+
+  frequency:
+    title: "購入頻度分析"
+    definition: "定義：観察期間内の総購入回数"
+    overall_profile: "全体像："
+    profile_needs_segmentation: "購入頻度の差が大きく、セグメント管理が必要"
+    profile_consistent: "購入頻度が比較的一貫している"
+    grouping_80_20: "80/20分類："
+    high_freq_customers: "高頻度顧客"
+    mid_freq_customers: "中頻度顧客"
+    low_freq_customers: "低頻度顧客"
+    unit_people: "名"
+    unit_times: "回"
+
+  ipt:
+    title: "購入サイクル分析"
+    definition: "定義：平均購入間隔日数"
+    overall_profile: "全体像："
+    profile_needs_segmentation: "購入サイクルの差が大きく、セグメント管理が必要"
+    profile_consistent: "購入サイクルが比較的一貫している"
+    grouping_cycle: "サイクル分類："
+    short_cycle_customers: "短サイクル顧客"
+    mid_cycle_customers: "中サイクル顧客"
+    long_cycle_customers: "長サイクル顧客"
+    no_data: "購入サイクルデータなし"
+    unit_people: "名"
+    unit_days: "日"
+
+# AI分析インサイトテンプレート
+ai_insights_templates:
+  monetary:
+    title: "購入金額分析："
+    median_text: "中央値購入金額は %.2f で、50%%の顧客が1回の取引でこれより少ない金額を消費することを意味します"
+    q25_text: "25%%の顧客が1回の取引で %.2f より少ない金額を消費"
+    q75_text: "25%%の顧客が1回の取引で %.2f より多い金額を消費"
+    mean_text: "平均購入金額は %.2f"
+    overall_assessment: "全体評価："
+    assessment_high_variance: "顧客基盤は強い購買力を持っているが分散が大きい"
+    assessment_conservative: "顧客基盤は消費が比較的保守的"
+    assessment_balanced: "顧客消費が比較的バランスが取れている"
+
+  recency:
+    title: "最近購入時間分析："
+    median_text: "最後の購入からの中央値日数は %.0f 日"
+    q25_text: "25%%の顧客が %.0f 日以内に購入"
+    q75_text: "25%%の顧客が %.0f 日以上購入していない"
+    mean_text: "購入からの平均日数は %.0f 日"
+    overall_assessment: "全体評価："
+    assessment_needs_retention: "顧客維持を強化する必要があり、再活性化キャンペーンを検討"
+    assessment_highly_active: "顧客活動度が高く、注文価値の増加を検討"
+    assessment_moderate: "顧客活動度は中程度"
+
+  frequency:
+    title: "購入頻度分析："
+    median_text: "中央値購入頻度は %.0f 回"
+    q25_text: "25%%の顧客が %.0f 回未満購入"
+    q75_text: "25%%の顧客が %.0f 回以上購入"
+    mean_text: "平均購入頻度は %.1f 回"
+    overall_assessment: "全体評価："
+    assessment_stable_high_freq: "安定した高頻度購入顧客基盤を持っている"
+    assessment_occasional: "ほとんどが偶発的購入、会員管理を強化する必要"
+    assessment_average: "購入頻度分布は平均的"
+
+# AI分析インサイトUIタイトル
+ai_insights_ui:
+  section_title: "AI 分析インサイト"
+  monetary_title: "購入金額分析"
+  recency_title: "最近購入時間分析"
+  frequency_title: "購入頻度分析"
+  nes_title: "顧客ステータス分析"
+
+# AI 深度分析結果カード
+ai_deep_analysis:
+  overall_summary_title: "📊 全体分析サマリー"
+  marketing_recommendations_title: "📈 マーケティング推奨"
+  segment_insights_title: "📊 セグメントインサイト"
+
+  # AI生成顧客ステータス分布テキスト
+  nes_distribution:
+    title: "顧客ステータス分布"
+    new_customer: "新規顧客"
+    entry_customer: "エントリー顧客"
+    engaged_customer: "エンゲージ顧客"
+    high_engaged_customer: "高エンゲージ顧客"
+    overall_assessment_label: "全体評価："
+    assessment_high: "高エンゲージ顧客の割合が大きく、プレミアムサービスを開発可能"
+    assessment_low: "顧客エンゲージメントを強化する必要があり、エントリーレベルサービスの開発を推奨"
+    assessment_average: "顧客エンゲージメント分布は平均的"
+
+# メッセージ拡張
+messages_extended:
+  warning:
+    segmentation_required: "まず顧客セグメンテーション分析を実行してください"
+  error:
+    metric_data_not_found: "見つかりません："
+    segment_data_suffix: "指標のセグメントデータ"
+
+# セグメント化ビュー専用テキスト
+segmentation:
+  titles:
+    recency: "最近購入時間セグメント結果"
+    frequency: "購入頻度セグメント結果"
+    monetary: "購入金額セグメント結果（80/20の法則）"
+    cai: "アクティビティセグメント結果"
+    pcv: "過去価値セグメント結果（80/20の法則）"
+    cri: "顧客安定性セグメント結果（80/20の法則）"
+    nes: "顧客ステータスセグメント結果"
+    default: "顧客グループ結果"
+
+# テーブル専用テキスト
+table:
+  columns:
+    customer_id: "顧客ID"
+    r_value: "最終購入日"
+    f_value: "購入頻度"
+    m_value: "購入金額"
+    ipt_mean: "購入周期"
+    cai_value: "顧客活動度"
+    pcv: "過去価値"
+    clv: "顧客生涯価値"
+    nes_status: "顧客ステータス"
+    nes_value: "エンゲージメントスコア"
+    segment: "顧客グループ"
+    count: "人数"
+    percentage: "割合"
+    avg_r: "R(日)"
+    avg_f: "F(回)"
+    avg_m: "M($)"
+    recency_days: "最近購入(日)"
+    frequency_count: "購入頻度(回)"
+    purchase_count: "購入回数"
+    avg_amount: "平均金額($)"
+    activity_index: "アクティビティ指数"
+    past_value: "過去価値($)"
+    total_spent: "総消費($)"
+    stability: "顧客安定性"
+    engagement_score: "エンゲージメントスコア"
+    customer_status: "顧客ステータス"
+    message: "メッセージ"
+  messages:
+    no_data: "DNA分析結果に顧客データがありません"
+    no_customer_data: "表示する顧客データがありません"
+
+# エラーメッセージ
+errors:
+  no_customer_data: "DNA分析結果に顧客データがありません"
+  no_data_to_display: "表示する顧客データがありません"
+  invalid_data_format: "データ形式エラー：有効な二次元データ構造ではありません"
+  no_columns_to_display: "表示する列がありません"
+  no_pcv_data: "PCV データがありません"
+  no_cri_data: "CRI データがありません"
+  data_conversion_complex: "データ形式を変換できません：複雑なデータ構造"
+  data_conversion_error: "データ変換エラー："
+
+# 一般ラベル
+general:
+  labels:
+    metric: "指標"
+    segmentation: "セグメント"
+    based_on: "基づいて"
+    segmentation_results: "のセグメント結果"
+
+# ==========================================
+# OPTION A: Key-Based Advice System
+# ==========================================
+# Segment keys for language-independent logic
+segment_keys:
+  recency:
+    high_active: "high_active"
+    general: "general"
+    churned: "churned"
+  frequency:
+    high_frequency: "high_frequency"
+    mid_frequency: "mid_frequency"
+    low_frequency: "low_frequency"
+  monetary:
+    high_value: "high_value"
+    mid_value: "mid_value"
+    low_value: "low_value"
+  cai:
+    trending_active: "trending_active"
+    stable: "stable"
+    trending_static: "trending_static"
+  ipt:
+    short_cycle: "short_cycle"
+    mid_cycle: "mid_cycle"
+    long_cycle: "long_cycle"
+  pcv:
+    high_value: "high_value_pcv"
+    mid_value: "mid_value_pcv"
+    low_value: "low_value_pcv"
+  cri:
+    high_stability: "high_stability"
+    mid_stability: "mid_stability"
+    low_stability: "low_stability"
+
+# AI プロンプトテキスト（AI分析プロンプト用）
+ai_prompt_text:
+  total_customers: "総顧客数"
+  people_unit: "人"
+  analysis_metric: "分析指標"
+  pareto_rule: "80/20の法則"
+  high_value_customers: "高価値顧客"
+  contributed: "が"
+  of_revenue: "の収益に貢献"
+  segment: "セグメント"
+  count: "人数"
+  avg_r: "平均R"
+  days_unit: "日"
+  avg_f: "平均F"
+  times_unit: "回"
+  avg_m: "平均M"
+  ai_recommendation: "AI推奨"
+
+# Marketing advice for each segment (27 advice strings)
+marketing_advice:
+  # デフォルトアドバイス（特定のアドバイスが利用できない場合に使用）
+  fallback1: "定期的なケアとメンテナンス"
+  fallback2: "パーソナライズされたサービスを提供"
+  fallback3: "長期的な関係を構築"
+
+  recency:
+    high_active:
+      - "関連製品のクロスセルを推奨"
+      - "VIPプログラムへの招待"
+      - "アップグレードサービスの機会を提供"
+    general:
+      - "定期的に会員限定オファーを配信"
+      - "ポイント報酬システムを確立"
+      - "誕生月特典を提供"
+    churned:
+      - "パーソナライズされた再アクティブ化メールを送信"
+      - "期間限定クーポンを提供"
+      - "新製品情報を配信して興味を再喚起"
+  frequency:
+    high_frequency:
+      - "VIP専用サービスを確立"
+      - "まとめ買い割引を提供"
+      - "新製品の優先体験"
+    mid_frequency:
+      - "ロイヤリティプログラムを設計"
+      - "累積購入報酬を提供"
+      - "定期的なケアリマインダー"
+    low_frequency:
+      - "購入障壁を理解"
+      - "トライアルオファーを提供"
+      - "購入プロセスを簡素化"
+  monetary:
+    high_value:
+      - "専任アカウントマネージャーを提供"
+      - "カスタマイズされた製品推奨"
+      - "プレミアムアフターサービス"
+    mid_value:
+      - "アップグレード製品を推奨"
+      - "バンドルセールオファー"
+      - "分割払いプラン"
+    low_value:
+      - "エントリーレベル製品を推奨"
+      - "トライアルオファーを提供"
+      - "製品価値を教育"
+  cai:
+    trending_active:
+      - "成長の勢いを活用"
+      - "新製品を推奨"
+      - "アップグレードプランを提供"
+    stable:
+      - "サービスレベルを維持"
+      - "定期的なケア"
+      - "関係を強化"
+    trending_static:
+      - "緊急再アクティブ化プログラム"
+      - "特別オファー"
+      - "離脱理由を理解"
+  ipt:
+    short_cycle:
+      - "過度なコミュニケーションを避ける"
+      - "便利なサービスを提供"
+      - "購入リズムを尊重"
+    mid_cycle:
+      - "タイムリーなリマインダー"
+      - "パーソナライズされた推奨"
+      - "ホリデーマーケティング"
+    long_cycle:
+      - "購入サイクル短縮戦略"
+      - "サブスクリプションサービスを提供"
+      - "インタラクション頻度を増やす"
+  pcv:
+    high_value_pcv:
+      - "VIP専用待遇"
+      - "感謝イベント"
+      - "長期価値の維持"
+    mid_value_pcv:
+      - "価値向上プラン"
+      - "会員ティアアップグレード"
+      - "追加購入オファー"
+    low_value_pcv:
+      - "基本ケア"
+      - "新規顧客育成"
+      - "価値探索"
+  cri:
+    high_stability:
+      - "プレミアム体験を維持"
+      - "長期関係を強化"
+      - "紹介報酬"
+    mid_stability:
+      - "安定性を向上"
+      - "インタラクション頻度を増やす"
+      - "購入習慣を構築"
+    low_stability:
+      - "安定した関係を確立"
+      - "変動理由を理解"
+      - "安定性インセンティブを提供"
+  default:
+    - "定期的なケアとメンテナンス"
+    - "パーソナライズされたサービスを提供"
+    - "長期的な関係を構築"
+
+# ==========================================
+# Marketing Recommendations Section (Lines 4355-4490)
+# ==========================================
+marketing_recommendations:
+  # Main header and intro text
+  header_title: "AIマーケティング提案"
+  header_intro_prefix: ""
+  header_intro_suffix: " 分析に基づく"
+
+  # AI segment marketing recommendations UI labels
+  segment_marketing_title: "セグメントマーケティング提案"
+  strategy_label: "戦略"
+  strategy: "戦略"
+  action_recommendations_label: "アクション提案："
+  action_suggestions: "アクション提案"
+
+  # Metric names for switch statement
+  metric_names:
+    R: "最終購入時期"
+    F: "購入頻度"
+    M: "購入金額"
+    CAI: "顧客アクティビティ"
+    PCV: "過去価値"
+    CRI: "顧客安定性指標"
+    NES: "顧客ステータス"
+
+  # Default message when no specific metric is selected
+  default_message: "詳細なマーケティング提案を取得するには、具体的な指標を選択してください"
+
+  # R - Recency Marketing Strategies
+  recency:
+    title: "🎯 最終購入時期マーケティング戦略"
+
+    recall_strategy:
+      title: "再アクティブ化戦略（75パーセンタイル超）"
+      advice1: "• パーソナライズされた再アクティブ化メールを送信"
+      advice2: "• 期間限定クーポンを提供（7日間有効）"
+      advice3: "• 新製品情報を配信して興味を再喚起"
+
+    maintain_strategy:
+      title: "維持戦略（25-75パーセンタイル）"
+      advice1: "• 定期的に会員限定オファーを配信"
+      advice2: "• ポイント報酬システムを確立"
+      advice3: "• 誕生月特典を提供"
+
+    deepen_strategy:
+      title: "エンゲージメント戦略（25パーセンタイル未満）"
+      advice1: "• 関連製品のクロスセルを推奨"
+      advice2: "• VIPプログラムへの招待"
+      advice3: "• アップグレードサービスの機会を提供"
+
+  # F - Frequency Marketing Strategies
+  frequency:
+    title: "🎯 購入頻度マーケティング戦略"
+
+    high_frequency:
+      title: "高頻度顧客（上位20%）"
+      advice1: "• VIP専用サービスを確立"
+      advice2: "• まとめ買い割引を提供"
+      advice3: "• 新製品の優先体験"
+
+    mid_frequency:
+      title: "中頻度顧客（20-80%）"
+      advice1: "• ロイヤリティプログラムを設計"
+      advice2: "• 累積購入報酬を提供"
+      advice3: "• 定期的なケアリマインダー"
+
+    low_frequency:
+      title: "低頻度顧客（下位20%）"
+      advice1: "• 購入障壁を理解"
+      advice2: "• トライアルオファーを提供"
+      advice3: "• 購入プロセスを簡素化"
+
+  # M - Monetary Marketing Strategies
+  monetary:
+    title: "🎯 購入金額マーケティング戦略"
+
+    high_value:
+      title: "高価値顧客（上位20%）"
+      advice1: "• 専任アカウントマネージャーを提供"
+      advice2: "• カスタマイズされた製品推奨"
+      advice3: "• プレミアムアフターサービス"
+
+    mid_value:
+      title: "中価値顧客（20-80%）"
+      advice1: "• アップグレード製品を推奨"
+      advice2: "• バンドルセールオファー"
+      advice3: "• 分割払いプラン"
+
+    low_value:
+      title: "低価値顧客（下位20%）"
+      advice1: "• エントリーレベル製品を推奨"
+      advice2: "• 初回購入クーポン"
+      advice3: "• 教育コンテンツマーケティング"
+
+  # CAI - Customer Activity Index Marketing Strategies
+  cai:
+    title: "🎯 顧客アクティビティマーケティング戦略"
+
+    trending_active:
+      title: "活動傾向（>0）"
+      advice1: "• 成長の勢いを活用し、インタラクションを強化"
+      advice2: "• 人気製品を推奨"
+      advice3: "• 会員活動に招待"
+
+    stable:
+      title: "安定（≈0）"
+      advice1: "• 現在のサービスレベルを維持"
+      advice2: "• 定期的だが過度にならないコミュニケーション"
+      advice3: "• 季節限定プロモーション活動"
+
+    trending_static:
+      title: "静止傾向（<0）"
+      advice1: "• 緊急回復措置"
+      advice2: "• 離脱理由を理解"
+      advice3: "• 特別オファーで再アクティブ化"
+
+# Segment display labels (for UI display)
+segment_labels:
+  recency:
+    high_active: "高活動"
+    general: "一般活動"
+    churned: "離脱"
+  frequency:
+    high_frequency: "高頻度顧客"
+    mid_frequency: "中頻度顧客"
+    low_frequency: "低頻度顧客"
+  monetary:
+    high_value: "高価値"
+    mid_value: "中価値"
+    low_value: "低価値"
+  cai:
+    trending_active: "活動傾向"
+    stable: "安定"
+    trending_static: "静止傾向"
+  ipt:
+    short_cycle: "短サイクル"
+    mid_cycle: "中サイクル"
+    long_cycle: "長サイクル"
+  pcv:
+    high_value_pcv: "高過去価値"
+    mid_value_pcv: "中過去価値"
+    low_value_pcv: "低過去価値"
+  cri:
+    high_stability: "高安定"
+    mid_stability: "中安定"
+    low_stability: "低安定"
+
+  # Generic labels
+  general_value: "一般価値"
+  high: "高"
+  mid: "中"
+  low: "低"
+
+# Segmentation Results UI
+segmentation_results:
+  person_count: "人"
+  detailed_customer_list: "詳細顧客リスト"
+
+  # Metric label abbreviations
+  metrics:
+    r_label: "R"
+    f_label: "F"
+    m_label: "M"
+    r_unit: "日"
+    f_unit: "回"
+    m_prefix: "$"

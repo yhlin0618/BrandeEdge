@@ -1,0 +1,437 @@
+# ==========================================
+# BrandEdge 品牌印記引擎主配置檔案
+# ==========================================
+# 此檔案定義應用程式層級設定與模組載入順序
+# 各模組詳細配置請參考 module_config/ 目錄
+# Version: 3.2.1
+# Last Updated: 2025-10-06
+
+# ==========================================
+# 應用程式基本資訊
+# ==========================================
+app_info:
+  app_id: "brandedge"  # Used to determine which language directory to load
+  name: "BrandEdge 品牌定位策略引擎"  # No <br> - display in navbar
+  version: "3.2.1"
+  description: "企業級品牌定位分析平台 - AI驅動的品牌策略引擎"
+  language: "zh_TW.UTF-8"
+  tier: "l3_premium"
+  edition: "flagship"
+
+# ==========================================
+# 語言設定
+# ==========================================
+language:
+  default: "chinese"  # chinese | english | japanese
+  available: ["chinese", "english", "japanese"]
+  content_path: "database/content"  # 語言內容檔案路徑
+  fallback: "chinese"  # 當語言檔案不存在時的備用語言
+  enable_user_selection: true  # 允許使用者選擇語言
+
+# ==========================================
+# 環境設定
+# ==========================================
+environment:
+  mode: "development"  # development | production
+  debug: true
+  log_level: "INFO"   # DEBUG | INFO | WARNING | ERROR
+  session_timeout: 3600  # 秒
+  max_concurrent_users: 50
+
+# ==========================================
+# 資料庫配置
+# ==========================================
+database:
+  primary:
+    type: "postgresql"
+    env_prefix: "PG"  # 環境變數前綴
+    pool: true
+    max_connections: 10
+    timeout: 30
+
+  fallback:
+    type: "sqlite"
+    path: "database/brandedge_test.db"
+    backup_enabled: true
+
+  test_mode: false  # 測試模式強制使用 SQLite
+
+# ==========================================
+# API 配置
+# ==========================================
+api:
+  openai:
+    enabled: true
+    key_env: "OPENAI_API_KEY"
+    default_model: "gpt-5-nano"
+    max_retries: 3
+    timeout: 60
+    rate_limit: 100  # requests per minute
+
+# ==========================================
+# UI 主題配置
+# ==========================================
+ui:
+  theme:
+    framework: "bs4Dash"
+    primary_color: "primary"
+    bootswatch: "cosmo"
+
+  sidebar:
+    enabled: true
+    collapsed_on_start: false
+    fixed: true
+    width: 280
+
+  navbar:
+    enabled: true
+    fixed: true
+    show_notifications: false
+    show_user_menu: true
+    show_db_status: true
+
+  footer:
+    enabled: true
+    fixed: true
+    left_text: "BrandEdge v3.2 - 品牌印記引擎"
+    right_text: "© 2025 PeakEdges. All Rights Reserved"
+
+# ==========================================
+# 功能開關
+# ==========================================
+features:
+  enable_cache: true
+  enable_parallel_processing: true
+  enable_auto_save: false
+  enable_hints: true
+  hint_delay: 500  # 毫秒
+  enable_help: true
+  show_debug_panel: false
+  demo_mode: true
+
+# ==========================================
+# 資料處理限制
+# ==========================================
+data_limits:
+  max_reviews: 1000              # 最多1000則評論
+  max_brands: 20                 # 最多20個品牌
+  min_attributes: 3             # 最少10個屬性
+  max_attributes: 30             # 最多30個屬性
+  default_attributes: 15         # 預設15個屬性
+  sample_size_for_extraction: 100  # 屬性萃取樣本數
+
+# ==========================================
+# 模組載入設定
+# ==========================================
+# 定義模組載入順序與相依性
+# 注意：BrandEdge 使用 3 個實際模組檔案
+# brandedge_flagship 模組內部包含 8 個分析子模組
+modules:
+  # 核心模組（必須最先載入）
+  - id: "login"
+    name: "登入模組"
+    enabled: true
+    config_file: "module_config/login.yaml"
+    load_order: 1
+    description: "使用者認證與權限管理"
+
+  # 資料處理模組
+  - id: "upload_brandedge"
+    name: "ASIN 評論抓取"
+    enabled: true
+    config_file: "module_config/upload_brandedge.yaml"
+    load_order: 2
+    dependencies: ["login"]
+    description: "評論資料上傳與驗證"
+
+  # 🆕 屬性評分模組（必須在分析模組之前）
+  - id: "brandedge_scoring"
+    name: "屬性評分"
+    enabled: true
+    config_file: "module_config/brandedge_scoring.yaml"
+    load_order: 2.5
+    dependencies: ["upload_brandedge"]
+    description: "AI屬性萃取與評分（10-30個屬性）"
+
+  # 分析模組（獨立頁面）
+  - id: "market_profile"
+    name: "顧客畫像"
+    enabled: true
+    config_file: "module_config/market_profile.yaml"
+    load_order: 3
+    dependencies: ["upload_brandedge"]
+    description: "市場區隔、AI命名、客群偏好"
+
+  - id: "market_track"
+    name: "高成長市場賽道分析"
+    enabled: true
+    config_file: "module_config/market_track.yaml"
+    load_order: 4
+    dependencies: ["upload_brandedge"]
+    description: "高潛力屬性、機會分數、四象限"
+
+  - id: "advanced_attribute"
+    name: "進階屬性評價"
+    enabled: false  # 🔴 已禁用：功能與 brandedge_scoring 重複
+    config_file: "module_config/advanced_attribute.yaml"
+    load_order: 5
+    dependencies: ["upload_brandedge"]
+    description: "10-30個屬性深度分析"
+
+  # 🆕 關鍵因素分析模組
+  - id: "key_factor"
+    name: "關鍵因素分析"
+    enabled: true
+    config_file: "module_config/key_factor.yaml"
+    load_order: 5.5
+    dependencies: ["brandedge_scoring"]
+    description: "識別影響品牌成功的核心屬性"
+
+  - id: "advanced_dna"
+    name: "進階DNA分析"
+    enabled: true
+    config_file: "module_config/advanced_dna.yaml"
+    load_order: 6
+    dependencies: ["upload_brandedge"]
+    description: "品牌雷達圖、競爭力評估"
+
+  - id: "brand_identity"
+    name: "品牌識別度策略建議"
+    enabled: true
+    config_file: "module_config/brand_identity.yaml"
+    load_order: 7
+    dependencies: ["upload_brandedge"]
+    description: "獨特性、差異化策略"
+
+  - id: "ideal_point"
+    name: "理想點分析"
+    enabled: true
+    config_file: "module_config/ideal_point.yaml"
+    load_order: 8
+    dependencies: ["upload_brandedge"]
+    description: "品牌理想點接近度評估與排名"
+
+  - id: "positioning_strategy"
+    name: "品牌定位策略建議"
+    enabled: true
+    config_file: "module_config/positioning_strategy.yaml"
+    load_order: 9
+    dependencies: ["upload_brandedge"]
+    description: "四象限策略定位分析"
+
+  # 資訊頁面模組
+  - id: "about"
+    name: "關於我們"
+    enabled: true
+    config_file: "module_config/about.yaml"
+    load_order: 10
+    source: "shared"  # 共用模組標記
+    description: "平台介紹與服務說明（共用模組）"
+
+# ==========================================
+# 分析工作流程
+# ==========================================
+workflow:
+  # 資料準備階段
+  data_preparation:
+    - step: "upload_reviews"
+      module: "upload_brandedge"
+      required: true
+    - step: "extract_attributes"
+      module: "brandedge_flagship"
+      required: true
+    - step: "score_attributes"
+      module: "brandedge_flagship"
+      required: true
+
+  # 分析階段（八大子模組在 brandedge_flagship 內部執行）
+  analysis:
+    parallel_execution: false  # 由 brandedge_flagship 模組內部控制
+    modules:
+      - "brandedge_flagship"  # 單一模組包含所有 8 個分析功能
+
+# ==========================================
+# 導航流程設定
+# ==========================================
+navigation:
+  default_page: "upload_brandedge"
+  flow:
+    - from: "login"
+      to: "upload_brandedge"
+      condition: "authenticated"
+
+    - from: "upload_brandedge"
+      to: "brandedge_flagship"
+      condition: "data_uploaded"
+
+# ==========================================
+# 集中管理系統
+# ==========================================
+content_management:
+  hints:
+    enabled: true
+    file_path: "database/content/{language}/general/brandedge/hint.csv"
+
+  prompts:
+    enabled: true
+    file_path: "database/content/{language}/general/brandedge/prompt.csv"
+    types:
+      - "extract_attributes"      # 屬性萃取
+      - "score_attributes"        # 屬性評分
+      - "name_segments"           # 市場區隔命名
+      - "market_track_analysis"   # 市場賽道分析
+      - "ideal_point_analysis"    # 理想點分析
+      - "strategy_recommendations" # 策略建議
+      - "brand_identity_strategy" # 品牌識別度策略
+      - "ai_comprehensive_insights" # AI綜合洞察
+
+  markdown:
+    enabled: true
+    file_path: "database/content/{language}/markdown/"
+
+# ==========================================
+# 部署配置
+# ==========================================
+deployment:
+  target: "connect"  # connect | shinyapps | local
+  account: "kyle-lin"
+  app_name: "brandedge-flagship"
+  main_file: "app_brandedge.R"
+  github_repo: "kiki830621/BrandEdge_premium"
+
+# ==========================================
+# 監控與日誌
+# ==========================================
+monitoring:
+  enabled: true
+
+  metrics:
+    track_user_activity: true
+    track_api_calls: true
+    track_processing_time: true
+    track_analysis_performance: true
+
+  logging:
+    level: "INFO"
+    output: "file"
+    path: "logs/brandedge.log"
+    rotation: "daily"
+    max_size: "100MB"
+    retention_days: 30
+
+# ==========================================
+# 分析引擎配置
+# ==========================================
+analysis_engine:
+  # 市場區隔設定
+  segmentation:
+    method: "kmeans"
+    min_clusters: 2
+    max_clusters: 5
+    default_clusters: 3
+    naming_method: "ai"  # ai | rule_based | manual
+    fallback_naming: ["descriptive", "numeric", "default"]
+
+  # 理想點計算方法
+  ideal_point:
+    method: "MAMBA"  # MAMBA | max | weighted_average
+    weight_method: "importance"  # importance | correlation | equal
+
+  # DNA分析
+  dna_analysis:
+    chart_type: "radar"  # radar | spider
+    normalization: true
+    show_benchmarks: true
+
+  # 關鍵因素
+  key_factors:
+    correlation_method: "pearson"
+    min_correlation: 0.3
+    top_n_factors: 10
+
+# ==========================================
+# 聯絡與支援
+# ==========================================
+support:
+  contact_email: "mr.no.one01@gmail.com"
+  documentation_url: "https://docs.peakedges.com/brandedge"
+  feedback_url: "https://feedback.peakedges.com"
+  version_check_url: "https://api.peakedges.com/version/brandedge"
+
+# ==========================================
+# 頁面配置 (Pages Configuration)
+# ==========================================
+pages:
+  - id: "login"
+    title: "登入模組"
+    icon: "sign-in-alt"
+    enabled: true
+    module: "login"
+
+  - id: "upload_brandedge"
+    title: "ASIN 評論抓取"
+    icon: "upload"
+    enabled: true
+    module: "upload_brandedge"
+
+  - id: "brandedge_scoring"
+    title: "屬性評分"
+    icon: "calculator"
+    enabled: true
+    module: "brandedge_scoring"
+
+  - id: "market_profile"
+    title: "顧客畫像"
+    icon: "chart-pie"
+    enabled: true
+    module: "market_profile"
+
+  - id: "market_track"
+    title: "高成長市場賽道"
+    icon: "chart-line"
+    enabled: true
+    module: "market_track"
+
+  - id: "advanced_attribute"
+    title: "進階屬性"
+    icon: "sliders-h"
+    enabled: false  # 🔴 已禁用：功能與 brandedge_scoring 重複
+    module: "advanced_attribute"
+
+  # 🆕 關鍵因素分析頁面
+  - id: "key_factor"
+    title: "關鍵因素"
+    icon: "key"
+    enabled: true
+    module: "key_factor"
+
+  - id: "advanced_dna"
+    title: "品牌DNA"
+    icon: "dna"
+    enabled: true
+    module: "advanced_dna"
+
+  - id: "brand_identity"
+    title: "品牌識別度策略建議"
+    icon: "fingerprint"
+    enabled: true
+    module: "brand_identity"
+
+  - id: "ideal_point"
+    title: "理想點分析"
+    icon: "bullseye"
+    enabled: true
+    module: "ideal_point"
+
+  - id: "positioning_strategy"
+    title: "品牌定位策略建議"
+    icon: "compass"
+    enabled: true
+    module: "positioning_strategy"
+
+  - id: "about"
+    title: "關於我們"
+    icon: "info-circle"
+    enabled: true
+    module: "about"
+    group: null  # No group - appears at bottom

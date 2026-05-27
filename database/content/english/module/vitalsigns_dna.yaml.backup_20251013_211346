@@ -1,0 +1,1188 @@
+# ==========================================
+# VitalSigns - DNA Module Language Content (English)
+# ==========================================
+# Customer DNA Analysis Module Language Content (English)
+# Version: 1.0.0
+# Last Updated: 2025-10-11
+
+# Module Basic Information
+title: "Customer DNA Analysis"
+subtitle: "Deep Customer Segmentation, RFM Clustering & AI-Enhanced Insights"
+description: "7-dimensional DNA analysis, intelligent clustering, RFM customer profiling, AI-driven behavior insights and marketing recommendations"
+
+# UI Sections
+ui:
+  # Instructions Panel
+  instructions:
+    title: "Instructions"
+    step1_label: "Step 1:"
+    step1_text: "Select customer tags on the left to view distribution characteristics for each dimension"
+    step2_label: "Step 2:"
+    step2_text: "Run analysis tools (Customer clustering or AI analysis)"
+    step3_label: "Step 3:"
+    step3_text: "Switch view modes to see charts, AI insights, or customer grouping results"
+    note: "DNA analysis integrates 7-dimensional metrics for comprehensive customer understanding"
+
+  sections:
+    overview: "DNA Analysis Overview"
+    metric_selection: "Metric Selection"
+    distribution_charts: "Distribution Charts"
+    clustering: "Intelligent Clustering"
+    rfm_segments: "RFM Segments"
+    customer_lifecycle: "Customer Lifecycle"
+    ai_analysis: "AI-Enhanced Analysis"
+    attribute_extraction: "Attribute Extraction"
+    customer_tags_number: "1. "
+    customer_tags: "Customer Tags"
+    tags_desc: "Click tags to view distribution"
+    analysis_tools_number: "2. "
+    analysis_tools: "Analysis Tools"
+    view_options_number: "3. "
+    view_options: "View Options"
+    metric_description: "Metric Description"
+
+  # View Modes
+  view_modes:
+    charts: "Statistical Charts"
+    ai_results: "AI Analysis Results"
+    segmentation: "Customer Segmentation"
+    rfm_analysis: "RFM Analysis"
+
+  # Control Panel
+  controls:
+    title: "Analysis Controls"
+    metric_buttons_title: "DNA Metric Selection"
+    clustering_params: "Clustering Parameters"
+    rfm_settings: "RFM Settings"
+    ai_options: "AI Analysis Options"
+    section1: "1. "
+    section2: "2. "
+    section3: "3. "
+
+  # Tab Titles
+  tabs:
+    dna_analysis: "Customer Tag Analysis"
+    statistics: "Statistics"
+    explanation: "Explanation"
+    email_mapping: "Customer ID Mapping"
+    ai_analysis: "AI Analysis"
+
+  # Options
+  options:
+    convert_to_text: "Convert values to high/medium/low text"
+    download_data: "Download Analysis Data"
+
+  # Metrics Labels
+  metrics:
+    rfm_core: "RFM Core Metrics"
+    advanced: "Advanced Metrics"
+    monetary:
+      name: "Purchase Amount"
+    recency:
+      name: "Last Visit Time"
+    frequency:
+      name: "Purchase Frequency"
+    ipt:
+      name: "Purchase Cycle"
+    cai:
+      name: "Customer Activity"
+    pcv:
+      name: "Past Value"
+    cri:
+      name: "Customer Stability"
+    nes:
+      name: "Customer Status"
+
+  # Buttons
+  buttons:
+    # Analysis Buttons
+    run_segmentation: "Execute Customer Clustering"
+    start_clustering: "Execute Customer Clustering"
+    calculate_rfm: "Calculate RFM"
+    run_ai: "Run AI-Enhanced Analysis"
+    run_ai_analysis: "Run AI-Enhanced Analysis"
+    extract_attributes: "Extract Attributes"
+    generate_profiles: "Generate Segment Profiles"
+
+    # Export Buttons
+    export_segments: "Export Clustering Results"
+    export_insights: "Export AI Insights"
+    download_report: "Download Full Report"
+    download_full_list: "Download Full Customer List"
+
+  # Section Headers
+  headers:
+    ai_advice: "AI Marketing Recommendations"
+    customer_list: "Detailed Customer List"
+
+# DNA Metrics Definition (7 Dimensions)
+dna_metrics:
+  # M - Monetary
+  monetary:
+    name: "M - Monetary"
+    short_name: "M"
+    full_name: "Monetary"
+    description: "Customer's total spending amount"
+    icon: "💰"
+    unit: "$"
+    interpretation: "Higher spending indicates greater customer value"
+
+  # R - Recency
+  recency:
+    name: "R - Recency"
+    short_name: "R"
+    full_name: "Recency"
+    description: "Days since last purchase"
+    icon: "🕒"
+    unit: "days"
+    interpretation: "Fewer days indicates more active customer"
+    reverse: true  # Lower is better
+
+  # F - Frequency
+  frequency:
+    name: "F - Frequency"
+    short_name: "F"
+    full_name: "Frequency"
+    description: "Total number of purchases"
+    icon: "🔁"
+    unit: "times"
+    interpretation: "More purchases indicates higher loyalty"
+
+  # IPT - Inter-Purchase Time
+  ipt:
+    name: "IPT - Inter-Purchase Time"
+    short_name: "IPT"
+    full_name: "Inter-Purchase Time"
+    description: "Average days between purchases"
+    icon: "⏱️"
+    unit: "days"
+    interpretation: "Shorter interval indicates higher purchase frequency"
+    reverse: true
+
+  # CAI - Customer Activity Index
+  cai:
+    name: "CAI - Customer Activity Index"
+    short_name: "CAI"
+    full_name: "Customer Activity Index"
+    description: "Comprehensive activity metric"
+    icon: "📈"
+    unit: "index"
+    range: [0, 1]
+    interpretation: "Higher index indicates more active customer"
+
+  # PCV - Past Customer Value
+  pcv:
+    name: "PCV - Past Customer Value"
+    short_name: "PCV"
+    full_name: "Past Customer Value"
+    description: "Historical total spending value"
+    icon: "💎"
+    unit: "$"
+    interpretation: "Higher historical value indicates more important customer"
+
+  # CRI - Customer Richness Index
+  cri:
+    name: "CRI - Customer Richness Index"
+    short_name: "CRI"
+    full_name: "Customer Richness Index"
+    description: "Purchase stability score"
+    icon: "🎯"
+    unit: "score"
+    interpretation: "Higher score indicates more stable purchases"
+
+  # NES - Customer Status
+  nes:
+    name: "NES - Customer Status"
+    short_name: "NES"
+    full_name: "New/Engaged/Sleeping"
+    description: "Customer lifecycle status"
+    icon: "🔄"
+    unit: "status"
+    interpretation: "Tracks customer activity stage"
+
+# RFM Analysis
+rfm_analysis:
+  # 11 RFM Segments
+  segments:
+    champions:
+      name: "Champions"
+      chinese_name: "Champions"
+      description: "Best customers with high frequency, high value, and recent purchases"
+      criteria: "R=5, F=5, M=5"
+      icon: "👑"
+      color: "#28a745"
+      characteristics:
+        - "Highest purchase frequency"
+        - "Largest spending amount"
+        - "Still active recently"
+        - "Extremely high brand loyalty"
+      strategy: "Provide highest tier treatment, maintain relationship"
+      percentage_range: "5-10%"
+
+    loyal_customers:
+      name: "Loyal Customers"
+      chinese_name: "Loyal Customers"
+      description: "Frequent and stable customers"
+      criteria: "R>=3, F>=4"
+      icon: "💎"
+      color: "#17a2b8"
+      characteristics:
+        - "High purchase frequency"
+        - "Stable spending"
+        - "Long-term relationship"
+      strategy: "Provide loyalty rewards, encourage referrals"
+      percentage_range: "10-15%"
+
+    potential_loyalists:
+      name: "Potential Loyalists"
+      chinese_name: "Potential Loyalists"
+      description: "Recent purchasers with potential to become loyal"
+      criteria: "R>=4, F>=2, M>=3"
+      icon: "⭐"
+      color: "#ffc107"
+      characteristics:
+        - "Recent purchases"
+        - "Decent spending"
+        - "High cultivation value"
+      strategy: "Offer membership programs, increase interaction"
+      percentage_range: "10-15%"
+
+    recent_customers:
+      name: "Recent Customers"
+      chinese_name: "Recent Customers"
+      description: "New first-time purchasers"
+      criteria: "R>=4, F=1"
+      icon: "🆕"
+      color: "#20c997"
+      characteristics:
+        - "Just joined"
+        - "Need cultivation"
+        - "Unknown potential"
+      strategy: "Provide new customer offers, build trust"
+      percentage_range: "15-20%"
+
+    promising:
+      name: "Promising"
+      chinese_name: "Promising"
+      description: "Recent purchasers with substantial spending"
+      criteria: "R>=3, F<=2, M>=4"
+      icon: "💫"
+      color: "#6610f2"
+      characteristics:
+        - "High order value"
+        - "Frequency can improve"
+        - "Growth potential"
+      strategy: "Cross-sell, increase frequency"
+      percentage_range: "5-10%"
+
+    need_attention:
+      name: "Need Attention"
+      chinese_name: "Need Attention"
+      description: "Previously good customers who haven't purchased recently"
+      criteria: "R<=3, F>=3, M>=3"
+      icon: "⚠️"
+      color: "#fd7e14"
+      characteristics:
+        - "Good past performance"
+        - "Recently inactive"
+        - "Needs reactivation"
+      strategy: "Send care messages, limited-time offers"
+      percentage_range: "5-10%"
+
+    about_to_sleep:
+      name: "About to Sleep"
+      chinese_name: "About to Sleep"
+      description: "Declining purchase frequency, churn risk"
+      criteria: "R<=3, F<=3, M>=2"
+      icon: "😴"
+      color: "#e83e8c"
+      characteristics:
+        - "Declining activity"
+        - "Churn signs"
+        - "Needs activation"
+      strategy: "Personalized offers, re-attract"
+      percentage_range: "10-15%"
+
+    at_risk:
+      name: "At Risk"
+      chinese_name: "At Risk"
+      description: "Previously loyal customers now at churn risk"
+      criteria: "R<=2, F>=3, M>=3"
+      icon: "🚨"
+      color: "#dc3545"
+      characteristics:
+        - "High past value"
+        - "Long time since purchase"
+        - "High churn risk"
+      strategy: "Emergency recovery, understand reasons"
+      percentage_range: "5-10%"
+
+    cant_lose_them:
+      name: "Can't Lose Them"
+      chinese_name: "Can't Lose Them"
+      description: "High-value customers who haven't purchased in long time"
+      criteria: "R<=2, F>=4, M>=5"
+      icon: "💔"
+      color: "#721c24"
+      characteristics:
+        - "Extremely high historical value"
+        - "Extreme churn risk"
+        - "Must recover"
+      strategy: "Highest priority recovery, senior involvement"
+      percentage_range: "2-5%"
+
+    hibernating:
+      name: "Hibernating"
+      chinese_name: "Hibernating"
+      description: "Long time since purchase"
+      criteria: "R<=2, F<=2, M<=2"
+      icon: "💤"
+      color: "#6c757d"
+      characteristics:
+        - "Long-term no interaction"
+        - "Low value"
+        - "High reactivation cost"
+      strategy: "Low-cost reactivation attempts"
+      percentage_range: "10-15%"
+
+    lost:
+      name: "Lost"
+      chinese_name: "Lost"
+      description: "Churned customers"
+      criteria: "R<=1, F<=2, M<=2"
+      icon: "❌"
+      color: "#343a40"
+      characteristics:
+        - "Already churned"
+        - "Low value"
+        - "Not recommended to invest"
+      strategy: "Record reasons, improve products/services"
+      percentage_range: "10-20%"
+
+# Customer Lifecycle
+customer_lifecycle:
+  title: "Customer Status"
+  stages:
+    new_customer:
+      name: "New Customer"
+      short_name: "New"
+      full_name: "New Customer"
+      description: "First-time purchaser"
+      icon: "🆕"
+      color: "success"
+      criteria: "Purchase count = 1"
+      strategy: "Build trust, encourage repurchase"
+
+    repeat_customer:
+      name: "Repeat Customer"
+      short_name: "Repeat"
+      full_name: "Repeat Customer"
+      description: "Customer with repeat purchases"
+      icon: "🔄"
+      color: "primary"
+      criteria: "Purchase count >= 2 and recent purchase <= 90 days"
+      strategy: "Increase loyalty, boost frequency"
+
+    dormant_customer:
+      name: "Dormant Customer"
+      short_name: "Dormant"
+      full_name: "Dormant Customer"
+      description: "Customer who hasn't purchased in long time"
+      icon: "😴"
+      color: "warning"
+      criteria: "Recent purchase > 90 days and <= 180 days"
+      strategy: "Reactivation actions, re-engage"
+
+    churned_customer:
+      name: "Churned Customer"
+      short_name: "Churned"
+      full_name: "Churned Customer"
+      description: "Churned customer"
+      icon: "❌"
+      color: "danger"
+      criteria: "Recent purchase > 180 days"
+      strategy: "Analyze reasons, improve service"
+
+# Intelligent Clustering
+clustering:
+  # Clustering Methods
+  methods:
+    kmeans:
+      name: "K-means Clustering"
+      description: "Fast distance-based clustering method"
+      parameters:
+        min_clusters: 2
+        max_clusters: 8
+        default_clusters: 5
+
+    hierarchical:
+      name: "Hierarchical Clustering"
+      description: "Build customer segment tree structure"
+      parameters:
+        method: "ward.D2"
+        distance_metric: "euclidean"
+
+  # Optimal Cluster Number
+  optimal_clusters:
+    title: "Optimal Cluster Number Analysis"
+    methods:
+      elbow:
+        name: "Elbow Method"
+        description: "Find SSE decline rate change point"
+      silhouette:
+        name: "Silhouette Coefficient"
+        description: "Evaluate clustering quality"
+
+  # Cluster Naming
+  naming:
+    ai_naming:
+      name: "AI Smart Naming"
+      description: "Automatically generate meaningful names based on segment characteristics"
+    manual_naming:
+      name: "Manual Naming"
+      description: "Name each segment yourself"
+
+# AI-Enhanced Analysis
+ai_analysis:
+  types:
+    metric_description:
+      name: "Metric Description"
+      description: "Explain business significance of selected metrics"
+      prompt_category: "dna_metric_description"
+      icon: "📊"
+
+    distribution_insight:
+      name: "Distribution Insight"
+      description: "Analyze metric distribution characteristics and anomalies"
+      prompt_category: "dna_distribution_insight"
+      icon: "📈"
+
+    segment_profiling:
+      name: "Segment Profiling"
+      description: "Generate detailed profile for each segment"
+      prompt_category: "dna_segment_profiling"
+      icon: "👥"
+
+    marketing_recommendations:
+      name: "Marketing Recommendations"
+      description: "Marketing strategy recommendations for different segments"
+      prompt_category: "dna_marketing_recommendations"
+      icon: "💡"
+
+    churn_prediction:
+      name: "Churn Prediction"
+      description: "Identify churn risk and provide recovery strategies"
+      prompt_category: "dna_churn_prediction"
+      icon: "⚠️"
+
+    cross_sell_opportunities:
+      name: "Cross-sell Opportunities"
+      description: "Discover potential cross-selling opportunities"
+      prompt_category: "cross_sell_opportunities"
+      icon: "🎁"
+
+# Attribute Extraction
+attribute_extraction:
+  title: "DNA Attribute Extraction"
+  description: "Extract key attributes and characteristics from customer behavior"
+
+  methods:
+    ai_extraction:
+      name: "AI Auto Extraction"
+      description: "Use AI to automatically identify and extract attributes"
+      max_attributes: 30
+      min_attributes: 5
+
+    rule_based:
+      name: "Rule-based Extraction"
+      description: "Extract attributes based on predefined rules"
+
+  attribute_categories:
+    behavioral:
+      name: "Behavioral Attributes"
+      description: "Purchase behavior related features"
+      examples: ["High frequency purchasing", "Night shopping preference", "Weekend shopping"]
+
+    value_based:
+      name: "Value Attributes"
+      description: "Spending value related features"
+      examples: ["High order value", "Discount sensitive", "Quality oriented"]
+
+    loyalty:
+      name: "Loyalty Attributes"
+      description: "Loyalty related features"
+      examples: ["Long-term customer", "Brand advocate", "Referrer"]
+
+# Chart Configuration
+charts:
+  histogram_title: "Distribution Histogram"
+  # Metric Distribution Histogram
+  metric_histogram:
+    title: "{metric} Distribution"
+    x_axis: "{metric}"
+    y_axis: "Customer Count"
+    tooltip: "{bin}: {count} customers"
+
+  # Scatter Plot
+  scatter_plot:
+    title: "{x_metric} vs {y_metric}"
+    x_axis: "{x_metric}"
+    y_axis: "{y_metric}"
+    tooltip: "Customer {id}: {x}={x_value}, {y}={y_value}"
+
+  # Clustering Result Scatter Plot
+  clustering_scatter:
+    title: "Customer Clustering Results"
+    x_axis: "Dimension 1"
+    y_axis: "Dimension 2"
+    tooltip: "Segment {segment}: {count} customers"
+
+  # RFM Heatmap
+  rfm_heatmap:
+    title: "RFM Distribution Heatmap"
+    x_axis: "Frequency (F)"
+    y_axis: "Recency (R)"
+    color: "Monetary (M)"
+    tooltip: "R={r}, F={f}, M={m}: {count} customers"
+
+  # Segment Feature Radar Chart
+  segment_radar:
+    title: "Segment Feature Radar Chart"
+    dimensions: ["M", "R", "F", "IPT", "CAI", "PCV", "CRI"]
+    tooltip: "{segment} - {dimension}: {value}"
+
+  # Lifecycle Distribution
+  lifecycle_pie:
+    title: "Customer Lifecycle Distribution"
+    tooltip: "{stage}: {count} customers ({percentage}%)"
+
+  # Elbow Chart
+  elbow_chart:
+    title: "Optimal Cluster Number Analysis (Elbow Method)"
+    x_axis: "Number of Clusters"
+    y_axis: "SSE (Within-cluster Sum of Squares)"
+    tooltip: "{k} clusters: SSE = {sse}"
+
+  # Silhouette Chart
+  silhouette_chart:
+    title: "Optimal Cluster Number Analysis (Silhouette Coefficient)"
+    x_axis: "Number of Clusters"
+    y_axis: "Average Silhouette Coefficient"
+    tooltip: "{k} clusters: coefficient = {score}"
+
+# Units
+units:
+  days: "days"
+  times: "times"
+  people: "customers"
+
+# Messages
+messages:
+  # Success Messages
+  success:
+    dna_calculated: "✅ DNA metrics calculation complete"
+    dna_calculation_complete: "DNA analysis calculation complete"
+    clustering_complete: "✅ Customer clustering complete, {count} segments created"
+    cluster_updated: "Updated to {k} segments"
+    rfm_complete: "✅ RFM analysis complete"
+    ai_analysis_complete: "✅ AI analysis complete"
+    ai_complete: "AI analysis complete"
+    attributes_extracted: "✅ Extracted {count} attributes"
+    data_loaded_from_step1: "✅ Data loaded from step 1, {records} records, {customers} customers. Automatically starting DNA analysis..."
+    filtered_customers: "✅ Filtered customers: {customers} transactions: {transactions}"
+    dna_analysis_complete: "🎉 DNA analysis complete!"
+    dna_and_ai_complete: "✅ DNA analysis and AI insights complete!"
+    dna_complete_ai_unavailable: "✅ DNA analysis complete! (AI insights temporarily unavailable)"
+    email_mapping_complete: "✅ Email mapping complete: {count} unique customers"
+    data_processing_complete: "✅ Data processing complete, valid records: {records} customers: {customers}"
+    files_merge_complete: "Merge complete, {count} total records"
+
+  # Processing Messages
+  processing:
+    calculating_dna: "Calculating DNA metrics..."
+    performing_clustering: "Performing customer clustering..."
+    calculating_rfm: "Calculating RFM scores..."
+    generating_ai_insights: "🤖 Generating AI insights..."
+    extracting_attributes: "Extracting attributes..."
+    auto_start_analysis: "🚀 Automatically starting DNA analysis..."
+    preparing_data: "📊 Preparing analysis data..."
+    executing_dna: "🧬 Executing DNA analysis..."
+    processing_files: "Starting file processing..."
+    reading_file: "Reading file: {filename}"
+    merging_files: "Merging files..."
+
+  # Error Messages
+  error:
+    insufficient_data: "❌ Insufficient data for DNA analysis"
+    clustering_failed: "❌ Clustering failed"
+    calculation_error: "DNA calculation error:"
+    clustering_error: "Clustering error:"
+    update_error: "Update failed:"
+    ai_analysis_error: "AI analysis error:"
+    rfm_calculation_failed: "❌ RFM calculation failed"
+    ai_analysis_failed: "❌ AI analysis failed"
+    no_qualified_customers: "❌ No customers meet minimum transaction requirements"
+    dna_analysis_error: "❌ DNA analysis error: {error}"
+    analysis_error: "❌ Analysis error: {error}"
+    function_not_exists: "❌ analysis_dna function not found, please check global_scripts"
+    processing_error: "Processing error: {error}"
+    field_detection_failed: "Error: Unable to detect required fields"
+    missing_required_fields: "Missing required fields: {fields}"
+    dna_result_empty: "DNA analysis result is empty or incorrectly formatted"
+    invalid_data_structure: "data_by_customer is not a valid data structure"
+    data_conversion_error: "Data conversion error: {error}"
+    complex_data_structure: "Unable to convert data format: complex data structure"
+    ai_analysis_unavailable: "AI analysis temporarily unavailable, please try again later."
+
+  # Warning Messages
+  warning:
+    ai_not_enabled: "AI analysis feature not enabled"
+    few_customers: "⚠️ Few customers ({count}), clustering results may be less precise"
+    high_lost_percentage: "⚠️ High proportion of churned customers ({percentage}%)"
+    low_champions_percentage: "⚠️ Low proportion of Champions ({percentage}%)"
+
+  # Info Messages
+  info:
+    customers_analyzed: "Analyzed DNA for {count} customers"
+    optimal_clusters: "Recommended cluster number: {k}"
+    rfm_segments_found: "Identified {count} RFM segments"
+    waiting_data: "⏳ Waiting for data upload and analysis..."
+    upload_instructions: "Please upload transaction data on the 'Data Upload' page first. The system will automatically perform DNA analysis."
+    waiting_upload: "Waiting for file upload..."
+    no_ai_analysis: "Please run AI analysis first"
+    click_ai_button: "Click the 'Run AI Analysis' button on the left to start intelligent analysis"
+    select_metric: "Please select analysis metric"
+    click_metric_button: "Click any metric button on the left to automatically perform customer segmentation"
+    ai_insights_pending: "After running DNA analysis, AI will provide deep customer insights and recommendations."
+
+  # File Handling
+  file_handling:
+    files_selected: "Selected"
+    files_count: "files"
+    files_list_separator: ":\n"
+    files_uploaded: "Uploaded"
+    preparing_process: "preparing to process..."
+
+# Progress Messages (for withProgress)
+progress:
+  dna_calculation: "Calculating DNA Metrics..."
+  processing_data: "Processing Transaction Data..."
+  rfm_segmentation: "Calculating RFM Segmentation..."
+  customer_status: "Assigning Customer Status..."
+  elbow_method: "Calculating Elbow Method..."
+  complete: "Complete!"
+  customer_segmentation: "Running Customer Segmentation..."
+  kmeans_clustering: "K-means Clustering Analysis..."
+  ai_analysis: "Running AI Analysis..."
+  ai_metric_description: "Metric Description..."
+  ai_distribution_insight: "Distribution Insight..."
+  ai_segment_profiling: "Segment Profiling..."
+  ai_marketing_recommendations: "Marketing Recommendations..."
+  ai_churn_prediction: "Churn Prediction..."
+
+# Help Text
+help:
+  step1: "Step 1:"
+  step1_desc: "Click on the customer tag you want to analyze. For example, you can click on Purchase Amount."
+  step2: "Step 2:"
+  step2_desc: "Click on your analysis tool. For example, you can click Execute Customer Clustering."
+  step3: "Step 3:"
+  step3_desc: "Click on view options. For example, you can click Statistical Charts."
+  repeat_steps: "Repeat the above steps. For example, if you want to view customer recency, you can repeat the above steps to view analysis results and AI marketing recommendations."
+
+  overview: |
+    Customer DNA Analysis is the most comprehensive customer analysis module, providing:
+    - 7-dimensional customer DNA metrics
+    - Intelligent clustering and segment naming
+    - 11 RFM segment profiles
+    - AI-driven insights and recommendations
+
+  dna_metrics: |
+    7 DNA Dimensions Explanation:
+
+    1. M (Monetary) - Total spending amount, reflects customer value
+    2. R (Recency) - Days since last purchase, reflects activity level
+    3. F (Frequency) - Number of purchases, reflects loyalty
+    4. IPT (Inter-Purchase Time) - Average purchase interval, reflects purchase cycle
+    5. CAI (Customer Activity Index) - Comprehensive activity metric
+    6. PCV (Past Customer Value) - Historical total value
+    7. CRI (Customer Richness Index) - Purchase stability score
+
+  clustering: |
+    Intelligent Clustering:
+    - Use K-means or hierarchical clustering
+    - Automatically find optimal cluster number
+    - AI smart segment naming
+    - Generate segment feature profiles
+
+    Clustering helps:
+    - Identify similar customer groups
+    - Develop differentiated strategies
+    - Precision marketing deployment
+    - Optimize resource allocation
+
+  rfm_segments: |
+    11 RFM Segments:
+
+    High-Value Segments:
+    1. Champions: Best customers
+    2. Loyal Customers: Stable high-value
+    3. Can't Lose Them: High-value but churn risk
+
+    Growth Potential Segments:
+    4. Potential Loyalists: Can be cultivated
+    5. Promising: High order value
+    6. Recent Customers: New customers
+
+    Needs Attention Segments:
+    7. Need Attention: Cooling down
+    8. About to Sleep: Declining activity
+    9. At Risk: High churn risk
+
+    Low-Value Segments:
+    10. Hibernating: Long-term no interaction
+    11. Lost: Already churned
+
+  ai_analysis: |
+    AI-Enhanced Analysis:
+    Leverage GPT-4 to provide intelligent insights:
+    - Metric Description: Interpret business significance of metrics
+    - Distribution Insight: Discover distribution characteristics and anomalies
+    - Segment Profiling: Generate detailed segment descriptions
+    - Marketing Recommendations: Provide precision marketing strategies
+    - Churn Prediction: Predict churn and provide recovery recommendations
+    - Cross-sell: Discover sales opportunities
+
+  best_practices: |
+    Analysis Recommendations:
+    1. First review each metric distribution to understand overall customer status
+    2. Execute intelligent clustering to identify different segments
+    3. Analyze RFM segments to understand customer lifecycle stage
+    4. Use AI insights for deep analysis and recommendations
+    5. Develop differentiated strategies for different segments
+    6. Regularly track segment changes and adjust strategies
+
+# Hints
+hints:
+  metric_selection: "Click on customer tags to view visualization charts for each tag"
+  clustering: "Intelligent clustering automatically finds similar customer groups. Recommend using AI naming feature to generate meaningful names based on group characteristics."
+  rfm_segments: "RFM segments are industry-standard customer classification. Focus on Champions and At Risk customers to develop differentiated strategies."
+  ai_analysis: "AI-enhanced analysis provides deep insights and specific recommendations. Recommend prioritizing 'Segment Profiling' and 'Marketing Recommendations' features."
+  lifecycle: "Customer lifecycle analysis helps understand customer stage and develop corresponding cultivation or recovery strategies."
+
+# Statistics Terms
+statistics:
+  mean: "Mean"
+  median: "Median"
+  std_dev: "Standard Deviation"
+  min: "Minimum"
+  max: "Maximum"
+  q1: "First Quartile (Q1)"
+  q3: "Third Quartile (Q3)"
+  iqr: "Interquartile Range (IQR)"
+  skewness: "Skewness"
+  kurtosis: "Kurtosis"
+  definition: "Definition"
+  quartiles: "25th/75th Percentiles"
+  variance: "Variance"
+  total_customers: "Total Customers"
+  avg_r_value: "Average R Value"
+  avg_f_value: "Average F Value"
+  avg_m_value: "Average M Value"
+  avg_clv: "Average CLV"
+
+  # Statistics Labels (for display)
+  labels:
+    stat_summary: "Statistical Summary"
+    mean: "Mean"
+    median: "Median"
+    q25: "25th Percentile"
+    q75: "75th Percentile"
+    variance_degree: "Variance Degree"
+    ai_marketing_suggestions: "AI Marketing Recommendations"
+    ai_marketing_suggestions_80_20: "AI Marketing Recommendations (80/20 Rule)"
+    metric_description: "Metric Description"
+
+  # Units
+  units:
+    people: "people"
+    days: "days"
+    times: "times"
+    score: "points"
+    dollar: "$"
+
+  # Statistical Explanations (for parenthetical notes)
+  explanations:
+    # M - Monetary
+    mean_monetary: "Average customer purchase amount"
+    median_monetary: "Half of customers spend more than this"
+    q25_monetary: "25% of customers spend less than this"
+    q75_monetary: "75% of customers spend less than this"
+    variance_high_monetary: "High variation in purchase amounts among customers"
+    variance_low_monetary: "Low variation in purchase amounts among customers"
+
+    # R - Recency
+    mean_recency: "Average days since last purchase"
+    median_recency: "Median time since last purchase"
+    q25_recency: "25% of customers purchased within this timeframe"
+    q75_recency: "75% of customers purchased within this timeframe"
+    variance_high_recency: "High variation in purchase timing among customers"
+    variance_low_recency: "Low variation in purchase timing among customers"
+
+    # F - Frequency
+    mean_frequency: "Average customer purchase frequency"
+    median_frequency: "Half of customers purchase more than this"
+    q25_frequency: "25% of customers purchase less than this"
+    q75_frequency: "75% of customers purchase less than this"
+    variance_high_frequency: "High variation in purchase frequency among customers"
+    variance_low_frequency: "Low variation in purchase frequency among customers"
+
+    # IPT - Inter-Purchase Time
+    mean_ipt: "Average days between purchases"
+    median_ipt: "Half of customers have shorter purchase cycles"
+    q25_ipt: "25% of customers have shorter purchase cycles"
+    q75_ipt: "75% of customers have shorter purchase cycles"
+    variance_high_ipt: "High variation in purchase cycles among customers"
+    variance_low_ipt: "Low variation in purchase cycles among customers"
+
+    # CAI - Customer Activity Index
+    median_cai: "Half of customers are more active than this"
+    q25_cai: "25% of customers are more active than this"
+    q75_cai: "75% of customers are less active than this"
+    variance_high_cai: "High variation in customer activity"
+    variance_low_cai: "Low variation in customer activity"
+
+    # PCV - Past Customer Value
+    median_pcv: "Half of customers spent more than this in the past"
+    q25_pcv: "25% of customers spent more than this in the past"
+    q75_pcv: "75% of customers spent less than this in the past"
+    variance_high_pcv: "High variation in past customer spending"
+    variance_low_pcv: "Low variation in past customer spending"
+
+    # CRI - Customer Retention Index
+    median_cri: "Half of customers have higher stability"
+    q25_cri: "25% of customers have higher stability"
+    q75_cri: "75% of customers have lower stability"
+    variance_high_cri: "High variation in customer stability"
+    variance_low_cri: "Low variation in customer stability"
+
+# Action Recommendation Templates
+action_templates:
+  champions:
+    - "Provide VIP exclusive benefits"
+    - "Invite participation in brand decisions"
+    - "Priority access to new products"
+    - "Provide highest priority service"
+
+  at_risk:
+    - "Send personalized recovery offers"
+    - "Proactively contact to understand needs"
+    - "Provide dedicated customer support"
+    - "Invite to special events"
+
+  hibernating:
+    - "Significant discount reactivation"
+    - "Showcase new products to attract"
+    - "Understand churn reasons"
+    - "Low-cost batch outreach"
+
+# AI Analysis Extended Text
+ai_analysis_extended:
+  analysis_focus: "Analysis Focus"
+  analysis_time: "Analysis Time"
+  total_customers: "Total Customers"
+  customers_unit: "customers"
+  key_insights: "Key Insights"
+  deep_insights: "AI Deep Insights"
+  pareto_rule: "80/20 Rule Verification"
+  high_value_customers: "High-value customers"
+  contributed: "contributed"
+  of_revenue: "of revenue"
+  metric_focus: "Metric Analysis Focus"
+  through_metric: "Through"
+  identified_segments: "metric, identified"
+  different_segments: "different segments"
+  strategy_suggestion: "Strategy Recommendation"
+  refer_recommendations: "Please refer to the segmentation marketing recommendations below to develop differentiated strategies"
+
+# Metric Analysis Text
+metric_analysis:
+  monetary_title: "Purchase Amount Analysis"
+  monetary_definition: "Average purchase amount per transaction"
+  monetary_dispersed: "Purchase amount is highly dispersed"
+  monetary_concentrated: "Purchase amount is relatively concentrated"
+  recency_title: "Recency Analysis"
+  recency_definition: "Days since last purchase"
+  recency_dispersed: "Recency is highly dispersed"
+  recency_concentrated: "Recency is relatively consistent"
+  frequency_title: "Purchase Frequency Analysis"
+  frequency_definition: "Total number of purchases in observation period"
+  frequency_dispersed: "Purchase frequency varies significantly, needs segmentation"
+  frequency_concentrated: "Purchase frequency is relatively consistent"
+  ipt_title: "Purchase Cycle Analysis"
+  ipt_definition: "Average days between purchases"
+  ipt_dispersed: "Purchase cycle varies significantly, needs segmentation"
+  ipt_concentrated: "Purchase cycle is relatively consistent"
+  cai_title: "Customer Activity Analysis"
+  cai_definition: "Purchase behavior trend indicator (>0 trending active, <0 trending static)"
+  cai_meaning: "Predict future customer behavior, early identification of churn risk"
+  cai_dispersed: "Activity level varies significantly, needs segmentation"
+  cai_concentrated: "Activity level is relatively consistent"
+  management_meaning: "Management Implications"
+  statistical_summary: "Statistical Summary"
+  status_distribution: "Status Distribution"
+  trending_active: "Trending Active"
+  stable: "Stable"
+  trending_static: "Trending Static"
+  marketing_suggestions: "Marketing Recommendations"
+  active_customers: "Active Customers"
+  active_suggestion: "Seize growth momentum, recommend new products"
+  stable_customers: "Stable Customers"
+  stable_suggestion: "Maintain service level, regular care"
+  static_customers: "Static Customers"
+  static_suggestion: "Emergency recovery measures, special offers"
+  insufficient_data: "Insufficient data"
+  no_ipt_data: "No purchase cycle data"
+  overall_profile: "Overall Profile"
+  pareto_segmentation: "80/20 Segmentation"
+  cycle_segmentation: "Cycle Segmentation"
+  high_value: "High Value"
+  mid_value: "Mid Value"
+  low_value: "Low Value"
+  high_active: "Highly Active"
+  mid_active: "Moderately Active"
+  low_active: "Inactive"
+  high_frequency: "High Frequency"
+  mid_frequency: "Mid Frequency"
+  low_frequency: "Low Frequency"
+  short_cycle: "Short Cycle Customers"
+  mid_cycle: "Mid Cycle Customers"
+  long_cycle: "Long Cycle Customers"
+  high_activity: "High Activity"
+  mid_activity: "Mid Activity"
+  low_activity: "Low Activity"
+  people_unit: "customers"
+  days_unit: "days"
+  times_unit: "times"
+
+# Messages Extended
+messages_extended:
+  warning:
+    segmentation_required: "Please execute customer segmentation first"
+  error:
+    metric_data_not_found: "Cannot find"
+    segment_data_suffix: "metric segmentation data"
+
+# Segmentation View Specific Text
+segmentation:
+  titles:
+    recency: "Recent Purchase Time Segmentation Results"
+    frequency: "Purchase Frequency Segmentation Results"
+    monetary: "Purchase Amount Segmentation Results (80/20 Rule)"
+    cai: "Activity Level Segmentation Results"
+    pcv: "Past Value Segmentation Results (80/20 Rule)"
+    cri: "Customer Stability Segmentation Results (80/20 Rule)"
+    nes: "Customer Status Segmentation Results"
+    default: "Customer Segment Results"
+
+# Table Specific Text
+table:
+  columns:
+    customer_id: "Customer ID"
+    segment: "Customer Segment"
+    count: "Count"
+    percentage: "Percentage"
+    avg_r: "R(days)"
+    avg_f: "F(times)"
+    avg_m: "M($)"
+    recency_days: "Recent Purchase (days)"
+    frequency_count: "Purchase Frequency (times)"
+    purchase_count: "Purchase Count"
+    avg_amount: "Avg Amount ($)"
+    activity_index: "Activity Index"
+    past_value: "Past Value ($)"
+    total_spent: "Total Spent ($)"
+    stability: "Customer Stability"
+    engagement_score: "Engagement Score"
+    customer_status: "Customer Status"
+  messages:
+    no_data: "No customer data in DNA analysis results"
+    no_customer_data: "No customer data to display"
+
+# Error Messages
+errors:
+  no_customer_data: "No customer data in DNA analysis results"
+  no_data_to_display: "No customer data to display"
+  invalid_data_format: "Invalid data format: not a valid two-dimensional data structure"
+  no_columns_to_display: "No columns to display"
+
+# General Labels
+general:
+  labels:
+    metric: "Metric"
+    segmentation: "Segmentation"
+    based_on: "Based on"
+    segmentation_results: "segmentation results"
+
+# ==========================================
+# OPTION A: Key-Based Advice System
+# ==========================================
+# Segment keys for language-independent logic
+segment_keys:
+  recency:
+    high_active: "high_active"
+    general: "general"
+    churned: "churned"
+  frequency:
+    high_frequency: "high_frequency"
+    mid_frequency: "mid_frequency"
+    low_frequency: "low_frequency"
+  monetary:
+    high_value: "high_value"
+    mid_value: "mid_value"
+    low_value: "low_value"
+  cai:
+    trending_active: "trending_active"
+    stable: "stable"
+    trending_static: "trending_static"
+  ipt:
+    short_cycle: "short_cycle"
+    mid_cycle: "mid_cycle"
+    long_cycle: "long_cycle"
+  pcv:
+    high_value: "high_value_pcv"
+    mid_value: "mid_value_pcv"
+    low_value: "low_value_pcv"
+  cri:
+    high_stability: "high_stability"
+    mid_stability: "mid_stability"
+    low_stability: "low_stability"
+
+# Marketing advice for each segment (27 advice strings)
+marketing_advice:
+  recency:
+    high_active:
+      - "Recommend cross-sell related products"
+      - "Invite to join VIP program"
+      - "Offer upgrade service opportunities"
+    general:
+      - "Regular member exclusive offers"
+      - "Establish point reward system"
+      - "Provide birthday month benefits"
+    churned:
+      - "Send personalized win-back emails"
+      - "Provide limited-time coupons"
+      - "Push new product information to reawaken interest"
+  frequency:
+    high_frequency:
+      - "Establish VIP exclusive service"
+      - "Provide bulk purchase discounts"
+      - "Priority access to new products"
+    mid_frequency:
+      - "Design loyalty program"
+      - "Offer cumulative purchase rewards"
+      - "Regular care reminders"
+    low_frequency:
+      - "Understand purchase barriers"
+      - "Provide trial offers"
+      - "Simplify purchase process"
+  monetary:
+    high_value:
+      - "Provide dedicated account manager"
+      - "Customized product recommendations"
+      - "Premium after-sales service"
+    mid_value:
+      - "Recommend upgraded products"
+      - "Bundle sales offers"
+      - "Installment payment plans"
+    low_value:
+      - "Recommend entry-level products"
+      - "Provide trial offers"
+      - "Educate on product value"
+  cai:
+    trending_active:
+      - "Seize growth momentum"
+      - "Recommend new products"
+      - "Offer upgrade plans"
+    stable:
+      - "Maintain service standards"
+      - "Regular care"
+      - "Strengthen relationships"
+    trending_static:
+      - "Emergency win-back program"
+      - "Special offers"
+      - "Understand churn reasons"
+  ipt:
+    short_cycle:
+      - "Avoid over-communication"
+      - "Provide convenient services"
+      - "Respect purchase rhythm"
+    mid_cycle:
+      - "Timely reminders"
+      - "Personalized recommendations"
+      - "Holiday marketing"
+    long_cycle:
+      - "Shorten purchase cycle strategy"
+      - "Provide subscription services"
+      - "Increase interaction frequency"
+  pcv:
+    high_value_pcv:
+      - "Exclusive VIP treatment"
+      - "Thank you appreciation events"
+      - "Long-term value maintenance"
+    mid_value_pcv:
+      - "Value enhancement plan"
+      - "Member tier upgrades"
+      - "Additional purchase offers"
+    low_value_pcv:
+      - "Basic care"
+      - "New customer cultivation"
+      - "Value exploration"
+  cri:
+    high_stability:
+      - "Maintain premium experience"
+      - "Strengthen long-term relationships"
+      - "Referral rewards"
+    mid_stability:
+      - "Improve stability"
+      - "Increase interaction frequency"
+      - "Build purchase habits"
+    low_stability:
+      - "Establish stable relationships"
+      - "Understand fluctuation reasons"
+      - "Provide stability incentives"
+  default:
+    - "Regular care and maintenance"
+    - "Provide personalized service"
+    - "Build long-term relationships"
+
+# Segment display labels (for UI display)
+segment_labels:
+  recency:
+    high_active: "Highly Active"
+    general: "Generally Active"
+    churned: "Churned"
+  frequency:
+    high_frequency: "High Frequency Customers"
+    mid_frequency: "Mid Frequency Customers"
+    low_frequency: "Low Frequency Customers"
+  monetary:
+    high_value: "High Value"
+    mid_value: "Mid Value"
+    low_value: "Low Value"
+  cai:
+    trending_active: "Trending Active"
+    stable: "Stable"
+    trending_static: "Trending Static"
+  ipt:
+    short_cycle: "Short Cycle"
+    mid_cycle: "Mid Cycle"
+    long_cycle: "Long Cycle"
+  pcv:
+    high_value_pcv: "High Past Value"
+    mid_value_pcv: "Mid Past Value"
+    low_value_pcv: "Low Past Value"
+  cri:
+    high_stability: "High Stability"
+    mid_stability: "Mid Stability"
+    low_stability: "Low Stability"

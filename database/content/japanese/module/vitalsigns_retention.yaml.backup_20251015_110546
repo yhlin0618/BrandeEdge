@@ -1,0 +1,136 @@
+# VitalSigns Retention Module - Japanese
+# 顧客維持モジュール
+
+title: "顧客リテンション分析"
+subtitle: "顧客ステータス監視と離脱リスク管理"
+description: "顧客ライフサイクルの追跡、離脱リスクの特定、維持戦略の策定により、顧客基盤の安定性を維持"
+
+ui:
+  kpis:
+    retention_rate: "顧客維持率"
+    churn_rate: "顧客離脱率"
+    at_risk_customers: "離脱リスク顧客"
+    core_ratio: "主力顧客比率"
+    dormant_prediction: "休眠予測"
+    dormant_prediction_footer: "30日以内の予測"
+    new_customers: "新規顧客(N)"
+    core_customers: "主力顧客(E0)"
+    drowsy_customers: "うとうと顧客(S1)"
+    semi_sleeping: "半休眠(S2)"
+    sleeping_customers: "休眠顧客(S3)"
+
+  cards:
+    customer_structure: "顧客ステータス構造"
+    churn_risk_analysis: "離脱リスク分析"
+    ai_analysis: "🤖 AI分析・提案"
+
+  ai_tabs:
+    retention_analysis: "維持分析"
+    new_customer_strategy: "新規顧客戦略"
+    core_customer_deepening: "主力顧客深化"
+    drowsy_awakening: "うとうと顧客喚起"
+    semi_dormant_retention: "半休眠顧客維持"
+    sleeping_activation: "休眠顧客活性化"
+    structure_optimization: "構造最適化"
+
+  charts:
+    customer_structure_title: "顧客ステータス分布 (N→E0→S1→S2→S3)"
+    risk_distribution_title: "離脱リスク評価"
+
+  buttons:
+    download_structure: "CSVダウンロード"
+    download_risk: "CSVダウンロード"
+
+server:
+  notifications:
+    ai_analysis_failed: "AI分析失敗"
+    data_loading: "維持データ読み込み中..."
+    calculation_complete: "計算完了"
+
+  customer_types:
+    N: "新規顧客"
+    E0: "主力顧客"
+    S1: "うとうと顧客"
+    S2: "半休眠"
+    S3: "休眠顧客"
+
+  risk_levels:
+    low: "低リスク"
+    medium: "中リスク"
+    high: "高リスク"
+    critical: "超高リスク"
+
+  charts:
+    customer_count: "顧客数"
+    customer_status: "顧客ステータス"
+    ratio: "比率"
+    people_unit: "人"
+
+  ai_analysis:
+    retention:
+      title: "📊 維持健全性評価"
+      current_rate: "現在の維持率"
+      excellent: "優れた実績"
+      needs_improvement: "改善が必要"
+      suggestions_title: "💡 推奨戦略"
+      suggestion1: "優先対応"
+      at_risk_suffix: "人のリスク顧客"
+      suggestion2: "主力顧客のエンゲージメント強化でロイヤルティ向上"
+      suggestion3: "顧客離脱早期警告システム構築"
+
+    new_customer:
+      title: "🆕 新規顧客特性"
+      count_prefix: "合計"
+      count_suffix: "人の新規顧客"
+      strategy_title: "🎯 2回目購入促進戦略"
+      suggestion1: "初回購入後7-14日以内に感謝状とクーポン送付"
+      suggestion2: "関連商品推奨で客単価向上"
+      suggestion3: "新規顧客専用コミュニティ構築でエンゲージメント向上"
+
+    core_customer:
+      title: "🏆 主力顧客分析"
+      count_prefix: "合計"
+      count_suffix: "人の主力顧客"
+      strategy_title: "💎 VIP管理戦略"
+      suggestion1: "特典付きVIP会員プログラム構築"
+      suggestion2: "パーソナライズサービスと優先サポート提供"
+      suggestion3: "専用イベント定期開催でエンゲージメント強化"
+      suggestion4: "高価値商品推奨で客単価向上"
+
+    drowsy:
+      title: "😴 うとうと顧客診断"
+      count_prefix: "合計"
+      count_suffix: "人のうとうと顧客"
+      strategy_title: "🔔 喚起戦略"
+      suggestion1: "パーソナライズケアメッセージ送信"
+      suggestion2: "期間限定特別プロモーション提供"
+      suggestion3: "新商品やベストセラー商品推奨"
+
+    semi_dormant:
+      title: "😴 半休眠顧客分析"
+      count_prefix: "合計"
+      count_suffix: "人の半休眠顧客"
+      strategy_title: "⚡ 深層喚起戦略"
+      suggestion1: "大幅割引クーポン提供で再購入促進"
+      suggestion2: "BOGO・購入額特典キャンペーン実施"
+      suggestion3: "マルチチャネルでカート放棄リマインド"
+      suggestion4: "アンケートで離脱理由把握と改善"
+
+    sleeping:
+      title: "💤 休眠顧客分析"
+      count_prefix: "合計"
+      count_suffix: "人の休眠顧客"
+      strategy_title: "♻️ 再活性化戦略"
+      suggestion1: "「お待ちしております」テーマメール送信"
+      suggestion2: "大幅割引またはギフト提供"
+      suggestion3: "ブランド価値と改善点再紹介"
+
+    structure:
+      title: "📊 構造健全性"
+      description: "顧客構造分析は現在のステータス分布を示します"
+      optimization_title: "🎯 最適化目標"
+      goal1: "主力顧客比率を30%以上に向上"
+      goal2: "休眠顧客比率を20%未満に削減"
+      goal3: "新規顧客獲得と離脱のバランス維持"
+
+language: "ja_JP"

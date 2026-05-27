@@ -1,0 +1,304 @@
+# ==========================================
+# BrandEdge - Flagship Console Module Language Content (English)
+# ==========================================
+# Version: 1.0
+# Last Updated: 2025-10-06
+
+# Module Basic Information
+title: "BrandEdge Brand Imprint Engine"
+subtitle: "Brand Positioning Analysis Console"
+description: "Comprehensive brand strategy recommendations through AI-powered analysis of customer reviews"
+
+# UI Text
+ui:
+  # Welcome Messages
+  welcome:
+    banner: "Welcome to BrandEdge Brand Imprint Engine"
+    subtitle: "Enterprise-Grade Brand Positioning Analysis Platform"
+    version: "v3.2.1 Flagship Edition"
+    description: "Supports 10-30 product attributes, up to 1000 reviews, and 20 brands analyzed simultaneously"
+
+  # Step Indicators
+  steps:
+    step1: "① Data Upload"
+    step2: "② Attribute Extraction"
+    step3: "③ Attribute Scoring"
+    step4: "④ Analysis Results"
+
+  # Attribute Extraction
+  attributes:
+    title: "Attribute Extraction Settings"
+    subtitle: "Extract product attributes from reviews"
+    num_attributes_label: "Number of Attributes"
+    num_attributes_help: "Select the number of product attributes to extract (10-30)"
+    extract_button: "Start Extraction"
+    extracting: "Extracting attributes..."
+    extracted: "Extracted {count} attributes"
+    attributes_list: "Extracted Attributes"
+
+  # Attribute Scoring
+  scoring:
+    title: "Attribute Scoring"
+    subtitle: "Score attributes for each review"
+    sample_size_label: "Scoring Sample Size"
+    sample_size_help: "Number of reviews to score per brand"
+    score_button: "Start Scoring"
+    scoring: "Scoring in progress..."
+    progress: "Progress: {done}/{total}"
+    completed: "Scoring Complete"
+
+  # Labels (UI element labels)
+  labels:
+    select_brands: "Select Brands to Compare"
+
+  # Analysis Modules
+  analysis:
+    title: "Analysis Modules"
+    subtitle: "Select analyses to execute"
+    select_all: "Select All"
+    deselect_all: "Deselect All"
+    run_analysis: "Run Analysis"
+    running: "Analyzing..."
+    completed: "Analysis Complete"
+    select_brands: "Select brands to compare"
+    select_target_brand: "Select target brand"
+    generate_identity: "Generate Identity Strategy"
+    select_variation: "Select Variation"
+    run_strategy: "Explore Strategy"
+
+  # Analysis Module List
+  modules:
+    market_profile: "Market Profile Analysis"
+    market_track: "Market Track Analysis"
+    advanced_dna: "Advanced DNA Analysis"
+    key_factors: "Key Factors Analysis"
+    ideal_point: "Ideal Point Analysis"
+    strategy_positioning: "Strategy Positioning Analysis"
+    brand_identity: "Brand Identity Analysis"
+    ai_insights: "AI Comprehensive Insights"
+
+  # Results Display
+  results:
+    title: "Analysis Results"
+    subtitle: "View analysis reports"
+    export_all: "Export All Results"
+    export_report: "Export Report"
+    download_pdf: "Download PDF"
+    download_excel: "Download Excel"
+
+  # Buttons
+  buttons:
+    start: "Start"
+    next: "Next"
+    previous: "Previous"
+    reset: "Reset"
+    refresh: "Refresh"
+    export: "Export"
+    save: "Save"
+    cancel: "Cancel"
+    close: "Close"
+
+# Message Text
+messages:
+  redirect_to_upload: "Please select 'Data Upload' from the sidebar"
+  # Success Messages
+  success:
+    attributes_extracted: "✅ Successfully extracted {count} attributes"
+    scoring_completed: "✅ Scoring complete, {count} reviews scored"
+    analysis_completed: "✅ Analysis complete"
+    data_saved: "✅ Data saved"
+    export_completed: "✅ Export complete"
+
+  # Processing Messages
+  processing:
+    extracting_attributes: "🔄 Extracting attributes... ({progress}%)"
+    scoring_reviews: "🔄 Scoring review {current}/{total}..."
+    analyzing: "🔄 Running analysis..."
+    generating_report: "🔄 Generating report..."
+    exporting: "🔄 Exporting..."
+
+  # Error Messages
+  error:
+    no_data: "❌ Please upload data first"
+    no_attributes: "❌ Please extract attributes first"
+    no_scoring: "❌ Please complete scoring first"
+    extraction_failed: "❌ Attribute extraction failed: {error}"
+    scoring_failed: "❌ Scoring failed: {error}"
+    analysis_failed: "❌ Analysis failed: {error}"
+    export_failed: "❌ Export failed: {error}"
+    api_error: "❌ API error: {error}"
+    invalid_attributes_count: "❌ Number of attributes must be between 10-30"
+
+  # Warning Messages
+  warning:
+    large_dataset: "⚠️ Large dataset, processing may take longer"
+    many_attributes: "⚠️ Many attributes, scoring may take longer"
+    api_quota: "⚠️ Approaching API quota limit"
+    slow_connection: "⚠️ Slow network connection"
+
+  # Info Messages
+  info:
+    ready: "Ready"
+    processing: "Processing"
+    waiting: "Waiting"
+    completed: "Completed"
+    select_brands: "Please select brands to analyze"
+    select_attributes: "Please select attributes to analyze"
+
+# Statistical Information
+stats:
+  total_reviews: "Total Reviews"
+  total_brands: "Number of Brands"
+  attributes_count: "Number of Attributes"
+  scored_reviews: "Scored Reviews"
+  analysis_modules: "Analysis Modules"
+  completed_modules: "Completed Modules"
+
+# Progress Information
+progress:
+  title: "Processing Progress"
+  elapsed_time: "Elapsed Time"
+  estimated_time: "Estimated Remaining"
+  current_step: "Current Step"
+  total_steps: "Total Steps"
+
+# Help Text
+help:
+  overview: |
+    BrandEdge Brand Imprint Engine is an enterprise-grade brand positioning analysis platform
+    that provides comprehensive brand strategy recommendations through AI-powered deep analysis of customer reviews.
+
+  workflow: |
+    Analysis Workflow:
+    1. Upload Review Data - Upload Excel or CSV file containing brand reviews
+    2. Extract Attributes - AI automatically extracts 10-30 key product attributes from reviews
+    3. Score Attributes - System scores all attributes for each review (1-5 scale)
+    4. Run Analysis - Select analysis modules to execute and generate strategy reports
+
+  attributes_extraction: |
+    Attribute Extraction Details:
+    - System automatically extracts product attributes that consumers focus on from reviews
+    - Select 10-30 attributes (15 recommended)
+    - Extraction takes approximately 2-5 minutes
+    - Automatically removes duplicate and irrelevant attributes
+
+  attributes_scoring: |
+    Attribute Scoring Details:
+    - System scores all attributes for each review (1-5 scale)
+    - Scoring based on positive/negative descriptions of attributes in reviews
+    - Scoring time depends on number of reviews and attributes
+    - Supports batch processing for improved efficiency
+
+  analysis_modules: |
+    Eight Core Analysis Modules:
+    1. Market Profile - Market segmentation and customer analysis
+    2. Market Track - Growth opportunity identification and strategic priorities
+    3. DNA Analysis - Brand DNA radar chart and competitive assessment
+    4. Key Factors - Success factor identification
+    5. Ideal Point - Target achievement analysis
+    6. Strategy Positioning - Four-quadrant strategic recommendations
+    7. Brand Identity - Differentiation analysis
+    8. AI Insights - Comprehensive strategy report
+
+# Configuration Information
+config:
+  min_attributes: 10
+  max_attributes: 30
+  default_attributes: 15
+  max_reviews: 1000
+  max_brands: 20
+  sample_size_default: 50
+
+# Table Titles
+tables:
+  market_profile: "Brand Market Positioning Profile"
+  brand_identity: "Brand Identity Analysis"
+  growth_tracks: "Growth Track Analysis"
+  pca_loadings: "Principal Component Loading Matrix"
+  ideal_point: "Ideal Point Achievement"
+  strategy_matrix: "Strategy Matrix"
+
+# HTML Section Text
+segments:
+  market_status: "Market Segmentation Status:"
+  track_recommendations: "Recommended Priority Market Tracks:"
+  brand_differentiation: "Brand Differentiation Level:"
+  key_findings: "Key Findings:"
+  recommendations: "Strategic Recommendations:"
+  top_tracks: "Top 5 Growth Tracks"
+
+# Chart Titles
+plots:
+  growth_track_title: "Market Growth Track Opportunity Chart"
+  dna_radar_title: "Brand DNA Radar Chart"
+  dna_comparison_title: "Brand DNA Multi-Dimensional Comparison"
+  identity_scatter_title: "Brand Identity Analysis"
+  strategy_quadrant_title: "Strategy Positioning Quadrants"
+  pca_biplot_title: "Principal Component Analysis Biplot"
+  ideal_point_title: "Ideal Point Achievement Analysis"
+  attribute_importance_title: "Attribute Importance Analysis"
+  brand_label: "Brand"
+  attribute_label: "Attribute"
+  score_label: "Score"
+
+# Chart Axis Labels
+axes:
+  growth_potential: "Growth Potential"
+  market_importance: "Market Importance"
+  brand_strength: "Brand Strength"
+  differentiation: "Differentiation Level"
+  pc1: "Principal Component 1"
+  pc2: "Principal Component 2"
+  ideal_distance: "Distance from Ideal Point"
+  attribute_weight: "Attribute Weight"
+
+# Segment Labels
+labels:
+  segments:
+    leader_brand: "Leader Brand"
+    niche_brand: "Niche Brand"
+    mass_brand: "Mass Brand"
+    challenger_brand: "Challenger Brand"
+
+  tracks:
+    high_potential: "High Potential Track"
+    mature_track: "Mature Track"
+    niche_track: "Niche Track"
+    low_priority: "Low Priority Track"
+
+  strategy:
+    leader: "Leader"
+    challenger: "Challenger"
+    nicher: "Nicher"
+    follower: "Follower"
+
+# DNA Analysis Labels
+analysis:
+  dna_insights_title: "Brand DNA Analysis Insights:"
+  leading_brand: "Leading Brand:"
+  avg_score: "Average Score:"
+  diff_attributes: "Attributes with Greatest Differentiation:"
+  brand_count: "Number of Brands:"
+  analysis_dimensions: "Analysis Dimensions:"
+  attributes_suffix: "attributes"
+  brand_detail_title: "Detailed Brand Performance:"
+  better_performance: "Better Performance:"
+  needs_improvement: "Needs Improvement:"
+  no_advantage: "No Clear Advantage"
+  balanced: "Balanced Performance"
+  strength_attrs: "Strength Attributes"
+  strength_count: "Strength Count"
+  weakness_attrs: "Weakness Attributes"
+  weakness_count: "Weakness Count"
+  ai_insights_title: "AI In-Depth Insights and Strategic Recommendations:"
+  strategy_title: "Strategic Recommendations:"
+  strategy_leader: "Leading brands should continue to strengthen their advantages and establish higher competitive barriers"
+  strategy_challenger: "Challenger brands should focus on differentiated positioning and avoid direct competition"
+  strategy_market: "Monitor market trends and adjust product strategy in a timely manner"
+
+# Statistical Labels
+stats_labels:
+  brand_count: "brands"
+  avg_market_share: "Average Market Share"
+  score_range: "Score Range"
+  variance_explained: "Variance Explained"

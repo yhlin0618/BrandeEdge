@@ -1,0 +1,114 @@
+title: "檔案上傳"
+subtitle: "多格式檔案上傳與處理"
+description: "支援 CSV、Excel 格式。請確保資料包含品牌/產品變體欄位"
+
+file_upload:
+  label: "選擇檔案"
+  placeholder: "點擊選擇或拖拽檔案至此"
+  accepted_formats: "支援格式：.csv, .xlsx, .xls"
+  max_size: "檔案大小限制：10MB"
+
+options:
+  header: "第一行作為標題"
+  encoding: "檔案編碼"
+  separator: "分隔符"
+
+preview:
+  title: "資料預覽"
+  rows_shown: "顯示前 10 行"
+  total_rows: "總行數"
+  total_columns: "總欄數"
+
+validation:
+  checking: "檢查資料格式中..."
+  valid: "✅ 資料格式正確"
+  invalid: "❌ 資料格式錯誤"
+  missing_column: "缺少必要欄位：{column}"
+  empty_file: "檔案為空"
+
+buttons:
+  upload: "開始上傳"
+  clear: "清除資料"
+  proceed: "繼續分析"
+
+sections:
+  review_upload: "1.1 上傳評論資料"
+  sales_upload: "1.2 上傳銷售資料 (選填)"
+  review_file_label: "下圖可上傳多個顧客評論檔案(系統會自動合併)"
+  sales_file_label: "下圖可上傳多個銷售資料檔案(系統會自動合併)"
+  review_limit: "限制：最多{max_brands}個品牌，每個品牌最多{max_records}筆評論"
+  sales_limit: "限制：最多{max_brands}個品牌，每個品牌最多{max_records}筆銷售資料"
+
+# 欄位說明
+column_descriptions:
+  review:
+    title: "📋 評論資料欄位說明"
+    columns:
+      - name: "Variation"
+        type: "字串"
+        required: true
+        description: "商品/品牌識別碼（如 Amazon ASIN、品牌名稱）"
+      - name: "ASIN"
+        type: "字串"
+        required: false
+        description: "Amazon 標準識別碼（選填，可替代 Variation）"
+      - name: "Title"
+        type: "字串"
+        required: true
+        description: "評論標題；簡短扼要；長度建議 10~100 字元"
+      - name: "Body"
+        type: "字串"
+        required: true
+        description: "評論內容；完整陳述使用心得；長度建議 50~1000 字元"
+    note: "⚡ 欄位名稱不區分大小寫：系統會自動識別 variation、Variation、VARIATION 等不同寫法"
+  sales:
+    title: "📋 銷售資料欄位說明"
+    columns:
+      - name: "Variation"
+        type: "字串"
+        required: true
+        description: "商品/品牌識別碼（需與評論資料的 Variation 對應）"
+      - name: "ASIN"
+        type: "字串"
+        required: false
+        description: "Amazon 標準識別碼（選填，可替代 Variation）"
+      - name: "Sales"
+        type: "數值"
+        required: true
+        description: "銷售數量"
+      - name: "payment_time"
+        type: "日期"
+        required: false
+        description: "交易日期（選填，格式：YYYY-MM-DD）"
+      - name: "price"
+        type: "數值"
+        required: false
+        description: "商品單價（選填）"
+    note: "⚡ 銷售資料的 Variation 需與評論資料一致，系統才能正確合併分析"
+
+tabs:
+  review_preview: "評論資料預覽"
+  sales_preview: "銷售資料預覽"
+
+messages:
+  upload_success: "資料上傳成功！處理了 {rows} 行"
+  upload_failed: "上傳失敗：{error}"
+  processing: "處理資料中，請稍候..."
+  brand_limit: "⚠️ 限制為前 {max_brands} 個品牌，每品牌最多 {max_records} 則評論"
+  sales_brand_limit: "⚠️ 限制為前 {max_brands} 個品牌，每品牌最多 {max_records} 則銷售記錄"
+  no_data: "⚠️ 請先上傳並預覽評論資料"
+  file_format_error: "⚠️ 檔案 '{filename}' 格式不支援，只能上傳 .xlsx / .xls/.csv"
+  missing_columns: "⚠️ 檔案 '{filename}' 缺少 Variation / Title / Body 欄位"
+  review_uploaded: "✅ 已上傳評論資料：{brands} 個品牌，共 {records} 筆（每品牌上限{limit}筆）"
+  sales_uploaded: "✅ 已上傳銷售資料：{brands} 個品牌，共 {records} 筆（每品牌上限{limit}筆）"
+  at_least_upload: "⚠️ 請至少上傳評論資料"
+
+console:
+  reading_file: "📖 讀取檔案：{filename}"
+  file_type_detected: "📄 檔案類型：{type}"
+  rows_detected: "📊 偵測到 {rows} 行"
+  columns_detected: "📋 偵測到 {columns} 欄"
+  processing_data: "⏳ 處理資料中..."
+  validation_success: "✅ 資料驗證成功"
+  validation_failed: "❌ 資料驗證失敗：{reason}"
+

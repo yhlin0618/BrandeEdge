@@ -1,0 +1,256 @@
+# ==========================================
+# 銷售模型模組配置
+# ==========================================
+# Module: sales_model
+# Path: modules/module_sales_model_insightforge.R
+# Version: 2.0.0
+
+module:
+  id: "sales_model_insightforge"
+  name: "sales_model_module"
+  description: "poisson_regression_analysis"
+  version: "2.0.0"
+  path: "modules/module_sales_model_insightforge.R"
+  type: "analysis"
+  icon: "chart-line"
+  functions:
+    ui: "sales_model_insightforgeModuleUI"
+    server: "salesModelModuleServer"
+
+# UI 配置
+ui:
+  title_key: "title"
+  card_status: "danger"
+
+  tabs:
+    - id: "variation_mean"
+      title_key: "tabs.regression"
+      icon: "chart-bar"
+      hint_id: "variation_mean_tbl"
+
+    - id: "sales_model"
+      title_key: "tabs.prediction"
+      icon: "chart-line"
+      hint_id: "run_poisson"
+
+    - id: "marketing_strategy"
+      title_key: "tabs.visualization"
+      icon: "user-tag"
+
+  buttons:
+    run_analysis:
+      id: "run_poisson"
+      label_key: "ui.buttons.run_analysis"
+      class: "btn-warning"
+      hint_id: "run_poisson"
+
+    generate_strategy:
+      id: "generate_strategy"
+      label_key: "ui.buttons.save_model"
+      class: "btn-success"
+
+# Poisson 回歸設定
+poisson_regression:
+  # 模型設定
+  model:
+    type: "poisson"                  # poisson | negative_binomial | zero_inflated
+    confidence_level: 0.95           # 信賴區間
+    standardize_predictors: true     # 標準化預測變數
+
+  # 變數選擇
+  variable_selection:
+    method: "all"                    # all | stepwise | lasso | manual
+    min_variance: 0.01               # 最小變異數門檻
+    vif_threshold: 10                # VIF 多重共線性門檻
+
+  # 模型診斷
+  diagnostics:
+    check_overdispersion: true       # 檢查過度離散
+    check_zero_inflation: true       # 檢查零膨脹
+    residual_analysis: true          # 殘差分析
+    goodness_of_fit: true           # 適配度檢定
+
+# 資料匹配設定
+data_matching:
+  # 智能匹配策略
+  smart_matching:
+    enabled: true                    # 啟用智能匹配
+    confidence_threshold: 0.8        # 匹配信心門檻
+
+  strategies:
+    - type: "exact"                  # 完全匹配
+      priority: 1
+
+    - type: "fuzzy"                  # 模糊匹配
+      priority: 2
+      similarity_threshold: 0.85
+
+    - type: "sequential"             # 順序匹配
+      priority: 3
+      description_key: "matching.sequential_desc"
+
+  # 匹配失敗處理
+  fallback:
+    strategy: "skip"                 # skip | impute | error
+    show_warning: true
+
+# 結果計算設定
+results_calculation:
+  # 邊際效應
+  marginal_effect:
+    calculate: true
+    unit: "percentage"               # percentage | absolute
+    interpretation_threshold: 5      # 顯著性門檻 (%)
+
+  # 賽道倍數
+  track_multiplier:
+    calculate: true
+    score_range: "auto"             # auto | manual
+    manual_range: [1, 5]            # 手動設定範圍
+
+  # 商業解釋
+  business_interpretation:
+    auto_generate: true              # 自動產生解釋
+    language: "zh_TW"               # 語言
+    detail_level: "detailed"        # simple | detailed | technical
+
+# 視覺化設定
+visualization:
+  # 邊際效應圖
+  marginal_effect_plot:
+    enabled: true
+    type: "horizontal_bar"          # horizontal_bar | vertical_bar | lollipop
+    color_scheme:
+      positive: "#28a745"           # 正向效應顏色
+      negative: "#dc3545"           # 負向效應顏色
+    show_values: true
+    sort_by: "effect"               # effect | name | significance
+
+  # 評分均值熱圖
+  heatmap:
+    enabled: false
+    color_palette: "RdYlGn"         # 色彩調色板
+    show_values: true
+
+  # 互動功能
+  interactive:
+    enabled: true
+    library: "plotly"               # plotly | highcharter
+    hover_info: ["effect", "significance", "interpretation"]
+
+# 行銷策略生成
+marketing_strategy:
+  # 策略模板
+  templates:
+    enabled: true
+    language: "zh_TW"
+
+  # 策略元素
+  components:
+    key_attributes: 3               # 顯示前幾個關鍵屬性
+    include_metrics: true           # 包含數據指標
+    include_recommendations: true   # 包含建議
+    include_action_items: true      # 包含行動項目
+
+  # A/B 測試建議
+  ab_testing:
+    suggest: true                   # 建議 A/B 測試
+    min_sample_size: 1000          # 最小樣本數
+    confidence_level: 0.95         # 信賴水準
+
+# 資料處理限制
+data_limits:
+  min_variations: 2                 # 最少 Variation 數量
+  max_variations: 50                # 最多 Variation 數量
+  min_sales_records: 10             # 最少銷售記錄數
+  max_sales_records: 100000        # 最多銷售記錄數
+
+# 效能設定
+performance:
+  # 快取
+  cache:
+    enabled: true
+    ttl: 1800                       # 快取存活時間（秒）
+
+  # 計算優化
+  optimization:
+    use_sparse_matrix: true         # 使用稀疏矩陣
+    parallel_computation: false     # 平行計算（回歸通常單執行緒較快）
+
+# 錯誤處理
+error_handling:
+  # 模型失敗
+  model_failure:
+    strategy: "graceful"            # graceful | strict | retry
+    fallback_method: "correlation"  # correlation | simple_regression
+    max_retries: 2
+
+  # 資料問題
+  data_issues:
+    missing_sales: "skip"           # skip | impute | error
+    missing_scores: "skip"          # skip | impute | error
+    insufficient_data: "warning"    # warning | error
+
+# 輸出設定
+output:
+  # 結果表格
+  results_table:
+    columns:
+      - "attribute"
+      - "coefficient"
+      - "marginal_effect"
+      - "track_multiplier"
+      - "interpretation"
+      - "business_meaning"
+    sort_by: "track_multiplier"
+    sort_order: "desc"              # desc | asc
+
+  # 匯出功能
+  export:
+    enabled: true
+    formats: ["csv", "xlsx"]
+    include_raw_data: false
+    include_diagnostics: true
+
+# 通知設定
+notifications:
+  analysis_start:
+    type: "message"
+    template_key: "messages.info.analyzing"
+    duration: 3
+
+  analysis_complete:
+    type: "message"
+    template_key: "messages.success.analysis_complete"
+    duration: 5
+
+  analysis_error:
+    type: "error"
+    template_key: "messages.error.analysis_failed"
+    duration: 10
+
+  strategy_generated:
+    type: "message"
+    template_key: "messages.success.model_saved"
+    duration: 5
+
+# 進階設定
+advanced:
+  # 統計設定
+  statistics:
+    p_value_threshold: 0.05        # 顯著性水準
+    adjusted_r_squared: true       # 計算調整後 R²
+    aic_bic: true                  # 計算 AIC/BIC
+
+  # 除錯
+  debug:
+    show_model_summary: false      # 顯示模型摘要
+    save_model_object: false       # 儲存模型物件
+    log_iterations: false          # 記錄迭代過程
+
+  # 實驗性功能
+  experimental:
+    bayesian_regression: false     # 貝氏回歸
+    machine_learning: false        # ML 模型比較
+    time_series_adjustment: false  # 時間序列調整
+

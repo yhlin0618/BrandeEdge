@@ -1,0 +1,1754 @@
+# ==========================================
+# VitalSigns - DNA Module Language Content (Chinese)
+# ==========================================
+# 客戶DNA分析模組語言內容（中文）
+# Version: 1.0.0
+# Last Updated: 2025-10-11
+
+# 模組基本資訊
+title: "客戶DNA分析"
+subtitle: "深度客群分析、RFM分群與AI增強洞察"
+description: "7維度DNA分析、智慧分群、RFM客群畫像、AI驅動的行為洞察與行銷建議"
+
+# UI 區塊
+ui:
+  sections:
+    overview: "DNA分析概覽"
+    metric_selection: "顧客標籤"
+    distribution_charts: "分布圖表"
+    clustering: "客群分組分析"
+    rfm_segments: "RFM客群"
+    customer_lifecycle: "客戶生命週期"
+    ai_analysis: "AI 深度分析結果"
+    ai_insight_title: "AI 洞察"
+    attribute_extraction: "屬性萃取"
+    instructions: "操作說明"
+    analysis_tools: "分析工具"
+    view_options: "檢視選項"
+    visualization: "視覺化分析"
+    stat_summary: "統計摘要"
+    customer_info: "顧客資訊"
+
+  # 控制面板
+  controls:
+    title: "分析控制"
+    metric_buttons_title: "DNA 指標選擇"
+    clustering_params: "分群參數"
+    rfm_settings: "RFM 設定"
+    ai_options: "AI 分析選項"
+    section1: "一、"
+    section2: "二、"
+    section3: "三、"
+
+  # 檢視模式
+  view_modes:
+    charts: "統計圖表"
+    ai_results: "AI分析結果"
+    segmentation: "客群分組"
+
+  # 頁籤標題
+  tabs:
+    dna_analysis: "顧客標籤分析"
+    statistics: "統計"
+    explanation: "結果說明"
+    email_mapping: "客戶ID映射"
+    ai_analysis: "AI 分析"
+
+  # 選項
+  options:
+    convert_to_text: "將數值轉換為高中低文字"
+    download_data: "下載分析資料"
+
+  # 按鈕
+  buttons:
+    # 分析按鈕
+    start_clustering: "執行客戶分群"
+    calculate_rfm: "計算 RFM"
+    run_ai_analysis: "執行AI增強分析"
+    run_ai_insight: "執行 AI 分析和洞察"
+    generate_ai_insight: "生成 AI 洞察"
+    extract_attributes: "萃取屬性"
+    generate_profiles: "生成客群畫像"
+
+    # 匯出按鈕
+    export_segments: "匯出分群結果"
+    export_insights: "匯出AI洞察"
+    download_report: "下載完整報告"
+    download_full_list: "下載完整客戶名單"
+
+  # 區段標頭
+  headers:
+    ai_advice: "AI 行銷建議"
+    customer_list: "詳細客戶名單"
+
+  # 顯示模式
+  display_mode:
+    text_classification: "顯示模式：文字分類 (高/中/低)"
+    numeric_format: "顯示模式：數值 (小數點後2位)"
+
+  # DataTable 語言選項
+  datatable:
+    pagination_info: "顯示第 _START_ 至 _END_ 筆，共 _TOTAL_ 筆"
+    search: "搜尋"
+    length_menu: "顯示 _MENU_ 筆資料"
+    first_page: "第一頁"
+    last_page: "最後一頁"
+    next: "下一頁"
+    previous: "上一頁"
+
+  # 分群訊息
+  segmentation:
+    hint_label: "提示"
+    hint_message: "請先執行客戶分群分析"
+    empty_message: "請點擊『執行客戶分群』按鈕開始分析"
+    message_label: "訊息"
+    empty_data_message: "分組資料為空，請確認資料正確"
+
+# DNA 指標定義（7維度）
+dna_metrics:
+  # 購買金額 (原 M - Monetary)
+  monetary:
+    name: "購買金額"
+    short_name: "M"
+    full_name: "Monetary"
+    description: "客戶的總消費金額"
+    icon: "💰"
+    unit: "元"
+    interpretation: "消費金額越高，客戶價值越大"
+
+  # 最近購買日 (原 R - Recency)
+  recency:
+    name: "最近購買日"
+    short_name: "R"
+    full_name: "Recency"
+    description: "距離最後一次購買的天數"
+    icon: "🕒"
+    unit: "天"
+    interpretation: "天數越小，客戶越活躍"
+    reverse: true  # 數值越小越好
+
+  # 購買頻率 (原 F - Frequency)
+  frequency:
+    name: "購買頻率"
+    short_name: "F"
+    full_name: "Frequency"
+    description: "購買的總次數"
+    icon: "🔁"
+    unit: "次"
+    interpretation: "購買次數越多，忠誠度越高"
+
+  # 購買週期 (原 IPT - Inter-Purchase Time)
+  ipt:
+    name: "購買週期"
+    short_name: "IPT"
+    full_name: "Inter-Purchase Time"
+    description: "平均購買間隔天數"
+    icon: "⏱️"
+    unit: "天"
+    interpretation: "間隔越短，購買頻率越高"
+    reverse: true
+
+  # 顧客活躍度 (原 CAI - Customer Activity Index)
+  cai:
+    name: "顧客活躍度"
+    short_name: "CAI"
+    full_name: "Customer Activity Index"
+    description: "綜合活躍程度指標"
+    icon: "📈"
+    unit: "指數"
+    range: [0, 1]
+    interpretation: "指數越高，客戶越活躍"
+
+  # 過去價值 (原 PCV - Past Customer Value)
+  pcv:
+    name: "過去價值"
+    short_name: "PCV"
+    full_name: "Past Customer Value"
+    description: "歷史總消費價值"
+    icon: "💎"
+    unit: "元"
+    interpretation: "歷史價值越高，客戶越重要"
+
+  # 顧客穩定度 (原 CRI - Customer Richness Index)
+  cri:
+    name: "顧客穩定度"
+    short_name: "CRI"
+    full_name: "Customer Richness Index"
+    description: "購買穩定性評分"
+    icon: "🎯"
+    unit: "分數"
+    interpretation: "分數越高，購買越穩定"
+
+  # 顧客狀態 (原 NES - New/Engaged/Sleeping)
+  nes:
+    name: "顧客狀態"
+    short_name: "NES"
+    full_name: "New/Engaged/Sleeping"
+    description: "客戶生命週期狀態"
+    icon: "🔄"
+    unit: "狀態"
+    interpretation: "追蹤客戶的活躍階段"
+
+# RFM 分析
+rfm_analysis:
+  # 11個RFM客群
+  segments:
+    champions:
+      name: "Champions"
+      chinese_name: "冠軍客戶"
+      description: "最佳客戶，高頻高價值且最近有購買"
+      criteria: "R=5, F=5, M=5"
+      icon: "👑"
+      color: "#28a745"
+      characteristics:
+        - "購買頻率最高"
+        - "消費金額最大"
+        - "最近仍活躍"
+        - "品牌忠誠度極高"
+      strategy: "給予最高等級待遇，維持關係"
+      percentage_range: "5-10%"
+
+    loyal_customers:
+      name: "Loyal Customers"
+      chinese_name: "忠誠客戶"
+      description: "經常購買且穩定的客戶"
+      criteria: "R>=3, F>=4"
+      icon: "💎"
+      color: "#17a2b8"
+      characteristics:
+        - "購買頻率高"
+        - "消費穩定"
+        - "關係長久"
+      strategy: "提供忠誠獎勵，鼓勵推薦"
+      percentage_range: "10-15%"
+
+    potential_loyalists:
+      name: "Potential Loyalists"
+      chinese_name: "潛力忠誠客戶"
+      description: "最近購買且有潛力成為忠誠客戶"
+      criteria: "R>=4, F>=2, M>=3"
+      icon: "⭐"
+      color: "#ffc107"
+      characteristics:
+        - "最近有購買"
+        - "有一定消費"
+        - "培養價值高"
+      strategy: "提供會員計劃，增加互動"
+      percentage_range: "10-15%"
+
+    recent_customers:
+      name: "Recent Customers"
+      chinese_name: "新近客戶"
+      description: "最近首次購買的新客"
+      criteria: "R>=4, F=1"
+      icon: "🆕"
+      color: "#20c997"
+      characteristics:
+        - "剛加入"
+        - "需要培養"
+        - "潛力未知"
+      strategy: "提供新客優惠，建立信任"
+      percentage_range: "15-20%"
+
+    promising:
+      name: "Promising"
+      chinese_name: "有潛力客戶"
+      description: "最近購買，消費金額可觀"
+      criteria: "R>=3, F<=2, M>=4"
+      icon: "💫"
+      color: "#6610f2"
+      characteristics:
+        - "客單價高"
+        - "頻率待提升"
+        - "有增長潛力"
+      strategy: "交叉銷售，提高頻率"
+      percentage_range: "5-10%"
+
+    need_attention:
+      name: "Need Attention"
+      chinese_name: "需要關注"
+      description: "曾經是好客戶，但最近沒有購買"
+      criteria: "R<=3, F>=3, M>=3"
+      icon: "⚠️"
+      color: "#fd7e14"
+      characteristics:
+        - "過去表現好"
+        - "最近冷淡"
+        - "需要喚醒"
+      strategy: "發送關懷訊息，限時優惠"
+      percentage_range: "5-10%"
+
+    about_to_sleep:
+      name: "About to Sleep"
+      chinese_name: "即將休眠"
+      description: "購買頻率下降，有流失風險"
+      criteria: "R<=3, F<=3, M>=2"
+      icon: "😴"
+      color: "#e83e8c"
+      characteristics:
+        - "活躍度下降"
+        - "流失徵兆"
+        - "需要激活"
+      strategy: "個性化優惠，重新吸引"
+      percentage_range: "10-15%"
+
+    at_risk:
+      name: "At Risk"
+      chinese_name: "流失風險"
+      description: "曾經是忠誠客戶，現在有流失風險"
+      criteria: "R<=2, F>=3, M>=3"
+      icon: "🚨"
+      color: "#dc3545"
+      characteristics:
+        - "過去價值高"
+        - "長時間未購買"
+        - "流失風險大"
+      strategy: "緊急挽回，了解原因"
+      percentage_range: "5-10%"
+
+    cant_lose_them:
+      name: "Can't Lose Them"
+      chinese_name: "不能失去"
+      description: "高價值客戶，但長時間未購買"
+      criteria: "R<=2, F>=4, M>=5"
+      icon: "💔"
+      color: "#721c24"
+      characteristics:
+        - "歷史價值極高"
+        - "流失風險極大"
+        - "必須挽回"
+      strategy: "最高優先級挽回，高層介入"
+      percentage_range: "2-5%"
+
+    hibernating:
+      name: "Hibernating"
+      chinese_name: "休眠客戶"
+      description: "很久沒有購買"
+      criteria: "R<=2, F<=2, M<=2"
+      icon: "💤"
+      color: "#6c757d"
+      characteristics:
+        - "長期無互動"
+        - "低價值"
+        - "喚醒成本高"
+      strategy: "低成本喚醒嘗試"
+      percentage_range: "10-15%"
+
+    lost:
+      name: "Lost"
+      chinese_name: "已流失"
+      description: "流失的客戶"
+      criteria: "R<=1, F<=2, M<=2"
+      icon: "❌"
+      color: "#343a40"
+      characteristics:
+        - "已經流失"
+        - "價值低"
+        - "不建議投入"
+      strategy: "記錄原因，改善產品/服務"
+      percentage_range: "10-20%"
+
+# 客戶生命週期
+customer_lifecycle:
+  title: "顧客狀態"
+  stages:
+    new_customer:
+      name: "新客"
+      short_name: "新客"
+      full_name: "新客戶"
+      description: "首次購買的客戶"
+      icon: "🆕"
+      color: "success"
+      criteria: "購買次數 = 1"
+      strategy: "建立信任，鼓勵回購"
+
+    repeat_customer:
+      name: "回購客"
+      short_name: "回購客"
+      full_name: "回購客戶"
+      description: "有重複購買的客戶"
+      icon: "🔄"
+      color: "primary"
+      criteria: "購買次數 >= 2 且最近購買 <= 90天"
+      strategy: "提升忠誠度，增加頻率"
+
+    dormant_customer:
+      name: "沉睡客"
+      short_name: "沉睡客"
+      full_name: "沉睡客戶"
+      description: "長時間未購買的客戶"
+      icon: "😴"
+      color: "warning"
+      criteria: "最近購買 > 90天 且 <= 180天"
+      strategy: "喚醒行動，重新激活"
+
+    churned_customer:
+      name: "流失客"
+      short_name: "流失客"
+      full_name: "流失客戶"
+      description: "已流失的客戶"
+      icon: "❌"
+      color: "danger"
+      criteria: "最近購買 > 180天"
+      strategy: "分析原因，改善服務"
+
+# 智慧分群
+clustering:
+  # 分群方法
+  methods:
+    kmeans:
+      name: "K-means 聚類"
+      description: "基於距離的快速分群方法"
+      parameters:
+        min_clusters: 2
+        max_clusters: 8
+        default_clusters: 5
+
+    hierarchical:
+      name: "階層式聚類"
+      description: "建立客群樹狀結構"
+      parameters:
+        method: "ward.D2"
+        distance_metric: "euclidean"
+
+  # 最佳分群數
+  optimal_clusters:
+    title: "最佳分群數分析"
+    methods:
+      elbow:
+        name: "肘部法則"
+        description: "找出SSE下降速率變化點"
+      silhouette:
+        name: "輪廓係數"
+        description: "評估分群品質"
+
+  # 分群命名
+  naming:
+    ai_naming:
+      name: "AI 智慧命名"
+      description: "根據客群特徵自動生成有意義的名稱"
+    manual_naming:
+      name: "手動命名"
+      description: "自行為每個客群命名"
+
+# AI 增強分析
+ai_analysis:
+  types:
+    metric_description:
+      name: "指標說明"
+      description: "解釋所選指標的商業意義"
+      prompt_category: "dna_metric_description"
+      icon: "📊"
+
+    distribution_insight:
+      name: "分布洞察"
+      description: "分析指標分布的特徵和異常"
+      prompt_category: "dna_distribution_insight"
+      icon: "📈"
+
+    segment_profiling:
+      name: "客群畫像"
+      description: "為每個客群生成詳細畫像"
+      prompt_category: "dna_segment_profiling"
+      icon: "👥"
+
+    marketing_recommendations:
+      name: "行銷建議"
+      description: "針對不同客群的行銷策略建議"
+      prompt_category: "dna_marketing_recommendations"
+      icon: "💡"
+
+    churn_prediction:
+      name: "流失預警"
+      description: "識別流失風險並提供挽回策略"
+      prompt_category: "dna_churn_prediction"
+      icon: "⚠️"
+
+    cross_sell_opportunities:
+      name: "交叉銷售機會"
+      description: "發現潛在的交叉銷售機會"
+      prompt_category: "cross_sell_opportunities"
+      icon: "🎁"
+
+# 屬性萃取
+attribute_extraction:
+  title: "DNA 屬性萃取"
+  description: "從客戶行為中萃取關鍵屬性和特徵"
+
+  methods:
+    ai_extraction:
+      name: "AI 自動萃取"
+      description: "使用 AI 自動識別和萃取屬性"
+      max_attributes: 30
+      min_attributes: 5
+
+    rule_based:
+      name: "規則式萃取"
+      description: "基於預定義規則萃取屬性"
+
+  attribute_categories:
+    behavioral:
+      name: "行為屬性"
+      description: "購買行為相關的特徵"
+      examples: ["高頻購買", "夜間購物偏好", "週末購物"]
+
+    value_based:
+      name: "價值屬性"
+      description: "消費價值相關的特徵"
+      examples: ["高客單價", "折扣敏感", "品質導向"]
+
+    loyalty:
+      name: "忠誠度屬性"
+      description: "忠誠度相關的特徵"
+      examples: ["長期客戶", "品牌擁護者", "推薦者"]
+
+# 圖表配置
+charts:
+  histogram_title: "分佈直方圖"
+
+  # Chart labels for tooltips and hover text
+  labels:
+    value: "值"
+    count: "計數"
+    percentage: "百分比"
+
+  # Chart axes titles
+  axes:
+    value: "值"
+    count: "計數"
+    frequency: "頻率"
+    customer_count: "客戶數"
+    nes_status: "NES 狀態"
+
+  # Chart titles
+  titles:
+    distribution: "分佈圖"
+    histogram: "直方圖"
+    nes_distribution: "NES 狀態分佈"
+
+  # 指標分布直方圖
+  metric_histogram:
+    title: "{metric} 分布"
+    x_axis: "{metric}"
+    y_axis: "客戶數"
+    tooltip: "{bin}: {count} 位客戶"
+
+  # 散點圖
+  scatter_plot:
+    title: "{x_metric} vs {y_metric}"
+    x_axis: "{x_metric}"
+    y_axis: "{y_metric}"
+    tooltip: "客戶 {id}: {x}={x_value}, {y}={y_value}"
+
+  # 分群結果散點圖
+  clustering_scatter:
+    title: "客戶分群結果"
+    x_axis: "維度 1"
+    y_axis: "維度 2"
+    tooltip: "客群 {segment}: {count} 位客戶"
+
+  # RFM 熱力圖
+  rfm_heatmap:
+    title: "RFM 分布熱力圖"
+    x_axis: "Frequency (F)"
+    y_axis: "Recency (R)"
+    color: "Monetary (M)"
+    tooltip: "R={r}, F={f}, M={m}: {count} 位客戶"
+
+  # 客群特徵雷達圖
+  segment_radar:
+    title: "客群特徵雷達圖"
+    dimensions: ["M", "R", "F", "IPT", "CAI", "PCV", "CRI"]
+    tooltip: "{segment} - {dimension}: {value}"
+
+  # 生命週期分布
+  lifecycle_pie:
+    title: "客戶生命週期分布"
+    tooltip: "{stage}: {count} 位 ({percentage}%)"
+
+  # 肘部法則圖
+  elbow_chart:
+    title: "最佳分群數分析（肘部法則）"
+    x_axis: "分群數"
+    y_axis: "SSE（組內平方和）"
+    tooltip: "{k} 個群: SSE = {sse}"
+
+  # 輪廓係數圖
+  silhouette_chart:
+    title: "最佳分群數分析（輪廓係數）"
+    x_axis: "分群數"
+    y_axis: "平均輪廓係數"
+    tooltip: "{k} 個群: 係數 = {score}"
+
+# 單位文字
+units:
+  days: "天"
+  times: "次"
+  people: "人"
+
+# 訊息文字
+messages:
+  # 成功訊息
+  success:
+    dna_calculated: "✅ DNA指標計算完成"
+    dna_calculation_complete: "DNA分析計算完成"
+    clustering_complete: "✅ 客戶分群完成，共 {count} 個客群"
+    cluster_updated: "已更新為 {k} 個客群"
+    rfm_complete: "✅ RFM分析完成"
+    ai_analysis_complete: "✅ AI分析完成"
+    ai_complete: "✅ AI增強分析完成！"
+    attributes_extracted: "✅ 已萃取 {count} 個屬性"
+    data_loaded_from_step1: "✅ 已從步驟1載入資料，共 {records} 筆記錄，{customers} 位客戶。正在自動進行DNA分析..."
+    filtered_customers: "✅ 篩選後客戶: %s 筆交易: %s"
+    dna_analysis_complete: "🎉 DNA 分析完成！"
+    dna_and_ai_complete: "✅ DNA 分析與 AI 洞察完成！"
+    dna_complete_ai_unavailable: "✅ DNA 分析完成！（AI 洞察暫時無法使用）"
+    email_mapping_complete: "✅ 電子郵件映射完成: {count} 個唯一客戶"
+    data_processing_complete: "✅ 資料處理完成，有效記錄: {records} 客戶數: {customers}"
+    files_merge_complete: "合併完成，共 {count} 筆記錄"
+    segmentation_complete: "✅ %s 客群分組完成！"
+    navigate_to_dna: "正在進入DNA分析..."
+
+  # 處理中
+  processing:
+    calculating_dna: "計算DNA指標中..."
+    performing_clustering: "執行客戶分群中..."
+    calculating_rfm: "計算RFM分數中..."
+    generating_ai_insights: "🤖 正在生成 AI 洞察..."
+    generating_ai_results: "正在生成AI分析結果，請稍候..."
+    extracting_attributes: "萃取屬性中..."
+    auto_start_analysis: "🚀 自動開始DNA分析..."
+    preparing_data: "📊 準備分析資料..."
+    executing_dna: "🧬 執行 DNA 分析..."
+    processing_files: "開始處理檔案..."
+    reading_file: "讀取檔案: {filename}"
+    merging_files: "合併檔案..."
+    segmenting_metric: "📊 正在進行 %s 指標的客群分組..."
+
+  # 錯誤訊息
+  error:
+    insufficient_data: "❌ 資料不足，無法進行DNA分析"
+    clustering_failed: "❌ 分群失敗"
+    calculation_error: "DNA計算錯誤:"
+    clustering_error: "分群錯誤:"
+    update_error: "更新失敗:"
+    ai_analysis_error: "AI分析錯誤:"
+    no_qualified_customers: "❌ 沒有符合最少交易次數的客戶"
+    dna_analysis_error: "❌ DNA分析錯誤: {error}"
+    analysis_error: "❌ 分析錯誤: %s"
+    function_not_exists: "❌ analysis_dna 函數不存在，請檢查 global_scripts"
+    processing_error: "處理錯誤: {error}"
+    field_detection_failed: "錯誤: 無法偵測必要欄位"
+    missing_required_fields: "缺少必要欄位: {fields}"
+    dna_result_empty: "DNA分析結果為空或格式不正確"
+    invalid_data_structure: "data_by_customer 不是有效的數據結構"
+    data_conversion_error: "數據轉換錯誤：{error}"
+    complex_data_structure: "無法轉換數據格式：複雜的數據結構"
+    ai_analysis_unavailable: "AI 分析暫時無法使用，請稍後再試。"
+    segment_not_found: "無法找到 %s 指標的分群資料"
+    no_data_to_proceed: "請先上傳資料"
+
+  # 警告訊息
+  warning:
+    ai_not_enabled: "AI分析功能未啟用"
+    rfm_calculation_failed: "❌ RFM計算失敗"
+    ai_analysis_failed: "❌ AI分析失敗"
+    few_customers: "⚠️ 客戶數量較少（{count} 位），分群結果可能不夠精確"
+    high_lost_percentage: "⚠️ 流失客戶比例較高（{percentage}%）"
+    low_champions_percentage: "⚠️ 冠軍客戶比例較低（{percentage}%）"
+    no_metric_selected: "⚠️ 請選擇分析指標"
+    metric_not_found: "⚠️ 找不到 %s 的資料欄位"
+    run_clustering_first: "請先執行客戶分群分析"
+    no_dna_analysis: "⚠️ 請先執行 DNA 分析"
+
+  # 資訊訊息
+  info:
+    customers_analyzed: "已分析 {count} 位客戶的DNA"
+    optimal_clusters: "建議分群數：{k} 個"
+    rfm_segments_found: "識別出 {count} 個RFM客群"
+    waiting_data: "⏳ 等待資料上傳與分析..."
+    upload_instructions: "請先在「資料上傳」頁面上傳交易資料，系統將自動進行DNA分析。"
+    waiting_upload: "等待檔案上傳..."
+    no_ai_analysis: "請先執行 AI 分析"
+    click_ai_button: "點擊左側「執行AI分析」按鈕開始智能分析"
+    click_generate: "請點擊「生成 AI 洞察」按鈕"
+    select_metric: "請選擇分析指標"
+    click_metric_button: "點擊左側任一指標按鈕即可自動進行客群分組"
+    segmentation_required: "請先執行客戶分群分析，然後選擇指標查看結果"
+    ai_insights_pending: "執行 DNA 分析後，AI 將提供深入的客戶洞察和建議。"
+
+  # 檔案處理
+  file_handling:
+    files_selected: "已選擇"
+    files_count: "個檔案"
+    files_list_separator: ":\n"
+    files_uploaded: "已上傳"
+    preparing_process: "準備處理..."
+
+# 進度訊息（withProgress 專用）
+progress:
+  dna_calculation: "計算DNA指標..."
+  processing_data: "處理交易資料..."
+  rfm_segmentation: "計算RFM分群..."
+  customer_status: "分配客戶狀態..."
+  elbow_method: "計算肘部法則..."
+  complete: "完成!"
+  customer_segmentation: "執行客戶分群..."
+  kmeans_clustering: "K-means聚類分析..."
+  ai_analysis: "執行AI分析..."
+  ai_metric_description: "指標說明..."
+  ai_distribution_insight: "分布洞察..."
+  ai_segment_profiling: "客群畫像..."
+  ai_marketing_recommendations: "行銷建議..."
+  ai_churn_prediction: "流失預警..."
+
+# 說明文字
+help:
+  step1: "步驟一："
+  step1_desc: "點選你要分析的顧客標籤，例如，你可以點選購買金額。"
+  step2: "步驟二："
+  step2_desc: "點選你的分析工具，例如，你可以點選執行客戶分群。"
+  step3: "步驟三："
+  step3_desc: "點選檢視選項，例如，你可以點選統計圖表。"
+  repeat_steps: "重複上述步驟，假設您想查看顧客最近來店時間，則可重複上述步驟檢視分析結果和AI行銷建議。"
+
+  overview: |
+    客戶DNA分析是最深度的客戶分析模組，提供：
+    - 7個維度的客戶DNA指標
+    - 智慧分群與客群命名
+    - 11種RFM客群畫像
+    - AI驅動的洞察和建議
+
+  dna_metrics: |
+    7個DNA維度說明：
+
+    1. M（Monetary）- 消費金額：總消費金額，反映客戶價值
+    2. R（Recency）- 最近購買：距離上次購買天數，反映活躍度
+    3. F（Frequency）- 購買頻率：購買次數，反映忠誠度
+    4. IPT（Inter-Purchase Time）- 購買間隔：平均購買間隔，反映購買週期
+    5. CAI（Customer Activity Index）- 活躍指數：綜合活躍度指標
+    6. PCV（Past Customer Value）- 過去價值：歷史總價值
+    7. CRI（Customer Richness Index）- 穩定度：購買穩定性評分
+
+  clustering: |
+    智慧分群：
+    - 使用K-means或階層式聚類
+    - 自動尋找最佳分群數
+    - AI智慧命名客群
+    - 生成客群特徵畫像
+
+    分群可幫助：
+    - 識別相似客戶群體
+    - 制定差異化策略
+    - 精準行銷投放
+    - 優化資源配置
+
+  rfm_segments: |
+    11種RFM客群：
+
+    高價值客群：
+    1. Champions（冠軍客戶）：最佳客戶
+    2. Loyal Customers（忠誠客戶）：穩定高價值
+    3. Can't Lose Them（不能失去）：高價值但流失風險
+
+    成長潛力客群：
+    4. Potential Loyalists（潛力忠誠）：可培養
+    5. Promising（有潛力）：高客單價
+    6. Recent Customers（新近客戶）：新客
+
+    需要關注客群：
+    7. Need Attention（需要關注）：冷卻中
+    8. About to Sleep（即將休眠）：活躍度下降
+    9. At Risk（流失風險）：高流失風險
+
+    低價值客群：
+    10. Hibernating（休眠）：長期無互動
+    11. Lost（已流失）：已經流失
+
+  ai_analysis: |
+    AI 增強分析：
+    利用 GPT-4 提供智慧洞察：
+    - 指標說明：解讀指標商業意義
+    - 分布洞察：發現分布特徵和異常
+    - 客群畫像：生成詳細客群描述
+    - 行銷建議：提供精準行銷策略
+    - 流失預警：預測流失並提供挽回建議
+    - 交叉銷售：發現銷售機會
+
+  best_practices: |
+    分析建議：
+    1. 先查看各指標分布，了解客戶整體狀況
+    2. 執行智慧分群，識別不同客群
+    3. 分析RFM客群，了解客戶生命週期階段
+    4. 使用AI洞察獲得深度分析和建議
+    5. 針對不同客群制定差異化策略
+    6. 定期追蹤客群變化，調整策略
+
+# 提示文字
+hints:
+  metric_selection: "請點選顧客標籤，即可看到各標籤的視覺化圖形"
+  clustering: "智慧分群會自動找出相似的客戶群體。建議使用AI命名功能，會根據每個群體的特徵生成有意義的名稱。"
+  rfm_segments: "RFM客群是業界標準的客戶分類方式。關注冠軍客戶和流失風險客戶，制定差異化策略。"
+  ai_analysis: "AI增強分析可提供深度洞察和具體建議。建議優先使用「客群畫像」和「行銷建議」功能。"
+  lifecycle: "客戶生命週期分析可幫助了解客戶所處階段，制定對應的培養或挽回策略。"
+
+# 統計術語
+statistics:
+  mean: "平均值"
+  median: "中位數"
+  std_dev: "標準差"
+  min: "最小值"
+  max: "最大值"
+  q1: "第一四分位數 (Q1)"
+  q3: "第三四分位數 (Q3)"
+  iqr: "四分位距 (IQR)"
+  skewness: "偏度"
+  kurtosis: "峰度"
+  definition: "定義"
+  quartiles: "25%/75%分位數"
+  variance: "變異數"
+  total_customers: "客戶總數"
+  avg_r_value: "平均R值"
+  avg_f_value: "平均F值"
+  avg_m_value: "平均M值"
+  avg_clv: "平均CLV"
+
+  # NES 客戶狀態相關
+  nes_status:
+    title: "顧客狀態分布"
+    status: "狀態"
+    count: "人數"
+    percentage: "比例"
+
+  # 統計標籤（用於報表顯示）
+  labels:
+    stat_summary: "統計概要"
+    mean: "平均數"
+    median: "中位數"
+    q25: "第25百分位數"
+    q75: "第75百分位數"
+    variance_degree: "變異程度"
+    ai_marketing_suggestions: "AI行銷建議"
+    ai_marketing_suggestions_80_20: "AI行銷建議（80/20法則）"
+    metric_description: "指標說明"
+    customer: "客戶"
+
+  # 單位
+  units:
+    people: "人"
+    days: "天"
+    times: "次"
+    score: "分"
+    dollar: "$"
+
+  # 統計說明文字（用於括號內的解釋）
+  explanations:
+    # M - 購買金額
+    mean_monetary: "顧客平均購買金額"
+    mean_pcv: "顧客平均過去消費總額"
+    mean_cri: "顧客平均穩定度分數"
+    median_monetary: "一半顧客購買金額高於此值"
+    q25_monetary: "25%顧客購買金額低於此值"
+    q75_monetary: "75%顧客購買金額低於此值"
+    variance_high_monetary: "顧客之間的購買金額差異很大"
+    variance_low_monetary: "顧客之間的購買金額差異較小"
+
+    # R - 最近購買
+    mean_recency: "顧客平均距離上次購買天數"
+    median_recency: "一半顧客的最近購買時間"
+    q25_recency: "25%顧客在此天數內購買"
+    q75_recency: "75%顧客在此天數內購買"
+    variance_high_recency: "顧客之間的購買時間差異很大"
+    variance_low_recency: "顧客之間的購買時間差異較小"
+
+    # F - 購買頻率
+    mean_frequency: "顧客平均購買次數"
+    median_frequency: "一半顧客購買次數高於此值"
+    q25_frequency: "25%顧客購買次數低於此值"
+    q75_frequency: "75%顧客購買次數低於此值"
+    variance_high_frequency: "顧客之間的購買頻率差異很大"
+    variance_low_frequency: "顧客之間的購買頻率差異較小"
+
+    # IPT - 購買週期
+    mean_ipt: "顧客平均購買間隔天數"
+    median_ipt: "一半顧客購買週期短於此值"
+    q25_ipt: "25%顧客購買週期短於此值"
+    q75_ipt: "75%顧客購買週期短於此值"
+    variance_high_ipt: "顧客之間的購買週期差異很大"
+    variance_low_ipt: "顧客之間的購買週期差異較小"
+
+    # CAI - 活躍度
+    mean_cai: "顧客平均活躍度指數"
+    median_cai: "一半顧客活躍度高於此值"
+    q25_cai: "25%顧客活躍度高於此值"
+    q75_cai: "75%顧客活躍度低於此值"
+    variance_high_cai: "顧客之間的活躍度差異很大"
+    variance_low_cai: "顧客之間的活躍度差異較小"
+
+    # PCV - 過去價值
+    median_pcv: "一半顧客過去消費高於此值"
+    q25_pcv: "25%顧客過去消費高於此值"
+    q75_pcv: "75%顧客過去消費低於此值"
+    variance_high_pcv: "顧客之間的過去消費差異很大"
+    variance_low_pcv: "顧客之間的過去消費差異較小"
+
+    # CRI - 穩定度
+    median_cri: "一半顧客穩定度高於此值"
+    q25_cri: "25%顧客穩定度高於此值"
+    q75_cri: "75%顧客穩定度低於此值"
+    variance_high_cri: "顧客之間的穩定度差異很大"
+    variance_low_cri: "顧客之間的穩定度差異較小"
+
+  # AI Marketing Suggestions (行銷建議)
+  marketing_suggestions:
+    # Monetary (M) - 購買金額
+    monetary:
+      high_value: "VIP服務"
+      mid_value: "升級推薦"
+      low_value: "入門優惠"
+
+    # Recency (R) - 最近購買
+    recency:
+      active_customers: "活躍客戶"
+      cross_selling: "交叉銷售"
+      inactive_customers: "不活躍"
+      winback_campaign: "召回活動"
+      high_active: "維持策略"
+      mid_active: "定期關懷"
+      mid_active_action: "定期關懷"
+      low_active: "喚醒策略"
+
+    # Frequency (F) - 購買頻率
+    frequency:
+      high_frequency: "高頻客戶"
+      high_frequency_action: "VIP計劃"
+      mid_frequency: "中頻客戶"
+      mid_frequency_action: "忠誠度獎勵"
+      low_frequency: "低頻客戶"
+      low_frequency_action: "試用優惠"
+
+    # IPT - 購買週期
+    ipt:
+      short_cycle: "短週期客戶"
+      short_cycle_action: "常規提醒"
+      mid_cycle: "中週期客戶"
+      mid_cycle_action: "定期推送"
+      long_cycle: "長週期客戶"
+      long_cycle_action: "特殊激勵"
+
+    # PCV - 過去價值
+    pcv:
+      high_contributor: "高貢獻客戶"
+      high_contributor_action: "專屬優惠"
+      mid_contributor: "中貢獻客戶"
+      mid_contributor_action: "提升方案"
+      low_contributor: "低貢獻客戶"
+      low_contributor_action: "培養策略"
+
+    # CRI - 顧客穩定度
+    cri:
+      high_stability: "VIP維護策略"
+      mid_stability: "忠誠度提升計劃"
+      low_stability: "挽留激活方案"
+
+# Marketing labels for PCV metric description display
+marketing:
+  pcv_high_value: "專屬VIP服務"
+  pcv_mid_value: "提升計劃"
+  pcv_low_value: "激活策略"
+
+# 行動建議模板
+action_templates:
+  champions:
+    - "提供VIP專屬權益"
+    - "邀請參與品牌決策"
+    - "優先獲得新品"
+    - "給予最高優先級服務"
+
+  at_risk:
+    - "發送個性化挽回優惠"
+    - "主動聯繫了解需求"
+    - "提供專屬客服支援"
+    - "邀請參加特別活動"
+
+  hibernating:
+    - "大幅優惠喚醒"
+    - "展示新品吸引"
+    - "了解流失原因"
+    - "低成本批次觸達"
+
+# AI 分析擴展文字
+ai_analysis_extended:
+  analysis_focus: "分析重點"
+  analysis_time: "分析時間"
+  total_customers: "總客戶數"
+  customers_unit: "人"
+  key_insights: "關鍵洞察"
+  deep_insights: "AI 深度洞察"
+  pareto_rule: "80/20法則驗證"
+  high_value_customers: "高價值顧客"
+  contributed: "貢獻了"
+  of_revenue: "的營收"
+  metric_focus: "指標分析焦點"
+  through_metric: "透過"
+  through: "透過"
+  metric: "指標"
+  identified: "識別出"
+  identified_segments: "指標，識別出"
+  different_segments: "個不同客群"
+  strategy_suggestion: "策略建議"
+  refer_recommendations: "請參考下方的分群行銷建議，制定差異化策略"
+
+# AI 深度分析與行銷建議
+ai_insights:
+  # Distribution insight section
+  distribution:
+    title: "分布洞察"
+    title_80_20: "分布洞察（80/20法則）"
+    low_value: "低價值"
+    mid_value: "中價值"
+    high_value: "高價值"
+    low_stability: "低穩定(Bottom 20%)"
+    mid_stability: "中穩定(Middle 60%)"
+    high_stability: "高穩定(Top 20%)"
+    80_20_rule: "80/20法則"
+    80_20_verification: "80/20驗證"
+    top_20_contribution: "Top 20%"
+    customers_contribute: "客戶貢獻"
+    revenue: "營收"
+
+  # Strategy section
+  strategy:
+    title: "策略建議"
+    healthy_structure: "穩定客群結構健康"
+    needs_improvement: "需強化客戶穩定度"
+
+  # No data messages
+  no_stability_data: "無穩定度數據"
+
+  marketing_suggestions:
+    title: "AI行銷建議："
+    new_customer: "新客戶：新手導引方案"
+    core_customer: "主力客戶：VIP禮遇計劃"
+    dozing_customer: "瞌睡/半睡客戶：喚醒優惠"
+    sleeping_customer: "沉睡客戶：回流激活策略"
+
+# 模組配置（用於語言系統）
+modules:
+  vitalsigns_dna:
+    statistics:
+      definition: "定義："
+      calculation_method: "計算方式："
+      management_implication: "管理意涵："
+      summary: "統計摘要："
+      average_score: "平均分數："
+      mean: "平均數："
+      median: "中位數："
+      quartiles: "25%/75%分位數："
+      variance: "變異數："
+      overall_profile: "整體輪廓："
+    metric_analysis:
+      pareto_rule_grouping: "80/20法則分組："
+      high_stability: "高穩定"
+      high_stability_top20: "高穩定(Top 20%"
+      mid_stability: "中穩定"
+      mid_stability_middle60: "中穩定(Middle 60%)"
+      low_stability: "低穩定"
+      low_stability_bottom20: "低穩定(Bottom 20%"
+      stability_interpretation: "穩定度層級解讀："
+      score_unit: "分"
+      people_unit: "人"
+      cri_title: "顧客穩定度指標分析"
+      cri_definition: "顧客交易穩定度綜合評分"
+      cri_calculation: "RFM加權分數 (0.3×R + 0.3×F + 0.4×M) 標準化至0-100分"
+      cri_meaning: "識別穩定貢獻客群，採用80/20法則優化資源配置"
+      nes_title: "顧客狀態分析"
+      new_customer: "新客"
+      main_customer: "主力"
+      sleeping_customer: "沉睡"
+      cri_dispersed: "穩定度差異大，需差異化服務策略"
+      cri_concentrated: "穩定度較為平均"
+      pcv_title: "過去價值分析"
+      pcv_definition: "歷史累積消費總額"
+      marketing_suggestions: "行銷建議"
+      high_value: "高價值"
+      mid_value: "中價值"
+      low_value: "低價值"
+      pareto_segmentation: "80/20分組"
+      calculation_method: "計算方式"
+      management_implication: "管理意涵"
+      overall_profile: "整體輪廓"
+    marketing:
+      cri_top_20_desc: "VIP穩定客群，提供專屬服務維持忠誠"
+      cri_middle_60_desc: "一般穩定客群，定期關懷提升價值"
+      cri_bottom_20_desc: "不穩定風險客群，需積極挽留策略"
+      pcv_high_value: "專屬VIP服務"
+      pcv_mid_value: "提升計劃"
+      pcv_low_value: "激活策略"
+
+# 指標分析文字
+metric_analysis:
+  monetary_title: "購買金額分析"
+  monetary_definition: "平均單次購買金額"
+  monetary_dispersed: "購買金額離散程度大"
+  monetary_concentrated: "購買金額相對集中"
+  recency_title: "最近來店時間分析"
+  recency_definition: "距離最近一次購買的天數"
+  recency_dispersed: "來店時間離散程度大"
+  recency_concentrated: "來店時間相對一致"
+  frequency_title: "購買頻率分析"
+  frequency_definition: "觀察期間內的總購買次數"
+  frequency_dispersed: "購買頻率差異大需分群管理"
+  frequency_concentrated: "購買頻率較為一致"
+  ipt_title: "購買週期分析"
+  ipt_definition: "平均購買間隔天數"
+  ipt_dispersed: "購買週期差異大需分群管理"
+  ipt_concentrated: "購買週期較為一致"
+  cai_title: "顧客活躍度分析"
+  cai_definition: "購買行為趨勢指標 (>0漸趨活躍，<0漸趨靜止)"
+  cai_meaning: "預測客戶未來行為，及早識別流失風險"
+  cai_dispersed: "活躍度差異大需分群管理"
+  cai_concentrated: "活躍度較為一致"
+  management_meaning: "管理意涵"
+  statistical_summary: "統計摘要"
+  status_distribution: "狀態分布"
+  trending_active: "漸趨活躍"
+  stable: "穩定"
+  trending_static: "漸趨靜止"
+  marketing_suggestions: "行銷建議"
+  active_customers: "活躍客戶"
+  active_suggestion: "把握成長動能，推薦新品"
+  stable_customers: "穩定客戶"
+  stable_suggestion: "維持服務水準，定期關懷"
+  static_customers: "靜止客戶"
+  static_suggestion: "緊急挽回措施，特殊優惠"
+  insufficient_data: "資料不足"
+
+  # CAI Analysis - Detailed Labels
+  cai_analysis_title: "顧客活躍度分析"
+  cai_definition_label: "定義："
+  cai_definition_text: "購買行為趨勢指標 (>0漸趨活躍，<0漸趨靜止)"
+  cai_management_meaning_label: "管理意涵："
+  cai_management_meaning_text: "預測客戶未來行為，及早識別流失風險"
+  cai_stat_summary_label: "統計摘要："
+  cai_mean_label: "平均數："
+  cai_median_label: "中位數："
+  cai_quartiles_label: "25%/75%分位數："
+  cai_variance_label: "變異數："
+  cai_overall_profile_label: "整體輪廓："
+  cai_profile_high_variance: "活躍度差異大需分群管理"
+  cai_profile_low_variance: "活躍度較為一致"
+  cai_pareto_label: "80/20分組："
+  cai_high_activity: "高活躍"
+  cai_mid_activity: "中活躍"
+  cai_low_activity: "低活躍"
+  cai_status_distribution_label: "狀態分布："
+  cai_trending_active_label: "漸趨活躍(>0)："
+  cai_stable_label: "穩定(≈0)："
+  cai_trending_static_label: "漸趨靜止(<0)："
+  cai_marketing_suggestions_label: "行銷建議："
+  cai_active_customers_label: "活躍客戶："
+  cai_active_suggestion: "把握成長動能，推薦新品"
+  cai_stable_customers_label: "穩定客戶："
+  cai_stable_suggestion: "維持服務水準，定期關懷"
+  cai_static_customers_label: "靜止客戶："
+  cai_static_suggestion: "緊急挽回措施，特殊優惠"
+  cai_no_data: "資料不足"
+  no_ipt_data: "無購買週期數據"
+  overall_profile: "整體輪廓"
+  pareto_segmentation: "80/20分組"
+  cycle_segmentation: "週期分組"
+  high_value: "高價值"
+  mid_value: "中價值"
+  low_value: "低價值"
+  high_active: "高度活躍"
+  mid_active: "中度活躍"
+  low_active: "不活躍"
+  high_frequency: "高頻客戶"
+  mid_frequency: "中頻客戶"
+  low_frequency: "低頻客戶"
+  short_cycle: "短週期客戶"
+  mid_cycle: "中週期客戶"
+  long_cycle: "長週期客戶"
+  high_activity: "高活躍"
+  mid_activity: "中活躍"
+  low_activity: "低活躍"
+  people_unit: "人"
+  days_unit: "天"
+  times_unit: "次"
+
+# 分布洞察文字
+distribution_insights:
+  title: "分布洞察"
+  title_colon: "分布洞察："
+
+  # M - 購買金額洞察
+  monetary:
+    most_common_amount: "最常見金額"
+    high_mid_low_ratio: "高中低比例"
+    need_differentiation: "需差異化策略"
+    relatively_homogeneous: "客群相對同質"
+
+  # R - 最近購買洞察
+  recency:
+    within_30_days: "30天內"
+    days_31_to_90: "31-90天"
+    over_90_days: ">90天"
+    unit_people: "位"
+
+  # F - 購買頻率洞察
+  frequency:
+    one_time_purchase: "單次購買"
+    two_to_three_times: "2-3次"
+    over_three_times: ">3次"
+
+  # IPT - 購買週期洞察
+  ipt:
+    cycle_30_days_or_less: "≤30天週期"
+    cycle_31_to_90_days: "31-90天週期"
+    cycle_over_90_days: ">90天週期"
+    cycle_variance_high: "週期差異大"
+    cycle_variance_low: "週期相對穩定"
+    no_ipt_data: "無購買週期數據"
+
+  # CAI - 活躍度洞察
+  cai:
+    trending_static: "漸趨靜止"
+    stable_consumption: "穩定消費"
+    trending_active: "漸趨活躍"
+    activity_good: "客群活躍度佳"
+    needs_improvement: "需提升活躍度"
+    no_activity_data: "無活躍度數據"
+    range_static: "(≤0.1)"
+    range_stable: "(0.1-0.9)"
+    range_active: "(>0.9)"
+
+  # NES - 生命週期洞察
+  nes:
+    most_common_status: "最多顧客狀態"
+    total_customers: "共有"
+    unit_customers: "位顧客"
+
+  # 通用
+  common:
+    unit_people: "位"
+    unit_days: "天"
+    unit_times: "次"
+
+# 落後分析文字（lines 1706-1835）
+fallback_analysis:
+  monetary:
+    title: "購買金額分析"
+    definition: "定義：平均單次購買金額"
+    overall_profile: "整體輪廓："
+    profile_scattered: "購買金額離散程度大"
+    profile_concentrated: "購買金額相對集中"
+    grouping_80_20: "80/20分組："
+    high_value: "高價值"
+    mid_value: "中價值"
+    low_value: "低價值"
+    unit_people: "人"
+
+  recency:
+    title: "最近來店時間分析"
+    definition: "定義：距離最近一次購買的天數"
+    overall_profile: "整體輪廓："
+    profile_scattered: "來店時間離散程度大"
+    profile_consistent: "來店時間相對一致"
+    grouping_80_20: "80/20分組："
+    highly_active: "高度活躍"
+    moderately_active: "中度活躍"
+    inactive: "不活躍"
+    unit_people: "人"
+    unit_days: "天"
+
+  frequency:
+    title: "購買頻率分析"
+    definition: "定義：觀察期間內的總購買次數"
+    overall_profile: "整體輪廓："
+    profile_needs_segmentation: "購買頻率差異大需分群管理"
+    profile_consistent: "購買頻率較為一致"
+    grouping_80_20: "80/20分組："
+    high_freq_customers: "高頻客戶"
+    mid_freq_customers: "中頻客戶"
+    low_freq_customers: "低頻客戶"
+    unit_people: "人"
+    unit_times: "次"
+
+  ipt:
+    title: "購買週期分析"
+    definition: "定義：平均購買間隔天數"
+    overall_profile: "整體輪廓："
+    profile_needs_segmentation: "購買週期差異大需分群管理"
+    profile_consistent: "購買週期較為一致"
+    grouping_cycle: "週期分組："
+    short_cycle_customers: "短週期客戶"
+    mid_cycle_customers: "中週期客戶"
+    long_cycle_customers: "長週期客戶"
+    no_data: "無購買週期數據"
+    unit_people: "人"
+    unit_days: "天"
+
+# AI分析洞察模板（lines 3227-3270）
+ai_insights_templates:
+  monetary:
+    title: "購買金額分析："
+    median_text: "中位數購買金額為 %.2f 元，表示50%%的顧客單次消費低於此金額"
+    q25_text: "25%%的顧客單次消費低於 %.2f 元"
+    q75_text: "25%%的顧客單次消費高於 %.2f 元"
+    mean_text: "平均單次消費為 %.2f 元"
+    overall_assessment: "整體評估："
+    assessment_high_variance: "顧客群體消費能力較強，但存在較大差異"
+    assessment_conservative: "顧客群體消費較為保守"
+    assessment_balanced: "顧客消費較為均衡"
+
+  recency:
+    title: "最近購買時間分析："
+    median_text: "中位數距離上次購買時間為 %.0f 天"
+    q25_text: "25%%的顧客在 %.0f 天內有購買"
+    q75_text: "25%%的顧客超過 %.0f 天未購買"
+    mean_text: "平均未購買天數為 %.0f 天"
+    overall_assessment: "整體評估："
+    assessment_needs_retention: "需要加強客戶維繫，考慮召回活動"
+    assessment_highly_active: "客戶活躍度高，可考慮提升客單價"
+    assessment_moderate: "客戶活躍度適中"
+
+  frequency:
+    title: "購買頻率分析："
+    median_text: "中位數購買次數為 %.0f 次"
+    q25_text: "25%%的顧客購買次數少於 %.0f 次"
+    q75_text: "25%%的顧客購買次數多於 %.0f 次"
+    mean_text: "平均購買次數為 %.1f 次"
+    overall_assessment: "整體評估："
+    assessment_stable_high_freq: "有穩定的高頻購買客群"
+    assessment_occasional: "多為偶發性購買，需加強會員經營"
+    assessment_average: "購買頻率分布平均"
+
+# AI分析洞察UI標題（lines 4787-4797）
+ai_insights_ui:
+  section_title: "AI 分析洞察"
+  monetary_title: "購買金額分析"
+  recency_title: "最近購買時間分析"
+  frequency_title: "購買頻率分析"
+  nes_title: "顧客狀態分析"
+
+# AI 深度分析結果卡片
+ai_deep_analysis:
+  overall_summary_title: "📊 整體分析摘要"
+  marketing_recommendations_title: "📈 行銷建議"
+  segment_insights_title: "📊 客群洞察"
+
+  # AI 生成的顧客狀態分布文字
+  nes_distribution:
+    title: "顧客狀態分布"
+    new_customer: "新客戶"
+    core_customer: "主力客戶"
+    dozing_customer: "瞌睡客戶"
+    half_asleep_customer: "半睡客戶"
+    sleeping_customer: "沉睡客戶"
+    entry_customer: "入門客戶"
+    engaged_customer: "參與客戶"
+    high_engaged_customer: "高參與客戶"
+    overall_assessment_label: "整體評估："
+    assessment_high: "高度參與客群占比較大，可開發深度服務"
+    assessment_low: "需要加強客戶參與度，建議開發入門級服務"
+    assessment_average: "客戶參與度分布平均"
+
+  # No data messages
+  no_nes_data: "無NES狀態數據"
+
+# 訊息擴展
+messages_extended:
+  warning:
+    segmentation_required: "請先執行客戶分群分析"
+  error:
+    metric_data_not_found: "無法找到"
+    segment_data_suffix: "指標的分群資料"
+
+# 分群視圖專用文字
+segmentation:
+  titles:
+    recency: "最近購買時間分群結果"
+    frequency: "購買頻率分群結果"
+    monetary: "購買金額分群結果（80/20法則）"
+    cai: "活躍度分群結果"
+    pcv: "過去價值分群結果（80/20法則）"
+    cri: "顧客穩定度分群結果（80/20法則）"
+    nes: "顧客狀態分群結果"
+    default: "客群分組結果"
+
+# 表格專用文字
+table:
+  columns:
+    customer_id: "客戶ID"
+    r_value: "最近來店時間"
+    f_value: "購買頻率"
+    m_value: "購買金額"
+    ipt_mean: "購買時間週期"
+    cai_value: "顧客活躍度"
+    pcv: "過去價值"
+    clv: "終身價值"
+    nes_status: "顧客狀態"
+    nes_value: "參與度分數"
+    segment: "客群分組"
+    count: "人數"
+    percentage: "佔比"
+    avg_r: "R(天)"
+    avg_f: "F(次)"
+    avg_m: "M($)"
+    recency_days: "最近購買(天)"
+    frequency_count: "購買頻率(次)"
+    purchase_count: "購買次數"
+    avg_amount: "平均金額($)"
+    activity_index: "活躍度指數"
+    past_value: "過去價值($)"
+    total_spent: "總消費($)"
+    stability: "顧客穩定度"
+    engagement_score: "參與度分數"
+    customer_status: "客戶狀態"
+    message: "訊息"
+  messages:
+    no_data: "DNA分析結果中沒有客戶數據"
+    no_customer_data: "沒有客戶數據可顯示"
+
+# 錯誤訊息
+errors:
+  no_customer_data: "DNA分析結果中沒有客戶數據"
+  no_data_to_display: "沒有客戶數據可顯示"
+  invalid_data_format: "數據格式錯誤：不是有效的二維數據結構"
+  no_columns_to_display: "沒有可顯示的欄位"
+  no_pcv_data: "無PCV數據可用"
+  no_cri_data: "無CRI數據可用"
+  data_conversion_complex: "無法轉換數據格式：複雜的數據結構"
+  data_conversion_error: "數據轉換錯誤："
+
+# 一般標籤
+general:
+  labels:
+    metric: "指標"
+    segmentation: "分群"
+    based_on: "基於"
+    segmentation_results: "的分群結果"
+
+# ==========================================
+# OPTION A: Key-Based Advice System
+# ==========================================
+# Segment keys for language-independent logic
+segment_keys:
+  recency:
+    high_active: "high_active"
+    general: "general"
+    churned: "churned"
+  frequency:
+    high_frequency: "high_frequency"
+    mid_frequency: "mid_frequency"
+    low_frequency: "low_frequency"
+  monetary:
+    high_value: "high_value"
+    mid_value: "mid_value"
+    low_value: "low_value"
+  cai:
+    trending_active: "trending_active"
+    stable: "stable"
+    trending_static: "trending_static"
+  ipt:
+    short_cycle: "short_cycle"
+    mid_cycle: "mid_cycle"
+    long_cycle: "long_cycle"
+  pcv:
+    high_value: "high_value_pcv"
+    mid_value: "mid_value_pcv"
+    low_value: "low_value_pcv"
+  cri:
+    high_stability: "high_stability"
+    mid_stability: "mid_stability"
+    low_stability: "low_stability"
+
+# AI 提示詞文字（用於 AI 分析提示）
+ai_prompt_text:
+  total_customers: "總客戶數"
+  people_unit: "人"
+  analysis_metric: "分析指標"
+  pareto_rule: "80/20法則"
+  high_value_customers: "高價值顧客"
+  contributed: "貢獻了"
+  of_revenue: "的營收"
+  segment: "客群"
+  count: "人數"
+  avg_r: "平均R"
+  days_unit: "天"
+  avg_f: "平均F"
+  times_unit: "次"
+  avg_m: "平均M"
+  ai_recommendation: "AI建議"
+
+# Marketing advice for each segment (27 advice strings)
+marketing_advice:
+  # 預設建議（當特定建議無法取得時使用）
+  fallback1: "定期關懷維護"
+  fallback2: "提供個人化服務"
+  fallback3: "建立長期關係"
+
+  recency:
+    high_active:
+      - "推薦相關產品交叉銷售"
+      - "邀請加入VIP計劃"
+      - "提供升級服務機會"
+    general:
+      - "定期推送會員專屬優惠"
+      - "建立積分獎勵機制"
+      - "提供生日月優惠"
+    churned:
+      - "發送個人化召回郵件"
+      - "提供限時優惠券"
+      - "推送新品資訊喚醒興趣"
+  frequency:
+    high_frequency:
+      - "建立VIP專屬服務"
+      - "提供批量採購優惠"
+      - "優先體驗新品"
+    mid_frequency:
+      - "設計忠誠度計劃"
+      - "提供累積消費獎勵"
+      - "定期關懷提醒"
+    low_frequency:
+      - "了解購買障礙"
+      - "提供試用優惠"
+      - "簡化購買流程"
+  monetary:
+    high_value:
+      - "提供專屬客戶經理"
+      - "客製化產品推薦"
+      - "尊榮級售後服務"
+    mid_value:
+      - "推薦升級產品"
+      - "捆綁銷售優惠"
+      - "分期付款方案"
+    low_value:
+      - "推薦入門產品"
+      - "提供體驗優惠"
+      - "教育產品價值"
+  cai:
+    trending_active:
+      - "把握成長動能"
+      - "推薦新品"
+      - "提供升級方案"
+    stable:
+      - "維持服務水準"
+      - "定期關懷"
+      - "鞏固關係"
+    trending_static:
+      - "緊急召回方案"
+      - "特殊優惠"
+      - "了解流失原因"
+  ipt:
+    short_cycle:
+      - "不要過度打擾"
+      - "提供便利服務"
+      - "尊重購買節奏"
+    mid_cycle:
+      - "適時提醒"
+      - "個性化推薦"
+      - "節日行銷"
+    long_cycle:
+      - "縮短購買週期策略"
+      - "提供訂閱服務"
+      - "增加互動頻率"
+  pcv:
+    high_value_pcv:
+      - "專屬VIP禮遇"
+      - "感謝回饋活動"
+      - "長期價值維護"
+    mid_value_pcv:
+      - "價值提升計劃"
+      - "會員等級升級"
+      - "增購優惠"
+    low_value_pcv:
+      - "基礎關懷"
+      - "新客培養"
+      - "價值挖掘"
+  cri:
+    high_stability:
+      - "維持優質體驗"
+      - "長期關係鞏固"
+      - "口碑推薦獎勵"
+    mid_stability:
+      - "提升穩定度"
+      - "增加互動頻率"
+      - "建立購買習慣"
+    low_stability:
+      - "穩定關係建立"
+      - "了解波動原因"
+      - "提供穩定誘因"
+  default:
+    - "定期關懷維護"
+    - "提供個人化服務"
+    - "建立長期關係"
+
+# ==========================================
+# Marketing Recommendations Section (Lines 4355-4490)
+# ==========================================
+marketing_recommendations:
+  # Main header and intro text
+  header_title: "AI 智能行銷建議"
+  header_intro_prefix: "基於 "
+  header_intro_suffix: " 分析"
+
+  # AI segment marketing recommendations UI labels
+  segment_marketing_title: "分群行銷建議"
+  strategy_label: "策略"
+  strategy: "策略"
+  action_recommendations_label: "行動建議："
+  action_suggestions: "行動建議"
+
+  # Metric names for switch statement
+  metric_names:
+    R: "最近來店時間"
+    F: "購買頻率"
+    M: "購買金額"
+    CAI: "顧客活躍度"
+    PCV: "過去價值"
+    CRI: "顧客穩定度指標"
+    NES: "顧客狀態"
+
+  # Default message when no specific metric is selected
+  default_message: "請選擇具體指標以獲得詳細行銷建議"
+
+  # R - Recency Marketing Strategies
+  recency:
+    title: "🎯 最近來店時間行銷策略"
+
+    recall_strategy:
+      title: "召回策略（超過75分位數）"
+      advice1: "• 發送個人化召回郵件"
+      advice2: "• 提供限時優惠券（7天內使用）"
+      advice3: "• 推送新品資訊喚醒興趣"
+
+    maintain_strategy:
+      title: "維持策略（25-75分位數）"
+      advice1: "• 定期推送會員專屬優惠"
+      advice2: "• 建立積分獎勵機制"
+      advice3: "• 提供生日月優惠"
+
+    deepen_strategy:
+      title: "深化策略（低於25分位數）"
+      advice1: "• 推薦相關產品交叉銷售"
+      advice2: "• 邀請加入VIP計劃"
+      advice3: "• 提供升級服務機會"
+
+  # F - Frequency Marketing Strategies
+  frequency:
+    title: "🎯 購買頻率行銷策略"
+
+    high_frequency:
+      title: "高頻客戶（前20%）"
+      advice1: "• 建立VIP專屬服務"
+      advice2: "• 提供批量採購優惠"
+      advice3: "• 優先體驗新品"
+
+    mid_frequency:
+      title: "中頻客戶（20-80%）"
+      advice1: "• 設計忠誠度計劃"
+      advice2: "• 提供累積消費獎勵"
+      advice3: "• 定期關懷提醒"
+
+    low_frequency:
+      title: "低頻客戶（後20%）"
+      advice1: "• 了解購買障礙"
+      advice2: "• 提供試用優惠"
+      advice3: "• 簡化購買流程"
+
+  # M - Monetary Marketing Strategies
+  monetary:
+    title: "🎯 購買金額行銷策略"
+
+    high_value:
+      title: "高價值客戶（前20%）"
+      advice1: "• 提供專屬客戶經理"
+      advice2: "• 客製化產品推薦"
+      advice3: "• 尊榮級售後服務"
+
+    mid_value:
+      title: "中價值客戶（20-80%）"
+      advice1: "• 推薦升級產品"
+      advice2: "• 捆綁銷售優惠"
+      advice3: "• 分期付款方案"
+
+    low_value:
+      title: "低價值客戶（後20%）"
+      advice1: "• 入門級產品推薦"
+      advice2: "• 首購優惠券"
+      advice3: "• 教育內容行銷"
+
+  # CAI - Customer Activity Index Marketing Strategies
+  cai:
+    title: "🎯 顧客活躍度行銷策略"
+
+    trending_active:
+      title: "漸趨活躍（>0）"
+      advice1: "• 把握成長動能，加強互動"
+      advice2: "• 推薦熱門產品"
+      advice3: "• 邀請參與會員活動"
+
+    stable:
+      title: "穩定（≈0）"
+      advice1: "• 維持現有服務水準"
+      advice2: "• 定期但不過度打擾"
+      advice3: "• 季節性促銷活動"
+
+    trending_static:
+      title: "漸趨靜止（<0）"
+      advice1: "• 緊急挽回措施"
+      advice2: "• 了解流失原因"
+      advice3: "• 提供特別優惠重新激活"
+
+# Segment display labels (for UI display)
+segment_labels:
+  recency:
+    high_active: "高活躍"
+    general: "一般活躍"
+    churned: "流失"
+  frequency:
+    high_frequency: "高頻客戶"
+    mid_frequency: "中頻客戶"
+    low_frequency: "低頻客戶"
+  monetary:
+    high_value: "高價值"
+    mid_value: "中價值"
+    low_value: "低價值"
+  cai:
+    trending_active: "漸趨活躍"
+    stable: "穩定"
+    trending_static: "漸趨靜止"
+  ipt:
+    short_cycle: "短週期"
+    mid_cycle: "中週期"
+    long_cycle: "長週期"
+  pcv:
+    high_value_pcv: "高過去價值"
+    mid_value_pcv: "中過去價值"
+    low_value_pcv: "低過去價值"
+  cri:
+    high_stability: "高穩定"
+    mid_stability: "中穩定"
+    low_stability: "低穩定"
+
+  # Generic labels
+  general_value: "一般價值"
+  high: "高"
+  mid: "中"
+  low: "低"
+
+# Segmentation Results UI
+segmentation_results:
+  person_count: "人"
+  detailed_customer_list: "詳細客戶名單"
+
+  # Metric label abbreviations
+  metrics:
+    r_label: "R"
+    f_label: "F"
+    m_label: "M"
+    r_unit: "天"
+    f_unit: "次"
+    m_prefix: "$"

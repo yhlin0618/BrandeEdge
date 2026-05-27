@@ -1,0 +1,91 @@
+# ==========================================
+# Product Development Module Text Content - Japanese
+# ==========================================
+
+title: "🚀 新製品開発の推奨事項"
+subtitle: "市場属性分析に基づいて、新製品開発の方向性を推奨します"
+description: "市場機会を発見し、製品イノベーション戦略を策定します"
+
+strategy:
+  title: "🎯 開発戦略設定"
+  approach: "開発戦略"
+  priority_count: "優先開発数"
+  timeline: "開発タイムライン"
+
+strategies:
+  gap: "市場ギャップを埋める"
+  strength: "強みエリアを強化"
+
+analysis:
+  button: "開発機会を分析"
+  processing: "🔄 市場機会を分析中..."
+  complete: "✅ 新製品開発の推奨事項が生成されました！"
+
+market_gaps:
+  title: "📊 市場ギャップ分析"
+  low_score_attrs: "市場ギャップ（低スコア属性）"
+  high_score_attrs: "競争優位性（高スコア属性）"
+  opportunity_score: "機会スコア"
+  market_size: "市場規模"
+  focus_improve: "🎯 改善に焦点を当てる（市場ギャップ）："
+  existing_advantages: "✅ 既存の強み（維持）："
+  avg_score: "平均スコア"
+  urgent_improve: "（緊急改善が必要）"
+  core_strengths: "⭐ コア強み（継続的に強化）："
+  competitive_advantage: "（競争優位性）"
+  areas_to_improve: "⚠️ 改善エリア："
+  market_gaps_low: "市場ギャップ（低スコア属性）："
+  competitive_high: "競争優位性（高スコア属性）："
+  current_strategy: "現在の戦略："
+
+suggestions:
+  title: "💡 新製品開発の推奨事項"
+  product_concept: "製品コンセプト"
+  key_features: "主要機能"
+  target_price: "推奨価格"
+  development_cost: "推定開発コスト"
+  roi_forecast: "ROI予測"
+
+roadmap:
+  title: "🗓️ 開発ロードマップ"
+  priority: "優先順位"
+  phase: "開発フェーズ"
+  milestone: "マイルストーン"
+  resources: "必要なリソース"
+  timeline: "タイムライン計画"
+
+risks:
+  title: "リスク評価"
+  technical: "技術的リスク"
+  market: "市場リスク"
+  competition: "競争リスク"
+  mitigation: "リスク軽減戦略"
+
+messages:
+  analysis_complete: "市場機会分析が完了しました"
+  suggestions_ready: "{count}件の製品開発推奨事項を生成しました"
+  roadmap_created: "開発ロードマップが作成されました"
+  analysis_failed: "分析に失敗しました：{error}"
+
+strategy_descriptions:
+  gap: "市場ギャップを埋める - 低スコア属性の改善を優先"
+  strength: "強みエリアを強化 - 高スコア属性の継続的な強化"
+
+action_verbs:
+  gap: "改善"
+  strength: "強化"
+
+strategy_details:
+  gap: "市場ギャップを優先的に埋め、顧客ニーズに迅速に対応"
+  strength: "競争優位性を継続的に強化し、市場地位を固める"
+  default: "明確な製品開発戦略を策定"
+
+console:
+  analyzing_market: "🔍 市場機会を分析中..."
+  identifying_gaps: "市場ギャップを特定中..."
+  evaluating_opportunities: "開発機会を評価中..."
+  generating_concepts: "💡 製品コンセプトを生成中..."
+  concepts_generated: "✅ {count}件の製品コンセプトを生成しました"
+  creating_roadmap: "📅 開発ロードマップを作成中..."
+  risk_assessment: "⚠️ リスク評価を実施中..."
+  analysis_done: "🎉 分析完了"

@@ -1,0 +1,633 @@
+# ==========================================
+# BrandEdge ブランドポジショニングエンジン - 共通言語コンテンツ（日本語）
+# ==========================================
+# Version: 3.2.1
+# Last Updated: 2025-10-06
+
+# ==========================================
+# アプリケーション基本情報
+# ==========================================
+app:
+  title: "BrandEdge<br>ブランドポジショニングエンジン"
+  subtitle: "エンタープライズブランドポジショニング分析プラットフォーム"
+  tagline: "AI駆動のブランド戦略エンジン"
+  version: "v3.2.1 Flagship Edition"
+  description: "顧客レビューのAI深層分析により、包括的なブランド戦略を提供"
+  welcome: "BrandEdge ブランドポジショニングエンジンへようこそ"
+  footer_left: "BrandEdge v3.2 - ブランドポジショニングエンジン"
+  footer_right: "© 2025 PeakEdges. All Rights Reserved"
+
+# ==========================================
+# ナビゲーションメニュー
+# ==========================================
+navigation:
+  home: "ホーム"
+  dashboard: "ダッシュボード"
+  upload: "データアップロード"
+  analysis: "ブランド分析"
+  results: "分析結果"
+  settings: "設定"
+  help: "ヘルプ"
+  about: "システムについて"
+  logout: "ログアウト"
+
+# ==========================================
+# 共通ボタン
+# ==========================================
+buttons:
+  submit: "送信"
+  cancel: "キャンセル"
+  confirm: "確認"
+  save: "保存"
+  delete: "削除"
+  edit: "編集"
+  download: "ダウンロード"
+  upload: "アップロード"
+  export: "エクスポート"
+  import: "インポート"
+  reset: "リセット"
+  refresh: "更新"
+  back: "戻る"
+  next: "次へ"
+  previous: "前へ"
+  finish: "完了"
+  close: "閉じる"
+  search: "検索"
+  filter: "フィルター"
+  apply: "適用"
+  clear: "クリア"
+  select: "選択"
+  browse: "参照"
+  run_analysis: "分析を実行"
+  view_results: "結果を表示"
+  generate_report: "レポートを生成"
+  generate_attributes: "属性を生成"
+  start_scoring: "スコアリングを開始"
+
+# ==========================================
+# 共通メッセージ
+# ==========================================
+messages:
+  success: "操作が成功しました"
+  error: "操作が失敗しました"
+  warning: "警告"
+  info: "情報"
+  loading: "読み込み中..."
+  processing: "処理中..."
+  saving: "保存中..."
+  deleting: "削除中..."
+  uploading: "アップロード中..."
+  downloading: "ダウンロード中..."
+  analyzing: "分析中..."
+  generating: "生成中..."
+  complete: "完了"
+  failed: "失敗"
+  pending: "保留中"
+
+  # エラーメッセージ
+  error_occurred: "エラーが発生しました: {error}"
+  invalid_input: "無効な入力データ"
+  missing_field: "必須フィールドが不足しています: {field}"
+  file_not_found: "ファイルが見つかりません"
+  connection_error: "接続エラー"
+  authentication_failed: "認証に失敗しました"
+  permission_denied: "権限がありません"
+  timeout: "操作がタイムアウトしました"
+
+  # 成功メッセージ
+  save_success: "正常に保存されました"
+  upload_success: "正常にアップロードされました"
+  delete_success: "正常に削除されました"
+  analysis_complete: "分析が完了しました"
+  ready_for_analysis: "✅ データのアップロードが成功しました！サイドバーから分析モジュールを選択して開始してください"
+  upload_with_detection: "✅ レビューデータをアップロードしました：{count} 件のレビュー、{brands} 個のブランド"
+
+  # 確認メッセージ
+  confirm_delete: "削除してもよろしいですか？"
+  confirm_reset: "リセットしてもよろしいですか？"
+  confirm_cancel: "キャンセルしてもよろしいですか？"
+  unsaved_changes: "保存されていない変更があります。終了してもよろしいですか？"
+
+# ==========================================
+# ステータスラベル
+# ==========================================
+status:
+  active: "アクティブ"
+  inactive: "非アクティブ"
+  enabled: "有効"
+  disabled: "無効"
+  online: "オンライン"
+  offline: "オフライン"
+  connected: "接続済み"
+  disconnected: "切断済み"
+  running: "実行中"
+  stopped: "停止"
+  completed: "完了"
+  failed: "失敗"
+  pending: "保留中"
+  in_progress: "進行中"
+
+# ==========================================
+# データ関連
+# ==========================================
+data:
+  upload_title: "データをアップロード"
+  upload_description: "レビューデータファイルをアップロードしてください（ExcelまたはCSV形式をサポート）"
+  required_columns: "必須カラム"
+  column_variation: "ブランド/製品名 (Variation)"
+  column_title: "レビュータイトル (Title)"
+  column_body: "レビュー内容 (Body)"
+  column_rating: "評価 (Rating、オプション)"
+  column_date: "日付 (Date、オプション)"
+
+  file_format: "ファイル形式"
+  file_size: "ファイルサイズ"
+  row_count: "行数"
+  brand_count: "ブランド数"
+
+  validation_success: "データ検証に成功しました"
+  validation_failed: "データ検証に失敗しました"
+  invalid_format: "無効なファイル形式"
+  missing_columns: "必須カラムが不足しています: {columns}"
+  exceeds_limit: "データ制限を超えています: {limit}"
+
+# ==========================================
+# 分析関連
+# ==========================================
+analysis:
+  # 一般
+  title: "ブランド分析"
+  start_analysis: "分析を開始"
+  analysis_settings: "分析設定"
+  analysis_progress: "分析進捗"
+  analysis_results: "分析結果"
+
+  # 属性
+  attributes: "製品属性"
+  attribute_extraction: "属性抽出"
+  attribute_scoring: "属性スコアリング"
+  num_attributes: "属性数"
+  select_attributes: "属性数を選択 (10-30)"
+  extracting_attributes: "製品属性を抽出中..."
+  scoring_attributes: "製品属性をスコアリング中..."
+
+  # ブランド
+  brands: "ブランド"
+  brand_comparison: "ブランド比較"
+  brand_performance: "ブランドパフォーマンス"
+  select_brands: "ブランドを選択"
+  all_brands: "すべてのブランド"
+
+  # 分析タイプ
+  market_profile: "市場プロファイル分析"
+  market_track: "市場トラック分析"
+  dna_analysis: "DNA分析"
+  key_factors: "主要要因分析"
+  ideal_point: "理想点分析"
+  strategy_positioning: "戦略ポジショニング分析"
+  brand_identity: "ブランドアイデンティティ分析"
+  ai_insights: "AI総合インサイト"
+
+# ==========================================
+# ワークフローステップインジケーター（トップバー）
+# ==========================================
+workflow:
+  steps:
+    step1_short: "アップロード"
+    step2_short: "属性"
+    step3_short: "スコアリング"
+    step4_short: "分析"
+
+    step1_full: "ステップ1：レビューデータのアップロード"
+    step2_full: "ステップ2：属性抽出"
+    step3_full: "ステップ3：属性スコアリング"
+
+# ==========================================
+# サイドバー構造（オリジナルBrandEdgeに一致）
+# ==========================================
+sidebar:
+  # サイドバーセクションヘッダー
+  sections:
+    data_preparation: "データ準備"
+    core_analysis: "コア分析"
+    strategy_recommendations: "戦略提案"
+    system_info: "システム情報"
+
+  # データ準備セクション（1-3）
+  data_preparation:
+    item1: "1. レビューデータのアップロード"
+    item2: "2. 属性抽出（10-30）"
+    item3: "3. 属性スコアリング"
+
+  # コア分析セクション（4-7）
+  core_analysis:
+    item4: "4. ターゲット市場プロファイル"
+    item5: "5. 市場トラック分析"
+    item6: "6. ブランドDNA比較"
+    item7: "7. 主要要因分析"
+
+  # 戦略提案セクション（8-10）
+  strategy_recommendations:
+    item8: "8. 理想点分析"
+    item9: "9. ポジショニング戦略提案"
+    item10: "10. アイデンティティ戦略"
+
+  # システム情報セクション
+  system_info:
+    about: "システムについて"
+
+# ==========================================
+# 8つの分析モジュール（オリジナルBrandEdgeに一致）
+# ==========================================
+modules:
+  market_profile:
+    title: "市場プロファイル分析"
+    subtitle: "市場セグメンテーション＆顧客分析"
+    description: "AI駆動の顧客セグメント動的命名"
+
+  market_track:
+    title: "市場トラック分析"
+    subtitle: "成長機会の特定＆戦略的優先順位"
+    description: "高成長ポテンシャル属性の特定、4象限戦略"
+
+  advanced_dna:
+    title: "高度なDNA分析"
+    subtitle: "ブランドDNAレーダーチャート"
+    description: "多次元競争力分析"
+
+  key_factors:
+    title: "主要要因分析"
+    subtitle: "成功要因の特定"
+    description: "成功に影響するコア属性を見つける"
+    sensitivity: "分析感度"
+    summary: "主要要因サマリー"
+    achievement_ranking: "ブランド達成ランキング"
+    factor_details: "主要要因詳細"
+    benchmarks: "ベンチマークブランド"
+    analyzing: "主要要因を分析中..."
+    analysis_complete: "✅ 主要要因分析完了"
+    no_factors: " 主要要因が識別されませんでした。感度を調整してください"
+    identified: "{count} 個の重要成功要因を識別しました："
+    threshold_info: "閾値: "
+    no_data: "分析データなし"
+    brand_achievement: "ブランド主要要因達成率"
+    no_details: "詳細データなし"
+    ideal_value: "理想値: "
+    top_brands: "トップパフォーマンスブランド: "
+    no_benchmarks: "ベンチマークブランドデータなし"
+
+  ideal_point:
+    title: "理想点分析"
+    subtitle: "目標達成度分析"
+    description: "理想状態からの距離を測定"
+
+  strategy_positioning:
+    title: "戦略ポジショニング���析"
+    subtitle: "4象限戦略提案"
+    description: "明確な改善優先順位"
+
+  brand_identity:
+    title: "ブランドアイデンティティ分析"
+    subtitle: "差別化分析"
+    description: "独自の市場ポジショニングを構築"
+
+  # 属性スコアリング（高度属性評価に対応）
+  scoring:
+    title: "属性スコアリング"
+    original_title: "高度ブランド属性評価"
+    subtitle: "製品属性抽出＆スコアリング"
+    description: "10-30の製品属性を抽出し1-5でスコアリング"
+
+  # 高度属性（独立モジュール）
+  advanced_attribute:
+    title: "高度ブランド属性評価"
+    subtitle: "詳細属性分析"
+    description: "レビューから10-30の製品属性を抽出してスコアリング"
+    attr_count: "生成された属性（合計：{count}個）"
+
+  ai_insights:
+    title: "AI総合インサイト"
+    subtitle: "包括的戦略レポート"
+    description: "すべての分析を統合したインテリジェントな提案"
+
+# ==========================================
+# レガシーモジュール（下位互換性）
+# ==========================================
+legacy:
+  pca:
+    need_data: "属性スコアリングを完了してください。PCA分析には少なくとも2つの数値属性が必要です。"
+    constant_cols: "⚠️ データに定数列（分散=0）が含まれており、PCA分析を実行できません。データの変動性を確認してください。"
+    removed_cols: "ℹ️ {removed} 個の定数列を自動削除し、{used} 個の変数でPCA分析を実行します。"
+    using_attrs: "✅ {count} 個の属性でPCA分析を実行"
+    brand_label: "ブランド:"
+    attribute_label: "属性:"
+    map_title: "PCA ブランドポジショニングマップ"
+    error: "PCA 分析エラー:"
+    check_data: "データ品質と変動性を確認してください"
+    analysis_title: "PCA 分析"
+
+  ideal:
+    key_factors_label: "主要要因："
+
+  strategy:
+    appeal: "訴求"
+    change: "変更"
+    improve: "改善"
+    weakness: "弱点"
+    analyzing: "戦略分析中..."
+    not_generated: "戦略分析がまだ生成されていません。「戦略探索」をクリックしてください。"
+
+# ==========================================
+# チャート関連
+# ==========================================
+charts:
+  title: "チャート"
+  type: "チャートタイプ"
+  radar: "レーダーチャート"
+  bar: "棒グラフ"
+  line: "折れ線グラフ"
+  scatter: "散布図"
+  heatmap: "ヒートマップ"
+  table: "テーブル"
+
+  axis_x: "X軸"
+  axis_y: "Y軸"
+  legend: "凡例"
+  download_chart: "チャートをダウンロード"
+  fullscreen: "全画面表示"
+
+# ==========================================
+# レポート関連
+# ==========================================
+reports:
+  title: "分析レポート"
+  generate: "レポートを生成"
+  download: "レポートをダウンロード"
+  export_pdf: "PDFをエクスポート"
+  export_word: "Wordをエクスポート"
+  export_ppt: "PPTをエクスポート"
+  export_excel: "Excelをエクスポート"
+
+  summary: "要約"
+  overview: "概要"
+  details: "詳細"
+  recommendations: "提案"
+  conclusion: "結論"
+
+# ==========================================
+# ヘルプ＆ヒント
+# ==========================================
+help:
+  title: "ヘルプ"
+  user_guide: "ユーザーガイド"
+  faq: "よくある質問"
+  tutorial: "チュートリアル"
+  contact_support: "サポートに連絡"
+  documentation: "ドキュメント"
+  video_tutorial: "ビデオチュートリアル"
+
+  # システム情報
+  system_info: "システム情報"
+  version: "バージョン"
+  build_date: "ビルド日"
+  license: "ライセンス"
+
+# ==========================================
+# 設定
+# ==========================================
+settings:
+  title: "設定"
+  general: "一般設定"
+  language: "言語"
+  theme: "テーマ"
+  notifications: "通知"
+  privacy: "プライバシー"
+  account: "アカウント"
+
+  # 言語オプション
+  chinese: "繁體中文"
+  english: "English"
+  japanese: "日本語"
+
+# ==========================================
+# システムについて
+# ==========================================
+about:
+  title: "システムについて"
+  description: "BrandEdge ブランドポジショニングエンジンは、顧客レビューのAI深層分析により包括的なブランド戦略を提供するエンタープライズレベルのブランドポジショニング分析プラットフォームです。"
+
+  features:
+    title: "コア機能"
+    feature_1: "10-30の製品属性をサポートする多次元分析"
+    feature_2: "最大1000レビュー、20ブランドを同時に分析"
+    feature_3: "完全なブランド戦略をカバーする8つの分析モジュール"
+    feature_4: "AI駆動のインテリジェントテキスト分析"
+    feature_5: "集中型PromptとHint管理システム"
+
+  contact:
+    title: "お問い合わせ"
+    email: "mr.no.one01@gmail.com"
+    website: "https://www.peakedges.com"
+    support: "テクニカルサポート"
+
+  copyright: "© 2025 PeakEdges. All Rights Reserved"
+  version_info: "バージョン {version}"
+
+# ==========================================
+# 時間関連
+# ==========================================
+time:
+  date: "日付"
+  time: "時刻"
+  datetime: "日時"
+  today: "今日"
+  yesterday: "昨日"
+  tomorrow: "明日"
+  this_week: "今週"
+  last_week: "先週"
+  this_month: "今月"
+  last_month: "先月"
+  this_year: "今年"
+  last_year: "昨年"
+
+# ==========================================
+# 単位
+# ==========================================
+units:
+  items: "項目"
+  records: "レコード"
+  files: "ファイル"
+  rows: "行"
+  columns: "カラム"
+  percent: "パーセント"
+  score: "スコア"
+  count: "カウント"
+  total: "合計"
+  average: "平均"
+  maximum: "最大値"
+  minimum: "最小値"
+
+# ==========================================
+# ページタイトル
+# ==========================================
+pages:
+  login_brandedge: "ログイン"
+  upload_brandedge: "データアップロード"
+  brandedge_scoring: "属性スコアリング"
+  market_profile: "市場プロファイル分析"
+  market_track: "市場トラック分析"
+  advanced_attribute: "高度属性評価"
+  key_factor: "主要要因分析"
+  advanced_dna: "高度DNA分析"
+  brand_identity: "ブランドアイデンティティ分析"
+  ideal_point: "理想点分析"
+  positioning_strategy: "ポジショニング戦略提案"
+  brandedge_flagship: "ブランドエッジエンジン"
+  about: "私たちについて"
+
+# ==========================================
+# システム通知
+# ==========================================
+system:
+  notifications:
+    switch_to_scoring: "✅ スコアリングページに切り替えました"
+    enter_analysis: "✅ 分析モジュールに入りました"
+    switch_to_analysis: "✅ 分析ページに切り替えました"
+    data_uploaded: "✅ データのアップロードが成功しました"
+    scoring_complete: "✅ スコアリング完了"
+    analysis_complete: "✅ 分析完了"
+
+  # スコアリングモジュールの進行状況とエラーメッセージ
+  messages:
+    info:
+      analyzing_reviews: "レビューコンテンツを分析中、製品属性を抽出中..."
+      scoring_in_progress: "スコアリング中、お待ちください..."
+      processing_item: "{current}/{total} 件目を処理中 (ブランド: {brand})"
+
+    success:
+      attributes_extracted: "抽出に成功しました"
+      scoring_complete: "✅ スコアリング完了！{total} 件のレビューを正常に処理しました"
+      data_ready: "✅ スコアリングデータの準備が完了しました。分析を続行できます"
+
+    warning:
+      scoring_warning: "⚠️ スコアリング完了、ただし {error_count}/{total} 件のレビューが API エラーによりスキップされました"
+
+    error:
+      extraction_failed: "属性抽出に失敗しました："
+      scoring_failed: "スコアリングに失敗しました："
+      check_api: "OpenAI API 設定と十分なクォータを確認してください"
+
+    labels:
+      product_attributes: "個の製品属性："
+      reviews_scored: "件のレビューがスコアリングされました"
+
+    console:
+      start_extraction: "🚀 属性抽出を開始、目標属性数："
+      partial_extraction: "⚠️ 抽出できたのは"
+      partial_extraction_suffix: " 個の属性、目標数未満"
+      extraction_success: "✅ 正常に抽出されました"
+      attributes_count: " 個の属性"
+      extraction_failed: "❌ 属性抽出に失敗しました："
+      start_scoring: "🚀 スコアリングを開始、サンプルサイズ："
+      attributes_num: "、属性数："
+      scoring_error_detail: "⚠️ スコアリングエラー（第 {index} 件、ブランド: {brand}）: {error}"
+      scoring_complete: "✅ スコアリング完了、合計 "
+      reviews_count: " 件のレビュー"
+      scoring_failed: "❌ スコアリングに失敗しました："
+
+  ui:
+    tables:
+      avg_scores_caption: "各ブランド属性の平均スコア"
+
+# ==========================================
+# Market Profile Module
+# ==========================================
+market_profile:
+  controls:
+    segmentation_method: "セグメンテーション方法"
+    num_segments: "セグメント数"
+    run_analysis: "分析を実行"
+    run_ai_analysis: "AI分析を実行"
+
+  methods:
+    kmeans: "K-meansクラスタリング"
+    performance: "パフォーマンスベース"
+    combined: "総合分析"
+
+  tabs:
+    overview: "市場セグメンテーション概要"
+    detailed: "詳細セグメンテーション分析"
+    preferences: "顧客嗜好分析"
+    opportunities: "市場機会"
+    summary: "分析サマリー"
+
+  charts:
+    segment_distribution: "市場セグメント分布"
+    segment_characteristics: "セグメント特性分布"
+    preference_heatmap: "顧客嗜好ヒートマップ"
+    preference_radar: "セグメント嗜好レーダーチャート"
+    opportunity_matrix: "市場機会マトリックス"
+
+  positions:
+    leader: "市場リーダー"
+    strong: "強力な競合"
+    mainstream: "主流ブランド"
+    challenger: "チャレンジャー"
+
+  labels:
+    brands: "ブランド"
+    avg_score: "平均スコア"
+    top_attributes: "トップ属性数"
+    segment: "セグメント"
+    attribute: "属性"
+    score: "スコア"
+    product_attributes: "製品属性"
+    market_segment: "市場セグメント"
+    growth_potential: "成長可能性"
+    market_size: "市場規模"
+    developing: "開発中"
+    ai_insights: "AI顧客インサイト"
+    ai_opportunities: "AI市場機会分析"
+    ai_loading: "🤖 AI分析中..."
+    ai_complete: "✅ AI分析完了！"
+
+    # AI分析進捗詳細
+    ai_progress_segment_naming: "セグメント名を生成中..."
+    ai_progress_customer_analysis: "顧客の好みを分析中..."
+    ai_progress_market_opportunities: "市場機会を特定中..."
+    ai_progress_complete: "完了..."
+
+  quadrants:
+    high_potential_large: "高可能性大市場"
+    mature_large: "成熟大市場"
+    emerging_small: "新興小市場"
+    saturated_small: "飽和小市場"
+
+  tables:
+    segment_summary: "市場セグメンテーションサマリー"
+
+  messages:
+    no_data: "データをアップロードして属性スコアリングを完了してください"
+
+  report:
+    segmentation_title: "市場セグメンテーションプロファイル分析"
+    target_customer_title: "ターゲット顧客嗜好分析"
+    market_opportunity_title: "潜在市場機会分析"
+    has: ""
+    companies: "社があり、"
+    market_share: "市場シェアは"
+    avg_score: "平均スコアは"
+    features: "特徴："
+    developing: "開発中。"
+    highest_score: "最高平均スコア（"
+    score_close: "）を持ち、"
+    should_enhance: "強化すべき："
+    core_advantages: "コア優位性"
+    attract_target: "でターゲット顧客を引き付ける。"
+    run_ai_analysis: "AI分析を実行して顧客嗜好分析を生成してください。"
+    considering: ""
+    lower_share: "の市場シェアが低い（"
+    but_avg: "が、平均スコアは"
+    indicates_opportunity: "であり、これは潜在的な市場機会を示しています。"
+    suggest_enhance: "このセグメントの市場戦略を強化することを提案します。"
+    run_ai_for_opportunities: "AI分析を実行して市場機会分析を生成してください。"

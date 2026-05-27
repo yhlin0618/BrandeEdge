@@ -1,0 +1,137 @@
+title: "Step 2: Attribute Scoring"
+subtitle: "Extract product attributes and perform scoring analysis"
+
+ui:
+  sections:
+    attributes: "1. Attribute Extraction Settings"
+    scoring: "2. Scoring Settings"
+    results: "3. Scoring Results"
+
+  labels:
+    attr_count: "Number of Attributes"
+    sample_size: "Sample Reviews per Brand"
+
+  buttons:
+    generate_attributes: "🪄 Generate Attributes"
+    start_scoring: "Start Scoring"
+    next: "Next ➡️"
+
+  descriptions:
+    attr_extract: "The system will use AI to analyze review content and automatically identify the most important product attributes"
+    scoring: "Score sampled reviews for each attribute (1-5 scale)"
+
+  tables:
+    avg_scores_caption: "Average Attribute Scores by Brand"
+
+settings:
+  attributes: "1. Select Number of Attributes"
+  generated_attributes: "2. Generated Attributes"
+  scoring_title: "3. Scoring"
+  sample_size: "Sample size per brand:"
+  review_count: "2. Select Number of Customer Reviews to Analyze"
+  start_scoring: "3. Click [Start Scoring]"
+
+buttons:
+  generate_attributes: "Generate Attributes"
+  start_scoring: "Start Scoring"
+  proceed: "Next ➡️"
+  calculate_score: "Calculate Score"
+  save_criteria: "Save Criteria"
+  load_template: "Load Template"
+  export_results: "Export Results"
+  reset_all: "Reset All"
+
+  placeholders:
+    enter_criteria: "Enter scoring criteria"
+    select_category: "Select category"
+    weight_value: "Weight value (0-100)"
+
+messages:
+  success:
+    score_calculated: "Score calculation completed!"
+    criteria_saved: "Scoring criteria saved!"
+    template_loaded: "Template loaded successfully!"
+    results_exported: "Results exported!"
+    scoring_complete: "✅ Scoring completed! Successfully processed {total} records"
+    data_ready: "✅ Scoring data ready for analysis"
+
+  error:
+    calculation_failed: "Score calculation failed"
+    invalid_criteria: "Invalid scoring criteria"
+    save_failed: "Save failed"
+    template_not_found: "Template not found"
+    api_failed: "❌ API call failed: Please check your OpenAI API configuration"
+    no_data: "❌ No data available for scoring"
+    attribute_generation_failed: "❌ Failed to generate attributes: {error}"
+    attribute_parse_failed: "⚠️ Unable to parse sufficient attributes (required {required}, found only {found})"
+    prompt_failed: "❌ Unable to prepare prompt"
+    extraction_failed: "Attribute extraction failed:"
+    scoring_failed: "Scoring failed:"
+    check_api: "Please check your OpenAI API configuration"
+
+  warning:
+    incomplete_data: "Incomplete data"
+    low_confidence: "Low confidence level"
+    weight_sum_error: "Weights do not sum to 100%"
+    scoring_warning: "⚠️ Scoring completed, but {error_count}/{total} records were skipped due to API errors"
+
+  info:
+    calculating: "Calculating scores..."
+    loading: "Loading data..."
+    processing: "Processing..."
+    analyzing_attributes: "Analyzing attributes..."
+    scoring_in_progress: "Scoring in progress..."
+    processing_item: "Processing item {current}/{total} (Brand: {brand})"
+    generating_attributes: "Generating attributes from customer reviews..."
+    attributes_generated: "✅ Generated {count} attributes: {attrs}"
+    attributes_generated_notify: "✅ Generated {count} attributes!"
+    scoring_completed: "✅ Scoring completed for {count} items"
+    preparing_analysis: "Preparing attribute analysis..."
+    scoring_success: "✅ Scoring completed! Successfully processed {total} records"
+    scoring_complete: "✅ Scoring completed and saved to processed_data"
+    merging_data: "➡️ Proceeding to data merging!"
+    merge_success: "🎯 AI scoring completed! {count} variant scores processed"
+    export_preparing: "📊 Preparing export results..."
+
+score_types:
+  basic: "Basic Score"
+  weighted: "Weighted Score"
+  comparative: "Comparative Score"
+  custom: "Custom Score"
+
+console:
+  # Attribute extraction messages
+  starting_extraction: "🚀 Starting attribute extraction, target count:"
+  attributes_generated: "✅ Generated {count} attributes"
+  extraction_complete: "✅ Attribute extraction complete"
+  partial_extraction: "⚠️ Only extracted"
+  extraction_failed: "❌ Attribute extraction failed:"
+
+  # Scoring process messages
+  scoring_started: "🎯 Scoring started"
+  start_scoring: "🚀 Starting scoring, sample size:"
+  starting_score: "Starting scoring process..."
+  scoring_progress: "⏳ Processing {current}/{total}"
+  processing_batch: "Processing batch {batch}/{total}..."
+  attributes_num: ", attributes count:"
+
+  # Completion messages
+  scoring_complete: "✅ Scoring completed, total"
+  brands_count: "brands (from"
+
+  # Error messages
+  scoring_failed: "❌ Scoring failed:"
+  scoring_error_detail: "⚠️ Scoring error (item {index}, brand: {brand}): {error}"
+  prompt_failed: "❌ Prompt preparation failed:"
+
+criteria_categories:
+  performance: "Performance"
+  quality: "Quality Metrics"
+  reliability: "Reliability"
+  efficiency: "Efficiency"
+
+help:
+  score_calculation: "The scoring system supports multiple calculation methods, choose the appropriate scoring mode based on requirements"
+  weight_setting: "Weight settings affect the importance of each metric, the sum should be 100%"
+  threshold_config: "Thresholds are used to determine score grades and quality categories"
+

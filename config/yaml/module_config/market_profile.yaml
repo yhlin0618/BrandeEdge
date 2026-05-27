@@ -1,0 +1,157 @@
+# ==========================================
+# BrandEdge 市場輪廓分析模組配置
+# ==========================================
+# Module: market_profile
+# Path: modules/module_brandedge_market_profile.R
+# Version: 1.0.0
+
+module:
+  id: "market_profile"
+  name: "market_profile_module"
+  description: "market_segmentation_customer_preference"
+  version: "1.0.0"
+  path: "modules/module_brandedge_market_profile.R"
+  type: "analysis"
+  icon: "chart-pie"
+
+# UI 配置
+ui:
+  title_key: "title"
+  subtitle_key: "subtitle"
+  card_status: "info"
+
+  tabs:
+    overview:
+      id: "overview"
+      title_key: "tabs.overview"
+      icon: "home"
+
+    segments:
+      id: "segments"
+      title_key: "tabs.segments"
+      icon: "users"
+
+    preferences:
+      id: "preferences"
+      title_key: "tabs.preferences"
+      icon: "heart"
+
+# 市場區隔設定
+segmentation:
+  # K-means 聚類設定
+  clustering:
+    method: "kmeans"
+    min_clusters: 2
+    max_clusters: 5
+    default_clusters: 3
+    nstart: 25                         # K-means 初始化次數
+    max_iter: 100                      # 最大迭代次數
+    algorithm: "Hartigan-Wong"         # Lloyd | Hartigan-Wong | MacQueen
+
+  # 區隔命名
+  naming:
+    method: "ai"                       # ai | descriptive | numeric
+    ai_model: "gpt-5-nano"
+    temperature: 0.7
+    max_tokens: 500
+    fallback_method: "descriptive"     # AI 失敗時的備用方法
+
+  # 資料標準化
+  normalization:
+    enabled: true
+    method: "scale"                    # scale | minmax | robust
+
+  # 品牌分類閾值設定
+  thresholds:
+    high_score: 4                      # Score >= 4 considered high
+    leader_avg_score: 4.5              # Leader criteria
+    niche_avg_score: 4.0               # Niche criteria
+    mass_avg_score: 4.0                # Mass criteria (upper bound)
+
+  # 品牌分類標準
+  criteria:
+    leader:
+      min_avg_score: 4.5
+      top_attributes_comparison: "above_median"
+    niche:
+      min_avg_score: 4.0
+      top_attributes_comparison: "at_or_below_median"
+    mass:
+      max_avg_score: 4.0
+      top_attributes_comparison: "above_median"
+    challenger:
+      default: true                    # Anything not matching above
+
+  # 統計方法
+  statistics:
+    use_median_for_comparison: true
+
+# 客群偏好分析
+preference_analysis:
+  # Top 屬性設定
+  top_attributes:
+    count: 5                           # 顯示前 N 個屬性
+    threshold: 3.5                     # 分數閾值（超過才算偏好）
+
+  # 視覺化設定
+  visualization:
+    chart_type: "bar"                  # bar | radar | heatmap
+    show_comparison: true              # 顯示與整體平均的比較
+    color_palette: "Set3"              # RColorBrewer 色盤
+
+# 品牌市占率分析
+market_share:
+  calculation_method: "equal"          # equal | count | weighted
+  equal_distribution: true             # Each brand gets equal share (100/n)
+  show_percentage: true
+  show_absolute: true
+  sort_by: "share"                     # share | name
+
+# 資料驗證
+validation:
+  min_brands: 2                        # 最少品牌數
+  min_attributes: 3                    # 最少屬性數
+  min_records_per_cluster: 5           # 每個群集最少記錄數
+  require_scored_data: true            # 需要評分資料
+
+# 輸出設定
+output:
+  # 表格
+  tables:
+    segment_summary:
+      show: true
+      format: "datatable"
+      page_length: 10
+
+    brand_distribution:
+      show: true
+      export_enabled: true
+
+    language_url: "//cdn.datatables.net/plug-ins/1.10.11/i18n/Chinese-traditional.json"
+    decimal_places: 2
+    round_columns: ["avg_score", "top_attributes", "market_share"]
+
+  # 圖表
+  charts:
+    segment_pie:
+      show: true
+      height: 400
+
+    preference_bars:
+      show: true
+      height: 300
+
+  # Summary display
+  summary:
+    top_brands_count: 3                # Show top N brands in summary
+
+# 效能設定
+performance:
+  cache_segments: true
+  cache_duration: 3600                 # 秒
+  parallel_processing: false
+
+# 語言內容路徑
+language:
+  content_path: "database/content/{language}/module/market_profile.yaml"
+  fallback_path: "database/content/chinese/module/market_profile.yaml"

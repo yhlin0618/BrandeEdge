@@ -1,0 +1,702 @@
+# ==========================================
+# VitalSigns - Engagement Module Language Content (English)
+# ==========================================
+# Engagement & Conversion Analysis Module Language Content (English)
+# Version: 1.0.0
+# Last Updated: 2025-10-11
+
+# Module Basic Information
+title: "Engagement & Conversion Analysis"
+subtitle: "Track Customer Activity, Engagement Patterns & Conversion Efficiency"
+description: "Assess customer engagement, analyze conversion funnel, identify behavior patterns, optimize interaction strategies"
+
+# UI Sections
+ui:
+  sections:
+    overview: "Engagement Overview"
+    engagement_distribution: "Engagement Score Distribution"
+    activity_levels: "Activity Level Distribution"
+    conversion_funnel: "Conversion Funnel Analysis"
+    purchase_timing: "Purchase Timing Patterns"
+    behavior_patterns: "Behavior Pattern Analysis"
+    rfe_analysis: "RFE Analysis"
+    ai_insights: "AI Insights"
+
+  # Control Panel
+  controls:
+    title: "Analysis Controls"
+    engagement_dimensions: "Engagement Dimensions"
+    activity_threshold: "Activity Threshold"
+    funnel_stages: "Funnel Stages"
+
+  # Buttons
+  buttons:
+    calculate_engagement: "Calculate Engagement"
+    analyze_funnel: "Analyze Funnel"
+    identify_patterns: "Identify Patterns"
+    generate_insights: "Generate AI Insights"
+    export_segments: "Export Segment Data"
+    start_ai_analysis: "Start AI Analysis"
+    download_reactivation: "Download Reactivation List"
+    download_loyalty: "Download Loyalty Analysis"
+
+  # KPI Cards
+  kpis:
+    cai: "Customer Activity Index (CAI)"
+    conversion_rate: "Conversion Rate"
+    purchase_frequency: "Purchase Frequency"
+    inter_purchase_time: "Avg Inter-Purchase Time"
+    reactivation_rate: "Reactivation Rate"
+
+  # Card Titles
+  cards:
+    activity_distribution: "Customer Activity Distribution"
+    conversion_funnel: "Conversion Funnel"
+    purchase_patterns: "Purchase Frequency & Cycle Analysis"
+    reactivation_opportunity: "Customer Reactivation Opportunity"
+    loyalty_ladder: "Loyalty Ladder"
+    ai_analysis: "🤖 AI Analysis & Recommendations"
+
+  # Tab Labels
+  tabs:
+    frequency_analysis: "Frequency Analysis"
+    reactivation_analysis: "Reactivation Analysis"
+    loyalty_strategy: "Loyalty Strategy"
+    reactivation_list: "Reactivation List"
+
+  # Help Text
+  help:
+    chart_explanation: "📊 Chart Explanation"
+    activity_distribution_desc: "This scatter plot shows the relationship between customer activity and spending:"
+    activity_distribution_x: "X-axis: Activity Index (CAI), positive values indicate increasing activity, negative values indicate decreasing activity"
+    activity_distribution_y: "Y-axis: Total spending amount"
+    activity_distribution_color: "Point color: Represents purchase frequency (green=high, red=low)"
+    activity_distribution_size: "Point size: Also reflects spending amount"
+    activity_distribution_ideal: "Ideal state is when most customers are concentrated in the upper right corner (high activity, high spending)"
+    funnel_desc: "The funnel chart shows the customer conversion process from first purchase to loyalty:"
+    funnel_first: "1 purchase: First-time customer base (100%)"
+    funnel_second: "2 purchases: Second purchase conversion rate = customers with 2 purchases ÷ total customers"
+    funnel_regular: "3-4 purchases: Regular customer conversion rate"
+    funnel_loyal: "≥5 purchases: Loyal customer conversion rate"
+    funnel_note: "Higher conversion rates indicate more successful customer loyalty management"
+    patterns_desc: "The scatter plot shows each customer's purchase frequency and cycle relationship:"
+    patterns_x: "X-axis: Purchase frequency (total number of purchases)"
+    patterns_y: "Y-axis: Average purchase cycle (days between purchases)"
+    patterns_size: "Point size: Total spending amount"
+    patterns_color: "Color: Customer value segment"
+    patterns_ideal: "Ideal customers are in the lower right: high frequency, short cycle, high spending"
+
+  # Units
+  units:
+    times: "times"
+    days: "days"
+    people: "people"
+    customers: "customers"
+
+  # Chart Labels
+  charts:
+    no_data: "No data available"
+    no_activity_data: "No valid activity data"
+    customer_id: "Customer ID"
+    purchase_count: "Purchase Count"
+    total_spending: "Total Spending"
+    activity_index: "Activity Index (CAI)"
+    activity_vs_spending: "Customer Activity vs Total Spending"
+    purchase_frequency_label: "Purchase Frequency"
+    avg_days_between_purchases: "Avg Days Between Purchases"
+    funnel_title: "Customer Purchase Conversion Funnel"
+    funnel_stage: "Purchase Stage"
+    customer_count: "Customer Count"
+    conversion_rate: "Conversion Rate"
+    stage_1_purchase: "1 Purchase"
+    stage_2_purchases: "2 Purchases"
+    stage_3_4_purchases: "3-4 Purchases"
+    stage_5_plus_purchases: "≥5 Purchases"
+    frequency_cycle_analysis: "Purchase Frequency and Cycle Analysis"
+    reactivation_title: "Customer Reactivation Opportunity Analysis"
+    days_since_last_purchase: "Days Since Last Purchase"
+    urgency_score: "Urgency Score"
+    loyalty_ladder_title: "Customer Loyalty Ladder"
+    loyalty_tier: "Loyalty Tier"
+    average_purchase_value: "Avg Purchase Value"
+
+  # Value Segments
+  value_segments:
+    high: "High Value"
+    medium_high: "Medium-High Value"
+    medium_low: "Medium-Low Value"
+    low: "Low Value"
+
+  # Urgency Levels
+  urgency_levels:
+    urgent: "Urgent"
+    important: "Important"
+    normal: "Normal"
+
+  # Loyalty Tiers
+  loyalty_tiers:
+    first_time: "First-Time Purchase"
+    occasional: "Occasional Buyer"
+    regular: "Regular Customer"
+    loyal: "Loyal Customer"
+    ambassador: "Brand Ambassador"
+
+  # Actions
+  actions:
+    immediate_contact: "Immediate Contact"
+    priority_outreach: "Priority Outreach"
+    routine_communication: "Routine Communication"
+    upgrade_to_regular: "Upgrade to Regular Customer"
+    upgrade_to_loyal: "Upgrade to Loyal Customer"
+    upgrade_to_ambassador: "Upgrade to Brand Ambassador"
+    maintain_relationship: "Maintain Relationship"
+    exclusive_benefits: "Provide Exclusive Benefits"
+
+# Metrics Definition
+metrics:
+  # Core Metrics
+  active_customers:
+    name: "Active Customers"
+    short_name: "Active Customers"
+    description: "Number of customers with purchase activity in specified period"
+    icon: "user-check"
+    unit: "customers"
+    color: "success"
+
+  activity_rate:
+    name: "Activity Rate"
+    short_name: "Activity Rate"
+    description: "Proportion of active customers to total customers"
+    icon: "chart-line"
+    unit: "%"
+    color: "primary"
+
+  avg_engagement_score:
+    name: "Average Engagement Score"
+    short_name: "Engagement"
+    description: "Comprehensive engagement score based on 5 dimensions"
+    icon: "fire"
+    unit: "points"
+    color: "warning"
+
+  conversion_rate:
+    name: "Conversion Rate"
+    short_name: "Conversion Rate"
+    description: "Conversion ratio from visitor to purchase"
+    icon: "funnel"
+    unit: "%"
+    color: "info"
+
+# Engagement Dimensions (5 Dimensions)
+engagement_dimensions:
+  purchase_frequency:
+    name: "Purchase Frequency"
+    short_name: "Frequency"
+    description: "Number of purchases"
+    weight: 0.25
+    icon: "🔁"
+    formula: "Purchase Count / Time Period"
+
+  recency:
+    name: "Recent Interaction"
+    short_name: "Recency"
+    description: "Time of last purchase"
+    weight: 0.20
+    icon: "🕒"
+    formula: "Current Date - Last Purchase Date"
+
+  monetary:
+    name: "Spending Value"
+    short_name: "Value"
+    description: "Cumulative spending amount"
+    weight: 0.25
+    icon: "💰"
+    formula: "Total Spending Amount"
+
+  engagement_depth:
+    name: "Engagement Depth"
+    short_name: "Depth"
+    description: "Depth of each interaction"
+    weight: 0.15
+    icon: "📊"
+    formula: "Average Order Value × Purchase Diversity"
+
+  behavioral_consistency:
+    name: "Behavioral Consistency"
+    short_name: "Consistency"
+    description: "Stability of purchase behavior"
+    weight: 0.15
+    icon: "🎯"
+    formula: "Inverse of Purchase Interval Standard Deviation"
+
+# Activity Levels
+activity_levels:
+  highly_active:
+    name: "Highly Active"
+    short_name: "Highly Active"
+    description: "Customers with frequent purchases and high engagement"
+    min_score: 75
+    color: "success"
+    icon: "🔥"
+    characteristics:
+      - "High purchase frequency"
+      - "Recent purchases"
+      - "Large spending amount"
+      - "Deep engagement"
+
+  moderately_active:
+    name: "Moderately Active"
+    short_name: "Moderately Active"
+    description: "Customers with regular purchases and stable engagement"
+    min_score: 50
+    color: "primary"
+    icon: "⚡"
+    characteristics:
+      - "Medium purchase frequency"
+      - "Occasional purchases"
+      - "Medium spending amount"
+      - "Basic engagement"
+
+  low_active:
+    name: "Low Active"
+    short_name: "Low Active"
+    description: "Customers with occasional purchases and low engagement"
+    min_score: 25
+    color: "warning"
+    icon: "💤"
+    characteristics:
+      - "Low purchase frequency"
+      - "Long time since purchase"
+      - "Small spending amount"
+      - "Low engagement"
+
+  inactive:
+    name: "Inactive"
+    short_name: "Inactive"
+    description: "Customers with no recent purchases or engagement"
+    min_score: 0
+    color: "danger"
+    icon: "😴"
+    characteristics:
+      - "Very long since purchase"
+      - "Almost no interaction"
+      - "High churn risk"
+      - "Needs reactivation"
+
+# Engagement Segments
+engagement_segments:
+  super_users:
+    name: "Super Users"
+    description: "Core customers with high frequency, high value, and high engagement"
+    criteria: "High Frequency + High Value + High Activity"
+    color: "success"
+    icon: "👑"
+    percentage_range: "5-10%"
+
+  engaged_users:
+    name: "Engaged Users"
+    description: "Main customers with regular purchases and stable engagement"
+    criteria: "Mid-High Frequency + Mid-High Value"
+    color: "primary"
+    icon: "⭐"
+    percentage_range: "20-30%"
+
+  casual_users:
+    name: "Casual Users"
+    description: "Customers with occasional purchases and low engagement"
+    criteria: "Low Frequency + Low Value"
+    color: "warning"
+    icon: "👤"
+    percentage_range: "40-50%"
+
+  at_risk_users:
+    name: "At Risk Users"
+    description: "Customers with long time since purchase and declining engagement"
+    criteria: "Long Inactive + Declining Engagement"
+    color: "danger"
+    icon: "⚠️"
+    percentage_range: "10-20%"
+
+# Conversion Funnel
+conversion_funnel:
+  stages:
+    awareness:
+      name: "Awareness Stage"
+      short_name: "Awareness"
+      description: "Learn about brand or product"
+      order: 1
+      icon: "👁️"
+
+    consideration:
+      name: "Consideration Stage"
+      short_name: "Consideration"
+      description: "Evaluate whether to purchase"
+      order: 2
+      icon: "🤔"
+
+    purchase:
+      name: "Purchase Stage"
+      short_name: "Purchase"
+      description: "Complete first purchase"
+      order: 3
+      icon: "🛒"
+
+    repeat:
+      name: "Repeat Purchase Stage"
+      short_name: "Repeat"
+      description: "Become repeat customer"
+      order: 4
+      icon: "🔄"
+
+  metrics:
+    funnel_conversion_rate:
+      name: "Funnel Conversion Rate"
+      description: "Overall conversion rate from first to last stage"
+
+    stage_conversion_rate:
+      name: "Stage Conversion Rate"
+      description: "Conversion rate for single stage"
+
+    drop_off_rate:
+      name: "Drop-off Rate"
+      description: "Proportion dropping off at each stage"
+
+# Behavior Patterns
+behavior_patterns:
+  # Purchase Timing Patterns
+  purchase_timing:
+    weekday_pattern:
+      name: "Weekday Pattern"
+      description: "Purchase pattern Monday to Friday"
+
+    weekend_pattern:
+      name: "Weekend Pattern"
+      description: "Purchase pattern Saturday to Sunday"
+
+    hourly_pattern:
+      name: "Hourly Pattern"
+      description: "Purchase pattern throughout the day"
+
+    monthly_pattern:
+      name: "Monthly Pattern"
+      description: "Purchase pattern across months"
+
+  # Purchase Frequency Patterns
+  frequency_patterns:
+    burst:
+      name: "Burst Type"
+      description: "Intensive purchases within short period"
+      characteristics: "Concentrated purchases, long intervals"
+
+    steady:
+      name: "Steady Type"
+      description: "Fixed frequency purchases"
+      characteristics: "Regular purchases, predictable"
+
+    sporadic:
+      name: "Sporadic Type"
+      description: "Irregular purchases"
+      characteristics: "No pattern, hard to predict"
+
+  # Value Trends
+  value_trends:
+    increasing:
+      name: "Increasing Type"
+      description: "Gradually increasing spending amount"
+      trend: "↗️"
+
+    stable:
+      name: "Stable Type"
+      description: "Maintaining stable spending amount"
+      trend: "→"
+
+    decreasing:
+      name: "Decreasing Type"
+      description: "Gradually decreasing spending amount"
+      trend: "↘️"
+
+# RFE Analysis (Recency-Frequency-Engagement)
+rfe_analysis:
+  description: "Customer analysis based on recency, frequency, and engagement"
+  dimensions:
+    r_score:
+      name: "Recency Score (R)"
+      description: "Score for recent purchase time"
+      range: "1-5"
+
+    f_score:
+      name: "Frequency Score (F)"
+      description: "Score for purchase frequency"
+      range: "1-5"
+
+    e_score:
+      name: "Engagement Score (E)"
+      description: "Score for overall engagement"
+      range: "1-5"
+
+  segments:
+    champions:
+      name: "Champions"
+      criteria: "R=5, F=5, E=5"
+      action: "Maintain high-quality service"
+
+    loyal:
+      name: "Loyal Customers"
+      criteria: "R>=3, F>=4, E>=4"
+      action: "Provide rewards program"
+
+    potential:
+      name: "Potential Customers"
+      criteria: "R>=4, F<=2, E>=3"
+      action: "Increase interaction frequency"
+
+    at_risk:
+      name: "At Risk Customers"
+      criteria: "R<=2, F>=3, E<=3"
+      action: "Recovery measures"
+
+# Chart Configuration
+charts:
+  # Engagement Score Distribution
+  engagement_distribution:
+    title: "Engagement Score Distribution"
+    x_axis: "Engagement Score"
+    y_axis: "Customer Count"
+    tooltip: "Score {score}: {count} customers"
+
+  # Activity Levels Pie Chart
+  activity_levels_pie:
+    title: "Activity Level Distribution"
+    tooltip: "{level}: {count} customers ({percentage}%)"
+
+  # Conversion Funnel Chart
+  conversion_funnel_chart:
+    title: "Conversion Funnel"
+    tooltip: "{stage}: {count} customers ({rate}%)"
+
+  # Purchase Timing Chart
+  purchase_timing_chart:
+    title: "Purchase Timing Distribution"
+    weekday:
+      x_axis: "Day of Week"
+      y_axis: "Transaction Count"
+      labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    hourly:
+      x_axis: "Time Period"
+      y_axis: "Transaction Count"
+
+  # Engagement Segments Chart
+  engagement_segments_chart:
+    title: "Engagement Segment Distribution"
+    tooltip: "{segment}: {count} customers ({percentage}%)"
+
+  # RFE Scatter Plot
+  rfe_scatter:
+    title: "RFE Analysis Scatter Plot"
+    x_axis: "Frequency (F)"
+    y_axis: "Recency (R)"
+    size: "Engagement (E)"
+    tooltip: "Customer {id}: R={r}, F={f}, E={e}"
+
+# Messages
+messages:
+  # Success Messages
+  success:
+    engagement_calculated: "✅ Engagement calculation complete"
+    funnel_analyzed: "✅ Conversion funnel analysis complete"
+    patterns_identified: "✅ Behavior pattern identification complete"
+    insights_generated: "✅ AI insights generated"
+
+  # Processing Messages
+  processing:
+    calculating_engagement: "Calculating engagement..."
+    analyzing_funnel: "Analyzing conversion funnel..."
+    identifying_patterns: "Identifying behavior patterns..."
+    scoring_customers: "Scoring customers..."
+
+  # Error Messages
+  error:
+    insufficient_data: "❌ Insufficient data for engagement analysis"
+    no_active_customers: "❌ No active customer data"
+    funnel_analysis_failed: "❌ Funnel analysis failed"
+
+  # Warning Messages
+  warning:
+    low_activity_rate: "⚠️ Low activity rate ({rate}%), needs improvement"
+    many_inactive: "⚠️ High proportion of inactive customers ({percentage}%)"
+    low_conversion: "⚠️ Low conversion rate ({rate}%), needs optimization"
+
+  # Info Messages
+  info:
+    customers_scored: "Scored {count} customers"
+    segments_identified: "Identified {count} segments"
+    patterns_found: "Found {count} behavior patterns"
+
+# AI Analysis Types
+ai_analysis:
+  types:
+    engagement_insights:
+      name: "Engagement Insights"
+      description: "Analyze characteristics and behaviors of highly engaged customers"
+      prompt_category: "engagement_insights"
+
+    funnel_optimization:
+      name: "Funnel Optimization Recommendations"
+      description: "Identify funnel bottlenecks and provide optimization recommendations"
+      prompt_category: "funnel_optimization"
+
+    behavior_patterns:
+      name: "Behavior Pattern Interpretation"
+      description: "Interpret customer purchase timing and frequency patterns"
+      prompt_category: "behavior_patterns"
+
+    activation_strategy:
+      name: "Activation Strategy"
+      description: "Provide activation recommendations for inactive customers"
+      prompt_category: "activation_strategy"
+
+  # AI Analysis Titles (for fallback display)
+  fallback_titles:
+    ai_result: "🤖 AI Analysis Results"
+    frequency_insights: "📊 Purchase Frequency Insights (Default Analysis)"
+    reactivation_assessment: "🔔 Reactivation Opportunity Assessment (Default Analysis)"
+    loyalty_strategy: "🏆 Loyalty Ladder Strategy"
+    reactivation_plan: "📋 Customer Reactivation Marketing Plan"
+    marketing_suggestions: "💡 Marketing Suggestions"
+    reactivation_strategy_title: "🎯 Reactivation Strategy"
+    upgrade_strategy_title: "📈 Upgrade Strategy"
+    execution_plan: "📧 Execution Plan"
+
+  # AI Analysis Text Templates
+  fallback_text:
+    avg_frequency_label: "Average purchase frequency is"
+    customer_count_label: "Total"
+    customers_need_reactivation: "customers need reactivation"
+    potential_value: "Potential Value:"
+    customer_distribution: "Customer loyalty distribution analysis"
+    reactivation_total: "Total customers needing reactivation:"
+
+  # Default Analysis Suggestions
+  frequency_suggestions:
+    low_frequency: "Low-frequency customers: Launch first-purchase offers, lower second-purchase barriers"
+    medium_frequency: "Medium-frequency customers: Regularly push personalized product recommendations"
+    high_frequency: "High-frequency customers: Provide VIP exclusive benefits, maintain loyalty"
+
+  reactivation_strategies:
+    s1_sleepy: "S1 Sleepy: Send 'We miss you' email + small offer"
+    s2_half_asleep: "S2 Half-asleep: Limited-time large discount + new product recommendations"
+    s3_deep_sleep: "S3 Deep sleep: Survey + reactivation rewards"
+
+  loyalty_upgrade_strategies:
+    first_to_occasional: "First→Occasional: Offer second purchase incentive within 7 days after first purchase"
+    occasional_to_regular: "Occasional→Regular: Launch cumulative spending rewards program"
+    regular_to_loyal: "Regular→Loyal: VIP exclusive benefits"
+    loyal_to_ambassador: "Loyal→Ambassador: Referral rewards program + dedicated customer service"
+
+  reactivation_execution_plan:
+    wave1: "Wave 1: Send personalized care emails"
+    wave2: "Wave 2: Provide limited-time exclusive offers"
+    wave3: "Wave 3: New product recommendations + purchase bonuses"
+    wave4: "Wave 4: Final ultimatum offers"
+    timing_note: "Recommend 7-10 days between waves, track open rates and conversion rates"
+
+# Help Text
+help:
+  overview: |
+    Engagement & Conversion Analysis module helps you assess customer engagement and conversion efficiency.
+    Through multi-dimensional analysis, identify high-value segments and optimize interaction strategies.
+
+  engagement_scoring: |
+    Engagement Scoring System:
+    Based on 5 weighted dimensions:
+    1. Purchase Frequency (25%): Number of purchases
+    2. Recent Interaction (20%): Last purchase time
+    3. Spending Value (25%): Cumulative spending amount
+    4. Engagement Depth (15%): Depth of each interaction
+    5. Behavioral Consistency (15%): Stability of purchase behavior
+
+    Total Score Range: 0-100 points
+
+  activity_levels: |
+    Activity Level Definition:
+    - Highly Active (75+ points): Core customers, need maintenance
+    - Moderately Active (50-74 points): Main customers, can be enhanced
+    - Low Active (25-49 points): Edge customers, need activation
+    - Inactive (Below 25 points): Churn risk, need reactivation
+
+  conversion_funnel: |
+    Conversion Funnel Analysis:
+    Track complete customer journey from awareness to repeat purchase:
+    1. Awareness Stage: Learn about brand
+    2. Consideration Stage: Evaluate purchase
+    3. Purchase Stage: Complete first purchase
+    4. Repeat Stage: Become repeat customer
+
+    Funnel analysis helps:
+    - Identify conversion bottlenecks
+    - Calculate stage drop-off rates
+    - Optimize customer journey
+    - Improve overall conversion rate
+
+  rfe_analysis: |
+    RFE Analysis:
+    RFE is an advanced version of RFM with added engagement dimension:
+    - R (Recency): Recent purchase time
+    - F (Frequency): Purchase frequency
+    - E (Engagement): Overall engagement
+
+    Compared to traditional RFM, RFE provides more comprehensive customer value assessment.
+
+  best_practices: |
+    Analysis Recommendations:
+    1. Regularly track activity rate changes to maintain customer engagement
+    2. Analyze conversion funnel to optimize key stages
+    3. Identify highly engaged customer characteristics to replicate success
+    4. Optimize communication rhythm based on purchase timing patterns
+    5. Develop differentiated strategies for different activity level segments
+
+# Hints
+hints:
+  engagement_distribution: "Engagement score distribution reflects overall customer activity. Ideally should show right-skewed distribution (more high-scoring customers)."
+  activity_levels: "Watch proportion of inactive customers. If exceeds 30%, recommend large-scale activation measures."
+  conversion_funnel: "Narrowing funnel stages are conversion bottlenecks. Focus on optimizing stages with highest drop-off rates."
+  purchase_timing: "Understanding customer purchase timing habits can optimize promotion and communication timing to improve conversion efficiency."
+  engagement_segments: "Super Users contribute disproportionately despite small size. Engaged Users are main force, Casual Users have growth potential, At Risk Users need attention."
+
+# Action Recommendations
+action_recommendations:
+  super_users:
+    title: "Super User Maintenance Recommendations"
+    actions:
+      - "Provide highest tier membership benefits"
+      - "Priority access to new products and exclusive offers"
+      - "Establish dedicated customer service channel"
+      - "Invite participation in product development and decisions"
+      - "Assign community leader role"
+
+  engaged_users:
+    title: "Engaged User Enhancement Recommendations"
+    actions:
+      - "Upgrade membership tier and benefits"
+      - "Recommend related products to expand consumption"
+      - "Increase interaction frequency and depth"
+      - "Provide personalized recommendations"
+      - "Cultivate into Super Users"
+
+  casual_users:
+    title: "Casual User Activation Recommendations"
+    actions:
+      - "Send attractive promotional messages"
+      - "Educate on product value and usage"
+      - "Lower purchase barriers"
+      - "Establish habit-forming mechanisms"
+      - "Increase interaction frequency"
+
+  at_risk_users:
+    title: "At Risk User Recovery Recommendations"
+    actions:
+      - "Send exclusive recovery offers"
+      - "Understand churn reasons"
+      - "Reactivate interest"
+      - "Provide special care"
+      - "Prioritize high-value customer recovery"

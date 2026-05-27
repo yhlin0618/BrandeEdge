@@ -1,0 +1,69 @@
+# ==========================================
+# Keyword Advertising Module Text Content - English
+# ==========================================
+
+title: "🔍 Keyword Advertising Recommendations"
+subtitle: "Based on product attribute analysis results, recommend optimal keyword advertising strategies"
+description: "AI-powered generation of high-efficiency keyword combinations to improve advertising ROI"
+
+settings:
+  title: "📋 Analysis Settings"
+  brand_selection: "Select Brand/Product"
+  keyword_count: "Recommended keyword count"
+  platform: "Advertising Platform"
+  budget: "Budget Range"
+
+platforms:
+  google: "Google Ads"
+  facebook: "Facebook Ads"
+  instagram: "Instagram Ads"
+  all: "All Platforms"
+
+analysis:
+  title: "Analysis Parameters"
+  target_audience: "Target Audience"
+  geographic: "Geographic Location"
+  language: "Language Setting"
+  device: "Device Type"
+
+generation:
+  button: "Generate Keyword Recommendations"
+  processing: "🔄 Analyzing keywords..."
+  complete: "✅ Keyword recommendations generated!"
+
+results:
+  title: "📌 Keyword Advertising Recommendations"
+  keyword_list: "Recommended Keywords"
+  search_volume: "Search Volume"
+  competition: "Competition Level"
+  suggested_bid: "Suggested Bid"
+  relevance_score: "Relevance Score"
+  core_attributes: "Core Advantage Attributes:"
+
+optimization:
+  title: "Optimization Recommendations"
+  ad_group: "Ad Group Recommendations"
+  negative_keywords: "Negative Keywords"
+  match_types: "Match Type Recommendations"
+
+export:
+  button: "Download Keyword Report"
+  format: "Export Format"
+  include_metrics: "Include Metric Data"
+
+messages:
+  no_brand_selected: "Please select a brand or product first"
+  generation_failed: "Generation failed: {error}"
+  export_success: "Keyword report downloaded"
+  basic_generation: "Using basic keyword generation"
+  no_suggestions: "No keyword suggestions yet"
+
+console:
+  generating_keywords: "🔎 Generating keywords..."
+  analyzing_brand: "Analyzing brand: {brand}"
+  extracting_attributes: "Extracting attribute features..."
+  ai_processing: "🤖 AI processing keyword recommendations..."
+  keywords_generated: "✅ Generated {count} keywords"
+  optimizing_keywords: "Optimizing keyword combinations..."
+  export_ready: "📦 Keyword report ready"
+

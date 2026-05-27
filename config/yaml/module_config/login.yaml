@@ -1,0 +1,243 @@
+# ==========================================
+# 登入模組配置
+# ==========================================
+# Module: login
+# Path: scripts/global_scripts/10_rshinyapp_components/login/login_module.R
+# Version: 2.0.0
+
+module:
+  id: "login"
+  name: "Login Module"
+  description: "User Authentication and Authorization"
+  version: "2.0.0"
+  path: "modules/module_login.R"
+  type: "authentication"
+  icon: "sign-in-alt"
+
+  # 函數名稱 (明確指定，不使用自動發現)
+  functions:
+    ui: "loginModuleUI"
+    server: "loginModuleServer"
+
+# UI 配置
+ui:
+  card_width: 4                      # Bootstrap 欄寬
+  card_offset: 4                     # 置中偏移
+
+  gradient:
+    start_color: "#667eea"
+    end_color: "#764ba2"
+
+  logo:
+    enabled: true
+    path: "www/logo.png"
+    width: 200
+
+# 認證設定
+authentication:
+  # 認證方式
+  method: "database"                 # database | ldap | oauth | demo
+
+  # Demo 模式
+  demo_mode:
+    enabled: true
+    accounts:
+      - username: "admin"
+        password: "admin123"
+        role: "admin"
+
+      - username: "user"
+        password: "user123"
+        role: "user"
+
+  # 密碼政策
+  password_policy:
+    min_length: 6
+    require_uppercase: false
+    require_lowercase: true
+    require_number: true
+    require_special: false
+    max_age_days: 90
+
+  # 登入限制
+  login_restrictions:
+    max_attempts: 5                  # 最大嘗試次數
+    lockout_duration: 300            # 鎖定時間（秒）
+    session_timeout: 3600            # 會話逾時（秒）
+
+# 使用者權限
+authorization:
+  roles:
+    admin:
+      name_key: "roles.admin.name"
+      login_limit: -1                # unlimited
+      permissions:
+        - "all"
+
+    user:
+      name_key: "roles.user.name"
+      login_limit: 100               # login attempt limit
+      permissions:
+        - "upload"
+        - "analyze"
+        - "view_results"
+
+    guest:
+      name_key: "roles.guest.name"
+      login_limit: 10
+      permissions:
+        - "view_demo"
+
+# 資料庫設定
+database:
+  users_table: "users"
+  sessions_table: "user_sessions"
+
+  schema:
+    users:
+      - name: "id"
+        type: "INTEGER"
+        primary_key: true
+
+      - name: "username"
+        type: "TEXT"
+        unique: true
+
+      - name: "password_hash"
+        type: "TEXT"
+
+      - name: "role"
+        type: "TEXT"
+        default: "user"
+
+      - name: "created_at"
+        type: "TIMESTAMP"
+
+      - name: "last_login"
+        type: "TIMESTAMP"
+
+      - name: "login_count"
+        type: "INTEGER"
+        default: 0
+
+# 安全設定
+security:
+  # 密碼加密
+  encryption:
+    method: "bcrypt"                # bcrypt | argon2 | pbkdf2
+    cost: 10                        # bcrypt cost factor
+
+  # 會話管理
+  session:
+    regenerate_id: true             # 重新產生 session ID
+    secure_cookie: true             # 使用安全 cookie
+    http_only: true                 # HttpOnly flag
+
+  # CSRF 保護
+  csrf:
+    enabled: true
+    token_length: 32
+
+  # 登入記錄
+  audit:
+    log_successful_logins: true
+    log_failed_attempts: true
+    log_logout: true
+
+# 通知設定
+notifications:
+  login_success:
+    type: "default"
+    duration: 3
+
+  login_failed:
+    type: "error"
+    duration: 5
+
+  account_locked:
+    type: "warning"
+    duration: 8
+
+  password_expired:
+    type: "warning"
+    duration: 10
+
+  demo_mode:
+    type: "info"
+    duration: -1                    # 持續顯示
+
+# 註冊設定
+registration:
+  enabled: true
+  require_approval: false           # admin approval required
+
+  fields:
+    - id: "username"
+      required: true
+      validation: "^[a-zA-Z0-9_]{3,20}$"
+
+    - id: "password"
+      required: true
+
+    - id: "email"
+      required: false
+      validation: "email"
+
+    - id: "organization"
+      required: false
+
+  # 預設設定
+  defaults:
+    role: "user"
+    login_limit: 100
+
+# 密碼重設
+password_reset:
+  enabled: false                    # 目前未實作
+  method: "email"                   # email | sms | security_question
+  token_validity: 3600              # Token 有效期（秒）
+
+# UI 客製化
+customization:
+  # 顏色主題
+  theme:
+    primary: "#007bff"
+    success: "#28a745"
+    warning: "#ffc107"
+    danger: "#dc3545"
+
+  # 文字內容 - 透過語言管理器載入
+  messages:
+    # welcome 和 footer 文字將從語言檔案載入
+
+  # 自訂 CSS
+  custom_css: |
+    .login-box {
+      margin-top: 10vh;
+    }
+    .login-card-body {
+      padding: 2rem;
+    }
+
+# 進階設定
+advanced:
+  # 單一登入 (SSO)
+  sso:
+    enabled: false
+    provider: "saml"                # saml | oauth2 | openid
+
+  # 多因素認證 (MFA)
+  mfa:
+    enabled: false
+    methods: ["totp", "sms"]
+
+  # IP 白名單
+  ip_whitelist:
+    enabled: false
+    allowed_ips: []
+
+  # 裝置指紋
+  device_fingerprint:
+    enabled: false
+    track_devices: true
+

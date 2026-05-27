@@ -1,0 +1,148 @@
+title: "📈 販売モデル分析"
+subtitle: "回帰分析による販売インサイト"
+
+tabs:
+  mean_scores: "平均スコア"
+  sales_model: "販売モデル"
+  marketing_strategy: "パーソナライズドマーケティング戦略"
+
+mean_scores:
+  title: "バリエーション別平均属性スコア"
+
+sales_model:
+  title: "販売回帰分析"
+  merged_data_preview: "結合データプレビュー："
+
+strategy:
+  title: "分析に基づくマーケティング戦略の生成"
+  select_brand: "ブランドを選択："
+  recommendation_title: "マーケティング戦略の推奨"
+  key_attributes: "📊 主要属性分析："
+  marketing_suggestions: "💡 マーケティング提案："
+  execution_strategy: "🚀 実行戦略："
+  ab_test_recommendation: "まず小規模なA/Bテストを実施して属性強調の効果を検証し、その後徐々に規模を拡大することをお勧めします。"
+  suggestion_1: "{attribute}の優位性を強調することに焦点を当ててください。これは販売に影響を与える中核要因です"
+  suggestion_2: "広告コピーでこれらの主要属性のパフォーマンスを強調してください"
+  suggestion_3: "異なる顧客セグメントに対して属性強調の優先順位を調整してください"
+  suggestion_4: "これらの属性に関する市場フィードバックを定期的に監視し、最適化してください"
+
+results:
+  title: "📊 販売モデル分析結果"
+  visualization: "📈 限界効果の可視化"
+  marginal_effect: "限界効果"
+  multiplier: "乗数"
+  business_significance_label: "ビジネス上の重要性："
+  marginal_effect_label: "限界効果："
+
+# Column names for regression results table
+columns:
+  attribute: "属性"
+  coefficient: "係数"
+  marginal_effect: "限界効果"
+  multiplier: "乗数"
+  interpretation: "解釈"
+  business_significance: "ビジネス上の重要性"
+
+# Default messages
+defaults:
+  analysis_failed: "モデルフィッティングに失敗しました"
+  unable_to_analyze: "分析できません"
+
+# Translation mappings for regression results
+# Maps original Chinese output from regression function to translated text
+translation_map:
+  interpretation:
+    # Error messages
+    "資料不足": "モデルフィッティングに失敗しました"
+    "缺少銷量資料": "モデルフィッティングに失敗しました"
+    "銷量資料無效": "モデルフィッティングに失敗しました"
+    "模型擬合失敗": "モデルフィッティングに失敗しました"
+    # Positive impacts
+    "強烈.*正面影響": "販売に強いプラスの影響"
+    "中等.*正面影響": "販売に中程度のプラスの影響"
+    "微弱.*正面影響": "販売に弱いプラスの影響"
+    # Negative impacts
+    "強烈.*負面影響": "販売に強いマイナスの影響"
+    "中等.*負面影響": "販売に中程度のマイナスの影響"
+    "微弱.*負面影響": "販売に弱いマイナスの影響"
+
+  meaning:
+    # Error messages
+    "無法分析": "分析できません"
+    # Negative impact (new)
+    "不需要強調，會負向影響銷售": "強調する必要はありません、販売にマイナスの影響があります"
+    # Positive impact levels
+    "影響很小，不是關鍵因素": "影響は最小限で、重要な要因ではありません"
+    "有一定影響，可考慮優化": "一定の影響があり、最適化を検討してください"
+    "重要影響因素，應重點關注": "重要な要因であり、注目すべきです"
+    "極重要因素，是核心競爭力": "非常に重要な要因であり、中核的な競争力です"
+
+chart:
+  title: "販売に対する属性の限界効果"
+  xaxis_title: "限界効果 (%)"
+
+buttons:
+  run_analysis: "回帰分析を実行"
+  generate_strategy: "マーケティング戦略を生成"
+  download_report: "レポートをダウンロード"
+  save_model: "モデルを保存"
+  load_model: "モデルを読み込む"
+  reset_params: "パラメータをリセット"
+
+placeholders:
+  select_product: "製品タイプを選択"
+  enter_volume: "販売数量を入力"
+  select_period: "期間を選択"
+
+messages:
+  success:
+    analysis_complete: "✅ 販売回帰分析が完了しました！"
+    model_saved: "✅ モデルが正常に保存されました"
+    data_loaded: "✅ データが正常に読み込まれました"
+    report_generated: "✅ レポートが正常に生成されました"
+    strategy_generated: "✅ {brand}のマーケティング戦略が正常に生成されました！"
+
+  error:
+    analysis_failed: "❌ 分析の実行に失敗しました"
+    invalid_data: "❌ 無効なデータ形式です"
+    model_load_failed: "❌ モデルの読み込みに失敗しました"
+    insufficient_data: "❌ データが不十分です"
+    strategy_failed: "❌ マーケティング戦略の生成に失敗しました"
+    no_sales_column: "❌ スコアリング列が見つかりません"
+
+  warning:
+    data_quality: "⚠️ データ品質の警告"
+    model_accuracy: "⚠️ モデルの精度が低い"
+
+  info:
+    processing: "🔄 データを処理中..."
+    analyzing: "📊 販売回帰分析を実行中..."
+    generating: "📝 レポートを生成中..."
+
+tooltips:
+  regression: "回帰分析を使用して販売データを分析します"
+  prediction: "過去のデータに基づいて将来の販売を予測します"
+  visualization: "分析結果をチャートで可視化します"
+
+console:
+  data_check: "データチェック："
+  evaluation_brands: "評価ブランド：{eval_count}"
+  sales_brands: "販売ブランド：{sales_count}"
+  common_brands: "共通ブランド：{common_count}"
+  merged_records: "結合データ：{records}レコード"
+  running_regression: "販売回帰を実行中..."
+  regression_failed: "❌ 販売回帰に失敗しました："
+  no_sales_data: "⚠️ 販売データがアップロードされていません。販売モデル分析をスキップします。"
+  poisson_attributes: "📊 スコアリング属性を使用して回帰分析を実行："
+  attributes_list: "  属性リスト：{attrs}"
+  attributes_count: "  属性数：{count}"
+  attribute_error: "⚠️ 属性 {attr} を分析できません：{error}"
+
+help:
+  regression: "回帰分析はカウントデータ分析に適しており、特に販売数量の予測に適しています"
+  prediction: "予測機能は、過去のトレンドと季節要因に基づいて予測します"
+
+validation:
+  required_field: "このフィールドは必須です"
+  invalid_number: "有効な数値を入力してください"
+  date_range_error: "無効な日付範囲です"

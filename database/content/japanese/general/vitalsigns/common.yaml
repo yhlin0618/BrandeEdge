@@ -1,0 +1,322 @@
+# ==========================================
+# VitalSigns - Common Language Content (Japanese)
+# ==========================================
+# 共通言語コンテンツ - 日本語
+# Version: 1.0.0
+# Last Updated: 2025-10-11
+
+# アプリケーション層級文字
+app:
+  name: "VitalSigns"
+  title: "VitalSigns<br>顧客バイタリティ診断システム"  # Used in login page and navbar
+  full_name: "顧客バイタリティ診断システム"
+  tagline: "定量化健診、精密診脈"
+  welcome: "VitalSignsへようこそ"
+  subtitle: "包括的顧客ライフサイクル分析プラットフォーム"
+  description: "6つのコアモジュールで顧客価値と行動パターンを深層分析"
+
+# 共通ボタン
+buttons:
+  confirm: "確認"
+  cancel: "キャンセル"
+  save: "保存"
+  close: "閉じる"
+  back: "戻る"
+  next: "次へ"
+  previous: "前へ"
+  submit: "送信"
+  reset: "リセット"
+  export: "エクスポート"
+  download: "ダウンロード"
+  upload: "アップロード"
+  refresh: "更新"
+  calculate: "計算"
+  analyze: "分析"
+  generate: "生成"
+  apply: "適用"
+  clear: "クリア"
+  select_all: "すべて選択"
+  deselect_all: "選択解除"
+  expand: "展開"
+  collapse: "折りたたむ"
+  show_more: "さらに表示"
+  show_less: "表示を減らす"
+  edit: "編集"
+  delete: "削除"
+  copy: "コピー"
+  view_details: "詳細を表示"
+  help: "ヘルプ"
+
+# 共通メッセージ
+messages:
+  loading: "読み込み中..."
+  processing: "処理中..."
+  calculating: "計算中..."
+  analyzing: "分析中..."
+  generating: "生成中..."
+  saving: "保存中..."
+  exporting: "エクスポート中..."
+  uploading: "アップロード中..."
+  operation_success: "操作成功"
+  error: "エラーが発生しました"
+  warning: "警告"
+  info: "情報"
+  no_data: "データなし"
+  no_results: "結果なし"
+  please_wait: "お待ちください"
+  operation_complete: "操作完了"
+  operation_failed: "操作失敗"
+  data_saved: "データが保存されました"
+  data_exported: "データがエクスポートされました"
+  invalid_input: "無効な入力"
+  required_field: "必須項目"
+  confirm_action: "この操作を実行しますか？"
+  unsaved_changes: "保存されていない変更があります"
+
+  # ナビゲーションメッセージ
+  success:
+    navigate_to_dna: "DNA分析に移動中..."
+
+# 共通ラベル
+labels:
+  select: "選択"
+  options: "オプション"
+  settings: "設定"
+  filters: "フィルター"
+  sort_by: "並べ替え"
+  group_by: "グループ化"
+  date_range: "期間"
+  from: "開始"
+  to: "終了"
+  start_date: "開始日"
+  end_date: "終了日"
+  count: "数量"
+  total: "合計"
+  average: "平均"
+  median: "中央値"
+  minimum: "最小値"
+  maximum: "最大値"
+  percentage: "パーセント"
+  ratio: "比率"
+  score: "スコア"
+  rank: "ランク"
+  category: "カテゴリー"
+  segment: "顧客グループ"
+  status: "ステータス"
+  name: "名前"
+  description: "説明"
+  value: "値"
+  unit: "単位"
+  type: "タイプ"
+
+# 共通日時
+datetime:
+  today: "今日"
+  yesterday: "昨日"
+  this_week: "今週"
+  last_week: "先週"
+  this_month: "今月"
+  last_month: "先月"
+  this_quarter: "今四半期"
+  last_quarter: "前四半期"
+  this_year: "今年"
+  last_year: "昨年"
+  last_7_days: "過去7日間"
+  last_14_days: "過去14日間"
+  last_30_days: "過去30日間"
+  last_60_days: "過去60日間"
+  last_90_days: "過去90日間"
+  last_180_days: "過去180日間"
+  last_365_days: "過去365日間"
+  custom_range: "カスタム期間"
+  all_time: "全期間"
+
+  # 時間単位
+  units:
+    day: "日"
+    days: "日"
+    week: "週"
+    weeks: "週"
+    month: "月"
+    months: "月"
+    quarter: "四半期"
+    quarters: "四半期"
+    year: "年"
+    years: "年"
+
+# 共通ナビゲーション
+nav:
+  dashboard: "ダッシュボード"
+  modules: "分析モジュール"
+  upload: "データアップロード"
+  analysis: "分析"
+  reports: "レポート"
+  settings: "設定"
+  help: "ヘルプ"
+  about: "について"
+  logout: "ログアウト"
+  home: "ホーム"
+
+  # モジュールナビゲーション
+  module_upload: "データアップロード"
+  module_acquisition: "顧客獲得分析"
+  module_retention: "顧客リテンション分析"
+  module_engagement: "エンゲージメント分析"
+  module_revenue_pulse: "売上パルス分析"
+  module_dna: "顧客DNA分析"
+
+# ページタイトル（サイドバー用）
+pages:
+  login: "ログイン"
+  vitalsigns_upload: "データアップロード"
+  vitalsigns_dna: "顧客DNA分析"
+  vitalsigns_revenue_pulse: "売上パルス"
+  vitalsigns_acquisition: "顧客獲得"
+  vitalsigns_retention: "顧客リテンション"
+  vitalsigns_engagement: "エンゲージメント分析"
+  about: "私たちについて"
+
+# 共通チャート要素
+charts:
+  title: "チャート"
+  x_axis: "X軸"
+  y_axis: "Y軸"
+  legend: "凡例"
+  no_data: "表示するデータがありません"
+  loading: "チャート読み込み中..."
+  export_chart: "チャートをエクスポート"
+  zoom_in: "ズームイン"
+  zoom_out: "ズームアウト"
+  reset_zoom: "ズームをリセット"
+  pan: "パン"
+  select: "選択"
+
+# 共通データテーブル
+table:
+  no_data: "データなし"
+  no_results: "条件に一致する結果がありません"
+  showing: "表示中"
+  to: "から"
+  of: "合計"
+  entries: "件"
+  search: "検索"
+  previous: "前へ"
+  next: "次へ"
+  first: "最初"
+  last: "最後"
+  rows_per_page: "ページあたりの行数"
+  loading: "読み込み中..."
+
+# 共通フィルター
+filters:
+  all: "すべて"
+  apply: "フィルターを適用"
+  clear: "フィルターをクリア"
+  reset: "リセット"
+  advanced: "詳細フィルター"
+
+# 共通エクスポート
+export:
+  title: "データをエクスポート"
+  format: "ファイル形式"
+  csv: "CSVファイル"
+  excel: "Excelファイル"
+  pdf: "PDFレポート"
+  json: "JSONデータ"
+  include_charts: "チャートを含む"
+  include_summary: "サマリー統計を含む"
+  success: "データが正常にエクスポートされました"
+  error: "エクスポート失敗"
+
+# 共通ヘルプ
+help:
+  title: "ヘルプドキュメント"
+  user_guide: "ユーザーガイド"
+  faq: "よくある質問"
+  contact_support: "サポートに連絡"
+  video_tutorial: "ビデオチュートリアル"
+  quick_start: "クイックスタート"
+  tips: "使い方のヒント"
+
+# 共通ステータス
+status:
+  active: "有効"
+  inactive: "無効"
+  pending: "保留中"
+  completed: "完了"
+  failed: "失敗"
+  in_progress: "進行中"
+  cancelled: "キャンセル済み"
+
+# 共通検証メッセージ
+validation:
+  required: "この項目は必須です"
+  invalid_format: "形式が正しくありません"
+  invalid_date: "日付形式が正しくありません"
+  invalid_number: "数値形式が正しくありません"
+  invalid_email: "メール形式が正しくありません"
+  min_length: "最低{n}文字が必要です"
+  max_length: "最大{n}文字まで"
+  min_value: "最小値は{n}です"
+  max_value: "最大値は{n}です"
+  out_of_range: "値が範囲外です"
+
+# 共通単位
+units:
+  currency:
+    twd: "台湾ドル"
+    usd: "米ドル"
+    symbol: "NT$"
+  percentage: "%"
+  count: "回"
+  people: "人"
+  items: "個"
+
+# 共通数値フォーマット
+formatting:
+  thousand_separator: ","
+  decimal_separator: "."
+  decimal_places: 2
+  percentage_format: "{value}%"
+  currency_format: "NT${value}"
+  number_format: "{value}"
+
+# 共通評価/スコア
+ratings:
+  excellent: "優秀"
+  very_good: "非常に良い"
+  good: "良好"
+  average: "普通"
+  below_average: "改善が必要"
+  poor: "不良"
+  very_poor: "非常に不良"
+
+# 共通トレンド指標
+trends:
+  increasing: "上昇"
+  decreasing: "下降"
+  stable: "安定"
+  volatile: "変動"
+  up: "↑"
+  down: "↓"
+  neutral: "→"
+
+# 共通比較用語
+comparisons:
+  higher: "より高い"
+  lower: "より低い"
+  same: "同じ"
+  better: "より良い"
+  worse: "より悪い"
+  improved: "改善"
+  declined: "低下"
+  vs: "対"
+  compared_to: "と比較して"
+
+# 共通推奨レベル
+recommendations:
+  critical: "🔴 緊急"
+  high_priority: "🟠 高優先度"
+  medium_priority: "🟡 中優先度"
+  low_priority: "🟢 低優先度"
+  optional: "⚪ 任意"

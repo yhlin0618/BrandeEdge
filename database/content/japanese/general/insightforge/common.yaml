@@ -1,0 +1,194 @@
+# ==========================================
+# Common Text - Japanese
+# ==========================================
+
+# Application Information
+app:
+  title: "InsightForge<br>精密マーケティングプラットフォーム"
+  subtitle: "AI駆動の精密マーケティング分析プラットフォーム"
+  version: "バージョン"
+  loading: "読み込み中..."
+  welcome: "InsightForgeへようこそ"
+
+
+# Common Buttons
+buttons:
+  submit: "送信"
+  cancel: "キャンセル"
+  save: "保存"
+  delete: "削除"
+  edit: "編集"
+  download: "ダウンロード"
+  upload: "アップロード"
+  refresh: "更新"
+  back: "戻る"
+  next: "次へ"
+  previous: "前へ"
+  search: "検索"
+  filter: "フィルター"
+  export: "エクスポート"
+  import: "インポート"
+  analyze: "分析"
+  generate: "生成"
+  apply: "適用"
+  reset: "リセット"
+  close: "閉じる"
+  help: "ヘルプ"
+  settings: "設定"
+  logout: "ログアウト"
+
+# Status Messages
+status:
+  success: "成功"
+  error: "エラー"
+  warning: "警告"
+  info: "情報"
+  processing: "処理中..."
+  completed: "完了"
+  failed: "失敗"
+  pending: "保留中"
+  ready: "準備完了"
+
+# Validation Messages
+validation:
+  required: "このフィールドは必須です"
+  invalid_format: "無効な形式です"
+  invalid_email: "有効なメールアドレスを入力してください"
+  password_mismatch: "パスワードが一致しません"
+  file_too_large: "ファイルが大きすぎます"
+  invalid_file_type: "サポートされていないファイルタイプです"
+  min_length: "最小{min}文字が必要です"
+  max_length: "最大{max}文字まで許可されています"
+
+# Confirmation Dialogs
+confirm:
+  title: "アクションを確認"
+  delete: "本当に削除しますか？"
+  save: "変更を保存してもよろしいですか？"
+  cancel: "本当にキャンセルしますか？保存されていない変更は失われます。"
+  logout: "本当にログアウトしますか？"
+
+# Notification Messages
+notifications:
+  save_success: "保存に成功しました"
+  save_failed: "保存に失敗しました"
+  delete_success: "削除に成功しました"
+  delete_failed: "削除に失敗しました"
+  upload_success: "アップロードに成功しました"
+  upload_failed: "アップロードに失敗しました"
+  download_ready: "ファイルのダウンロード準備が完了しました"
+  session_expired: "セッションが期限切れです。再度ログインしてください"
+
+# Navigation
+navigation:
+  home: "ホーム"
+  dashboard: "ダッシュボード"
+  modules: "モジュール"
+  reports: "レポート"
+  settings: "設定"
+  profile: "プロフィール"
+  help: "ヘルプドキュメント"
+  about: "について"
+
+# Page Titles
+pages:
+  login: "ログイン"
+  upload: "データアップロード"
+  scoring: "顧客スコアリング"
+  regression_merge: "販売モデル"
+  sales_model: "販売モデル"
+  keyword_ads: "キーワード広告"
+  product_dev: "製品開発"
+  product_dev_insightforge: "新製品開発"
+  upload_review_sales: "データアップロード"
+  sales_model_insightforge: "販売モデル"
+  keyword_ads_insightforge: "キーワード広告"
+  wo_b_v2: "W.O.分析"
+  score_v2: "スコア分析"
+  about: "私たちについて"
+  groups:
+    analysis_flow: "分析フロー"
+    settings: "設定"
+
+# Table
+table:
+  no_data: "データがありません"
+  showing: "表示中"
+  of: "の"
+  entries: "エントリ"
+  search: "テーブルを検索"
+  filter: "フィルター"
+  sort_asc: "昇順に並べ替え"
+  sort_desc: "降順に並べ替え"
+
+# System Messages
+system:
+  working_directory_set: "作業ディレクトリを設定しました：{path}"
+  cannot_set_working_directory: "作業ディレクトリを自動的に設定できません"
+  config_load_failed: "設定の読み込みに失敗しました：{error}"
+  language_load_failed: "⚠️ 言語コンテンツの読み込みに失敗しました：{error}"
+  using_minimal_config: "最小限の設定を使用しています"
+  unnamed: "無題"
+  fallback_app_name: "アプリケーション"
+
+  # Loading Messages
+  loading:
+    env_file: "✅ .envファイルを読み込みました"
+    config: "✅ config/config.Rを読み込みました"
+    packages: "✅ config/packages.Rを読み込みました"
+    openai_utils: "✅ OpenAIユーティリティ関数を読み込みました"
+    hint_system: "✅ ヒントシステムを読み込みました"
+    prompt_manager: "✅ プロンプト管理システムを読み込みました"
+    language_manager: "✅ 言語管理システムを読み込みました"
+    resource_paths: "✅ リソースパスを設定しました"
+    language_content: "✅ 言語コンテンツを読み込みました：{language}"
+    login_module: "✅ ログインモジュールを読み込みました：{path}"
+    module_success: "✅ モジュールを読み込みました：{name}"
+    module_failed: "⚠️ モジュール{name}の読み込みに失敗しました：{error}"
+
+  # Application Status Messages
+  app_status:
+    title: "アプリケーション：{name}"
+    version: "バージョン：{version}"
+    environment: "環境：{environment}"
+
+  # Database Messages
+  database:
+    connect_success: "✅ データベース接続に成功しました：{type}"
+    connect_failed: "⚠️ データベース接続に失敗しました：{error}"
+    status_disconnected: "切断"
+    icon_disconnected: "❌"
+
+  # UI Messages
+  ui:
+    function_menu: "機能メニュー"
+    content_area: "コンテンツエリア"
+    system_initializing: "システムを初期化中"
+    check_config_file: "設定ファイルを確認してください"
+    loading_content: "コンテンツを読み込み中..."
+    page_loading: "ページコンテンツを読み込み中..."
+    select_from_menu: "左のメニューから機能を選択してください"
+
+  # Notification Messages
+  notifications:
+    welcome: "ようこそ！"
+    data_upload_success: "データアップロードに成功しました！"
+    switch_to_scoring: "スコアリングに切り替え"
+    enter_sales_model: "✅ 販売モデル分析に入ります"
+    switch_to: "切り替え先："
+
+# 言語切り替え
+language:
+  switched_to: "言語を {language} に切り替えました"
+
+# Footer
+footer:
+  copyright: "© 2024 すべての権利予約"
+  terms: "利用規約"
+  privacy: "プライバシーポリシー"
+  contact: "お問い合わせ"
+
+# App Display Names (based on display_key and language)
+app_display:
+  insightforge: "精密マーケティングプラットフォーム"
+  brandedge: "ブランドポジショニングエンジン"

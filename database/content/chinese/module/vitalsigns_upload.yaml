@@ -1,0 +1,389 @@
+# ==========================================
+# VitalSigns - Upload Module Language Content (Chinese)
+# ==========================================
+# 資料上傳模組語言內容（中文）
+# Version: 1.0.0
+# Last Updated: 2025-10-11
+
+# 模組基本資訊
+title: "資料上傳"
+subtitle: "上傳客戶交易資料"
+description: "上傳CSV或Excel格式的客戶購買資料，系統將自動偵測並驗證欄位格式"
+
+# UI 文字
+ui:
+  # Section titles (for UI headers)
+  sections:
+    instructions: "📋 上傳說明"
+    example: "📷 Amazon CSV 範例"
+    upload_files: "📁 上傳銷售數據"
+    preview: "資料預覽"
+
+  # Instruction texts
+  instructions:
+    supported_formats: "📊 支援格式"
+    amazon_report: "Amazon 銷售報告"
+    general_text: "一般文字記載"
+    format: "格式"
+    multi_file: "可以月為單位，同時匯入多筆 CSV 檔案"
+    auto_detect: "📦 自動偵測欄位"
+    auto_detect_desc: "系統將自動偵測以下欄位，並轉換為標準變數名稱："
+
+  # Warning texts
+  warnings:
+    important: "重要提醒"
+    data_months: "請上傳至少 3-12 個月以上的數據，以確保分析準確性。"
+
+  # Info texts
+  info:
+    standardization: "💡 標準化說明"
+    standardization_desc: "無論您的原始欄位名稱為何，系統都會轉換為上述藍色標準變數名稱進行分析。"
+    example: "例如：'buyer email' → <strong>customer_id</strong>，'purchase date' → <strong>payment_time</strong>"
+
+  # Field names
+  fields:
+    customer_id: "客戶識別"
+    customer_priority: "優先: buyer email, buyer_email, email"
+    customer_fallback: "次選: customer_id, customer, buyer_id, user_id"
+    payment_time: "交易時間"
+    time_detect: "偵測: purchase date, payments date, payment_time"
+    time_other: "其他: date, time, datetime"
+    lineitem_price: "交易金額"
+    price_detect: "偵測: item price, lineitem_price, amount"
+    price_other: "其他: sales, price, total"
+
+  # Input field labels
+  inputs:
+    file_input: "多檔案上傳 (自動合併，最多12個檔案)"
+
+  # Example image texts
+  example:
+    alt_text: "Amazon CSV 範例"
+    caption: "上圖為 Amazon 銷售報告 CSV 格式範例"
+
+  # Button texts
+  buttons:
+    upload: "上傳檔案"
+    upload_preview: "上傳並預覽"
+    validate: "驗證資料"
+    clear: "清除"
+    download_template: "下載範本"
+    next: "下一步 ➡️"
+    next_step: "開始分析"
+    retry: "重新上傳"
+
+  # 上傳區域
+  upload:
+    title: "資料上傳"
+    subtitle: "支援多檔案合併上傳"
+    instruction: "請上傳包含客戶交易資料的檔案"
+    supported_formats: "支援格式：CSV、Excel (.xlsx, .xls)"
+    auto_detect: "自動偵測欄位：客戶ID (Email)、購買時間、金額"
+    file_input_label: "選擇檔案（可多選）"
+    button: "選擇檔案"
+    drag_drop: "或拖曳檔案至此處"
+    file_requirements: "檔案要求"
+
+    # 上傳說明
+    instructions:
+      title: "上傳說明"
+      step1: "1. 準備包含客戶交易資料的CSV或Excel檔案"
+      step2: "2. 確保檔案包含必要欄位（客戶ID、時間、金額）"
+      step3: "3. 可一次選擇多個檔案，系統將自動合併"
+      step4: "4. 上傳後系統將自動驗證資料格式"
+
+    # Amazon格式特殊說明
+    amazon_format:
+      title: "Amazon 報告格式"
+      description: "系統支援 Amazon 銷售報告格式，將自動偵測並轉換以下欄位："
+      buyer_email: "• Buyer Email → 客戶ID"
+      purchase_date: "• Purchase Date / Payments Date → 購買時間"
+      item_price: "• Item Price → 交易金額"
+
+  # 檔案資訊
+  file_info:
+    title: "檔案資訊"
+    name: "檔案名稱"
+    size: "檔案大小"
+    format: "檔案格式"
+    rows: "資料筆數"
+    columns: "欄位數量"
+    status: "狀態"
+    multiple_files: "已選擇 {count} 個檔案"
+
+  # 必要欄位
+  required_fields:
+    title: "必要欄位"
+    customer_id: "客戶ID / Email"
+    customer_id_desc: "唯一識別客戶（建議使用Email）"
+    payment_time: "購買時間 / 交易日期"
+    payment_time_desc: "記錄交易發生的時間"
+    lineitem_price: "交易金額 / 商品價格"
+    lineitem_price_desc: "單筆交易的金額"
+
+  # 選填欄位
+  optional_fields:
+    title: "選填欄位"
+    platform_id: "平台ID / 通路"
+    platform_id_desc: "銷售平台或通路名稱"
+    product_id: "產品ID / SKU"
+    product_id_desc: "產品識別碼或SKU"
+
+  # 欄位對應
+  column_mapping:
+    title: "欄位對應結果"
+    auto_detected: "自動偵測"
+    manual_mapping: "手動對應"
+    mapped_to: "對應至"
+    not_mapped: "未對應"
+    confidence: "信心度"
+
+  # 資料預覽
+  preview:
+    title: "資料預覽"
+    subtitle: "上傳資料概覽"
+    first_rows: "前 {n} 筆資料"
+    total_rows: "共 {total} 筆"
+    show_all: "顯示全部"
+    show_less: "顯示較少"
+
+  # 資料統計摘要
+  summary_stats:
+    title: "資料統計摘要"
+    total_transactions: "總交易筆數"
+    unique_customers: "不重複客戶數"
+    date_range: "資料時間範圍"
+    total_revenue: "總交易金額"
+    avg_transaction_value: "平均交易金額"
+    transaction_months: "涵蓋月份數"
+    data_quality: "資料品質"
+
+  # 驗證結果
+  validation_results:
+    title: "資料驗證結果"
+    passed: "驗證通過"
+    failed: "驗證失敗"
+    warnings: "警告事項"
+    errors: "錯誤事項"
+    all_checks_passed: "✓ 所有檢查已通過"
+
+# 訊息文字
+messages:
+  # 成功訊息
+  success:
+    upload: "✅ 檔案上傳成功"
+    upload_with_count: "✅ 已上傳 {count} 筆交易資料"
+    upload_multiple: "✅ 已成功合併 {file_count} 個檔案，共 {row_count} 筆資料"
+    upload_complete: "✅ 已上傳資料，共 {row_count} 筆 (✅ 已偵測到完整欄位)"
+    notification: "✅ 資料上傳成功！"
+    validation: "✅ 資料驗證通過"
+    column_detection: "✅ 已自動偵測到所有必要欄位"
+    processing: "✅ 資料處理完成"
+    ready: "✅ 資料已就緒，可以開始分析"
+    merged: "✅ 多個檔案已成功合併"
+    navigate_to_dna: "✅ 正在進入DNA分析模組..."
+
+  # 處理中訊息
+  processing:
+    uploading: "上傳中..."
+    reading: "讀取檔案中..."
+    validating: "驗證資料中..."
+    processing: "處理資料中..."
+    analyzing: "分析資料結構中..."
+    merging: "合併檔案中..."
+    detecting_columns: "偵測欄位中..."
+
+  # 錯誤訊息
+  error:
+    no_file: "❌ 請選擇檔案"
+    no_file_selected: "⚠️ 請選擇要上傳的檔案"
+    invalid_format: "❌ 檔案格式不符（僅支援 CSV 或 Excel）"
+    unsupported_format: "⚠️ 檔案 '{filename}' 格式不支援，只能上傳 .csv / .xlsx / .xls"
+    empty_file: "⚠️ 檔案 '{filename}' 是空的"
+    too_large: "❌ 檔案過大（最大 {max_size}MB）"
+    too_many_files: "❌ 檔案數量過多（最多 {max_files} 個）"
+    read_error: "❌ 檔案讀取錯誤：{error}"
+    processing_error: "❌ 檔案處理錯誤：{error}"
+    notification: "❌ 上傳失敗："
+
+    # 欄位錯誤
+    missing_columns: "❌ 缺少必要欄位：{columns}"
+    column_detection_failed: "❌ 無法自動偵測必要欄位"
+    invalid_column_type: "❌ 欄位類型不正確：{column}"
+
+    # 資料驗證錯誤
+    validation_failed: "❌ 資料驗證失敗"
+    insufficient_rows: "❌ 資料筆數不足（最少需要 {min_rows} 筆）"
+    too_many_rows: "❌ 資料筆數超過限制（最多 {max_rows} 筆）"
+    insufficient_customers: "❌ 客戶數量不足（最少需要 {min_customers} 位）"
+    insufficient_months: "❌ 資料時間範圍不足（最少需要 {min_months} 個月）"
+    invalid_dates: "❌ 發現無效的日期格式"
+    invalid_prices: "❌ 發現無效的金額資料"
+    negative_prices: "❌ 發現負數金額"
+    no_data: "❌ 檔案中沒有有效資料"
+
+    # 合併錯誤
+    merge_failed: "❌ 檔案合併失敗"
+    inconsistent_columns: "❌ 檔案欄位不一致，無法合併"
+
+  # 警告訊息
+  warning:
+    large_file: "⚠️ 檔案較大，處理可能需要較長時間"
+    many_rows: "⚠️ 資料筆數較多（{rows} 筆），處理時間可能較長"
+    many_files: "⚠️ 檔案數量較多（{count} 個），合併時間可能較長"
+    partial_detection: "⚠️ 僅部分欄位自動偵測成功，請確認欄位對應"
+    incomplete_fields: "✅ 已上傳資料，共 {row_count} 筆 (⚠️ 未偵測到完整欄位)"
+    notification: "⚠️ 未偵測到完整欄位，請檢查資料格式"
+    missing_optional: "⚠️ 缺少選填欄位：{fields}"
+    duplicate_transactions: "⚠️ 發現 {count} 筆重複交易"
+    data_quality_issues: "⚠️ 資料品質可能有問題，建議檢查"
+    short_date_range: "⚠️ 資料時間範圍較短（{months} 個月），分析結果可能受限"
+    few_customers: "⚠️ 客戶數量較少（{count} 位），某些分析功能可能受限"
+
+  # 資訊訊息
+  info:
+    file_selected: "已選擇檔案：{filename}"
+    rows_detected: "偵測到 {rows} 筆資料"
+    customers_detected: "偵測到 {customers} 位客戶"
+    months_detected: "資料涵蓋 {months} 個月"
+    ready_to_analyze: "資料已就緒，可以開始分析"
+    amazon_format_detected: "偵測到 Amazon 報告格式"
+
+  # 導航提示
+  next_steps:
+    title: "下一步"
+    description: "資料上傳成功！請從左側選單選擇分析模組："
+    acquisition: "• 客戶獲取分析：了解新客獲取趨勢"
+    retention: "• 客戶留存分析：追蹤留存率與流失風險"
+    engagement: "• 活躍轉化分析：評估客戶參與度"
+    revenue_pulse: "• 營收脈能分析：分析營收貢獻"
+    dna: "• 客戶DNA分析：深度客群分析與AI洞察"
+
+# 資料限制
+limits:
+  max_file_size: 200  # MB
+  max_files: 12
+  min_rows: 10
+  max_rows: 1000000
+  min_customers: 10
+  min_months: 3
+  max_months: 36
+  recommended_months: 12
+  max_file_size_display: "200MB"
+
+# 支援格式
+formats:
+  supported: "支援的格式"
+  csv: "CSV 檔案 (.csv)"
+  excel: "Excel 檔案 (.xlsx, .xls)"
+  description: "支援標準CSV格式和Excel格式，建議使用UTF-8編碼"
+
+# 資料範本
+template:
+  title: "資料格式範本"
+  description: "下載範本檔案以了解正確的資料格式"
+  columns:
+    customer_id: "customer_id"
+    payment_time: "payment_time"
+    lineitem_price: "lineitem_price"
+    platform_id: "platform_id (選填)"
+    product_id: "product_id (選填)"
+  sample_data:
+    row1: "customer001@email.com, 2024-01-15 10:30:00, 1500"
+    row2: "customer002@email.com, 2024-01-16 14:20:00, 2300"
+    row3: "customer001@email.com, 2024-02-10 09:15:00, 1800"
+
+# 說明文字
+help:
+  overview: |
+    VitalSigns 資料上傳模組支援CSV和Excel格式的客戶交易資料。
+    系統將自動偵測檔案格式並驗證資料完整性。
+
+  file_requirements: |
+    檔案要求：
+    - 支援 CSV (.csv) 或 Excel (.xlsx, .xls) 格式
+    - 檔案大小不超過 200MB
+    - 單次最多上傳 12 個檔案（系統將自動合併）
+    - 建議使用 UTF-8 編碼
+
+  data_requirements: |
+    資料要求：
+    - 最少 10 筆交易資料
+    - 最少 10 位不重複客戶
+    - 最少 3 個月的交易記錄（建議 12 個月）
+    - 必須包含完整的客戶ID、時間、金額欄位
+
+  column_requirements: |
+    必要欄位說明：
+    - 客戶ID/Email：唯一識別客戶的欄位（如 Email、會員ID）
+    - 購買時間：交易發生的日期時間
+    - 交易金額：單筆交易的金額（必須為正數）
+
+    選填欄位說明：
+    - 平台ID：銷售平台或通路（如 Amazon、官網）
+    - 產品ID：產品識別碼或SKU
+
+  amazon_format: |
+    Amazon 報告格式支援：
+    系統可自動偵測並處理 Amazon 銷售報告，支援以下欄位：
+    - Buyer Email → 客戶ID
+    - Purchase Date / Payments Date → 購買時間
+    - Item Price → 交易金額
+
+    直接上傳從 Amazon Seller Central 下載的報告即可。
+
+  multi_file_upload: |
+    多檔案上傳功能：
+    - 可一次選擇多個檔案（最多12個）
+    - 系統將自動合併所有檔案
+    - 適用於每月分開的報告檔案
+    - 所有檔案必須具有相同的欄位結構
+
+  troubleshooting: |
+    常見問題：
+
+    Q: 為什麼無法偵測到欄位？
+    A: 請確認檔案第一行包含欄位名稱，且欄位名稱清楚標示
+
+    Q: 如何處理日期格式問題？
+    A: 系統支援多種日期格式，建議使用 YYYY-MM-DD 或 YYYY-MM-DD HH:MM:SS
+
+    Q: 可以上傳不同平台的資料嗎？
+    A: 可以，使用選填的「平台ID」欄位來區分不同來源
+
+    Q: 資料需要預先清理嗎？
+    A: 系統會自動處理常見的格式問題，但建議移除明顯的錯誤資料
+
+# 驗證規則說明
+validation_rules:
+  customer_id:
+    title: "客戶ID驗證"
+    rules:
+      - "不可為空值"
+      - "建議使用Email格式"
+      - "最少10位不重複客戶"
+
+  payment_time:
+    title: "購買時間驗證"
+    rules:
+      - "不可為空值"
+      - "必須為有效的日期時間格式"
+      - "資料範圍至少涵蓋3個月"
+      - "不可有未來日期"
+
+  lineitem_price:
+    title: "交易金額驗證"
+    rules:
+      - "不可為空值"
+      - "必須為數字格式"
+      - "不可為負數"
+      - "建議最大值不超過 1,000,000"
+
+# 提示文字（用於 hint system）
+hints:
+  upload_area: "拖曳檔案至此處或點擊選擇檔案。支援CSV和Excel格式，可一次上傳多個檔案。"
+  required_fields: "這些是系統執行分析所需的最基本欄位，缺一不可。"
+  optional_fields: "這些欄位可提供更細緻的分析維度，但非必需。"
+  column_mapping: "系統會自動偵測欄位對應關係，若偵測不正確可手動調整。"
+  validation_results: "驗證結果會顯示資料是否符合分析要求，若有錯誤請依提示修正。"
+  summary_stats: "快速了解上傳資料的基本統計資訊。"

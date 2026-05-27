@@ -1,0 +1,357 @@
+module_info:
+  id: vitalsigns_retention
+  path: modules/module_vitalsigns_retention.R
+  name: 客戶留存模組
+  version: 1.0.0
+  description: 留存率分析、Cohort追蹤、流失預測與忠誠度評估
+  functions:
+    ui: retentionVitalsignsModuleUI
+    server: retentionVitalsignsModuleServer
+metrics:
+  overall_retention_rate:
+    name: 整體留存率
+    unit: '%'
+    icon: user-check
+    color: success
+    calculation: 100 - percentage(nes_status == 'S3')
+    note: Non-dormant customers (all except S3)
+    format: percentage
+  repeat_purchase_rate:
+    name: 回購率
+    unit: '%'
+    icon: repeat
+    color: primary
+    calculation: percentage(f_value > 1)
+    note: Customers with more than one purchase
+    format: percentage
+  avg_retention_days:
+    name: 平均留存時間
+    unit: days
+    icon: calendar
+    color: info
+    calculation: mean(r_value)
+    note: Average recency across all customers
+  churn_rate:
+    name: 流失率
+    unit: '%'
+    icon: user-times
+    color: danger
+    calculation: percentage(nes_status == 'S3')
+    note: Dormant customers (S3 status)
+    format: percentage
+  loyalty_score:
+    name: 客戶忠誠度分數
+    unit: score
+    icon: heart
+    color: warning
+    range:
+    - 0
+    - 100
+    calculation: mean(cai_value * 100)
+    note: Customer Activity Index scaled to 0-100
+retention_definition:
+  criteria: repeat_purchase
+  retention_periods:
+  - period: 7
+    unit: days
+    name: 7日留存
+  - period: 14
+    unit: days
+    name: 14日留存
+  - period: 30
+    unit: days
+    name: 30日留存
+  - period: 60
+    unit: days
+    name: 60日留存
+  - period: 90
+    unit: days
+    name: 90日留存
+  - period: 180
+    unit: days
+    name: 180日留存
+  active_definition:
+    metric: purchase
+    threshold: at_least_one
+churn_definition:
+  criteria: no_purchase
+  threshold:
+    days: 90
+    configurable: yes
+  stages:
+  - stage: at_risk
+    condition: days_since_last_purchase > 60 && days_since_last_purchase <= 90
+    label: 流失風險
+  - stage: churned
+    condition: days_since_last_purchase > 90
+    label: 已流失
+cohort_retention:
+  enabled: yes
+  cohort_by: first_purchase_month
+  tracking:
+    max_cohorts: 12
+    track_periods: 12
+    period_unit: month
+  calculation:
+    method: classic
+    classic:
+      denominator: initial_cohort_size
+    rolling:
+      window_size: 30
+  visualization:
+    heatmap:
+      enabled: yes
+      color_scheme: Greens
+      show_values: yes
+      value_format: percentage
+    retention_curves:
+      enabled: yes
+      show_average: yes
+      highlight_best_worst: yes
+churn_prediction:
+  enabled: yes
+  model:
+    type: rule_based
+    rule_based:
+      risk_factors:
+      - metric: days_since_last_purchase
+        threshold: 60
+        weight: 0.4
+      - metric: purchase_frequency_decline
+        threshold: 0.5
+        weight: 0.3
+      - metric: purchase_amount_decline
+        threshold: 0.3
+        weight: 0.3
+  risk_segments:
+  - label: 高風險
+    score_range:
+    - 70
+    - 100
+    color: '#dc3545'
+  - label: 中風險
+    score_range:
+    - 40
+    - 69
+    color: '#ffc107'
+  - label: 低風險
+    score_range:
+    - 0
+    - 39
+    color: '#28a745'
+  alerts:
+    enabled: yes
+    threshold: 70
+    notification_types:
+    - dashboard
+    - report
+loyalty_analysis:
+  enabled: yes
+  loyalty_metrics:
+  - id: purchase_frequency
+    name: 購買頻率
+    weight: 0.3
+    normalization: min-max
+  - id: customer_lifetime
+    name: 客戶生命週期
+    weight: 0.2
+    normalization: min-max
+  - id: average_order_value
+    name: 平均訂單價值
+    weight: 0.2
+    normalization: min-max
+  - id: recency
+    name: 最近活躍度
+    weight: 0.15
+    normalization: inverse
+  - id: consistency
+    name: 購買一致性
+    weight: 0.15
+    normalization: min-max
+  loyalty_tiers:
+  - tier: 白金
+    score_range:
+    - 80
+    - 100
+    benefits: 頂級客戶
+  - tier: 黃金
+    score_range:
+    - 60
+    - 79
+    benefits: 忠誠客戶
+  - tier: 白銀
+    score_range:
+    - 40
+    - 59
+    benefits: 活躍客戶
+  - tier: 銅
+    score_range:
+    - 0
+    - 39
+    benefits: 一般客戶
+repeat_purchase_analysis:
+  enabled: yes
+  patterns:
+  - id: purchase_interval
+    name: 購買間隔
+    calculate_avg: yes
+    calculate_std: yes
+  - id: repeat_frequency
+    name: 回購頻率
+    time_window: 365
+  - id: purchase_acceleration
+    name: 購買加速度
+    compare_early_late: yes
+  first_purchase_tracking:
+    enabled: yes
+    track_periods:
+    - 7
+    - 14
+    - 30
+    - 60
+    - 90
+    track_metric: second_purchase_rate
+survival_analysis:
+  enabled: yes
+  method: kaplan_meier
+  time_unit: days
+  event: churn
+  group_by:
+  - acquisition_cohort
+  - first_purchase_amount_tier
+  - customer_segment
+retention_strategies:
+  recommendations:
+    enabled: yes
+    based_on:
+    - churn_risk
+    - loyalty_score
+    - customer_value
+  segment_strategies:
+    high_value_at_risk:
+      priority: urgent
+      actions:
+      - personal_outreach
+      - exclusive_offers
+      - win_back_campaign
+    low_value_churned:
+      priority: low
+      actions:
+      - automated_email
+      - general_promotion
+visualization:
+  kpi_cards:
+    show: yes
+    metrics:
+    - overall_retention_rate
+    - repeat_purchase_rate
+    - churn_rate
+    - loyalty_score
+  charts:
+    retention_curve:
+      type: line
+      show_multiple_cohorts: yes
+    cohort_heatmap:
+      type: heatmap
+      color_scheme: Greens
+    churn_risk_distribution:
+      type: pie
+      show_percentages: yes
+    survival_curve:
+      type: step
+      show_confidence_interval: yes
+  tables:
+    cohort_retention_table:
+      show: yes
+      format: percentage
+    at_risk_customers:
+      show: yes
+      sortable: yes
+      max_rows: 100
+ai_insights:
+  enabled: yes
+  gpt:
+    model: gpt-5-nano
+    temperature: 0.7
+    max_tokens: 1000
+  insight_types:
+  - id: retention_summary
+    name: 留存總結
+    prompt_type: retention_summary
+  - id: churn_analysis
+    name: 流失分析
+    prompt_type: churn_insights
+  - id: loyalty_insights
+    name: 忠誠度洞察
+    prompt_type: loyalty_analysis
+  - id: retention_recommendations
+    name: 留存優化建議
+    prompt_type: retention_optimization
+data_requirements:
+  required_fields:
+  - customer_id
+  - nes_status
+  - r_value
+  - f_value
+  - m_value
+  - total_spent
+  - times
+  optional_fields:
+  - cai_value
+  - nrec
+  - nrec_prob
+  - r_label
+  - f_label
+  - segment
+  derived_by_dna:
+  - name: total_spent
+    note: Pre-aggregated by DNA module from transaction data
+  - name: times
+    note: Pre-aggregated purchase count by DNA module
+  - name: nes_status
+    note: Customer state classification by DNA module
+export:
+  enabled: yes
+  formats:
+  - xlsx
+  - csv
+  - pdf
+  reports:
+  - id: retention_report
+    name: 留存分析報告
+    includes:
+    - retention_metrics
+    - cohort_analysis
+    - churn_prediction
+    - ai_insights
+performance:
+  cache:
+    enabled: yes
+    cache_duration: 1800
+  parallel:
+    enabled: yes
+    max_workers: 2
+ui_settings:
+  layout:
+    show_kpi_cards: yes
+    show_cohort_analysis: yes
+    show_churn_prediction: yes
+    show_loyalty_analysis: yes
+    show_ai_insights: yes
+  controls:
+    date_range_selector: yes
+    cohort_selector: yes
+    risk_filter: yes
+hints:
+  enabled: yes
+  hint_targets:
+  - id: retention_rate
+  - id: churn_risk
+  - id: loyalty_score
+prompts:
+  enabled: yes
+  prompt_types:
+  - id: retention_summary
+  - id: churn_insights
+  - id: loyalty_analysis
+  - id: retention_optimization

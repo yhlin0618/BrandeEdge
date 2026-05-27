@@ -1,0 +1,17 @@
+.env
+env/**/.env
+*.db
+*.sqlite
+*.sqlite3
+*.duckdb
+downloads/
+logs/
+cache/
+temp/
+.chrome-*/
+.Rproj.user/
+.Rhistory
+.RData
+.DS_Store
+__pycache__/
+*.pyc

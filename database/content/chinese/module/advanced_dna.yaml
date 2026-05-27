@@ -1,0 +1,304 @@
+# ==========================================
+# BrandEdge - 旗艦版主控台模組語言內容（中文）
+# ==========================================
+# Version: 1.0
+# Last Updated: 2025-10-06
+
+# 模組基本資訊
+title: "BrandEdge 品牌印記引擎"
+subtitle: "品牌定位分析主控台"
+description: "透過AI深度分析顧客評論，提供全方位的品牌策略建議"
+
+# UI 文字
+ui:
+  # 歡迎訊息
+  welcome:
+    banner: "歡迎使用 BrandEdge 品牌印記引擎"
+    subtitle: "企業級品牌定位分析平台"
+    version: "v3.2.1 Flagship Edition"
+    description: "支援10-30個產品屬性，最多1000則評論，20個品牌同時分析"
+
+  # 步驟指示器
+  steps:
+    step1: "① 資料上傳"
+    step2: "② 屬性萃取"
+    step3: "③ 屬性評分"
+    step4: "④ 分析結果"
+
+  # 屬性萃取
+  attributes:
+    title: "屬性萃取設定"
+    subtitle: "從評論中萃取產品屬性"
+    num_attributes_label: "屬性數量"
+    num_attributes_help: "選擇要萃取的產品屬性數量（10-30個）"
+    extract_button: "開始萃取"
+    extracting: "正在萃取屬性..."
+    extracted: "已萃取 {count} 個屬性"
+    attributes_list: "已萃取的屬性"
+
+  # 屬性評分
+  scoring:
+    title: "屬性評分"
+    subtitle: "為每則評論的屬性進行評分"
+    sample_size_label: "評分樣本數"
+    sample_size_help: "每個品牌要評分的評論數量"
+    score_button: "開始評分"
+    scoring: "正在評分..."
+    progress: "進度: {done}/{total}"
+    completed: "評分完成"
+
+  # 🆕 Labels (UI element labels)
+  labels:
+    select_brands: "選擇比較品牌"
+
+  # 分析模組
+  analysis:
+    title: "分析模組"
+    subtitle: "選擇要執行的分析"
+    select_all: "全選"
+    deselect_all: "取消全選"
+    run_analysis: "執行分析"
+    running: "分析中..."
+    completed: "分析完成"
+    select_brands: "選擇要比較的品牌"
+    select_target_brand: "選擇目標品牌"
+    generate_identity: "生成識別度策略"
+    select_variation: "選擇 Variation"
+    run_strategy: "策略探索"
+
+  # 分析模組列表
+  modules:
+    market_profile: "市場輪廓分析"
+    market_track: "市場賽道分析"
+    advanced_dna: "進階DNA分析"
+    key_factors: "關鍵因素分析"
+    ideal_point: "理想點分析"
+    strategy_positioning: "策略定位分析"
+    brand_identity: "品牌識別度分析"
+    ai_insights: "AI綜合洞察"
+
+  # 結果展示
+  results:
+    title: "分析結果"
+    subtitle: "查看各項分析報告"
+    export_all: "匯出所有結果"
+    export_report: "匯出報告"
+    download_pdf: "下載PDF"
+    download_excel: "下載Excel"
+
+  # 按鈕
+  buttons:
+    start: "開始"
+    next: "下一步"
+    previous: "上一步"
+    reset: "重置"
+    refresh: "重新整理"
+    export: "匯出"
+    save: "儲存"
+    cancel: "取消"
+    close: "關閉"
+
+# 訊息文字
+messages:
+  redirect_to_upload: "請從側邊欄選擇「資料上傳」頁面"
+  # 成功訊息
+  success:
+    attributes_extracted: "✅ 已成功萃取 {count} 個屬性"
+    scoring_completed: "✅ 評分完成，共評分 {count} 則評論"
+    analysis_completed: "✅ 分析完成"
+    data_saved: "✅ 資料已儲存"
+    export_completed: "✅ 匯出完成"
+
+  # 處理中訊息
+  processing:
+    extracting_attributes: "🔄 正在萃取屬性... ({progress}%)"
+    scoring_reviews: "🔄 正在評分第 {current}/{total} 則評論..."
+    analyzing: "🔄 正在執行分析..."
+    generating_report: "🔄 正在產生報告..."
+    exporting: "🔄 正在匯出..."
+
+  # 錯誤訊息
+  error:
+    no_data: "❌ 請先上傳資料"
+    no_attributes: "❌ 請先萃取屬性"
+    no_scoring: "❌ 請先完成評分"
+    extraction_failed: "❌ 屬性萃取失敗: {error}"
+    scoring_failed: "❌ 評分失敗: {error}"
+    analysis_failed: "❌ 分析失敗: {error}"
+    export_failed: "❌ 匯出失敗: {error}"
+    api_error: "❌ API 調用錯誤: {error}"
+    invalid_attributes_count: "❌ 屬性數量需介於 10-30 之間"
+
+  # 警告訊息
+  warning:
+    large_dataset: "⚠️ 資料量較大，處理可能需要較長時間"
+    many_attributes: "⚠️ 屬性數量較多，評分時間可能較長"
+    api_quota: "⚠️ 即將達到 API 配額限制"
+    slow_connection: "⚠️ 網路連線較慢"
+
+  # 資訊訊息
+  info:
+    ready: "準備就緒"
+    processing: "處理中"
+    waiting: "等待中"
+    completed: "已完成"
+    select_brands: "請選擇要分析的品牌"
+    select_attributes: "請選擇要分析的屬性"
+
+# 統計資訊
+stats:
+  total_reviews: "總評論數"
+  total_brands: "品牌數量"
+  attributes_count: "屬性數量"
+  scored_reviews: "已評分評論"
+  analysis_modules: "分析模組"
+  completed_modules: "已完成模組"
+
+# 進度資訊
+progress:
+  title: "處理進度"
+  elapsed_time: "已耗時"
+  estimated_time: "預計剩餘"
+  current_step: "目前步驟"
+  total_steps: "總步驟數"
+
+# 說明文字
+help:
+  overview: |
+    BrandEdge 品牌印記引擎是一個企業級品牌定位分析平台，
+    透過AI深度分析顧客評論，提供全方位的品牌策略建議。
+
+  workflow: |
+    分析工作流程：
+    1. 上傳評論資料 - 上傳包含品牌評論的Excel或CSV檔案
+    2. 萃取屬性 - AI自動從評論中萃取10-30個關鍵產品屬性
+    3. 屬性評分 - 系統為每則評論的所有屬性進行評分(1-5分)
+    4. 執行分析 - 選擇要執行的分析模組，生成策略報告
+
+  attributes_extraction: |
+    屬性萃取說明：
+    - 系統會從評論中自動萃取消費者關注的產品屬性
+    - 可選擇10-30個屬性（建議15個）
+    - 萃取時間約2-5分鐘
+    - 會自動去除重複和不相關的屬性
+
+  attributes_scoring: |
+    屬性評分說明：
+    - 系統會為每則評論的所有屬性評分(1-5分)
+    - 評分基於評論內容對該屬性的正面/負面描述
+    - 評分時間取決於評論數量和屬性數量
+    - 支援批次處理以提高效率
+
+  analysis_modules: |
+    八大分析模組：
+    1. 市場輪廓 - 市場區隔與客群分析
+    2. 市場賽道 - 成長機會識別與策略優先級
+    3. DNA分析 - 品牌DNA雷達圖與競爭力評估
+    4. 關鍵因素 - 成功要素識別
+    5. 理想點 - 目標達成分析
+    6. 策略定位 - 四象限策略建議
+    7. 品牌識別 - 差異化分析
+    8. AI洞察 - 綜合策略報告
+
+# 配置資訊
+config:
+  min_attributes: 10
+  max_attributes: 30
+  default_attributes: 15
+  max_reviews: 1000
+  max_brands: 20
+  sample_size_default: 50
+
+# 表格標題
+tables:
+  market_profile: "各品牌市場定位輪廓"
+  brand_identity: "品牌識別度分析"
+  growth_tracks: "成長賽道分析"
+  pca_loadings: "主成分負荷矩陣"
+  ideal_point: "理想點達成度"
+  strategy_matrix: "策略矩陣"
+
+# HTML區段文字
+segments:
+  market_status: "市場區隔狀況："
+  track_recommendations: "建議優先發展的市場賽道："
+  brand_differentiation: "品牌差異化程度："
+  key_findings: "關鍵發現："
+  recommendations: "策略建議："
+  top_tracks: "前5大成長賽道"
+
+# 圖表標題
+plots:
+  growth_track_title: "市場成長賽道機會圖"
+  dna_radar_title: "品牌DNA雷達圖"
+  dna_comparison_title: "品牌DNA多維度比較"
+  identity_scatter_title: "品牌識別度分析"
+  strategy_quadrant_title: "策略定位四象限"
+  pca_biplot_title: "主成分分析雙標圖"
+  ideal_point_title: "理想點達成度分析"
+  attribute_importance_title: "屬性重要性分析"
+  brand_label: "品牌"
+  attribute_label: "屬性"
+  score_label: "分數"
+
+# 圖表軸標籤
+axes:
+  growth_potential: "成長潛力"
+  market_importance: "市場重要性"
+  brand_strength: "品牌強度"
+  differentiation: "差異化程度"
+  pc1: "第一主成分"
+  pc2: "第二主成分"
+  ideal_distance: "與理想點距離"
+  attribute_weight: "屬性權重"
+
+# 區段標籤
+labels:
+  segments:
+    leader_brand: "領導品牌"
+    niche_brand: "利基品牌"
+    mass_brand: "大眾品牌"
+    challenger_brand: "挑戰者品牌"
+
+  tracks:
+    high_potential: "高潛力賽道"
+    mature_track: "成熟賽道"
+    niche_track: "利基賽道"
+    low_priority: "低優先賽道"
+
+  strategy:
+    leader: "領導者"
+    challenger: "挑戰者"
+    nicher: "利基者"
+    follower: "跟隨者"
+
+# DNA分析標籤
+analysis:
+  dna_insights_title: "品牌DNA分析洞察："
+  leading_brand: "領先品牌："
+  avg_score: "平均分數："
+  diff_attributes: "差異化最大的屬性："
+  brand_count: "品牌數量："
+  analysis_dimensions: "分析維度："
+  attributes_suffix: "個屬性"
+  brand_detail_title: "各品牌表現詳情："
+  better_performance: "表現較佳："
+  needs_improvement: "待改進："
+  no_advantage: "無明顯優勢"
+  balanced: "表現均衡"
+  strength_attrs: "強項屬性"
+  strength_count: "強項數量"
+  weakness_attrs: "弱項屬性"
+  weakness_count: "弱項數量"
+  ai_insights_title: "AI深入洞察與策略建議："
+  strategy_title: "策略建議："
+  strategy_leader: "領先品牌應持續強化優勢屬性，建立更高的競爭門檻"
+  strategy_challenger: "挑戰者品牌應聚焦差異化定位，避免正面競爭"
+  strategy_market: "關注市場變化趨勢，及時調整產品策略"
+
+# 統計標籤
+stats_labels:
+  brand_count: "個品牌"
+  avg_market_share: "平均市占率"
+  score_range: "分數範圍"
+  variance_explained: "解釋變異量"

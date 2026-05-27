@@ -1,0 +1,325 @@
+# ==========================================
+# BrandEdge - フラッグシップコンソールモジュール言語コンテンツ（日本語）
+# ==========================================
+# Version: 1.0
+# Last Updated: 2025-10-06
+
+# モジュール基本情報
+title: "BrandEdge ブランドインプリントエンジン"
+subtitle: "ブランドポジショニング分析コンソール"
+description: "AIによる顧客レビュー深層分析を通じて、包括的なブランド戦略を提供"
+
+# UI テキスト
+ui:
+  # ウェルカムメッセージ
+  welcome:
+    banner: "BrandEdge ブランドインプリントエンジンへようこそ"
+    subtitle: "エンタープライズグレードのブランドポジショニング分析プラットフォーム"
+    version: "v3.2.1 Flagship Edition"
+    description: "10-30の製品属性、最大1000件のレビュー、20ブランドの同時分析をサポート"
+
+  # ステップインジケーター
+  steps:
+    step1: "① データアップロード"
+    step2: "② 属性抽出"
+    step3: "③ 属性スコアリング"
+    step4: "④ 分析結果"
+
+  # 属性抽出
+  attributes:
+    title: "属性抽出設定"
+    subtitle: "レビューから製品属性を抽出"
+    num_attributes_label: "属性数"
+    num_attributes_help: "抽出する製品属性の数を選択（10-30個）"
+    extract_button: "抽出開始"
+    extracting: "属性を抽出中..."
+    extracted: "{count} 個の属性を抽出しました"
+    attributes_list: "抽出された属性"
+
+  # 属性スコアリング
+  scoring:
+    title: "属性スコアリング"
+    subtitle: "各レビューの属性をスコアリング"
+    sample_size_label: "スコアリングサンプル数"
+    sample_size_help: "ブランドごとにスコアリングするレビュー数"
+    score_button: "スコアリング開始"
+    scoring: "スコアリング中..."
+    progress: "進捗: {done}/{total}"
+    completed: "スコアリング完了"
+
+  # 分析モジュール
+  analysis:
+    title: "分析モジュール"
+    subtitle: "実行する分析を選択"
+    select_all: "すべて選択"
+    deselect_all: "すべて解除"
+    run_analysis: "分析実行"
+    running: "分析中..."
+    completed: "分析完了"
+    select_brands: "比較するブランドを選択"
+    select_target_brand: "ターゲットブランドを選択"
+    generate_identity: "アイデンティティ戦略を生成"
+    select_variation: "バリエーションを選択"
+    run_strategy: "戦略探索"
+
+  # 分析モジュールリスト
+  modules:
+    market_profile: "市場プロファイル分析"
+    market_track: "市場トラック分析"
+    advanced_dna: "高度なDNA分析"
+    key_factors: "主要要因分析"
+    ideal_point: "理想点分析"
+    strategy_positioning: "戦略ポジショニング分析"
+    brand_identity: "ブランドアイデンティティ分析"
+    ai_insights: "AI総合インサイト"
+
+  # 結果表示
+  results:
+    title: "分析結果"
+    subtitle: "分析レポートを表示"
+    export_all: "すべての結果をエクスポート"
+    export_report: "レポートをエクスポート"
+    download_pdf: "PDFをダウンロード"
+    download_excel: "Excelをダウンロード"
+
+  # ボタン
+  buttons:
+    start: "開始"
+    next: "次へ"
+    previous: "前へ"
+    reset: "リセット"
+    refresh: "更新"
+    export: "エクスポート"
+    save: "保存"
+    cancel: "キャンセル"
+    close: "閉じる"
+
+# メッセージテキスト
+messages:
+  redirect_to_upload: "サイドバーから「データアップロード」を選択してください"
+  # 成功メッセージ
+  success:
+    attributes_extracted: "✅ {count} 個の属性を正常に抽出しました"
+    scoring_completed: "✅ スコアリング完了、{count} 件のレビューをスコアリングしました"
+    analysis_completed: "✅ 分析完了"
+    data_saved: "✅ データを保存しました"
+    export_completed: "✅ エクスポート完了"
+
+  # 処理中メッセージ
+  processing:
+    extracting_attributes: "🔄 属性を抽出中... ({progress}%)"
+    scoring_reviews: "🔄 レビュー {current}/{total} をスコアリング中..."
+    analyzing: "🔄 分析を実行中..."
+    generating_report: "🔄 レポートを生成中..."
+    exporting: "🔄 エクスポート中..."
+
+  # エラーメッセージ
+  error:
+    no_data: "❌ 先にデータをアップロードしてください"
+    no_attributes: "❌ 先に属性を抽出してください"
+    no_scoring: "❌ 先にスコアリングを完了してください"
+    extraction_failed: "❌ 属性抽出に失敗しました: {error}"
+    scoring_failed: "❌ スコアリングに失敗しました: {error}"
+    analysis_failed: "❌ 分析に失敗しました: {error}"
+    export_failed: "❌ エクスポートに失敗しました: {error}"
+    api_error: "❌ APIエラー: {error}"
+    invalid_attributes_count: "❌ 属性数は10-30の間である必要があります"
+
+  # 警告メッセージ
+  warning:
+    large_dataset: "⚠️ データ量が大きいため、処理に時間がかかる場合があります"
+    many_attributes: "⚠️ 属性数が多いため、スコアリングに時間がかかる場合があります"
+    api_quota: "⚠️ APIクォータ制限に近づいています"
+    slow_connection: "⚠️ ネットワーク接続が遅くなっています"
+
+  # 情報メッセージ
+  info:
+    ready: "準備完了"
+    processing: "処理中"
+    waiting: "待機中"
+    completed: "完了"
+    select_brands: "分析するブランドを選択してください"
+    select_attributes: "分析する属性を選択してください"
+
+# 統計情報
+stats:
+  total_reviews: "総レビュー数"
+  total_brands: "ブランド数"
+  attributes_count: "属性数"
+  scored_reviews: "スコアリング済みレビュー"
+  analysis_modules: "分析モジュール"
+  completed_modules: "完了したモジュール"
+
+# 進捗情報
+progress:
+  title: "処理進捗"
+  elapsed_time: "経過時間"
+  estimated_time: "推定残り時間"
+  current_step: "現在のステップ"
+  total_steps: "総ステップ数"
+
+# ヘルプテキスト
+help:
+  overview: |
+    BrandEdge ブランドインプリントエンジンは、エンタープライズグレードのブランドポジショニング分析プラットフォームです。
+    AIによる顧客レビューの深層分析を通じて、包括的なブランド戦略の提案を提供します。
+
+  workflow: |
+    分析ワークフロー：
+    1. レビューデータのアップロード - ブランドレビューを含むExcelまたはCSVファイルをアップロード
+    2. 属性抽出 - AIがレビューから10-30の主要な製品属性を自動抽出
+    3. 属性スコアリング - システムが各レビューのすべての属性をスコアリング（1-5スケール）
+    4. 分析実行 - 実行する分析モジュールを選択し、戦略レポートを生成
+
+  attributes_extraction: |
+    属性抽出の詳細：
+    - システムがレビューから消費者が注目する製品属性を自動抽出
+    - 10-30個の属性を選択（15個を推奨）
+    - 抽出には約2-5分かかります
+    - 重複および無関係な属性を自動的に削除
+
+  attributes_scoring: |
+    属性スコアリングの詳細：
+    - システムが各レビューのすべての属性をスコアリング（1-5スケール）
+    - レビュー内の属性に関する肯定的/否定的な記述に基づいてスコアリング
+    - スコアリング時間はレビュー数と属性数に依存
+    - 効率向上のためバッチ処理をサポート
+
+  analysis_modules: |
+    8つのコア分析モジュール：
+    1. 市場プロファイル - 市場セグメンテーションと顧客分析
+    2. 市場トラック - 成長機会の特定と戦略的優先順位
+    3. DNA分析 - ブランドDNAレーダーチャートと競争力評価
+    4. 主要要因 - 成功要因の特定
+    5. 理想点 - 目標達成度分析
+    6. 戦略ポジショニング - 4象限戦略提案
+    7. ブランドアイデンティティ - 差別化分析
+    8. AIインサイト - 包括的戦略レポート
+
+  # 市場トラック指標説明
+  indicators_title: "指標説明"
+
+  growth_potential:
+    title: "成長ポテンシャル"
+    description: "現在のパフォーマンスから理想レベルまでの改善余地を表します。"
+    range_80_100: "• 80-100%：非常に大きな改善余地があり、重要な成長機会"
+    range_50_80: "• 50-80%：中程度の改善余地があり、積極的なリソース投資に値する"
+    range_20_50: "• 20-50%：改善余地が限られており、投資効果の評価が必要"
+    range_0_20: "• 0-20%：理想状態に近く、現状維持で十分"
+
+  market_importance:
+    title: "市場重要度"
+    description: "この属性が全体的な市場競争力に与える影響度を反映します。"
+    level_100: "• 100%：重要な属性で、ブランドの成否に直接影響"
+    level_50: "• 50%：重要な属性で、ブランドパフォーマンスに顕著な影響"
+    note: "• 数値が高いほど、消費者がこの属性を重視していることを示す"
+
+  quadrant:
+    title: "4象限の解釈"
+    high_potential: "• 高ポテンシャルトラック（右上）：高成長ポテンシャル+高重要度 = 最優先投資"
+    mature: "• 成熟トラック（左上）：低成長ポテンシャル+高重要度 = リーディング優位性を維持"
+    niche: "• ニッチトラック（右下）：高成長ポテンシャル+低重要度 = 差別化機会"
+    low_priority: "• 低優先度トラック（左下）：低成長ポテンシャル+低重要度 = 最小限のリソース配分"
+
+# 構成情報
+config:
+  min_attributes: 10
+  max_attributes: 30
+  default_attributes: 15
+  max_reviews: 1000
+  max_brands: 20
+  sample_size_default: 50
+
+# テーブルタイトル
+tables:
+  market_profile: "ブランド市場ポジショニングプロファイル"
+  brand_identity: "ブランドアイデンティティ分析"
+  growth_tracks: "成長トラック分析"
+  pca_loadings: "主成分負荷行列"
+  ideal_point: "理想点達成度"
+  strategy_matrix: "戦略マトリックス"
+
+# HTMLセクションテキスト
+segments:
+  market_status: "市場セグメンテーション状況："
+  track_recommendations: "推奨優先市場トラック："
+  brand_differentiation: "ブランド差別化レベル："
+  key_findings: "主要な発見："
+  recommendations: "戦略的提案："
+  top_tracks: "トップ5成長トラック"
+
+# チャートタイトル
+plots:
+  growth_track_title: "市場成長トラック機会チャート"
+  track_potential: "トラック潜在力"
+  dna_radar_title: "ブランドDNAレーダーチャート"
+  identity_scatter_title: "ブランドアイデンティティ分析"
+  strategy_quadrant_title: "戦略ポジショニング4象限"
+  pca_biplot_title: "主成分分析バイプロット"
+  ideal_point_title: "理想点達成度分析"
+  attribute_importance_title: "属性重要度分析"
+
+# チャート軸ラベル
+axes:
+  growth_potential: "成長ポテンシャル"
+  market_importance: "市場重要度"
+  brand_strength: "ブランド強度"
+  differentiation: "差別化レベル"
+  pc1: "第1主成分"
+  pc2: "第2主成分"
+  ideal_distance: "理想点からの距離"
+  attribute_weight: "属性ウェイト"
+
+# セグメントラベル
+labels:
+  segments:
+    leader_brand: "リーダーブランド"
+    niche_brand: "ニッチブランド"
+    mass_brand: "マスブランド"
+    challenger_brand: "チャレンジャーブランド"
+
+  tracks:
+    high_potential: "高ポテンシャルトラック"
+    mature_track: "成熟トラック"
+    niche_track: "ニッチトラック"
+    low_priority: "低優先度トラック"
+
+  strategy:
+    leader: "リーダー"
+    challenger: "チャレンジャー"
+    nicher: "ニッチャー"
+    follower: "フォロワー"
+
+# 統計ラベル
+stats_labels:
+  brand_count: "ブランド"
+  avg_market_share: "平均市場シェア"
+  score_range: "スコア範囲"
+  variance_explained: "説明された分散"
+  growth_potential: "成長ポテンシャル "
+  importance: "重要度 "
+
+# チャート解説
+chart_interpretation:
+  title: "📊 チャート解釈ガイド"
+  overview: "このチャートは各製品属性の成長機会を可視化し、最も価値のある改善領域を特定するのに役立ちます。"
+
+  axes_explanation:
+    title: "軸の説明："
+    x_axis: "• **X軸（成長ポテンシャル）**：現在のパフォーマンスから理想レベルまでの改善余地を表します。値が高いほど改善の可能性が大きいことを示します。"
+    y_axis: "• **Y軸（市場重要度）**：その属性が全体的な市場競争力に与える影響を示します。値が高いほど消費者がその属性を重視していることを意味します。"
+
+  bubble_explanation:
+    title: "バブルの解釈："
+    size: "• **バブルサイズ**：「トラックスコア」（成長ポテンシャル × 市場重要度）を表します。バブルが大きいほどROIが高いことを示します。"
+    color: "• **バブルカラー**：濃い青から黄色へ - 明るい色ほど大きな機会を示します。"
+    position: "• **バブルポジション**：属性は4つの象限に分かれ、それぞれ異なる戦略的推奨事項を表します。"
+
+  quadrants:
+    title: "象限戦略："
+    high_potential: "• **高ポテンシャルトラック（右上）**：高成長 + 高重要度 = 最優先投資で最大の競争優位性を獲得"
+    mature: "• **成熟トラック（左上）**：低成長 + 高重要度 = リーダーシップポジションを維持し、競合他社の追い上げを防ぐ"
+    niche: "• **ニッチトラック（右下）**：高成長 + 低重要度 = 差別化機会でユニークなセリングポイントを創出"
+    low_priority: "• **低優先度トラック（左下）**：低成長 + 低重要度 = 最小限のリソース配分で基本レベルを維持"
+
+  how_to_use: "**使い方**：右上象限（高ポテンシャルトラック）の属性に注目してください - これらは最高のROIを提供します。また、左上象限（成熟トラック）の属性にも注意を払い、既存の優位性を維持してください。"

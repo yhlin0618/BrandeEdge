@@ -1,0 +1,310 @@
+# ==========================================
+# 關鍵字廣告模組配置
+# ==========================================
+# Module: keyword_ads
+# Path: modules/module_keyword_ads_insightforge.R
+# Version: 1.0.0
+
+module:
+  id: "keyword_ads_insightforge"
+  name: "keyword_ads_module"
+  description: "generate_platform_keywords_strategy"
+  version: "1.0.0"
+  path: "modules/module_keyword_ads_insightforge.R"
+  type: "marketing"
+  icon: "search"
+  functions:
+    ui: "keyword_ads_insightforgeModuleUI"
+    server: "keyword_ads_insightforgeModuleServer"
+# UI 配置
+ui:
+  title_key: "title"
+  card_status: "info"
+
+  sections:
+    platform_selection:
+      title_key: "ui.sections.platform_selection"
+      multiple_selection: true
+
+    brand_selection:
+      title_key: "ui.sections.brand_selection"
+      show_all_option: true
+
+    keyword_generation:
+      title_key: "ui.sections.keyword_generation"
+
+# 平台設定
+platforms:
+  google:
+    id: "google"
+    name_key: "platforms.google.name"
+    enabled: true
+    icon: "google"
+
+    settings:
+      max_keywords: 20
+      match_types: ["exact", "phrase", "broad"]
+      negative_keywords: true
+      ad_extensions: true
+
+    keyword_strategy:
+      focus: "search_intent"
+      include_long_tail: true
+      include_competitors: false
+
+  facebook:
+    id: "facebook"
+    name_key: "platforms.facebook.name"
+    enabled: true
+    icon: "facebook"
+
+    settings:
+      max_interests: 15
+      audience_targeting: true
+      lookalike_audiences: true
+
+    targeting_strategy:
+      focus: "interest_based"
+      demographic_targeting: true
+      behavioral_targeting: true
+
+  instagram:
+    id: "instagram"
+    name_key: "platforms.instagram.name"
+    enabled: true
+    icon: "instagram"
+
+    settings:
+      hashtag_limit: 30
+      story_ads: true
+      reels_ads: true
+
+    content_strategy:
+      focus: "visual_appeal"
+      hashtag_research: true
+      influencer_keywords: true
+
+# 關鍵字生成設定
+keyword_generation:
+  # 基礎設定
+  settings:
+    min_keywords: 5
+    max_keywords: 30
+    default_keywords: 15
+
+  # 生成策略
+  strategies:
+    attribute_based:
+      enabled: true
+      weight: 0.4
+      min_score: 3.5              # 只使用高分屬性
+
+    competitor_analysis:
+      enabled: false
+      weight: 0.2
+
+    trend_based:
+      enabled: true
+      weight: 0.2
+
+    user_intent:
+      enabled: true
+      weight: 0.2
+      intent_types:
+        - "informational"
+        - "transactional"
+        - "navigational"
+
+  # 關鍵字品質
+  quality_control:
+    remove_duplicates: true
+    check_search_volume: false    # 需要外部 API
+    relevance_threshold: 0.7
+    language_check: true
+
+# AI 設定
+ai_settings:
+  model: "gpt-5-nano"
+  temperature: 0.7
+  max_tokens: 2000
+
+  prompts:
+    use_centralized: true
+    prompt_ids:
+      generate_keywords: "generate_ad_keywords"
+      optimize_copy: "optimize_ad_copy"
+      suggest_targeting: "suggest_ad_targeting"
+
+# 廣告文案生成
+ad_copy:
+  generate:
+    enabled: true
+    variations_per_ad: 3
+
+  components:
+    headline:
+      max_length: 30              # 字元
+      variations: 5
+
+    description:
+      max_length: 90
+      variations: 3
+
+    call_to_action:
+      preset_options:
+        - "cta_buy_now"
+        - "cta_learn_more"
+        - "cta_free_trial"
+        - "cta_try_now"
+
+  optimization:
+    a_b_testing: true
+    emotional_appeal: true
+    urgency_elements: true
+
+# 預算建議
+budget_recommendation:
+  enabled: true
+
+  calculation:
+    base_on: "competition"        # competition | goals | historical
+    daily_budget_range:
+      min: 100                    # TWD
+      max: 10000
+
+  allocation:
+    by_platform: true
+    by_keyword: true
+    by_audience: true
+
+  optimization:
+    auto_adjust: false
+    performance_based: true
+
+# 目標受眾
+audience_targeting:
+  demographics:
+    age_groups:
+      - "18-24"
+      - "25-34"
+      - "35-44"
+      - "45-54"
+      - "55+"
+
+    gender:
+      - "male"
+      - "female"
+      - "all"
+
+    locations:
+      level: "city"               # country | region | city
+      default: "taiwan"
+
+  interests:
+    auto_generate: true
+    based_on_attributes: true
+    max_interests: 20
+
+  behaviors:
+    purchase_behavior: true
+    device_usage: true
+    online_activity: true
+
+# 成效追蹤
+performance_tracking:
+  metrics:
+    - id: "ctr"
+      name_key: "metrics.ctr"
+      target: 2.0                 # %
+
+    - id: "conversion_rate"
+      name_key: "metrics.conversion_rate"
+      target: 3.0                 # %
+
+    - id: "roas"
+      name_key: "metrics.roas"
+      target: 400                 # %
+
+  reporting:
+    frequency: "weekly"           # daily | weekly | monthly
+    format: "dashboard"           # dashboard | email | pdf
+
+# 輸出格式
+output:
+  formats:
+    - type: "table"
+      include: ["keyword", "platform", "match_type", "suggested_bid"]
+
+    - type: "csv"
+      enabled: true
+      encoding: "UTF-8"
+
+    - type: "api"
+      enabled: false
+      endpoint: "https://api.example.com/keywords"
+
+  grouping:
+    by_platform: true
+    by_theme: true
+    by_intent: true
+
+# 整合設定
+integrations:
+  google_ads_api:
+    enabled: false
+    requires_credentials: true
+
+  facebook_business_api:
+    enabled: false
+    requires_credentials: true
+
+  analytics:
+    enabled: false
+    platform: "google_analytics"
+
+# 限制與配額
+limits:
+  max_campaigns: 10
+  max_ad_groups: 50
+  max_keywords_per_group: 20
+  max_ads_per_group: 5
+
+# 通知設定
+notifications:
+  generation_start:
+    type: "info"
+    template_key: "notifications.generation_start"
+
+  generation_complete:
+    type: "success"
+    template_key: "notifications.generation_complete"
+
+  optimization_suggestion:
+    type: "info"
+    template_key: "notifications.optimization_suggestion"
+
+# 進階設定
+advanced:
+  # 競爭分析
+  competitor_analysis:
+    enabled: false
+    data_source: "manual"         # manual | api | scraping
+
+  # 季節性調整
+  seasonality:
+    enabled: true
+    auto_detect: true
+    manual_periods: []
+
+  # 地區化
+  localization:
+    enabled: true
+    languages: ["zh_TW", "en_US"]
+    cultural_adaptation: true
+
+  # 機器學習
+  ml_optimization:
+    enabled: false
+    model: "random_forest"
+    retrain_frequency: "monthly"
+

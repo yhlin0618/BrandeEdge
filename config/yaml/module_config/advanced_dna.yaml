@@ -1,0 +1,253 @@
+# ==========================================
+# BrandEdge 進階DNA分析模組配置
+# ==========================================
+# Module: advanced_dna
+# Path: modules/module_brandedge_advanced_dna.R
+# Version: 1.0.0
+
+module:
+  id: "advanced_dna"
+  name: "advanced_dna_module"
+  description: "brand_radar_competitiveness_assessment"
+  version: "1.0.0"
+  path: "modules/module_brandedge_advanced_dna.R"
+  type: "analysis"
+  icon: "dna"
+
+# UI 配置
+ui:
+  title_key: "title"
+  subtitle_key: "subtitle"
+  card_status: "primary"
+
+  # 🆕 UI defaults for module functionality
+  defaults:
+    brand_selection:
+      default_count: 5        # Number of brands to show by default
+      max_selection: 10       # Maximum brands that can be selected
+
+  tabs:
+    radar:
+      id: "radar"
+      title_key: "tabs.radar"
+      icon: "chart-area"
+
+    competitiveness:
+      id: "competitiveness"
+      title_key: "tabs.competitiveness"
+      icon: "trophy"
+
+    insights:
+      id: "insights"
+      title_key: "tabs.insights"
+      icon: "brain"
+
+# 雷達圖設定
+radar_chart:
+  # 屬性選擇
+  attributes:
+    selection_method: "top_n"          # top_n | all | custom | important
+    top_n: 8                           # 顯示前 N 個屬性
+    importance_threshold: 3.5          # 重要性閾值
+
+  # 視覺化設定
+  visualization:
+    type: "radar"                      # radar | spider | polygon
+    fill: true
+    fill_opacity: 0.2
+    line_width: 2
+    point_size: 3
+    max_brands_per_chart: 5            # 每張圖最多顯示品牌數
+
+  # 色彩設定
+  colors:
+    palette: "Set2"                    # RColorBrewer 色盤
+    custom_colors: []                  # 自訂色彩（可選）
+
+  # 軸設定
+  axes:
+    min: 0
+    max: 5
+    scale_type: "linear"               # linear | log
+    show_grid: true
+    grid_color: "#e0e0e0"
+
+# 🆕 Analysis Configuration (module expects this structure)
+analysis:
+  strength_threshold: 4.0                # Scores >= 4.0 are considered strong
+  weakness_threshold: 2.5                # Scores <= 2.5 are considered weak
+  top_strengths_count: 5                 # Number of top strengths/weaknesses to show
+
+# 競爭力評估
+competitiveness:
+  # 評估維度
+  dimensions:
+    - name: "overall_strength"
+      weight: 0.3
+      description_key: "dimensions.overall_strength"
+
+    - name: "consistency"
+      weight: 0.25
+      description_key: "dimensions.consistency"
+
+    - name: "distinctiveness"
+      weight: 0.25
+      description_key: "dimensions.distinctiveness"
+
+    - name: "growth_potential"
+      weight: 0.2
+      description_key: "dimensions.growth_potential"
+
+  # 計算方法
+  calculation:
+    overall_strength:
+      method: "weighted_mean"          # weighted_mean | median | percentile
+      exclude_bottom_n: 2              # 排除最低 N 個屬性
+
+    consistency:
+      method: "inverse_cv"             # inverse_cv | std | iqr
+      normalize: true
+
+    distinctiveness:
+      method: "distance_from_mean"     # distance_from_mean | uniqueness_score
+      comparison: "market_average"
+
+    growth_potential:
+      method: "gap_from_ideal"         # gap_from_ideal | improvement_room
+      ideal_type: "max"                # max | percentile_90 | custom
+
+  # 分級標準
+  rating:
+    excellent: 4.0
+    good: 3.5
+    average: 3.0
+    below_average: 2.5
+    poor: 0
+
+# 基準比較
+benchmarking:
+  # 基準類型
+  types:
+    - "market_leader"                  # 市場領導者
+    - "market_average"                 # 市場平均
+    - "category_best"                  # 類別最佳
+
+  # 領導者定義
+  leader_definition:
+    method: "composite_score"          # composite_score | top_attributes | market_share
+    min_advantage: 0.2                 # 最小領先幅度
+
+# AI 洞察
+ai_insights:
+  enabled: true
+  model: "gpt-5-nano"
+  temperature: 0.7
+  max_tokens: 1500
+
+  # 分析重點
+  focus_areas:
+    - "strengths_weaknesses"
+    - "competitive_position"
+    - "improvement_priorities"
+    - "strategic_recommendations"
+
+  # 輸出格式
+  format:
+    use_bullet_points: true
+    include_data_references: true
+    language_style: "professional"     # professional | casual | technical
+
+# 🆕 Visualization Configuration (module expects this exact structure)
+visualization:
+  radar:
+    radial_axis:
+      range: [0, 5]                      # Min and max values for radar chart
+    title:
+      font_size: 16                      # Font size for chart title
+    angular_axis:
+      direction: "clockwise"             # Direction of angular axis
+      rotation: 90                       # Rotation angle of first axis (degrees)
+    legend:
+      orientation: "v"                   # Vertical or horizontal legend
+      position:
+        x: 1.1                           # X position of legend
+        y: 1.0                           # Y position of legend
+
+  matrix:
+    marker_size:
+      target: 12                         # Marker size for target brand
+      other: 8                           # Marker size for other brands
+    colors:
+      target: "#FF6B6B"                  # Color for target brand
+      other: "#4ECDC4"                   # Color for other brands
+    quadrant_positions:                  # Text positions for quadrants
+      high_high: [0.8, 0.8]
+      high_low: [0.8, 0.2]
+      low_high: [0.2, 0.8]
+      low_low: [0.2, 0.2]
+
+# 品牌定位分析
+positioning:
+  # 維度
+  dimensions:
+    x_axis: "performance"              # performance | price | quality
+    y_axis: "distinctiveness"          # distinctiveness | innovation | value
+
+  # 視覺化
+  visualization:
+    chart_type: "scatter"              # scatter | bubble | quadrant
+    show_labels: true
+    label_method: "ggrepel"            # ggrepel | direct | none
+    bubble_size: "market_share"        # market_share | confidence | none
+
+# 資料驗證
+validation:
+  min_brands: 2
+  min_brands_for_comparison: 2         # 🆕 Minimum brands needed for comparison analysis
+  min_attributes: 5
+  require_scored_data: true
+  check_completeness: true
+  min_completeness_rate: 0.8           # 資料完整度最低要求
+
+# 輸出設定
+output:
+  # 圖表
+  charts:
+    radar_chart:
+      show: true
+      height: 500
+      interactive: true
+      enable_download: true
+
+    competitiveness_bars:
+      show: true
+      height: 400
+      orientation: "horizontal"
+
+    positioning_scatter:
+      show: true
+      height: 450
+
+  # 表格
+  tables:
+    competitiveness_scores:
+      show: true
+      format: "datatable"
+      highlight_leader: true
+
+    dimension_breakdown:
+      show: true
+      show_rankings: true
+
+# 匯出設定
+export:
+  formats: ["png", "pdf", "svg"]
+  include_all_charts: true
+  resolution: 300                      # DPI
+  width: 10                            # inches
+  height: 8                            # inches
+
+# 語言內容路徑
+language:
+  content_path: "database/content/{language}/module/advanced_dna.yaml"
+  fallback_path: "database/content/chinese/module/advanced_dna.yaml"

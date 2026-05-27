@@ -1,0 +1,228 @@
+module_info:
+  id: vitalsigns_upload
+  path: modules/module_vitalsigns_upload.R
+  name: 資料上傳模組
+  version: 1.0.0
+  description: 支援多檔案CSV/Excel上傳，自動偵測Amazon格式
+  functions:
+    ui: uploadVitalsignsModuleUI
+    server: uploadVitalsignsModuleServer
+upload_limits:
+  max_file_size_mb: 200
+  max_files: 12
+  allowed_extensions:
+  - csv
+  - xlsx
+  - xls
+  min_rows: 10
+  max_rows: 1000000
+validation:
+  required_columns:
+  - customer_id
+  - payment_time
+  - lineitem_price
+  min_transaction_months: 3
+  max_transaction_months: 36
+  recommended_months: 12
+  customer_id_validation:
+    allow_null: no
+    allow_duplicate: yes
+    min_unique_customers: 10
+  payment_time_validation:
+    format: auto
+    allow_null: no
+    check_chronological: yes
+  lineitem_price_validation:
+    allow_null: no
+    allow_negative: no
+    allow_zero: yes
+    min_value: 0
+    max_value: 1000000
+column_mapping:
+  customer_id:
+    priority_columns:
+    - buyer email
+    - buyer_email
+    - email
+    fallback_columns:
+    - customer_id
+    - customer
+    - buyer_id
+    - user_id
+    - id
+    case_sensitive: no
+  payment_time:
+    priority_columns:
+    - purchase date
+    - payments date
+    - payment_time
+    fallback_columns:
+    - date
+    - time
+    - datetime
+    - order_date
+    - transaction_date
+    case_sensitive: no
+  lineitem_price:
+    priority_columns:
+    - item price
+    - lineitem_price
+    - amount
+    fallback_columns:
+    - sales
+    - price
+    - total
+    - revenue
+    - value
+    case_sensitive: no
+  platform_id:
+    priority_columns:
+    - platform
+    - platform_id
+    - channel
+    fallback_columns:
+    - source
+    - marketplace
+    case_sensitive: no
+    required: no
+  product_id:
+    priority_columns:
+    - product
+    - product_id
+    - sku
+    fallback_columns:
+    - item
+    - item_id
+    - asin
+    case_sensitive: no
+    required: no
+amazon_format:
+  enabled: yes
+  detect_patterns:
+  - buyer email
+  - purchase date
+  - item price
+  - payments date
+  auto_convert: yes
+  special_handling:
+    date_formats:
+    - '%Y-%m-%d'
+    - '%m/%d/%Y'
+    - '%d/%m/%Y'
+    - '%Y/%m/%d'
+    price_cleaning:
+      remove_currency_symbol: yes
+      remove_commas: yes
+      handle_negative_parentheses: yes
+preprocessing:
+  data_cleaning:
+    remove_duplicates: no
+    handle_missing_values: remove
+    standardize_dates: yes
+    standardize_prices: yes
+    trim_whitespace: yes
+  data_transformation:
+    customer_id_lowercase: yes
+    date_to_datetime: yes
+    price_to_numeric: yes
+  derived_columns:
+  - name: year_month
+    formula: format(payment_time, '%Y-%m')
+    description: 交易年月
+  - name: transaction_date
+    formula: as.Date(payment_time)
+    description: 交易日期（僅日期）
+  - name: customer_hash
+    formula: digest::digest(customer_id, 'md5')
+    description: 客戶ID雜湊值（隱私保護）
+preview:
+  enabled: yes
+  max_rows: 100
+  show_summary_stats: yes
+  summary_metrics:
+  - total_rows
+  - unique_customers
+  - date_range
+  - total_revenue
+  - avg_transaction_value
+  - transaction_months
+multi_file_merge:
+  enabled: yes
+  merge_method: rbind
+  validate_columns: yes
+  deduplicate_after_merge: no
+  sort_after_merge: yes
+  sort_column: payment_time
+error_handling:
+  on_validation_fail:
+    action: stop
+    show_details: yes
+    allow_retry: yes
+  on_column_detection_fail:
+    action: manual
+    show_suggestions: yes
+    allow_manual_mapping: yes
+  on_cleaning_error:
+    action: warn
+    log_errors: yes
+    max_errors: 100
+ui_settings:
+  upload_area:
+    show_instructions: yes
+    show_examples: yes
+    show_column_mapping_guide: yes
+    collapse_instructions_after_upload: yes
+  preview_area:
+    show_data_table: yes
+    show_summary_stats: yes
+    show_validation_results: yes
+    highlight_issues: yes
+  progress:
+    show_upload_progress: yes
+    show_validation_progress: yes
+    show_processing_progress: yes
+cache:
+  enabled: yes
+  cache_uploaded_data: yes
+  cache_duration: 3600
+  cache_location: memory
+export:
+  enabled: yes
+  allow_download_processed: yes
+  formats:
+  - csv
+  - xlsx
+hints:
+  enabled: yes
+  hint_targets:
+  - id: upload_input
+    position: right
+  - id: preview_table
+    position: bottom
+  - id: validation_results
+    position: top
+workflow_integration:
+  on_upload_complete:
+    validate_immediately: yes
+    show_next_step_prompt: yes
+    auto_navigate_to_dna: no
+    save_to_session: yes
+  data_output:
+    format: tibble
+    include_metadata: yes
+    metadata_fields:
+    - upload_timestamp
+    - file_names
+    - row_count
+    - customer_count
+    - date_range
+performance:
+  parallel_processing:
+    enabled: yes
+    max_workers: 4
+  memory_management:
+    stream_large_files: yes
+    chunk_size: 10000
+  optimization:
+    use_data_table: yes
+    use_fread: yes

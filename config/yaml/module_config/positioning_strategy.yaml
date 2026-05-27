@@ -1,0 +1,302 @@
+# ==========================================
+# BrandEdge 定位策略建議模組配置
+# ==========================================
+# Module: positioning_strategy
+# Path: modules/module_brandedge_positioning_strategy.R
+# Version: 1.0.0
+
+module:
+  id: "positioning_strategy"
+  name: "positioning_strategy_module"
+  description: "four_quadrant_strategic_positioning"
+  version: "1.0.0"
+  path: "modules/module_brandedge_positioning_strategy.R"
+  type: "analysis"
+  icon: "compass"
+
+# UI 配置
+ui:
+  title_key: "title"
+  subtitle_key: "subtitle"
+  card_status: "danger"
+
+  tabs:
+    quadrant:
+      id: "quadrant"
+      title_key: "tabs.quadrant"
+      icon: "th"
+
+    strategies:
+      id: "strategies"
+      title_key: "tabs.strategies"
+      icon: "chess"
+
+    recommendations:
+      id: "recommendations"
+      title_key: "tabs.recommendations"
+      icon: "clipboard-list"
+
+# 四象限分析
+quadrant_analysis:
+  # 軸定義
+  axes:
+    x:
+      metric: "importance"             # importance | satisfaction | perceived_value
+      label_key: "axes.x_label"
+      source: "customer_ratings"       # customer_ratings | market_data | expert_opinion
+
+    y:
+      metric: "performance"            # performance | competitive_position | differentiation
+      label_key: "axes.y_label"
+      source: "brand_scores"
+
+  # 象限定義與策略
+  quadrants:
+    q1:  # 高重要性、高表現
+      name_key: "quadrants.q1.name"
+      strategy_key: "quadrants.q1.strategy"
+      priority: "maintain"
+      color: "#28a745"
+      recommendations:
+        - "maintain_excellence"
+        - "leverage_strengths"
+        - "communicate_leadership"
+
+    q2:  # 高重要性、低表現
+      name_key: "quadrants.q2.name"
+      strategy_key: "quadrants.q2.strategy"
+      priority: "critical"
+      color: "#dc3545"
+      recommendations:
+        - "urgent_improvement"
+        - "resource_allocation"
+        - "competitive_catch_up"
+
+    q3:  # 低重要性、低表現
+      name_key: "quadrants.q3.name"
+      strategy_key: "quadrants.q3.strategy"
+      priority: "low"
+      color: "#6c757d"
+      recommendations:
+        - "monitor_only"
+        - "minimal_investment"
+        - "reassess_relevance"
+
+    q4:  # 低重要性、高表現
+      name_key: "quadrants.q4.name"
+      strategy_key: "quadrants.q4.strategy"
+      priority: "optimize"
+      color: "#007bff"
+      recommendations:
+        - "reallocate_resources"
+        - "cost_optimization"
+        - "maintain_efficiency"
+
+  # 分界線設定
+  boundaries:
+    x_threshold: "median"              # median | mean | custom | percentile
+    y_threshold: "median"
+    custom_x: null
+    custom_y: null
+    percentile_level: 50
+
+# 策略建議生成
+strategy_generation:
+  # AI 生成設定
+  ai:
+    enabled: true
+    model: "gpt-5-nano"
+    temperature: 0.8
+    max_tokens: 2500
+
+  # 建議層級
+  levels:
+    - name: "corporate"                # 企業層級
+      focus: ["positioning", "resource_allocation", "portfolio_strategy"]
+
+    - name: "brand"                    # 品牌層級
+      focus: ["differentiation", "target_audience", "value_proposition"]
+
+    - name: "attribute"                # 屬性層級
+      focus: ["improvement_priorities", "communication_focus", "product_development"]
+
+  # 時間框架
+  timeframes:
+    - name: "immediate"
+      duration: "0-3 months"
+      priority: "critical"
+
+    - name: "short_term"
+      duration: "3-6 months"
+      priority: "high"
+
+    - name: "medium_term"
+      duration: "6-12 months"
+      priority: "medium"
+
+    - name: "long_term"
+      duration: "12+ months"
+      priority: "strategic"
+
+# 競爭定位分析
+competitive_positioning:
+  # 分析維度
+  dimensions:
+    - name: "market_position"
+      metrics: ["market_share", "awareness", "preference"]
+
+    - name: "value_position"
+      metrics: ["quality", "price", "value_for_money"]
+
+    - name: "emotional_position"
+      metrics: ["trust", "likability", "aspiration"]
+
+  # 定位類型識別
+  position_types:
+    - "leader"                         # 領導者
+    - "challenger"                     # 挑戰者
+    - "follower"                       # 跟隨者
+    - "nicher"                         # 利基者
+
+  # 定位策略映射
+  strategy_mapping:
+    leader:
+      strategies: ["defend_position", "expand_market", "innovate"]
+      priorities: ["maintain_leadership", "prevent_erosion"]
+
+    challenger:
+      strategies: ["differentiate", "target_weaknesses", "aggressive_marketing"]
+      priorities: ["gain_share", "build_distinctiveness"]
+
+    follower:
+      strategies: ["emulate_leader", "cost_efficiency", "selective_improvement"]
+      priorities: ["profitability", "selective_investment"]
+
+    nicher:
+      strategies: ["specialize", "deep_expertise", "loyal_customer_base"]
+      priorities: ["dominate_niche", "customer_intimacy"]
+
+# 行動計畫生成
+action_plan:
+  # 計畫結構
+  structure:
+    - "situation_analysis"
+    - "strategic_objectives"
+    - "key_initiatives"
+    - "resource_requirements"
+    - "success_metrics"
+    - "timeline"
+
+  # 優先級評估
+  prioritization:
+    method: "eisenhower_matrix"        # eisenhower_matrix | scoring | risk_reward
+    criteria:
+      urgency: 0.4
+      importance: 0.4
+      feasibility: 0.2
+
+  # 輸出格式
+  output:
+    format: "structured_plan"          # structured_plan | executive_summary | detailed_roadmap
+    include_risks: true
+    include_dependencies: true
+    include_milestones: true
+
+# 績效追蹤設定
+performance_tracking:
+  # KPI 定義
+  kpis:
+    - name: "position_improvement"
+      metric: "quadrant_movement"
+      target: "move_to_q1"
+
+    - name: "competitive_gap"
+      metric: "distance_to_leader"
+      target: "reduce_by_20_percent"
+
+    - name: "customer_satisfaction"
+      metric: "average_score"
+      target: "increase_to_4.0"
+
+  # 監控頻率
+  monitoring:
+    frequency: "quarterly"             # monthly | quarterly | semi_annual | annual
+    alert_threshold: 0.1               # 變化超過此閾值發出警報
+
+# 視覺化設定
+visualization:
+  # 四象限圖
+  quadrant_plot:
+    show: true
+    height: 600
+    interactive: true
+    show_labels: true
+    label_method: "ggrepel"
+    bubble_size: "importance"          # importance | market_share | none
+    show_grid: true
+    show_boundaries: true
+
+  # 策略地圖
+  strategy_map:
+    show: true
+    type: "network"                    # network | tree | matrix
+    show_connections: true
+    highlight_priorities: true
+
+  # 行動計畫甘特圖
+  gantt_chart:
+    show: true
+    show_dependencies: true
+    show_milestones: true
+    color_by: "priority"
+
+# 資料驗證
+validation:
+  min_brands: 2
+  min_attributes: 5
+  require_scored_data: true
+  require_importance_data: true        # 需要重要性評分
+  check_data_distribution: true        # 檢查資料分布是否適合四象限分析
+
+# 輸出設定
+output:
+  # 報告
+  reports:
+    executive_summary:
+      generate: true
+      max_pages: 2
+      include_key_insights: true
+
+    detailed_analysis:
+      generate: true
+      include_all_charts: true
+      include_data_tables: true
+
+    action_plan:
+      generate: true
+      format: "checklist"              # checklist | roadmap | presentation
+
+  # 圖表
+  charts:
+    quadrant_plot:
+      show: true
+      export_enabled: true
+
+    strategy_comparison:
+      show: true
+      chart_type: "bar"
+
+    timeline_gantt:
+      show: true
+      interactive: true
+
+  # 匯出格式
+  export:
+    formats: ["pdf", "pptx", "docx"]
+    include_raw_data: false
+    include_visualizations: true
+
+# 語言內容路徑
+language:
+  content_path: "database/content/{language}/module/positioning_strategy.yaml"
+  fallback_path: "database/content/chinese/module/positioning_strategy.yaml"

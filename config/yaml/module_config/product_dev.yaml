@@ -1,0 +1,351 @@
+# ==========================================
+# 新品開發模組配置
+# ==========================================
+# Module: product_dev
+# Path: modules/module_product_dev_insightforge.R
+# Version: 1.0.0
+
+module:
+  id: "product_dev_insightforge"
+  name: "product_dev_module"
+  description: "product_development_analysis"
+  version: "1.0.0"
+  path: "modules/module_product_dev_insightforge.R"
+  type: "marketing"
+  icon: "lightbulb"
+  functions:
+    ui: "product_dev_insightforgeModuleUI"
+    server: "product_dev_insightforgeModuleServer"
+# UI 配置
+ui:
+  title_key: "title"
+  card_status: "success"
+
+  sections:
+    analysis:
+      title_key: "ui.sections.market_gap_analysis"
+      show_heatmap: true
+
+    innovation:
+      title_key: "ui.sections.innovation_opportunities"
+      show_radar_chart: true
+
+    recommendations:
+      title_key: "ui.sections.development_recommendations"
+      show_priority_matrix: true
+
+# 分析方法
+analysis_methods:
+  # 市場缺口分析
+  gap_analysis:
+    enabled: true
+
+    methodology:
+      ideal_point_analysis: true    # 理想點分析
+      importance_performance: true  # 重要性-表現分析
+      competitor_comparison: true    # 競爭對手比較
+
+    thresholds:
+      significant_gap: 1.5          # 顯著差距門檻（分數差）
+      opportunity_score: 0.7        # 機會分數門檻
+
+  # SWOT 分析
+  swot_analysis:
+    enabled: true
+
+    components:
+      strengths: true               # 優勢
+      weaknesses: true              # 劣勢
+      opportunities: true           # 機會
+      threats: true                 # 威脅
+
+    scoring:
+      method: "weighted"            # weighted | simple
+      weight_distribution:
+        internal: 0.4               # 內部因素權重
+        external: 0.6               # 外部因素權重
+
+  # 創新矩陣
+  innovation_matrix:
+    enabled: true
+
+    dimensions:
+      x_axis: "market_attractiveness"  # 市場吸引力
+      y_axis: "technical_feasibility"  # 技術可行性
+
+    quadrants:
+      - id: "quick_wins"
+        name_key: "quadrants.quick_wins"
+        color: "#28a745"
+
+      - id: "major_projects"
+        name_key: "quadrants.major_projects"
+        color: "#007bff"
+
+      - id: "fill_ins"
+        name_key: "quadrants.fill_ins"
+        color: "#ffc107"
+
+      - id: "avoid"
+        name_key: "quadrants.avoid"
+        color: "#dc3545"
+
+# 產品概念生成
+concept_generation:
+  # AI 輔助生成
+  ai_powered:
+    enabled: true
+    model: "gpt-5-nano"
+    temperature: 0.8               # 較高以增加創意
+
+    strategies:
+      - type: "attribute_combination"
+        description_key: "strategies.attribute_combination"
+        weight: 0.3
+
+      - type: "gap_filling"
+        description_key: "strategies.gap_filling"
+        weight: 0.3
+
+      - type: "trend_following"
+        description_key: "strategies.trend_following"
+        weight: 0.2
+
+      - type: "disruptive"
+        description_key: "strategies.disruptive"
+        weight: 0.2
+
+  # 概念評估
+  evaluation:
+    criteria:
+      - id: "market_fit"
+        name_key: "criteria.market_fit"
+        weight: 0.25
+
+      - id: "differentiation"
+        name_key: "criteria.differentiation"
+        weight: 0.25
+
+      - id: "feasibility"
+        name_key: "criteria.feasibility"
+        weight: 0.25
+
+      - id: "profitability"
+        name_key: "criteria.profitability"
+        weight: 0.25
+
+# 屬性優化建議
+attribute_optimization:
+  # 優先順序
+  prioritization:
+    method: "pareto"               # pareto | weighted | matrix
+    focus_top_n: 5                 # 聚焦前 N 個屬性
+
+  # 改進策略
+  improvement_strategies:
+    incremental:
+      enabled: true
+      target_improvement: 0.5       # 目標改進分數
+
+    breakthrough:
+      enabled: true
+      target_improvement: 2.0       # 目標突破分數
+
+    disruptive:
+      enabled: false
+      requires_new_technology: true
+
+  # 基準比較
+  benchmarking:
+    compare_to_best: true          # 與最佳產品比較
+    compare_to_average: true       # 與平均水準比較
+    industry_standards: false      # 行業標準（需外部資料）
+
+# 開發路線圖
+roadmap:
+  # 時程規劃
+  timeline:
+    phases:
+      - id: "mvp"
+        name_key: "phases.mvp"
+        duration_months: 3
+
+      - id: "beta"
+        name_key: "phases.beta"
+        duration_months: 2
+
+      - id: "launch"
+        name_key: "phases.launch"
+        duration_months: 1
+
+  # 里程碑
+  milestones:
+    auto_generate: true
+    include_testing: true
+    include_feedback: true
+
+  # 資源估算
+  resource_estimation:
+    enabled: true
+
+    categories:
+      - "rd"
+      - "design"
+      - "manufacturing"
+      - "marketing"
+      - "sales"
+
+# 風險評估
+risk_assessment:
+  enabled: true
+
+  risk_categories:
+    - id: "market"
+      name_key: "risk_categories.market"
+      factors:
+        - "demand_uncertainty"
+        - "competition_response"
+        - "price_acceptance"
+
+    - id: "technical"
+      name_key: "risk_categories.technical"
+      factors:
+        - "development_complexity"
+        - "technology_maturity"
+        - "integration_difficulty"
+
+    - id: "financial"
+      name_key: "risk_categories.financial"
+      factors:
+        - "payback_period"
+        - "funding_requirements"
+        - "cost_overrun"
+
+  mitigation:
+    suggest_strategies: true
+    contingency_planning: true
+
+# 測試與驗證
+testing:
+  # 概念測試
+  concept_testing:
+    enabled: true
+    methods:
+      - "A/B testing"
+      - "focus groups"
+      - "surveys"
+
+  # 原型測試
+  prototype_testing:
+    enabled: true
+    iterations: 3
+    feedback_collection: true
+
+  # 市場測試
+  market_testing:
+    enabled: false                 # 需要實際市場資料
+    test_markets: []
+    duration_weeks: 8
+
+# 報告生成
+reporting:
+  # 報告類型
+  report_types:
+    - id: "executive_summary"
+      name_key: "report_types.executive_summary"
+      pages: 2
+
+    - id: "detailed_analysis"
+      name_key: "report_types.detailed_analysis"
+      pages: 10
+
+    - id: "action_plan"
+      name_key: "report_types.action_plan"
+      pages: 5
+
+  # 視覺化
+  visualizations:
+    - type: "opportunity_matrix"
+      enabled: true
+
+    - type: "attribute_spider"
+      enabled: true
+
+    - type: "development_timeline"
+      enabled: true
+
+    - type: "risk_heatmap"
+      enabled: true
+
+  # 輸出格式
+  output_formats:
+    - "pdf"
+    - "pptx"
+    - "html"
+
+# 協作功能
+collaboration:
+  # 團隊協作
+  team_features:
+    commenting: true
+    version_control: true
+    approval_workflow: false
+
+  # 分享設定
+  sharing:
+    internal: true
+    external: false
+    password_protected: true
+
+# 整合功能
+integrations:
+  # 專案管理
+  project_management:
+    enabled: false
+    platforms: ["jira", "trello", "asana"]
+
+  # 設計工具
+  design_tools:
+    enabled: false
+    platforms: ["figma", "sketch"]
+
+  # 資料來源
+  data_sources:
+    internal_database: true
+    market_research: false
+    social_media: false
+
+# 通知設定
+notifications:
+  analysis_complete:
+    type: "success"
+    template_key: "notifications.analysis_complete"
+
+  concept_generated:
+    type: "info"
+    template_key: "notifications.concept_generated"
+
+  risk_identified:
+    type: "warning"
+    template_key: "notifications.risk_identified"
+
+# 進階設定
+advanced:
+  # 機器學習
+  ml_features:
+    predictive_success: false       # 預測成功率
+    demand_forecasting: false       # 需求預測
+    trend_prediction: false         # 趨勢預測
+
+  # 自動化
+  automation:
+    auto_refresh: false
+    scheduled_analysis: false
+    alert_on_changes: false
+
+  # 實驗功能
+  experimental:
+    ai_creativity_boost: false     # AI 創意增強
+    cross_industry_insights: false # 跨產業洞察
+    consumer_simulation: false     # 消費者模擬
+

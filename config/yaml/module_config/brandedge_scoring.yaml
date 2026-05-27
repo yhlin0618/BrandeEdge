@@ -1,0 +1,181 @@
+# ==========================================
+# BrandEdge 屬性評分模組配置
+# ==========================================
+# Module: brandedge_scoring
+# Path: modules/module_brandedge_scoring.R
+# Version: 1.0.0
+
+module:
+  id: "brandedge_scoring"
+  name: "brandedge_scoring_module"
+  description: "brandedge_attribute_extraction_scoring"
+  version: "1.0.0"
+  path: "modules/module_brandedge_scoring.R"
+  type: "processing"
+  icon: "calculator"
+
+# UI 配置
+ui:
+  title_key: "title"
+  subtitle_key: "subtitle"
+  card_status: "primary"
+
+  sections:
+    attributes:
+      title_key: "ui.sections.attributes"
+      description_key: "ui.descriptions.attr_extract"
+
+    scoring:
+      title_key: "ui.sections.scoring"
+      description_key: "ui.descriptions.scoring"
+
+    results:
+      title_key: "ui.sections.results"
+
+  buttons:
+    generate_attributes:
+      id: "gen_attributes"
+      label_key: "ui.buttons.generate_attributes"
+      class: "btn-secondary"
+      icon: "magic"
+
+    start_scoring:
+      id: "start_scoring"
+      label_key: "ui.buttons.start_scoring"
+      class: "btn-primary"
+      icon: "play"
+
+    proceed:
+      id: "proceed"
+      label_key: "ui.buttons.next"
+      class: "btn-success btn-lg"
+      icon: "arrow-right"
+
+# 屬性萃取設定
+attribute_extraction:
+  # 屬性數量限制
+  num_attributes:
+    min: 2
+    max: 30
+    default: 15
+    step: 1
+
+  # 萃取時的抽樣設定
+  sampling_for_extraction:
+    records_per_brand: 30              # 每個品牌抽樣數量
+    max_total_reviews: 100             # 總評論數上限
+    min_records_required: 2            # 最少需要的記錄數
+    method: "head"                     # head | random | stratified
+
+  # AI 模型設定
+  ai_settings:
+    model: "gpt-5-nano"               # 使用的模型
+    temperature: 0.3                   # 較低的 temperature 獲得更穩定的結果
+    max_tokens: 500
+    retry_on_failure: true
+    max_retries: 3
+    timeout: 60                        # 秒
+
+  # 屬性品質控制
+  quality_control:
+    remove_duplicates: true            # 移除重複屬性
+    standardize_names: true            # 標準化屬性名稱（Title Case）
+    max_attribute_length: 30           # 屬性名稱最大長度
+    min_attribute_length: 3            # 屬性名稱最小長度
+
+# 評分設定
+scoring:
+  # 評論抽樣設定
+  review_sampling:
+    min: 10
+    max: 500
+    default: 50
+    step: 10
+    per_brand: true                    # 按品牌抽樣
+
+  # 評分範圍
+  score_range:
+    min: 1
+    max: 5
+    neutral_score: 3                   # 未提及時的中性分數
+    allow_decimals: false              # 是否允許小數分數
+
+  # 批次處理設定
+  batch_processing:
+    enabled: true
+    parallel_workers: 4                # 平行處理工作數
+    use_future: true                   # 使用 future 套件
+    progress_bar: true                 # 顯示進度條
+
+  # AI 模型設定
+  ai_settings:
+    model: "gpt-5-nano"
+    temperature: 0.1                   # 評分需要更穩定的結果
+    max_tokens: 200
+    retry_on_failure: true
+    max_retries: 2
+    timeout: 60
+
+  # 錯誤處理
+  error_handling:
+    fallback_score: 3                  # 錯誤時的備用分數
+    log_errors: true
+    continue_on_error: true            # 遇到錯誤是否繼續
+
+# 結果輸出設定
+output:
+  # 資料表格式
+  table:
+    show_datatable: true
+    page_length: 10
+    enable_export: true                # CSV, Excel 匯出
+    scroll_x: true
+
+  # 分數視覺化
+  visualization:
+    color_scheme: "traffic_light"      # traffic_light | gradient | heatmap
+    thresholds:
+      excellent: 4.5
+      good: 3.5
+      neutral: 2.5
+      poor: 0
+    colors:
+      excellent: "#d4edda"             # 綠色
+      good: "#d1ecf1"                  # 藍色
+      neutral: "#fff3cd"               # 黃色
+      poor: "#f8d7da"                  # 紅色
+
+# 導航設定
+navigation:
+  auto_proceed: false                  # 完成後自動跳轉下一頁
+  proceed_target: "first_analysis"     # 跳轉目標（first_analysis | specific_page）
+  show_proceed_button: true
+
+# 驗證規則
+validation:
+  require_attributes_before_scoring: true
+  min_attributes_for_scoring: 3
+  min_reviews_for_scoring: 10
+  require_data_upload: true
+
+# 提示與說明
+hints:
+  enabled: true
+  hint_ids:
+    - "num_attributes"
+    - "sample_size"
+    - "gen_attributes"
+    - "start_scoring"
+    - "proceed"
+
+# 效能監控
+performance:
+  track_extraction_time: true
+  track_scoring_time: true
+  log_api_calls: true
+  cache_results: false                 # 是否快取結果
+
+# 語言內容路徑
+language:
+  content_path: "database/content/{language}/module/brandedge_scoring.yaml"
+  fallback_path: "database/content/chinese/module/brandedge_scoring.yaml"

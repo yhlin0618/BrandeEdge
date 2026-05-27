@@ -1,0 +1,37 @@
+# ==========================================
+# User Login Module Text Content - Japanese
+# ==========================================
+
+title: "ユーザーログイン"
+subtitle: "ユーザー名とパスワードを入力してください"
+fields:
+  username: "ユーザー名"
+  password: "パスワード"
+  password_confirm: "パスワード確認"
+  remember_me: "ログイン状態を保持"
+buttons:
+  login: "ログイン"
+  register: "新規アカウント登録"
+  register_btn: "登録"
+  to_login: "既にアカウントをお持ちですか？ログインに戻る"
+  forgot_password: "パスワードをお忘れですか？"
+messages:
+  login_success: "ログインに成功しました！"
+  login_failed: "ログインに失敗しました。ユーザー名とパスワードを確認してください"
+  logout_success: "ログアウトしました"
+  account_locked: "アカウントがロックされています。管理者にお問い合わせください"
+console:
+  creating_db_connection: "⏳ データベース接続を作成中..."
+  db_connection_failed: "⚠️ データベース接続に失敗しました：{error}"
+  initializing_tables: "📝 テーブルを初期化中..."
+  creating_test_user: "📝 テスト管理者ユーザーを作成中..."
+  verifying_password: "🔐 パスワードを検証中..."
+  user_not_found: "❌ ユーザーが見つかりません：{username}"
+  login_attempt: "🔑 ログイン試行：{username}"
+  login_limit_exceeded: "⚠️ ログイン試行回数の上限を超えました"
+  updating_login_count: "📊 ログイン回数を更新中"
+  register_attempt: "📝 登録試行：{username}"
+  password_mismatch: "❌ パスワードが一致しません"
+  password_too_short: "❌ パスワードが短すぎます。最低6文字必要です"
+  user_exists: "⚠️ ユーザーが既に存在します：{username}"
+  register_success: "✅ 登録に成功しました：{username}"

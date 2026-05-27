@@ -1,0 +1,78 @@
+# ==========================================
+# BrandEdge - Login Module Language Content (English)
+# ==========================================
+# Version: 1.0
+# Last Updated: 2025-10-06
+
+# Module Basic Information
+title: "BrandEdge Brand Positioning Engine"
+subtitle: "Enterprise Brand Positioning Analysis Platform"
+version: "v3.2.1 Flagship Edition"
+
+# UI Text
+ui:
+  # Login Page
+  login:
+    title: "BrandEdge Brand Positioning Engine"
+    logo_alt: "BrandEdge Logo"
+    username_label: "Username"
+    username_placeholder: "Enter username"
+    password_label: "Password"
+    password_placeholder: "Enter password"
+    login_button: "Login"
+    register_link: "Don't have an account? Register here"
+    contact_info: "Contact: mr.no.one01@gmail.com"
+
+  # Register Page
+  register:
+    title: "📝 Register New Account"
+    username_label: "Username"
+    username_placeholder: "Enter username"
+    password_label: "Password"
+    password_placeholder: "Enter password"
+    password_confirm_label: "Confirm Password"
+    password_confirm_placeholder: "Enter password again"
+    register_button: "Register"
+    login_link: "Already have an account? Back to login"
+    contact_info: "Contact: mr.no.one01@gmail.com"
+
+# Message Text
+messages:
+  # Login Messages
+  login:
+    success: "✅ Login successful! Welcome"
+    failed: "❌ Incorrect username or password"
+    account_not_found: "❌ Account does not exist"
+    password_incorrect: "❌ Incorrect password"
+    limit_reached: "⛔ Login attempt limit reached"
+    empty_username: "❌ Please enter username"
+    empty_password: "❌ Please enter password"
+    welcome: "Welcome back, {username}!"
+
+  # Register Messages
+  register:
+    success: "✅ Registration successful! Please login"
+    failed: "❌ Registration failed"
+    password_mismatch: "❌ Passwords do not match"
+    password_too_short: "❌ Password must be at least 6 characters"
+    username_exists: "❌ Username already exists"
+    username_invalid: "❌ Invalid username format"
+    empty_fields: "❌ Please fill in all fields"
+
+  # Logout Messages
+  logout:
+    success: "👋 Logged out"
+    confirm: "Are you sure you want to logout?"
+
+# Error Messages
+errors:
+  database_error: "Database error: {error}"
+  connection_error: "Connection error"
+  unknown_error: "Unknown error"
+
+# Help Text
+help:
+  login_info: "Please use your username and password to login"
+  register_info: "Fill in username and password to register"
+  password_requirements: "Password must be at least 6 characters"
+  contact_support: "For issues, please contact: mr.no.one01@gmail.com"

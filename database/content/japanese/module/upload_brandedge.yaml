@@ -1,0 +1,160 @@
+# ==========================================
+# BrandEdge - データアップロードモジュール言語コンテンツ（日本語）
+# ==========================================
+# Version: 1.0
+# Last Updated: 2025-10-06
+
+# モジュール基本情報
+title: "データアップロード"
+subtitle: "レビューデータファイルをアップロード"
+description: "ブランドレビューデータをアップロードして分析します"
+
+# UI テキスト
+ui:
+  # アップロードエリア
+  upload:
+    title: "ステップ 1：データアップロード"
+    subtitle: "DNA分析データをアップロード"
+    instruction: "対応形式："
+    supported_formats: "Amazonセールスレポート"
+    auto_detect: "自動検出フィールド：顧客ID/Email、時間、金額など"
+    file_input_label: "複数ファイルアップロード（自動マージ）"
+    button: "ファイルを選択"
+    drag_drop: "またはファイルをここにドラッグ＆ドロップ"
+    file_requirements: "ファイル要件"
+
+  # ファイル情報
+  file_info:
+    name: "ファイル名"
+    size: "ファイルサイズ"
+    format: "ファイル形式"
+    rows: "レコード数"
+    columns: "カラム数"
+    brands: "ブランド数"
+
+  # 必須フィールド
+  required_fields:
+    title: "必須フィールド"
+    variation: "ブランド/製品名 (Variation)"
+    title_field: "レビュータイトル (Title)"
+    body: "レビュー内容 (Body)"
+    rating: "評価 (Rating、オプション)"
+    date: "日付 (Date、オプション)"
+
+  # データプレビュー
+  preview:
+    title: "データプレビュー"
+    first_rows: "最初の{n}行"
+    total_rows: "合計{total}行"
+    show_all: "すべて表示"
+
+  # ボタン
+  buttons:
+    upload: "ファイルをアップロード"
+    upload_preview: "アップロード＆プレビュー"
+    next_step: "次のステップ ➡️"
+    validate: "データを検証"
+    clear: "クリア"
+    download_template: "テンプレートをダウンロード"
+    next: "次へ"
+
+# メッセージテキスト
+messages:
+  # 🆕 直接アクセスメッセージ (get_msgで"success"プレフィックスなし)
+  upload_with_detection: "✅ レビューデータをアップロードしました、{count}件、{brands}ブランド"
+
+  # 成功メッセージ
+  success:
+    upload: "✅ ファイルが正常にアップロードされました"
+    upload_with_detection: "✅ DNA分析データがアップロードされました、{count}レコード (✅ DNA分析フィールドが検出されました)"
+    validation: "✅ データ検証に合格しました"
+    processing: "✅ データ処理が完了しました"
+    saved: "✅ データが保存されました"
+
+  # 処理中メッセージ
+  processing:
+    uploading: "処理中..."
+    reading: "ファイルを読み込み中..."
+    validating: "データを検証中..."
+    processing: "データを処理中..."
+    analyzing: "データ構造を分析中..."
+
+  # エラーメッセージ
+  error:
+    no_file: "❌ ファイルを選択してください"
+    no_file_selected: "⚠️ アップロードするファイルを選択してください"
+    no_data_uploaded: "⚠️ まずDNA分析データをアップロードしてプレビューしてください"
+    invalid_format: "❌ ファイル形式が無効です（ExcelまたはCSVのみ）"
+    unsupported_format: "⚠️ ファイル '{filename}' の形式はサポートされていません、.xlsx / .xls / .csvのみ許可されています"
+    missing_columns: "❌ 必須カラムが不足しています: {columns}"
+    empty_file: "⚠️ ファイル '{filename}' は空です"
+    processing_error: "❌ ファイル処理エラー: {error}"
+    too_large: "❌ ファイルが大きすぎます（最大{max_size}MB）"
+    exceeds_limit: "❌ データ制限を超えています: {limit}"
+    read_error: "❌ ファイル読み取りエラー: {error}"
+    validation_failed: "❌ データ検証に失敗しました"
+    too_many_rows: "❌ 行数が制限を超えています（最大{max_rows}行）"
+    too_many_brands: "❌ ブランド数が制限を超えています（最大{max_brands}ブランド）"
+    no_data: "❌ ファイルに有効なデータがありません"
+
+  # 警告メッセージ
+  warning:
+    upload_no_detection: "✅ データがアップロードされました、{count}レコード (⚠️ 完全なDNA分析フィールドが検出されませんでした)"
+    large_file: "⚠️ 大きなファイルです、処理に時間がかかる場合があります"
+    many_rows: "⚠️ 多くの行があります（{rows}レコード）、分析前にフィルタリングすることをお勧めします"
+    many_brands: "⚠️ 多くのブランドがあります（{brands}ブランド）、分析に時間がかかる場合があります"
+    missing_optional: "⚠️ オプションフィールドが不足しています: {fields}"
+
+  # 情報メッセージ
+  info:
+    file_selected: "ファイルが選択されました: {filename}"
+    rows_detected: "{rows}行が検出されました"
+    brands_detected: "{brands}ブランドが検出されました"
+    ready_to_analyze: "データの準備ができました、分析を開始できます"
+
+  # 🆕 ナビゲーションプロンプトメッセージ
+  ready_for_analysis: "✅ データのアップロードが成功しました！サイドバーから分析モジュールを選択して開始してください"
+
+# データ制限
+limits:
+  max_file_size: 50  # MB
+  max_reviews: 1000
+  max_brands: 20
+  max_file_size_display: "50MB"
+
+# 対応形式
+formats:
+  supported: "対応形式"
+  excel: "Excel (.xlsx, .xls)"
+  csv: "CSV (.csv)"
+
+# ヘルプテキスト
+help:
+  overview: |
+    ブランドレビューを含むデータファイルをアップロードしてください。システムは自動的にデータ形式を検証し、ブランド情報を抽出します。
+
+  file_format: |
+    ファイル形式要件：
+    - Excel (.xlsx, .xls) またはCSV (.csv) 形式をサポート
+    - ファイルサイズは50MBを超えないこと
+    - Variation（ブランド名）、Title、Bodyカラムを含む必要があります
+
+  data_requirements: |
+    データ要件：
+    - 最大1000レビュー
+    - 最大20ブランド
+    - 各レビューには完全なタイトルと内容が必要です
+
+  column_mapping: |
+    カラムの説明：
+    - Variation: ブランドまたは製品名（必須）
+    - Title: レビュータイトル（必須）
+    - Body: レビュー内容（必須）
+    - Rating: 評価、通常1-5スケール（オプション）
+    - Date: レビュー日付（オプション）
+
+# サンプルデータ
+sample:
+  title: "データ形式例"
+  download_text: "テンプレートファイルをダウンロード"
+  description: "正しいデータ形式を理解するためにテンプレートファイルをダウンロードしてください"

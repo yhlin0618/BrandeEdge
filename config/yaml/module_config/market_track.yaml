@@ -1,0 +1,221 @@
+# ==========================================
+# BrandEdge 市場賽道分析模組配置
+# ==========================================
+# Module: market_track
+# Path: modules/module_brandedge_market_track.R
+# Version: 1.0.0
+
+module:
+  id: "market_track"
+  name: "market_track_module"
+  description: "high_potential_attributes_opportunity_analysis"
+  version: "1.0.0"
+  path: "modules/module_brandedge_market_track.R"
+  type: "analysis"
+  icon: "chart-line"
+
+# UI 配置
+ui:
+  title_key: "title"
+  subtitle_key: "subtitle"
+  card_status: "success"
+
+  tabs:
+    opportunity:
+      id: "opportunity"
+      title_key: "tabs.opportunity"
+      icon: "trophy"
+
+    quadrant:
+      id: "quadrant"
+      title_key: "tabs.quadrant"
+      icon: "th"
+
+    recommendations:
+      id: "recommendations"
+      title_key: "tabs.recommendations"
+      icon: "lightbulb"
+
+# 成長賽道計算
+growth_tracks:
+  ideal_value: 5.0                     # Perfect performance target (理想值) - 5-point rating scale
+
+  calculation:
+    method: "gap_from_ideal"           # gap_from_ideal | improvement_rate
+    min_growth_potential: 0            # pmax(0, ...) ensures non-negative
+
+  key_attributes:
+    top_n: 5                           # Consider top 5 as key attributes
+    auto_detect: true                  # Auto-detect from key_vars
+
+  importance:
+    key_weight: 1.0                    # Weight for key attributes
+    non_key_weight: 0.5                # Weight for non-key attributes
+
+  score_formula:
+    method: "weighted_product"         # growth_potential * importance
+
+# 機會分數計算
+opportunity_score:
+  # 權重設定
+  weights:
+    importance: 0.4                    # 重要性權重
+    performance_gap: 0.3               # 表現差距權重
+    variance: 0.3                      # 變異性權重
+
+  # 標準化方法
+  normalization: "minmax"              # minmax | zscore | robust
+
+  # 閾值設定
+  thresholds:
+    high: 0.7                          # 高機會
+    medium: 0.4                        # 中機會
+    low: 0.0                           # 低機會
+
+# 四象限分析
+quadrant_analysis:
+  # 軸定義
+  axes:
+    x:
+      metric: "importance"             # importance | satisfaction | market_share
+      label_key: "axes.x_label"
+
+    y:
+      metric: "performance"            # performance | gap | potential
+      label_key: "axes.y_label"
+
+  # 象限定義
+  quadrants:
+    q1:
+      name_key: "quadrants.q1"         # 高重要性高表現
+      strategy_key: "strategies.maintain"
+      color: "#28a745"
+
+    q2:
+      name_key: "quadrants.q2"         # 高重要性低表現
+      strategy_key: "strategies.improve"
+      color: "#dc3545"
+
+    q3:
+      name_key: "quadrants.q3"         # 低重要性低表現
+      strategy_key: "strategies.monitor"
+      color: "#6c757d"
+
+    q4:
+      name_key: "quadrants.q4"         # 低重要性高表現
+      strategy_key: "strategies.optimize"
+      color: "#007bff"
+
+  # 視覺化設定
+  visualization:
+    show_labels: true
+    label_top_n: 10                    # 標記前 N 個屬性
+    point_size: 3
+    alpha: 0.7
+
+# 視覺化設定（成長賽道圖）
+visualization:
+  quadrant:
+    bubble_size_multiplier: 50         # track_score * 50 for bubble size
+    color_scale: "Viridis"             # Viridis | Blues | Reds | custom
+
+    x_axis:
+      range: [-0.1, 1.1]
+      title_key: "axes.growth_potential"
+
+    y_axis:
+      range: [0, 1.2]
+      title_key: "axes.market_importance"
+
+    annotations:
+      high_potential:
+        position: {x: 0.85, y: 0.80}    # Far right, well below title
+        text_key: "labels.tracks.high_potential"
+        color: "green"
+        font_size: 11
+
+      mature:
+        position: {x: 0.15, y: 0.80}    # Far left, well below title
+        text_key: "labels.tracks.mature_track"
+        color: "blue"
+        font_size: 11
+
+      niche:
+        position: {x: 0.85, y: 0.20}    # Far right, well above bottom
+        text_key: "labels.tracks.niche_track"
+        color: "orange"
+        font_size: 11
+
+      low_priority:
+        position: {x: 0.15, y: 0.20}    # Far left, well above bottom
+        text_key: "labels.tracks.low_priority"
+        color: "gray"
+        font_size: 11
+
+# 賽道建議
+recommendations:
+  top_tracks_count: 5                  # Show top N tracks
+  decimal_places:
+    percentage: 1                      # Growth potential %
+    importance: 0                      # Importance %
+    score: 2                           # Track score
+
+# 高潛力屬性識別
+high_potential:
+  # 識別標準
+  criteria:
+    min_importance: 3.5                # 最低重要性分數
+    max_current_performance: 3.5       # 最高當前表現（表示有改進空間）
+    min_gap: 0.5                       # 最小差距
+
+  # 排序方式
+  ranking:
+    method: "opportunity_score"        # opportunity_score | gap | importance
+    direction: "desc"
+    top_n: 10                          # 顯示前 N 個
+
+# AI 洞察生成
+ai_insights:
+  enabled: true
+  model: "gpt-5-nano"
+  temperature: 0.7
+  max_tokens: 1000
+  include_sections:
+    - "top_opportunities"
+    - "strategic_recommendations"
+    - "competitive_gaps"
+    - "quick_wins"
+
+# 資料驗證
+validation:
+  min_attributes: 5                    # 最少屬性數
+  min_brands: 2                        # 最少品牌數
+  require_scored_data: true
+  require_variance: true               # 需要分數有變異性
+
+# 輸出設定
+output:
+  # 表格
+  tables:
+    opportunity_ranking:
+      show: true
+      format: "datatable"
+      highlight_top: 5
+      export_enabled: true
+
+  # 圖表
+  charts:
+    quadrant_plot:
+      show: true
+      height: 500
+      interactive: true
+
+    opportunity_bars:
+      show: true
+      height: 400
+      orientation: "horizontal"
+
+# 語言內容路徑
+language:
+  content_path: "database/content/{language}/module/market_track.yaml"
+  fallback_path: "database/content/chinese/module/market_track.yaml"

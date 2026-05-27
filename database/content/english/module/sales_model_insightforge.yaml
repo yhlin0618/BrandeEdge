@@ -1,0 +1,145 @@
+title: "📈 Sales Model Analysis"
+subtitle: "Regression Analysis for Sales Insights"
+
+tabs:
+  mean_scores: "Mean Scores"
+  sales_model: "Sales Model"
+  marketing_strategy: "Personalized Marketing Strategy"
+
+mean_scores:
+  title: "Average Attribute Scores by Variation"
+
+sales_model:
+  title: "Sales Regression Analysis"
+  merged_data_preview: "Merged Data Preview:"
+
+strategy:
+  title: "Generate Marketing Strategy Based on Analysis"
+  select_brand: "Select Brand:"
+  recommendation_title: "Marketing Strategy Recommendation"
+  key_attributes: "📊 Key Attribute Analysis:"
+  marketing_suggestions: "💡 Marketing Suggestions:"
+  execution_strategy: "🚀 Execution Strategy:"
+  ab_test_recommendation: "It is recommended to conduct a small-scale A/B test first to verify the effectiveness of attribute emphasis, then gradually expand the scale."
+  suggestion_1: "Focus on emphasizing the advantage of {attribute}, which is the core factor affecting sales"
+  suggestion_2: "Highlight the performance of these key attributes in advertising copy"
+  suggestion_3: "Adjust the priority of attribute emphasis for different customer segments"
+  suggestion_4: "Regularly monitor market feedback on these attributes and optimize"
+
+results:
+  title: "📊 Sales Model Analysis Results"
+  visualization: "📈 Marginal Effects Visualization"
+  marginal_effect: "Marginal Effect"
+  multiplier: "Multiplier"
+  business_significance_label: "Business Significance:"
+  marginal_effect_label: "Marginal Effect:"
+
+# Column names for regression results table
+columns:
+  attribute: "Attribute"
+  coefficient: "Coefficient"
+  marginal_effect: "Marginal Effect"
+  multiplier: "Multiplier"
+  interpretation: "Interpretation"
+  business_significance: "Business Significance"
+
+# Default messages
+defaults:
+  analysis_failed: "Model fitting failed"
+  unable_to_analyze: "Unable to analyze"
+
+# Translation mappings for regression results
+# Maps original Chinese output from regression function to translated text
+translation_map:
+  interpretation:
+    # Error messages
+    "資料不足": "Model fitting failed"
+    "缺少銷量資料": "Model fitting failed"
+    "銷量資料無效": "Model fitting failed"
+    "模型擬合失敗": "Model fitting failed"
+    # Positive impacts
+    "強烈.*正面影響": "Strong positive impact on sales"
+    "中等.*正面影響": "Moderate positive impact on sales"
+    "微弱.*正面影響": "Weak positive impact on sales"
+    # Negative impacts
+    "強烈.*負面影響": "Strong negative impact on sales"
+    "中等.*負面影響": "Moderate negative impact on sales"
+    "微弱.*負面影響": "Weak negative impact on sales"
+
+  meaning:
+    # Error messages
+    "無法分析": "Unable to analyze"
+    # Negative impact (new)
+    "不需要強調，會負向影響銷售": "No need to emphasize, negatively impacts sales"
+    # Positive impact levels
+    "影響很小，不是關鍵因素": "Minimal impact, not a key factor"
+    "有一定影響，可考慮優化": "Some impact, consider optimizing"
+    "重要影響因素，應重點關注": "Important factor, focus attention"
+    "極重要因素，是核心競爭力": "Critical factor, core competency"
+
+chart:
+  title: "Marginal Effects of Attributes on Sales"
+  xaxis_title: "Marginal Effect (%)"
+
+buttons:
+  run_analysis: "Run Regression Analysis"
+  generate_strategy: "Generate Marketing Strategy"
+  download_report: "Download Report"
+  save_model: "Save Model"
+  load_model: "Load Model"
+  reset_params: "Reset Parameters"
+
+placeholders:
+  select_product: "Select Product Type"
+  enter_volume: "Enter Sales Volume"
+  select_period: "Select Time Period"
+
+messages:
+  success:
+    analysis_complete: "✅ Sales regression analysis completed!"
+    model_saved: "✅ Model saved successfully"
+    data_loaded: "✅ Data loaded successfully"
+    report_generated: "✅ Report generated successfully"
+    strategy_generated: "✅ Marketing strategy for {brand} generated successfully!"
+
+  error:
+    analysis_failed: "❌ Analysis execution failed"
+    invalid_data: "❌ Invalid data format"
+    model_load_failed: "❌ Model loading failed"
+    insufficient_data: "❌ Insufficient data"
+    strategy_failed: "❌ Failed to generate marketing strategy"
+    no_sales_column: "❌ No scoring columns found"
+
+  warning:
+    data_quality: "⚠️ Data quality warning"
+    model_accuracy: "⚠️ Low model accuracy"
+
+  info:
+    processing: "🔄 Processing data..."
+    analyzing: "📊 Running analysis..."
+    generating: "📝 Generating report..."
+
+tooltips:
+  regression: "Use regression analysis to analyze sales data"
+  prediction: "Predict future sales based on historical data"
+  visualization: "Visualize analysis results with charts"
+
+console:
+  data_check: "Data Check:"
+  evaluation_brands: "Evaluation brands: {eval_count}"
+  sales_brands: "Sales brands: {sales_count}"
+  common_brands: "Common brands: {common_count}"
+  merged_records: "Merged data: {records} records"
+  running_regression: "Running sales regression..."
+  regression_failed: "❌ Sales regression failed:"
+  no_sales_data: "⚠️ No sales data uploaded. Skipping sales model analysis."
+
+help:
+  regression: "Regression analysis is suitable for count data analysis, especially for sales volume prediction"
+  prediction: "Prediction function forecasts based on historical trends and seasonal factors"
+
+validation:
+  required_field: "This field is required"
+  invalid_number: "Please enter a valid number"
+  date_range_error: "Invalid date range"
+

@@ -1,0 +1,575 @@
+# ==========================================
+# VitalSigns - Acquisition Module Language Content (Chinese)
+# ==========================================
+# 客戶獲取分析模組語言內容（中文）
+# Version: 1.0.0
+# Last Updated: 2025-10-11
+
+# 模組基本資訊
+title: "客戶獲取分析"
+subtitle: "新客來源、成長趨勢與同期群分析"
+description: "追蹤新客戶獲取效率、分析同期群表現、評估獲客策略成效"
+
+# UI 區塊
+ui:
+  # KPI 標籤
+  kpis:
+    active_customers: "顧客總數"
+    cumulative_customers: "累積顧客數"
+    acquisition_rate: "顧客新增率"
+    net_change_rate: "顧客變動率"
+
+  # 卡片標題和內容
+  cards:
+    customer_structure: "客戶池結構分析"
+    acquisition_funnel: "獲客漏斗分析"
+    growth_trend: "客戶增長趨勢"
+    growth_trend_notice: "注意：趨勢分析需要時間序列數據，目前顯示為靜態分析"
+    ai_analysis: "🤖 AI 客戶增長分析"
+    acquisition_analysis_title: "顧客新增率分析"
+    change_rate_analysis_title: "顧客變動率分析"
+    details: "客戶增長指標明細"
+
+  # 按鈕
+  buttons:
+    download_details: "📥 下載完整客戶名單"
+    analyze: "開始分析"
+    refresh: "重新整理"
+    export_cohort: "匯出同期群資料"
+    generate_insights: "生成 AI 洞察"
+    compare_periods: "期間比較"
+
+  sections:
+    overview: "獲客概覽"
+    new_customers: "新客戶獲取"
+    growth_trends: "成長趨勢"
+    cohort_analysis: "同期群分析"
+    acquisition_channels: "獲客通路"
+    quality_metrics: "獲客品質"
+    ai_insights: "AI 洞察"
+
+  # 控制面板
+  controls:
+    title: "分析控制"
+    time_period: "時間期間"
+    cohort_definition: "同期群定義"
+    metric_selection: "指標選擇"
+    comparison_mode: "比較模式"
+    period_selector: "時間粒度:"
+
+    # 時間粒度選項
+    period_options:
+      daily: "每日"
+      weekly: "每週"
+      monthly: "每月"
+      quarterly: "每季"
+
+# 指標定義
+metrics:
+  # 核心指標
+  total_new_customers:
+    name: "新客戶數"
+    short_name: "新客數"
+    description: "首次購買的客戶數量"
+    icon: "user-plus"
+    unit: "位"
+
+  new_customer_rate:
+    name: "新客戶率"
+    short_name: "新客率"
+    description: "新客戶占總客戶的比例"
+    icon: "percentage"
+    unit: "%"
+
+  acquisition_growth_rate:
+    name: "獲客成長率"
+    short_name: "成長率"
+    description: "相較前期的新客成長幅度"
+    icon: "chart-line"
+    unit: "%"
+
+  avg_first_purchase:
+    name: "平均首購金額"
+    short_name: "首購金額"
+    description: "新客戶首次購買的平均金額"
+    icon: "dollar-sign"
+    unit: "元"
+
+  new_customer_revenue_pct:
+    name: "新客收入佔比"
+    short_name: "新客收入%"
+    description: "新客戶收入占總收入的比例"
+    icon: "pie-chart"
+    unit: "%"
+
+  # 成長指標
+  mom_growth:
+    name: "月成長率 (MoM)"
+    description: "相較上月的成長率"
+    formula: "((本月 - 上月) / 上月) × 100%"
+
+  qoq_growth:
+    name: "季成長率 (QoQ)"
+    description: "相較上季的成長率"
+    formula: "((本季 - 上季) / 上季) × 100%"
+
+  yoy_growth:
+    name: "年成長率 (YoY)"
+    description: "相較去年同期的成長率"
+    formula: "((今年 - 去年) / 去年) × 100%"
+
+  # 同期群指標
+  cohort_size:
+    name: "同期群規模"
+    description: "該期間加入的新客數量"
+
+  cohort_retention:
+    name: "同期群留存率"
+    description: "該同期群在後續月份的留存情況"
+
+  cohort_revenue:
+    name: "同期群累積營收"
+    description: "該同期群創造的總營收"
+
+  cohort_clv:
+    name: "同期群平均CLV"
+    description: "該同期群的平均客戶終生價值"
+
+# 同期群分析
+cohort:
+  # 定義方式
+  definitions:
+    by_month:
+      name: "按月定義"
+      description: "以客戶首次購買的月份分組"
+    by_quarter:
+      name: "按季定義"
+      description: "以客戶首次購買的季度分組"
+    by_year:
+      name: "按年定義"
+      description: "以客戶首次購買的年份分組"
+
+  # 時間軸
+  time_periods:
+    month_0: "M0 (當月)"
+    month_1: "M1"
+    month_2: "M2"
+    month_3: "M3"
+    month_6: "M6"
+    month_12: "M12"
+
+  # 圖表標籤
+  chart_labels:
+    cohort_period: "同期群（首購時間）"
+    time_since_first: "自首購後經過"
+    retention_rate: "留存率"
+    revenue_contribution: "營收貢獻"
+
+# 成長分析
+growth:
+  # 成長類型
+  types:
+    absolute: "絕對成長"
+    relative: "相對成長率"
+    cumulative: "累積成長"
+
+  # 比較期間
+  comparison_periods:
+    previous_month: "上個月"
+    previous_quarter: "上一季"
+    previous_year: "去年同期"
+    same_period_last_year: "去年同期"
+
+  # 趨勢判斷
+  trends:
+    accelerating: "加速成長"
+    steady: "穩定成長"
+    slowing: "成長趨緩"
+    declining: "負成長"
+
+# 獲客品質
+quality:
+  # 品質指標
+  metrics:
+    repeat_purchase_rate:
+      name: "首購回購率"
+      description: "新客在一定期間內回購的比例"
+
+    time_to_second_purchase:
+      name: "回購時間"
+      description: "從首購到第二次購買的平均天數"
+
+    first_year_retention:
+      name: "首年留存率"
+      description: "新客在首年內持續購買的比例"
+
+    avg_lifetime_value:
+      name: "平均生命週期價值"
+      description: "新客預期的終生價值"
+
+  # 品質分級
+  tiers:
+    high_quality:
+      name: "高品質獲客"
+      description: "高回購、高價值的新客"
+      color: "success"
+
+    medium_quality:
+      name: "中等品質獲客"
+      description: "一般回購和價值的新客"
+      color: "warning"
+
+    low_quality:
+      name: "低品質獲客"
+      description: "低回購或低價值的新客"
+      color: "danger"
+
+# 圖表配置
+charts:
+  # 新客趨勢圖
+  new_customer_trend:
+    title: "新客戶獲取趨勢"
+    x_axis: "時間"
+    y_axis: "新客戶數"
+    tooltip: "{date}: {count} 位新客"
+
+  # 成長率圖
+  growth_rate_chart:
+    title: "獲客成長率"
+    x_axis: "時間期間"
+    y_axis: "成長率 (%)"
+    types:
+      mom: "月成長率"
+      qoq: "季成長率"
+      yoy: "年成長率"
+
+  # 同期群熱力圖
+  cohort_heatmap:
+    title: "同期群留存熱力圖"
+    x_axis: "自首購後月數"
+    y_axis: "同期群（首購時間）"
+    color_scale: "留存率"
+    tooltip: "同期群 {cohort}, {month}月後: {rate}%"
+
+  # 首購金額分布
+  first_purchase_distribution:
+    title: "首購金額分布"
+    x_axis: "首購金額區間"
+    y_axis: "客戶數"
+    bins: ["0-500", "500-1000", "1000-2000", "2000-5000", "5000+"]
+
+  # 新客來源通路
+  acquisition_channels:
+    title: "新客獲取通路"
+    tooltip: "{channel}: {count} 位 ({percentage}%)"
+
+# 訊息文字
+messages:
+  # 成功訊息
+  success:
+    analysis_complete: "✅ 獲客分析完成"
+    cohort_generated: "✅ 同期群分析已生成"
+    insights_generated: "✅ AI 洞察已生成"
+
+  # 處理中
+  processing:
+    analyzing: "分析新客數據中..."
+    generating_cohorts: "生成同期群分析中..."
+    calculating_growth: "計算成長指標中..."
+
+  # 錯誤訊息
+  error:
+    insufficient_data: "❌ 資料不足，無法進行獲客分析"
+    no_new_customers: "❌ 所選期間內無新客戶"
+    cohort_analysis_failed: "❌ 同期群分析失敗"
+
+  # 警告訊息
+  warning:
+    few_cohorts: "⚠️ 同期群數量較少，分析結果可能不夠全面"
+    short_period: "⚠️ 分析期間較短，成長趨勢可能不明顯"
+
+  # 資訊訊息
+  info:
+    new_customers_found: "發現 {count} 位新客戶"
+    cohorts_generated: "已生成 {count} 個同期群"
+    analyzing_period: "分析期間：{start} 至 {end}"
+
+# AI 分析類型
+ai_analysis:
+  types:
+    acquisition_trend:
+      name: "獲客趨勢分析"
+      description: "分析新客獲取的時間趨勢和季節性模式"
+      prompt_category: "acquisition_trend"
+
+    cohort_performance:
+      name: "同期群表現評估"
+      description: "比較不同同期群的留存和價值表現"
+      prompt_category: "cohort_performance"
+
+    growth_drivers:
+      name: "成長驅動因素"
+      description: "識別影響獲客成長的關鍵因素"
+      prompt_category: "growth_drivers"
+
+    quality_assessment:
+      name: "獲客品質評估"
+      description: "評估新客的質量和長期價值"
+      prompt_category: "quality_assessment"
+
+# AI 功能設定
+ai:
+  # 數據摘要模板（用於 AI 分析）
+  data_summary_template: |
+    新客戶數量: {new_customers}
+    總客戶數: {total_customers}
+    新客獲取率: {acquisition_rate}%
+    平均首購金額: ${avg_first_purchase}
+    新客收入佔比: {new_customer_revenue_pct}%
+
+    Cohort分析:
+    - 追蹤 {cohort_count} 個 cohort
+    - 最新 cohort 大小: {latest_cohort_size} 客戶
+    - 平均留存率 (3個月): {avg_retention_3m}%
+
+  # 預設 AI 提示模板
+  default_prompt_template: "請分析以下客戶獲取數據，提供洞察和建議：\n\n{data}"
+
+  # AI 洞察顯示
+  insights_title: "AI 分析結果"
+  generated_at: "生成時間:"
+
+# 說明文字
+help:
+  overview: |
+    客戶獲取分析模組幫助您追蹤和優化新客戶獲取策略。
+    透過同期群分析和成長趨勢，深入了解獲客效率和品質。
+
+  new_customer_definition: |
+    新客戶定義：
+    - 首次在系統中出現購買記錄的客戶
+    - 以「首次購買日期」作為獲客時間
+    - 每位客戶僅計算一次
+
+  cohort_analysis: |
+    同期群分析（Cohort Analysis）：
+    - 將同一時期首次購買的客戶分為一組
+    - 追蹤各組在後續時間的行為表現
+    - 比較不同時期獲得的客戶品質差異
+    - 評估獲客策略的長期效果
+
+  growth_metrics: |
+    成長指標說明：
+    - MoM (Month-over-Month)：月成長率，與上月比較
+    - QoQ (Quarter-over-Quarter)：季成長率，與上季比較
+    - YoY (Year-over-Year)：年成長率，與去年同期比較
+
+  quality_metrics: |
+    獲客品質評估：
+    - 首購回購率：衡量新客的粘性
+    - 回購時間：反映客戶活躍度
+    - 首年留存率：長期價值的早期指標
+    - 平均CLV：新客的預期終生價值
+
+  best_practices: |
+    分析建議：
+    1. 定期追蹤獲客趨勢，及早發現異常
+    2. 比較不同同期群的表現，優化獲客策略
+    3. 關注獲客品質而非僅數量
+    4. 結合通路分析，找出最有效的獲客管道
+    5. 利用 AI 洞察發現隱藏的模式和機會
+
+# 提示文字
+hints:
+  active_customers: "顧客總數是當前所有活躍的客戶數量，反映業務規模。"
+  cumulative_customers: "累積顧客數是從開始至今獲得的所有客戶總數，顯示客戶基礎的成長。"
+  acquisition_rate: "顧客新增率是新獲得客戶相對於總客戶的比率，反映成長動能。"
+  net_change_rate: "顧客變動率是客戶數量增減的淨變化比率，正值表示成長，負值表示衰退。"
+  cohort_heatmap: "顏色越深表示留存率越高。橫向看可了解單一同期群的留存變化，縱向看可比較不同時期獲客的品質。"
+  growth_rate: "正值表示成長，負值表示衰退。關注成長率的變化趨勢，而非單一期間的數值。"
+  first_purchase: "首購金額分布可反映獲客目標的準確度。理想情況下應與您的目標客群價值相符。"
+  quality_metrics: "高品質獲客的特徵：快速回購、高留存率、高生命週期價值。"
+
+# 統計術語
+statistics:
+  mean: "平均值"
+  median: "中位數"
+  std_dev: "標準差"
+  percentile: "百分位數"
+  correlation: "相關性"
+  significance: "顯著性"
+
+# 表格欄位
+tables:
+  cohort:
+    columns:
+      cohort: "同期群"
+      months_since_first: "首購後月數"
+      customers: "客戶數"
+      cohort_size: "同期群大小"
+      retention_rate: "留存率 (%)"
+      revenue: "收入"
+      transactions: "交易數"
+
+  # 客戶增長指標明細表
+  details:
+    columns:
+      customer_id: "客戶ID"
+      customer_type: "客戶類型"
+      times: "購買次數"
+      total_spent: "總消費金額"
+      days_since_last: "距上次購買天數"
+
+  # 下載CSV欄位
+  download:
+    columns:
+      customer_id: "客戶ID"
+      customer_type: "客戶類型"
+      times: "購買次數"
+      total_spent: "總消費金額"
+      days_since_last: "距上次購買天數"
+      f_value: "購買頻率"
+      m_value: "平均單次消費"
+
+# Server端內容
+server:
+  # 客戶類型標籤 (NES狀態)
+  customer_types:
+    N: "新客戶"
+    E0: "主力客戶"
+    S1: "瞌睡客戶"
+    S2: "半睡客戶"
+    S3: "沉睡客戶"
+    other: "其他"
+
+  # 圖表內容
+  charts:
+    # 客戶池結構圖
+    structure:
+      title: "客戶狀態分布"
+      hover_template: "客戶數: {value}<br>占比: {percent}"
+
+    # 獲客漏斗圖
+    funnel:
+      title: "客戶轉化漏斗"
+      stages:
+        first_purchase: "首次購買"
+        repeat_purchase: "再次購買"
+        multiple_purchase: "多次購買"
+        core_customer: "主力客戶"
+      hover_template: "客戶數: {x}<br>轉化率: {text}"
+
+    # 客戶增長趨勢圖
+    growth:
+      title: "月度客戶增長趨勢"
+      x_axis: "月份"
+      y_axis: "客戶數"
+      y_axis_secondary: "成長率 (%)"
+      series:
+        monthly_customers: "月度客戶數"
+        growth_rate: "成長率 (%)"
+      hover_customers: "客戶數: {y}"
+      hover_growth: "成長率: {y}%"
+
+    # 靜態分析圖 (無時間序列數據時)
+    static:
+      title: "客戶購買頻次分布"
+      x_axis: "購買次數"
+      y_axis: "客戶數"
+      groups:
+        once: "1次"
+        twice: "2次"
+        three_to_five: "3-5次"
+        six_to_ten: "6-10次"
+        more_than_ten: "10次以上"
+      hover_template: "客戶數: {y}"
+
+  # AI 分析模板
+  ai:
+    # 顧客新增率分析模板
+    acquisition_analysis:
+      title: "📊 新客獲取效率評估"
+      metrics:
+        new_customers: "新客戶數量：<strong>{value} 位</strong>"
+        acquisition_rate: "顧客新增率：<strong>{value}%</strong>"
+        industry_benchmark: "行業基準：一般電商新客率 15-25%"
+      evaluation_prefix: "評估："
+      evaluation:
+        low: "低於行業平均，需要加強獲客"
+        high: "高於行業平均，表現優異"
+        normal: "符合行業水準"
+      strategy_title: "💡 策略建議"
+      strategies:
+        low_rate:
+          - "建議增加行銷預算，擴大獲客管道"
+          - "考慮推出新客專屬優惠，提升轉化率"
+        normal_rate:
+          - "維持現有獲客策略，持續優化"
+          - "聚焦提升客戶終身價值"
+      # HTML 模板
+      html_template: |
+        <div style='padding: 15px; background: #f8f9fa; border-radius: 8px;'>
+        <h6 style='color: #2c3e50; margin-bottom: 10px;'>📊 新客獲取效率評估</h6>
+        <ul style='margin: 0; padding-left: 20px;'>
+          <li>新客戶數量：<strong>%d 位</strong></li>
+          <li>顧客新增率：<strong>%.1f%%</strong></li>
+          <li>行業基準：一般電商新客率 15-25%%</li>
+          <li>評估：%s</li>
+        </ul>
+        <h6 style='color: #2c3e50; margin-top: 15px; margin-bottom: 10px;'>💡 策略建議</h6>
+        <ul style='margin: 0; padding-left: 20px;'>
+          <li>%s</li>
+          <li>%s</li>
+        </ul>
+        </div>
+
+    # 顧客變動率分析模板
+    change_rate_analysis:
+      title: "🔍 客戶池健康度診斷"
+      metrics:
+        active_rate: "活躍率：<strong>{value}%</strong>"
+        health_status: "健康狀態：<strong>{status}</strong>"
+        dormant_rate: "沉睡客戶占比：<strong>{value}%</strong>"
+      health_levels:
+        healthy: "健康"
+        warning: "警示"
+        danger: "危險"
+      prevention_title: "🛡️ 風險預防措施"
+      prevention_strategies:
+        high_risk:
+          - "立即啟動客戶喚醒計劃"
+          - "針對沉睡客戶推出專屬優惠"
+          - "建立客戶流失預警機制"
+        low_risk:
+          - "定期監控客戶活躍度"
+          - "強化客戶互動頻率"
+          - "建立客戶流失預警機制"
+      # HTML 模板
+      html_template: |
+        <div style='padding: 15px; background: #fff3e0; border-radius: 8px;'>
+        <h6 style='color: #e65100; margin-bottom: 10px;'>🔍 客戶池健康度診斷</h6>
+        <ul style='margin: 0; padding-left: 20px;'>
+          <li>活躍率：<strong>%.1f%%</strong></li>
+          <li>健康狀態：<strong>%s</strong></li>
+          <li>沉睡客戶占比：<strong>%.1f%%</strong></li>
+        </ul>
+        <h6 style='color: #e65100; margin-top: 15px; margin-bottom: 10px;'>🛡️ 風險預防措施</h6>
+        <ul style='margin: 0; padding-left: 20px;'>
+          <li>%s</li>
+          <li>%s</li>
+          <li>%s</li>
+        </ul>
+        </div>
+
+    # AI錯誤訊息
+    error: "AI 分析發生錯誤: {message}"
+
+    # AI數據摘要欄位名稱（用於準備分析數據）
+    data_fields:
+      new_customers_label: "新客戶數量："
+      total_customers_label: "總客戶數："
+      acquisition_rate_label: "顧客新增率："
+      active_customers_label: "活躍客戶數："
+      net_change_rate_label: "顧客變動率："
+      customer_structure_label: "客戶結構："
+      status_format: "%s: %d位 (%.1f%%)"

@@ -1,0 +1,709 @@
+# ==========================================
+# VitalSigns - Engagement Module Language Content (Chinese)
+# ==========================================
+# 活躍轉化分析模組語言內容（中文）
+# Version: 1.0.0
+# Last Updated: 2025-10-11
+
+# 模組基本資訊
+title: "活躍轉化分析"
+subtitle: "追蹤客戶活躍度、參與模式與轉化效率"
+description: "評估客戶參與度、分析轉化漏斗、識別行為模式、優化互動策略"
+
+# UI 區塊
+ui:
+  sections:
+    overview: "參與概覽"
+    engagement_distribution: "參與度分數分布"
+    activity_levels: "活躍度等級分布"
+    conversion_funnel: "轉化漏斗分析"
+    purchase_timing: "購買時間模式"
+    behavior_patterns: "行為模式分析"
+    rfe_analysis: "RFE 分析"
+    ai_insights: "AI 洞察"
+
+  # 控制面板
+  controls:
+    title: "分析控制"
+    engagement_dimensions: "參與度維度"
+    activity_threshold: "活躍度閾值"
+    funnel_stages: "漏斗階段"
+
+  # 按鈕
+  buttons:
+    calculate_engagement: "計算參與度"
+    analyze_funnel: "分析漏斗"
+    identify_patterns: "識別模式"
+    generate_insights: "生成 AI 洞察"
+    export_segments: "匯出客群資料"
+    start_ai_analysis: "開始 AI 分析"
+    download_reactivation: "下載需喚醒客戶清單"
+    download_loyalty: "下載忠誠度分析"
+
+  # KPI 卡片
+  kpis:
+    cai: "顧客活躍度 (CAI)"
+    conversion_rate: "顧客轉化率"
+    purchase_frequency: "購買頻率"
+    inter_purchase_time: "平均再購時間"
+    reactivation_rate: "喚醒率"
+
+  # 卡片標題
+  cards:
+    activity_distribution: "客戶活躍度分布"
+    conversion_funnel: "顧客轉化漏斗"
+    purchase_patterns: "購買頻率與週期分析"
+    reactivation_opportunity: "客戶喚醒機會分析"
+    loyalty_ladder: "忠誠度階梯"
+    ai_analysis: "🤖 AI 智能分析與建議"
+
+  # 分頁標籤
+  tabs:
+    frequency_analysis: "購買頻率分析"
+    reactivation_analysis: "喚醒機會分析"
+    loyalty_strategy: "忠誠度階梯策略"
+    reactivation_list: "喚醒客戶清單"
+
+  # 說明文字
+  help:
+    chart_explanation: "📊 圖表解讀說明"
+    activity_distribution_desc: "此散佈圖展示客戶的活躍度與消費關係："
+    activity_distribution_x: "橫軸：活躍度指數 (CAI)，正值表示活躍上升，負值表示活躍下降"
+    activity_distribution_y: "縱軸：總消費金額"
+    activity_distribution_color: "點的顏色：代表購買次數（綠色=高頻，紅色=低頻）"
+    activity_distribution_size: "點的大小：也反映消費金額大小"
+    activity_distribution_ideal: "理想狀態是多數客戶集中在右上角（高活躍度、高消費）"
+    funnel_desc: "漏斗圖展示客戶從首購到忠誠的轉化過程："
+    funnel_first: "1次購買：新客基數 (100%)"
+    funnel_second: "2次購買：二購轉化率 = 2次購買客戶數 ÷ 總客戶數"
+    funnel_regular: "3-4次：常客轉化率"
+    funnel_loyal: "≥5次：忠誠客戶轉化率"
+    funnel_note: "轉化率越高，表示客戶忠誠度經營越成功"
+    patterns_desc: "散佈圖展示每個客戶的購買頻率與週期關係："
+    patterns_x: "橫軸：購買頻率（總購買次數）"
+    patterns_y: "縱軸：平均購買週期（兩次購買間隔天數）"
+    patterns_size: "點的大小：總消費金額"
+    patterns_color: "顏色：客戶價值分群"
+    patterns_ideal: "理想客戶位於右下角：高頻率、短週期、大消費"
+
+  # 單位
+  units:
+    times: "次"
+    days: "天"
+    people: "人"
+    customers: "位"
+
+  # 圖表標籤
+  charts:
+    no_data: "無資料顯示"
+    no_activity_data: "無有效的活躍度資料"
+    no_repeat_customers: "無重複購買客戶資料"
+    no_reactivation_needed: "無需喚醒的客戶"
+    all_active: "所有客戶都處於活躍狀態"
+    customer_id: "客戶ID"
+    purchase_count: "購買次數"
+    purchase_frequency: "購買頻率"
+    purchase_stage: "購買階段"
+    customer_count: "客戶數"
+    customer_value: "客戶價值"
+    urgency_level: "緊急程度"
+    loyalty_level: "忠誠度等級"
+    avg_sleeping_days: "平均沉睡"
+    total_spent: "總消費"
+    point_size_note: "點的大小代表總消費金額"
+    activity_vs_spending: "客戶活躍度 vs 總消費金額"
+    conversion_funnel_title: "客戶購買轉化漏斗"
+    funnel_stage: "購買階段"
+    conversion_rate: "轉化率"
+    # 漏斗階段標籤 (Funnel Stage Labels)
+    stage_1_purchase: "1次購買"
+    stage_2_purchases: "2次購買"
+    stage_3_4_purchases: "3-4次購買"
+    stage_5_plus_purchases: "5次以上購買"
+    purchase_cycle_frequency: "購買週期頻率散佈圖"
+    reactivation_analysis: "需喚醒客戶分析"
+    loyalty_distribution: "客戶忠誠度階梯分布"
+
+  # 價值分類
+  value_segments:
+    high: "高價值"
+    medium_high: "中高價值"
+    medium_low: "中低價值"
+    low: "低價值"
+
+  # 緊急程度
+  urgency_levels:
+    urgent: "緊急"
+    important: "重要"
+    normal: "一般"
+
+  # 忠誠度階層
+  loyalty_tiers:
+    first_time: "初次購買"
+    occasional: "偶爾購買"
+    regular: "常客"
+    loyal: "忠誠客戶"
+    ambassador: "品牌大使"
+
+  # 行動建議
+  actions:
+    send_care_email: "發送個人化關懷郵件"
+    limited_offer: "限時優惠"
+    product_recommendation: "產品推薦"
+    regular_care: "定期關懷郵件"
+    large_coupon: "發送大額優惠券+個人化關懷"
+    product_promo: "限時優惠+產品推薦"
+    upgrade_to_occasional: "需再購1次升級為偶爾購買"
+    upgrade_to_regular: "次升級為常客"
+    upgrade_to_loyal: "次升級為忠誠客戶"
+    upgrade_to_ambassador: "次升級為品牌大使"
+    max_level: "已達最高等級"
+
+# 指標定義
+metrics:
+  # 核心指標
+  active_customers:
+    name: "活躍客戶數"
+    short_name: "活躍客戶"
+    description: "在指定期間內有購買行為的客戶數"
+    icon: "user-check"
+    unit: "位"
+    color: "success"
+
+  activity_rate:
+    name: "活躍率"
+    short_name: "活躍率"
+    description: "活躍客戶占總客戶的比例"
+    icon: "chart-line"
+    unit: "%"
+    color: "primary"
+
+  avg_engagement_score:
+    name: "平均參與度分數"
+    short_name: "參與度"
+    description: "基於5維度的綜合參與度評分"
+    icon: "fire"
+    unit: "分"
+    color: "warning"
+
+  conversion_rate:
+    name: "轉化率"
+    short_name: "轉化率"
+    description: "從訪客到購買的轉化比例"
+    icon: "funnel"
+    unit: "%"
+    color: "info"
+
+# 參與度維度（5維度）
+engagement_dimensions:
+  purchase_frequency:
+    name: "購買頻率"
+    short_name: "頻率"
+    description: "購買次數"
+    weight: 0.25
+    icon: "🔁"
+    formula: "購買次數 / 時間期間"
+
+  recency:
+    name: "最近互動"
+    short_name: "時近性"
+    description: "最後一次購買的時間"
+    weight: 0.20
+    icon: "🕒"
+    formula: "當前日期 - 最後購買日期"
+
+  monetary:
+    name: "消費價值"
+    short_name: "價值"
+    description: "累計消費金額"
+    weight: 0.25
+    icon: "💰"
+    formula: "總消費金額"
+
+  engagement_depth:
+    name: "互動深度"
+    short_name: "深度"
+    description: "每次互動的深入程度"
+    weight: 0.15
+    icon: "📊"
+    formula: "平均訂單價值 × 購買多樣性"
+
+  behavioral_consistency:
+    name: "行為一致性"
+    short_name: "一致性"
+    description: "購買行為的穩定程度"
+    weight: 0.15
+    icon: "🎯"
+    formula: "購買間隔標準差的倒數"
+
+# 活躍度等級
+activity_levels:
+  highly_active:
+    name: "高活躍"
+    short_name: "高活躍"
+    description: "頻繁購買、高度參與的客戶"
+    min_score: 75
+    color: "success"
+    icon: "🔥"
+    characteristics:
+      - "購買頻率高"
+      - "最近有購買"
+      - "消費金額大"
+      - "參與度深"
+
+  moderately_active:
+    name: "中活躍"
+    short_name: "中活躍"
+    description: "定期購買、穩定參與的客戶"
+    min_score: 50
+    color: "primary"
+    icon: "⚡"
+    characteristics:
+      - "購買頻率中等"
+      - "偶爾購買"
+      - "消費金額中等"
+      - "有基本參與"
+
+  low_active:
+    name: "低活躍"
+    short_name: "低活躍"
+    description: "偶爾購買、參與度低的客戶"
+    min_score: 25
+    color: "warning"
+    icon: "💤"
+    characteristics:
+      - "購買頻率低"
+      - "長時間未購買"
+      - "消費金額小"
+      - "參與度低"
+
+  inactive:
+    name: "不活躍"
+    short_name: "不活躍"
+    description: "長期未購買、無參與的客戶"
+    min_score: 0
+    color: "danger"
+    icon: "😴"
+    characteristics:
+      - "很久未購買"
+      - "幾乎無互動"
+      - "流失風險高"
+      - "需要喚醒"
+
+# 參與度客群
+engagement_segments:
+  super_users:
+    name: "超級用戶"
+    description: "高頻、高價值、高參與的核心客戶"
+    criteria: "高頻率 + 高價值 + 高活躍"
+    color: "success"
+    icon: "👑"
+    percentage_range: "5-10%"
+
+  engaged_users:
+    name: "參與用戶"
+    description: "定期購買、穩定參與的主力客戶"
+    criteria: "中高頻率 + 中高價值"
+    color: "primary"
+    icon: "⭐"
+    percentage_range: "20-30%"
+
+  casual_users:
+    name: "休閒用戶"
+    description: "偶爾購買、低度參與的客戶"
+    criteria: "低頻率 + 低價值"
+    color: "warning"
+    icon: "👤"
+    percentage_range: "40-50%"
+
+  at_risk_users:
+    name: "流失風險用戶"
+    description: "長時間未購買、參與度下降的客戶"
+    criteria: "長時間未活躍 + 參與度下降"
+    color: "danger"
+    icon: "⚠️"
+    percentage_range: "10-20%"
+
+# 轉化漏斗
+conversion_funnel:
+  stages:
+    awareness:
+      name: "認知階段"
+      short_name: "認知"
+      description: "了解品牌或產品"
+      order: 1
+      icon: "👁️"
+
+    consideration:
+      name: "考慮階段"
+      short_name: "考慮"
+      description: "評估是否購買"
+      order: 2
+      icon: "🤔"
+
+    purchase:
+      name: "購買階段"
+      short_name: "購買"
+      description: "完成首次購買"
+      order: 3
+      icon: "🛒"
+
+    repeat:
+      name: "重複購買階段"
+      short_name: "重購"
+      description: "成為回購客戶"
+      order: 4
+      icon: "🔄"
+
+  metrics:
+    funnel_conversion_rate:
+      name: "漏斗轉化率"
+      description: "從第一階段到最後階段的整體轉化率"
+
+    stage_conversion_rate:
+      name: "階段轉化率"
+      description: "單一階段的轉化率"
+
+    drop_off_rate:
+      name: "流失率"
+      description: "在某階段流失的比例"
+
+# 行為模式
+behavior_patterns:
+  # 購買時間模式
+  purchase_timing:
+    weekday_pattern:
+      name: "工作日模式"
+      description: "週一至週五的購買模式"
+
+    weekend_pattern:
+      name: "週末模式"
+      description: "週六至週日的購買模式"
+
+    hourly_pattern:
+      name: "時段模式"
+      description: "一天中不同時段的購買模式"
+
+    monthly_pattern:
+      name: "月份模式"
+      description: "不同月份的購買模式"
+
+  # 購買頻率模式
+  frequency_patterns:
+    burst:
+      name: "爆發型"
+      description: "短時間內密集購買"
+      characteristics: "集中購買，間隔長"
+
+    steady:
+      name: "穩定型"
+      description: "固定頻率的購買"
+      characteristics: "規律購買，可預測"
+
+    sporadic:
+      name: "零星型"
+      description: "不定期的購買"
+      characteristics: "無規律，難預測"
+
+  # 價值趨勢
+  value_trends:
+    increasing:
+      name: "遞增型"
+      description: "消費金額逐漸增加"
+      trend: "↗️"
+
+    stable:
+      name: "穩定型"
+      description: "消費金額保持穩定"
+      trend: "→"
+
+    decreasing:
+      name: "遞減型"
+      description: "消費金額逐漸減少"
+      trend: "↘️"
+
+# RFE 分析（Recency-Frequency-Engagement）
+rfe_analysis:
+  description: "基於時近性、頻率和參與度的客戶分析"
+  dimensions:
+    r_score:
+      name: "時近性分數 (R)"
+      description: "最近購買時間的評分"
+      range: "1-5"
+
+    f_score:
+      name: "頻率分數 (F)"
+      description: "購買頻率的評分"
+      range: "1-5"
+
+    e_score:
+      name: "參與度分數 (E)"
+      description: "整體參與度的評分"
+      range: "1-5"
+
+  segments:
+    champions:
+      name: "冠軍客戶"
+      criteria: "R=5, F=5, E=5"
+      action: "維持高品質服務"
+
+    loyal:
+      name: "忠誠客戶"
+      criteria: "R>=3, F>=4, E>=4"
+      action: "提供獎勵計劃"
+
+    potential:
+      name: "潛力客戶"
+      criteria: "R>=4, F<=2, E>=3"
+      action: "增加互動頻率"
+
+    at_risk:
+      name: "風險客戶"
+      criteria: "R<=2, F>=3, E<=3"
+      action: "挽回措施"
+
+# 圖表配置
+charts:
+  # 參與度分數分布
+  engagement_distribution:
+    title: "參與度分數分布"
+    x_axis: "參與度分數"
+    y_axis: "客戶數"
+    tooltip: "分數 {score}: {count} 位客戶"
+
+  # 活躍度等級餅圖
+  activity_levels_pie:
+    title: "活躍度等級分布"
+    tooltip: "{level}: {count} 位客戶 ({percentage}%)"
+
+  # 轉化漏斗圖
+  conversion_funnel_chart:
+    title: "轉化漏斗"
+    tooltip: "{stage}: {count} 位 ({rate}%)"
+
+  # 購買時間模式
+  purchase_timing_chart:
+    title: "購買時間分布"
+    weekday:
+      x_axis: "星期"
+      y_axis: "交易筆數"
+      labels: ["週一", "週二", "週三", "週四", "週五", "週六", "週日"]
+    hourly:
+      x_axis: "時段"
+      y_axis: "交易筆數"
+
+  # 參與度客群分布
+  engagement_segments_chart:
+    title: "參與度客群分布"
+    tooltip: "{segment}: {count} 位 ({percentage}%)"
+
+  # RFE 散點圖
+  rfe_scatter:
+    title: "RFE 分析散點圖"
+    x_axis: "頻率 (F)"
+    y_axis: "時近性 (R)"
+    size: "參與度 (E)"
+    tooltip: "客戶 {id}: R={r}, F={f}, E={e}"
+
+# 訊息文字
+messages:
+  # 成功訊息
+  success:
+    engagement_calculated: "✅ 參與度計算完成"
+    funnel_analyzed: "✅ 轉化漏斗分析完成"
+    patterns_identified: "✅ 行為模式識別完成"
+    insights_generated: "✅ AI 洞察已生成"
+
+  # 處理中
+  processing:
+    calculating_engagement: "計算參與度中..."
+    analyzing_funnel: "分析轉化漏斗中..."
+    identifying_patterns: "識別行為模式中..."
+    scoring_customers: "評分客戶中..."
+
+  # 錯誤訊息
+  error:
+    insufficient_data: "❌ 資料不足，無法進行參與度分析"
+    no_active_customers: "❌ 無活躍客戶資料"
+    funnel_analysis_failed: "❌ 漏斗分析失敗"
+
+  # 警告訊息
+  warning:
+    low_activity_rate: "⚠️ 活躍率偏低（{rate}%），建議提升"
+    many_inactive: "⚠️ 不活躍客戶比例較高（{percentage}%）"
+    low_conversion: "⚠️ 轉化率偏低（{rate}%），需要優化"
+
+  # 資訊訊息
+  info:
+    customers_scored: "已為 {count} 位客戶評分"
+    segments_identified: "識別出 {count} 個客群"
+    patterns_found: "發現 {count} 種行為模式"
+
+# AI 分析類型
+ai_analysis:
+  types:
+    engagement_insights:
+      name: "參與度洞察"
+      description: "分析高參與度客戶的特徵和行為"
+      prompt_category: "engagement_insights"
+
+    funnel_optimization:
+      name: "漏斗優化建議"
+      description: "識別漏斗瓶頸並提供優化建議"
+      prompt_category: "funnel_optimization"
+
+    behavior_patterns:
+      name: "行為模式解讀"
+      description: "解讀客戶購買時間和頻率模式"
+      prompt_category: "behavior_patterns"
+
+    activation_strategy:
+      name: "活躍化策略"
+      description: "為不活躍客戶提供活躍化建議"
+      prompt_category: "activation_strategy"
+
+  # AI 分析標題（用於 fallback 顯示）
+  fallback_titles:
+    ai_result: "🤖 AI 分析結果"
+    frequency_insights: "📊 購買頻率洞察（預設分析）"
+    reactivation_assessment: "🔔 喚醒機會評估（預設分析）"
+    loyalty_strategy: "🏆 忠誠度階梯策略"
+    reactivation_plan: "📋 喚醒客戶行銷計畫"
+    marketing_suggestions: "💡 行銷建議"
+    reactivation_strategy_title: "🎯 喚醒策略"
+    upgrade_strategy_title: "📈 升級策略"
+    execution_plan: "📧 執行方案"
+
+  # AI 分析文字模板
+  fallback_text:
+    avg_frequency_label: "平均購買頻率為"
+    customer_count_label: "共"
+    customers_need_reactivation: "位客戶需要喚醒"
+    potential_value: "潛在價值："
+    customer_distribution: "客戶忠誠度分布分析"
+    reactivation_total: "需喚醒客戶總數："
+
+  # 預設分析建議
+  frequency_suggestions:
+    low_frequency: "低頻客戶：推出首購優惠，降低二購門檻"
+    medium_frequency: "中頻客戶：定期推送個人化商品推薦"
+    high_frequency: "高頻客戶：提供 VIP 專屬權益，維持忠誠度"
+
+  reactivation_strategies:
+    s1_sleepy: "S1 瞌睡客：發送「我們想念您」郵件 + 小額優惠"
+    s2_half_asleep: "S2 半睡客：限時大額折扣 + 新品推薦"
+    s3_deep_sleep: "S3 沉睡客：問卷調查 + 重新激活獎勵"
+
+  loyalty_upgrade_strategies:
+    first_to_occasional: "初次→偶爾：首購後 7 天內提供二購優惠"
+    occasional_to_regular: "偶爾→常客：推出累積消費獎勵計畫"
+    regular_to_loyal: "常客→忠誠：VIP 會員專屬權益"
+    loyal_to_ambassador: "忠誠→大使：推薦獎勵計畫 + 專屬客服"
+
+  reactivation_execution_plan:
+    wave1: "第 1 波：發送個人化關懷郵件"
+    wave2: "第 2 波：提供限時專屬優惠"
+    wave3: "第 3 波：新品推薦 + 滿額贈"
+    wave4: "第 4 波：最後通牒優惠"
+    timing_note: "建議每波間隔 7-10 天，追蹤開信率與轉換率"
+
+# 說明文字
+help:
+  overview: |
+    活躍轉化分析模組幫助您評估客戶參與度和轉化效率。
+    透過多維度分析，識別高價值客群和優化互動策略。
+
+  engagement_scoring: |
+    參與度評分系統：
+    基於5個維度加權計算：
+    1. 購買頻率 (25%)：購買次數
+    2. 最近互動 (20%)：最後購買時間
+    3. 消費價值 (25%)：累計消費金額
+    4. 互動深度 (15%)：每次互動的深入程度
+    5. 行為一致性 (15%)：購買行為的穩定性
+
+    總分範圍：0-100分
+
+  activity_levels: |
+    活躍度等級定義：
+    - 高活躍 (75分以上)：核心客戶，需維護
+    - 中活躍 (50-74分)：主力客戶，可提升
+    - 低活躍 (25-49分)：邊緣客戶，需激活
+    - 不活躍 (25分以下)：流失風險，需喚醒
+
+  conversion_funnel: |
+    轉化漏斗分析：
+    追蹤客戶從認知到重複購買的完整旅程：
+    1. 認知階段：了解品牌
+    2. 考慮階段：評估購買
+    3. 購買階段：完成首購
+    4. 重購階段：成為回購客
+
+    漏斗分析可幫助：
+    - 識別轉化瓶頸
+    - 計算各階段流失率
+    - 優化客戶旅程
+    - 提升整體轉化率
+
+  rfe_analysis: |
+    RFE 分析：
+    RFE 是 RFM 的進階版本，增加了參與度維度：
+    - R (Recency)：最近購買時間
+    - F (Frequency)：購買頻率
+    - E (Engagement)：整體參與度
+
+    相比傳統 RFM，RFE 更全面地評估客戶價值。
+
+  best_practices: |
+    分析建議：
+    1. 定期追蹤活躍率變化，維持客戶活躍
+    2. 分析轉化漏斗，優化關鍵環節
+    3. 識別高參與客戶的特徵，複製成功模式
+    4. 根據購買時間模式優化溝通節奏
+    5. 針對不同活躍度客群制定差異化策略
+
+# 提示文字
+hints:
+  engagement_distribution: "參與度分數分布可反映整體客戶活躍程度。理想情況下應呈現右偏分布（高分客戶多）。"
+  activity_levels: "關注不活躍客戶的比例。若超過30%，建議採取大規模的活躍化措施。"
+  conversion_funnel: "漏斗變窄的階段就是轉化瓶頸。重點優化流失率最高的環節。"
+  purchase_timing: "了解客戶購買的時間習慣，可以優化促銷和溝通的時機，提高轉化效率。"
+  engagement_segments: "超級用戶雖然占比小，但貢獻度高。參與用戶是主力，休閒用戶有提升空間，風險用戶需重點關注。"
+
+# 行動建議
+action_recommendations:
+  super_users:
+    title: "超級用戶維護建議"
+    actions:
+      - "提供最高等級的會員權益"
+      - "優先體驗新品和獨家優惠"
+      - "建立專屬客服通道"
+      - "邀請參與產品開發和決策"
+      - "給予社群領袖角色"
+
+  engaged_users:
+    title: "參與用戶提升建議"
+    actions:
+      - "升級會員等級和權益"
+      - "推薦相關產品擴大消費"
+      - "增加互動頻率和深度"
+      - "提供個性化推薦"
+      - "培養成為超級用戶"
+
+  casual_users:
+    title: "休閒用戶激活建議"
+    actions:
+      - "發送吸引人的促銷訊息"
+      - "教育產品價值和使用方式"
+      - "降低購買門檻"
+      - "建立習慣養成機制"
+      - "提高互動頻率"
+
+  at_risk_users:
+    title: "風險用戶挽回建議"
+    actions:
+      - "發送專屬挽回優惠"
+      - "了解流失原因"
+      - "重新激活興趣"
+      - "提供特別關懷"
+      - "挽回高價值客戶優先"

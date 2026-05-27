@@ -1,0 +1,69 @@
+# ==========================================
+# 關鍵字廣告模組文字內容 - 中文
+# ==========================================
+
+title: "🔍 關鍵字廣告投放建議"
+subtitle: "根據產品屬性分析結果，建議最佳關鍵字廣告策略"
+description: "AI 智慧生成高效關鍵字組合，提升廣告投資報酬率"
+
+settings:
+  title: "📋 分析設定"
+  brand_selection: "選擇品牌/產品"
+  keyword_count: "建議關鍵字數量"
+  platform: "廣告平台"
+  budget: "預算範圍"
+
+platforms:
+  google: "Google Ads"
+  facebook: "Facebook Ads"
+  instagram: "Instagram Ads"
+  all: "全平台"
+
+analysis:
+  title: "分析參數"
+  target_audience: "目標受眾"
+  geographic: "地理位置"
+  language: "語言設定"
+  device: "裝置類型"
+
+generation:
+  button: "生成關鍵字建議"
+  processing: "🔄 正在分析關鍵字..."
+  complete: "✅ 關鍵字建議生成完成！"
+
+results:
+  title: "📌 關鍵字廣告建議"
+  keyword_list: "建議關鍵字"
+  search_volume: "搜尋量"
+  competition: "競爭程度"
+  suggested_bid: "建議出價"
+  relevance_score: "相關性分數"
+  core_attributes: "核心優勢屬性："
+
+optimization:
+  title: "最佳化建議"
+  ad_group: "廣告群組建議"
+  negative_keywords: "排除關鍵字"
+  match_types: "比對類型建議"
+
+export:
+  button: "下載關鍵字報告"
+  format: "匯出格式"
+  include_metrics: "包含指標數據"
+
+messages:
+  no_brand_selected: "請先選擇品牌或產品"
+  generation_failed: "生成失敗：{error}"
+  export_success: "關鍵字報告已下載"
+  basic_generation: "使用基本關鍵字生成"
+  no_suggestions: "尚無關鍵字建議"
+
+console:
+  generating_keywords: "🔎 生成關鍵字中..."
+  analyzing_brand: "分析品牌: {brand}"
+  extracting_attributes: "提取屬性特徵..."
+  ai_processing: "🤖 AI 處理關鍵字建議..."
+  keywords_generated: "✅ 已生成 {count} 個關鍵字"
+  optimizing_keywords: "優化關鍵字組合..."
+  export_ready: "📦 關鍵字報告準備完成"
+

@@ -1,0 +1,146 @@
+# ==========================================
+# BrandEdge 資料上傳模組配置
+# ==========================================
+# Module: upload_brandedge
+# Path: modules/module_upload_brandedge.R
+# Version: 3.2.0
+
+module:
+  id: "upload_brandedge"
+  name: "upload_module"
+  description: "brandedge_data_upload_validation"
+  version: "3.2.0"
+  path: "modules/module_upload_brandedge.R"
+  type: "data_upload"
+  icon: "upload"
+
+enabled: true
+
+# 模組函數映射
+functions:
+  ui: "uploadModuleUI"
+  server: "uploadModuleServer"
+
+# UI 配置
+ui:
+  title_key: "title"
+  card_status: "primary"
+
+  sections:
+    reviews:
+      title_key: "sections.reviews"
+      hint_id: "upload_reviews"
+      required: true
+      show_notification: true
+      notification_file: "notification.md"
+
+  buttons:
+    upload:
+      id: "load_btn"
+      label_key: "buttons.upload"
+      class: "btn-success"
+
+    next:
+      id: "to_step2"
+      label_key: "buttons.next"
+      class: "btn-info"
+
+# BrandEdge 特定資料限制
+data_limits:
+  max_rows: 1000                      # 最大總資料筆數
+  max_brands: 20                      # 最大品牌數量
+  min_records_per_brand: 10           # 每個品牌最少評論數
+
+# 檔案設定
+file_settings:
+  max_file_size_mb: 50                # 單檔最大大小 (MB)
+  max_files_per_upload: 20            # 單次最多上傳檔案數
+  accepted_formats:
+    - ".xlsx"
+    - ".xls"
+    - ".csv"
+
+  encoding:
+    csv: "UTF-8"                      # CSV 檔案編碼
+    auto_detect: true                 # 自動偵測編碼
+
+# 資料驗證規則
+validation:
+  required_columns:
+    - name: "Variation"
+      type: "character"
+      description_key: "validation.variation_desc"
+
+    - name: "Title"
+      type: "character"
+      description_key: "validation.title_desc"
+      allow_empty: true
+
+    - name: "Body"
+      type: "character"
+      description_key: "validation.body_desc"
+      min_length: 10
+
+  optional_columns:
+    - name: "Rating"
+      type: "numeric"
+      range: [1, 5]
+
+    - name: "Date"
+      type: "date"
+      format: "YYYY-MM-DD"
+
+# 資料處理設定
+processing:
+  auto_merge: true                    # 自動合併多個檔案
+  remove_duplicates: true             # 移除重複記錄
+
+  sampling:
+    enabled: true                     # 啟用抽樣
+    method: "random"                  # random | stratified
+    preserve_distribution: true       # 保持原始分布
+
+  transformation:
+    trim_whitespace: true             # 移除前後空白
+    standardize_variation_names: true # 標準化 Variation 名稱
+    handle_missing_values:
+      strategy: "remove"              # remove | impute | keep
+
+# 儲存設定
+storage:
+  database:
+    table: "rawdata"
+    format: "json"
+    compress: false
+
+  backup:
+    enabled: true
+    location: "backups/uploads/"
+    retention_days: 30
+
+# 進階設定
+advanced:
+  enable_preview: true                # 啟用資料預覽
+  preview_rows: 1000                  # 資料預覽最大行數
+
+# 錯誤處理
+error_handling:
+  show_detailed_errors: true          # 顯示詳細錯誤訊息
+  log_errors: true                    # 記錄錯誤
+
+# 通知設定
+notifications:
+  upload_success:
+    type: "message"
+    duration: 5
+    template_key: "notifications.upload_success"
+
+  upload_error:
+    type: "error"
+    duration: 10
+    template_key: "notifications.upload_error"
+
+  data_limit_warning:
+    type: "warning"
+    duration: 8
+    template_key: "notifications.data_limit_warning"

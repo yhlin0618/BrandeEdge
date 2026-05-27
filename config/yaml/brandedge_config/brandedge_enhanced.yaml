@@ -1,0 +1,531 @@
+# ============================================================================
+# BrandEdge Enhanced Configuration - Event-Driven Version
+# ============================================================================
+# Version: 4.0
+# Date: 2025-10-20
+# Features: Flow-based navigation, Event triggers, Data flow definitions
+# ============================================================================
+
+app_info:
+  name: "BrandEdge 品牌印記引擎"
+  version: "4.0.0"
+  tier: "l3_premium"
+  description: "AI 驅動的品牌分析系統"
+
+language:
+  default: "chinese"
+  available:
+    - chinese
+    - english
+    - japanese
+
+# ============================================================================
+# 🆕 FLOWS - 定義應用工作流程
+# ============================================================================
+flows:
+  # 認證流程
+  - id: "authentication"
+    name: "使用者認證流程"
+    type: "sequential"
+    steps:
+      - module: "login"
+        on_success:
+          action: "show_main_app"
+          navigate_to: "upload_brandedge"
+
+  # 資料處理流程（核心流程）
+  - id: "data_processing"
+    name: "資料處理流程"
+    type: "sequential"
+    required_auth: true
+    description: "從上傳到評分的完整流程"
+    steps:
+      - module: "upload_brandedge"
+        step_number: 1
+        on_proceed:
+          navigate_to: "brandedge_scoring"
+          automatic: true
+        provides:
+          - "review_data"
+
+      - module: "brandedge_scoring"
+        step_number: 2
+        on_proceed:
+          navigate_to: "first_analysis_module"
+          automatic: true
+        requires:
+          - "review_data"
+        provides:
+          - "scored_data"
+          - "attributes"
+
+  # 分析流程（並行）
+  - id: "analysis"
+    name: "分析流程"
+    type: "parallel"
+    required_auth: true
+    description: "多個分析模組可並行訪問"
+    requires:
+      - "scored_data"
+      - "attributes"
+    modules:
+      - "market_profile"
+      - "market_track"
+      - "advanced_attribute"
+      - "key_factor"
+      - "advanced_dna"
+      - "brand_identity"
+      - "ideal_point"
+      - "positioning_strategy"
+
+# ============================================================================
+# 🆕 EVENTS - 定義全域和模組事件
+# ============================================================================
+events:
+  # 全域事件
+  global:
+    language_change:
+      trigger: "input$navbar_language_selector"
+      handler: "unified_language_switch"
+      affects: ["all_modules", "sidebar"]
+      debounce: 100  # ms
+
+    logout:
+      trigger: "input$logout_btn"
+      handler: "logout_handler"
+      actions:
+        - type: "reset_state"
+          targets: ["user_logged_in", "current_user"]
+        - type: "reload_session"
+
+  # 模組特定事件
+  module_events:
+    upload_brandedge:
+      proceed:
+        trigger_type: "reactiveVal"
+        trigger_name: "proceed_step"
+        condition:
+          check: "!is.null(review_data) && nrow(review_data) > 0"
+        actions:
+          - type: "navigate"
+            target: "brandedge_scoring"
+          # TEMP: Disable module event notification to test navigation rule notification
+          # - type: "notify"
+          #   key: "system.notifications.switch_to_scoring"  # Use centralized language content
+          #   duration: 3
+
+    brandedge_scoring:
+      proceed:
+        trigger_type: "reactiveVal"
+        trigger_name: "proceed_trigger"
+        condition:
+          check: "!is.null(scored_data) && is.data.frame(scored_data)"
+        actions:
+          - type: "navigate"
+            target: "first_analysis_module"
+            strategy: "first_enabled"
+            exclude: ["login", "upload_brandedge", "brandedge_scoring"]
+          - type: "notify"
+            messages:
+              zh_TW: "✅ 進入分析模組"
+              en_US: "✅ Entering analysis modules"
+              ja_JP: "✅ 分析モジュールに入ります"
+            duration: 3
+
+    login:
+      success:
+        trigger_type: "reactive"
+        trigger_name: "user_info"
+        condition:
+          check: "!is.null(user_info)"
+        actions:
+          - type: "update_state"
+            targets:
+              - name: "user_logged_in"
+                value: true
+              - name: "current_user"
+                value: "user_info"
+          - type: "navigate"
+            target: "upload_brandedge"
+            automatic: true
+
+# ============================================================================
+# 🆕 NAVIGATION - 定義導航規則
+# ============================================================================
+navigation:
+  default_page: "login"
+  sidebar_id: "sidebar_menu"
+
+  # 導航規則
+  rules:
+    - name: "auto_login_to_upload"
+      from: "login"
+      to: "upload_brandedge"
+      trigger: "login_result$user_info"
+      condition: "!is.null(user_info)"
+      automatic: true
+      type: "event_driven"
+
+    - name: "auto_upload_to_scoring"
+      from: "upload_brandedge"
+      to: "brandedge_scoring"
+      trigger: "upload_result$proceed_step"
+      condition: "!is.null(review_data) && nrow(review_data) > 0"
+      automatic: true
+      type: "event_driven"
+      notification:
+        enabled: true
+        type: "message"
+        duration: 3
+
+    - name: "auto_scoring_to_analysis"
+      from: "brandedge_scoring"
+      to: "first_analysis_module"
+      trigger: "scoring_result$proceed_trigger"
+      condition: "!is.null(scored_data)"
+      automatic: true
+      type: "event_driven"
+      target_selection:
+        strategy: "first_enabled"
+        filter:
+          enabled: true
+          exclude_ids: ["login", "upload_brandedge", "brandedge_scoring"]
+      notification:
+        enabled: true
+        type: "message"
+        duration: 3
+
+# ============================================================================
+# 🆕 DATA_FLOW - 定義資料流動
+# ============================================================================
+data_flow:
+  warehouse:
+    enabled: true
+    type: "reactiveValues"
+    initial_values:
+      review_data: null
+      scored_data: null
+      attributes_list: null
+      key_attributes: null
+
+  # 資料流定義
+  flows:
+    # Upload → Scoring
+    - name: "review_data_flow"
+      source:
+        module: "upload_brandedge"
+        output: "review_data"
+        type: "reactive"
+      destinations:
+        - module: "brandedge_scoring"
+          input: "review_data"
+          parameter_name: "review_data"
+      warehouse_key: "review_data"
+      observe: true
+
+    # Scoring → All Analysis Modules
+    - name: "scored_data_flow"
+      source:
+        module: "brandedge_scoring"
+        output: "scored_data"
+        type: "reactive"
+      destinations:
+        - module: "market_profile"
+          input: "data"
+          parameter_name: "data"
+        - module: "market_track"
+          input: "data"
+          parameter_name: "data"
+        - module: "advanced_attribute"
+          input: "review_data"
+          parameter_name: "review_data"
+        - module: "key_factor"
+          input: "data"
+          parameter_name: "data"
+        - module: "advanced_dna"
+          input: "data_full"
+          parameter_name: "data_full"
+        - module: "brand_identity"
+          input: "data"
+          parameter_name: "data"
+        - module: "ideal_point"
+          input: "data"
+          parameter_name: "data"
+        - module: "positioning_strategy"
+          input: "data"
+          parameter_name: "data"
+      warehouse_key: "scored_data"
+      observe: true
+
+    # Attributes → Analysis Modules (with transformation)
+    - name: "attributes_flow"
+      source:
+        module: "brandedge_scoring"
+        output: "attributes"
+        type: "reactive"
+      destinations:
+        - module: "brand_identity"
+          input: "key_vars"
+          parameter_name: "key_vars"
+          transform: "calculate_key_attributes"
+        - module: "ideal_point"
+          input: "key_vars"
+          parameter_name: "key_vars"
+          transform: "calculate_key_attributes"
+        - module: "positioning_strategy"
+          input: "key_vars"
+          parameter_name: "key_vars"
+          transform: "calculate_key_attributes"
+        - module: "key_factor"
+          input: "key_vars"
+          parameter_name: "key_vars"
+          transform: "calculate_key_attributes"
+      warehouse_key: "key_attributes"
+      observe: true
+      transform_config:
+        function: "calculate_key_attributes"
+        params:
+          top_n: 5
+          # method parameter removed - function doesn't accept it
+
+# ============================================================================
+# PAGES - 頁面配置（增強版）
+# ============================================================================
+pages:
+  - id: "login"
+    title: "登入"
+    icon: "sign-in-alt"
+    module: "login"
+    enabled: true
+    flow: "authentication"
+    flow_step: 1
+    navigation:
+      type: "conditional"
+      condition: "user_logged_in == false"
+      auto_show: true
+    visibility:
+      condition: "!user_logged_in"
+
+  - id: "upload_brandedge"
+    title: "資料上傳"
+    icon: "upload"
+    module: "upload_brandedge"
+    enabled: true
+    flow: "data_processing"
+    flow_step: 1
+    navigation:
+      type: "auto"
+      after_event: "login_success"
+      requires_auth: true
+    provides_data:
+      - name: "review_data"
+        type: "data.frame"
+        required: true
+    events:
+      - type: "proceed"
+        target: "brandedge_scoring"
+
+  - id: "brandedge_scoring"
+    title: "屬性評分"
+    icon: "star"
+    module: "brandedge_scoring"
+    enabled: true
+    flow: "data_processing"
+    flow_step: 2
+    navigation:
+      type: "auto"
+      after_event: "upload_proceed"
+      requires_auth: true
+    requires_data:
+      - name: "review_data"
+        from: "upload_brandedge"
+        required: true
+    provides_data:
+      - name: "scored_data"
+        type: "data.frame"
+        required: true
+      - name: "attributes"
+        type: "character"
+        required: true
+    events:
+      - type: "proceed"
+        target: "first_analysis_module"
+
+  - id: "market_profile"
+    title: "市場輪廓"
+    icon: "chart-pie"
+    module: "market_profile"
+    enabled: true
+    flow: "analysis"
+    navigation:
+      type: "manual"
+      requires_auth: true
+    requires_data:
+      - name: "scored_data"
+        from: "brandedge_scoring"
+        required: true
+
+  - id: "market_track"
+    title: "市場追蹤"
+    icon: "chart-line"
+    module: "market_track"
+    enabled: true
+    flow: "analysis"
+    navigation:
+      type: "manual"
+      requires_auth: true
+    requires_data:
+      - name: "scored_data"
+        from: "brandedge_scoring"
+        required: true
+
+  - id: "advanced_attribute"
+    title: "進階屬性分析"
+    icon: "cogs"
+    module: "advanced_attribute"
+    enabled: true
+    flow: "analysis"
+    navigation:
+      type: "manual"
+      requires_auth: true
+    requires_data:
+      - name: "scored_data"
+        from: "brandedge_scoring"
+        required: true
+
+  - id: "key_factor"
+    title: "關鍵因素分析"
+    icon: "key"
+    module: "key_factor"
+    enabled: true
+    flow: "analysis"
+    navigation:
+      type: "manual"
+      requires_auth: true
+    requires_data:
+      - name: "scored_data"
+        from: "brandedge_scoring"
+        required: true
+      - name: "key_attributes"
+        from: "brandedge_scoring"
+        transform: "calculate_key_attributes"
+        required: true
+
+  - id: "advanced_dna"
+    title: "品牌 DNA"
+    icon: "dna"
+    module: "advanced_dna"
+    enabled: true
+    flow: "analysis"
+    navigation:
+      type: "manual"
+      requires_auth: true
+    requires_data:
+      - name: "scored_data"
+        from: "brandedge_scoring"
+        required: true
+
+  - id: "brand_identity"
+    title: "品牌認同"
+    icon: "id-card"
+    module: "brand_identity"
+    enabled: true
+    flow: "analysis"
+    navigation:
+      type: "manual"
+      requires_auth: true
+    requires_data:
+      - name: "scored_data"
+        from: "brandedge_scoring"
+        required: true
+      - name: "key_attributes"
+        from: "brandedge_scoring"
+        transform: "calculate_key_attributes"
+        required: true
+
+  - id: "ideal_point"
+    title: "理想點分析"
+    icon: "bullseye"
+    module: "ideal_point"
+    enabled: true
+    flow: "analysis"
+    navigation:
+      type: "manual"
+      requires_auth: true
+    requires_data:
+      - name: "scored_data"
+        from: "brandedge_scoring"
+        required: true
+      - name: "key_attributes"
+        from: "brandedge_scoring"
+        transform: "calculate_key_attributes"
+        required: true
+
+  - id: "positioning_strategy"
+    title: "定位策略"
+    icon: "map-marker-alt"
+    module: "positioning_strategy"
+    enabled: true
+    flow: "analysis"
+    navigation:
+      type: "manual"
+      requires_auth: true
+    requires_data:
+      - name: "scored_data"
+        from: "brandedge_scoring"
+        required: true
+      - name: "key_attributes"
+        from: "brandedge_scoring"
+        transform: "calculate_key_attributes"
+        required: true
+
+  - id: "about"
+    title: "關於"
+    icon: "info-circle"
+    module: "about"
+    enabled: true
+    flow: null
+    navigation:
+      type: "manual"
+      requires_auth: false
+
+# ============================================================================
+# MODULE_CONFIGS - 模組配置（參考 module_config/*.yaml）
+# ============================================================================
+# Note: 詳細的模組配置仍保存在 config/yaml/brandedge_config/module_config/*.yaml
+# 這裡只定義模組的基本資訊和事件觸發器
+
+module_configs_reference:
+  base_path: "config/yaml/brandedge_config/module_config"
+  modules:
+    - login.yaml
+    - upload.yaml
+    - brandedge_scoring.yaml
+    - market_profile.yaml
+    - market_track.yaml
+    - advanced_attribute.yaml
+    - key_factor.yaml
+    - advanced_dna.yaml
+    - brand_identity.yaml
+    - ideal_point.yaml
+    - positioning_strategy.yaml
+    - about.yaml
+
+# ============================================================================
+# UI & THEME
+# ============================================================================
+ui:
+  theme:
+    framework: "bs4Dash"
+    bootswatch: "cosmo"
+    primary_color: "#007bff"
+    sidebar_skin: "light"
+
+database:
+  type: "postgresql"
+  fallback: "sqlite"
+  sqlite_path: "database/brandedge.db"
+
+environment:
+  mode: "production"
+  debug: false

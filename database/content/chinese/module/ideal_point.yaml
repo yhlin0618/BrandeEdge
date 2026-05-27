@@ -1,0 +1,101 @@
+# ==========================================
+# BrandEdge - 理想點分析模組語言內容（中文）
+# ==========================================
+# Version: 1.0
+# Last Updated: 2025-10-08
+
+# 模組基本資訊
+title: "理想點分析"
+subtitle: "品牌理想點接近度評估"
+description: "根據理想點計算各品牌的接近度評分並進行排名"
+
+# UI 文字
+ui:
+  # 無資料狀態
+  no_data:
+    title: "理想點分析"
+    message: "請先上傳評論資料以進行理想點分析"
+    upload_button: "前往資料上傳"
+
+  # 區段標題
+  sections:
+    key_factors: "關鍵因素分析"
+    ranking: "品牌理想點排名"
+
+  # 關鍵因素
+  key_factors:
+    label: "關鍵因素："
+    description: "影響品牌理想點評分的關鍵屬性"
+
+  # 表格標題
+  ranking_table:
+    title: "品牌排名"
+    subtitle: "依據理想點接近度排序"
+
+  # 表格控制
+  table:
+    search: "搜尋："
+    length_menu: "顯示 _MENU_ 筆"
+    info: "顯示第 _START_ 至 _END_ 筆，共 _TOTAL_ 筆"
+    previous: "上一頁"
+    next: "下一頁"
+
+# 訊息文字
+messages:
+  # 導航訊息
+  redirect_to_upload: "請從側邊欄選擇「資料上傳」頁面"
+
+  # 成功訊息
+  success:
+    analysis_completed: "✅ 理想點分析完成"
+    ranking_generated: "✅ 品牌排名已生成"
+
+  # 錯誤訊息
+  error:
+    no_data: "❌ 找不到資料"
+    no_ideal_point: "❌ 資料中缺少理想點 (Ideal) 記錄"
+    calculation_failed: "❌ 計算失敗: {error}"
+
+  # 資訊訊息
+  info:
+    calculating: "正在計算理想點接近度..."
+    ranking_brands: "正在對品牌進行排名..."
+
+# 表格欄位名稱
+columns:
+  variation: "Variation"
+  brand: "品牌"
+  score: "理想點評分"
+  rank: "排名"
+  distance: "距離理想點"
+
+# 統計標籤
+stats:
+  total_brands: "品牌總數"
+  top_brand: "最接近理想點"
+  avg_score: "平均評分"
+  score_range: "分數範圍"
+
+# 圖表標題
+charts:
+  ranking_bar: "品牌理想點評分排名"
+  distance_scatter: "品牌與理想點距離分布"
+
+# 說明文字
+help:
+  overview: |
+    理想點分析用於評估各品牌與理想標準的接近程度。
+    系統會計算每個品牌在所有屬性上的綜合評分，
+    並根據與理想點的距離進行排名。
+
+  interpretation: |
+    分數解讀：
+    - 高分：品牌表現接近理想標準
+    - 低分：品牌與理想標準有較大差距
+    - 排名：依據理想點評分由高到低排序
+
+  key_factors: |
+    關鍵因素說明：
+    - 顯示對理想點評分影響最大的屬性
+    - 這些因素是品牌提升的重點領域
+    - 可作為策略調整的參考依據

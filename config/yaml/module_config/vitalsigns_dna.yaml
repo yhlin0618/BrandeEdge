@@ -1,0 +1,568 @@
+# ==========================================
+# VitalSigns DNA Analysis Module Configuration
+# ==========================================
+# 客戶DNA分析模組配置
+# Version: 1.0.0
+# Last Updated: 2025-10-11
+
+module_info:
+  id: "vitalsigns_dna"
+  path: "modules/module_vitalsigns_dna.R"
+  name: "客戶DNA分析模組"
+  version: "1.0.0"
+  description: "客戶分群、RFM分析、AI洞察、行為模式分析"
+
+  # 函數名稱 (明確指定，不使用自動發現)
+  functions:
+    ui: "dnaVitalsignsModuleUI"
+    server: "dnaVitalsignsModuleServer"
+
+# ==========================================
+# 分析指標設定
+# ==========================================
+metrics:
+  # RFM 核心指標
+  rfm:
+    recency:
+      name: "最近來店時間"
+      field: "r_value"
+      icon: "🕒"
+      description: "距離最後一次購買的天數"
+      lower_is_better: true
+
+    frequency:
+      name: "購買頻率"
+      field: "f_value"
+      icon: "🔁"
+      description: "購買次數"
+      lower_is_better: false
+
+    monetary:
+      name: "購買金額"
+      field: "m_value"
+      icon: "💰"
+      description: "總購買金額"
+      lower_is_better: false
+
+  # 進階指標
+  advanced:
+    ipt:
+      name: "購買週期"
+      field: "ipt_value"
+      icon: "⏱️"
+      description: "平均購買間隔天數"
+      lower_is_better: true
+
+    cai:
+      name: "顧客活躍度"
+      field: "cai_value"
+      icon: "📈"
+      description: "活躍程度指標"
+      range: [0, 1]
+
+    pcv:
+      name: "過去價值"
+      field: "pcv_value"
+      icon: "💎"
+      description: "歷史總價值"
+
+    cri:
+      name: "顧客穩定度指標"
+      field: "cri_value"
+      icon: "🎯"
+      description: "購買穩定性評分"
+
+    nes:
+      name: "顧客狀態"
+      field: "nes_value"
+      icon: "👥"
+      description: "新客/回購/沉睡/流失"
+      type: "categorical"
+      categories: ["新客", "回購客", "沉睡客", "流失客"]
+
+# ==========================================
+# 客戶分群設定
+# ==========================================
+segmentation:
+  # 分群方法
+  methods:
+    - id: "kmeans"
+      name: "K-means 聚類"
+      enabled: true
+      default: true
+
+    - id: "hierarchical"
+      name: "階層式聚類"
+      enabled: true
+
+    - id: "dbscan"
+      name: "密度聚類"
+      enabled: false
+
+  # K-means 設定
+  kmeans:
+    min_clusters: 2
+    max_clusters: 8
+    default_clusters: 5
+    max_iterations: 100
+    n_start: 25  # 重複次數
+    algorithm: "Lloyd"  # Lloyd | Hartigan-Wong | MacQueen
+
+  # 階層式聚類設定
+  hierarchical:
+    method: "ward.D2"  # ward.D2 | complete | average | single
+    distance_metric: "euclidean"  # euclidean | manhattan | maximum
+
+  # 分群命名
+  naming:
+    method: "ai"  # ai | rule_based | manual | numeric
+    ai_naming:
+      enabled: true
+      use_gpt: true
+      max_name_length: 20
+      language: "chinese"
+
+    rule_based:
+      patterns:
+        - condition: "high_m && high_f && low_r"
+          name: "VIP常客"
+        - condition: "high_m && low_f && low_r"
+          name: "高價值新客"
+        - condition: "low_m && high_f && low_r"
+          name: "活躍小額客"
+        - condition: "high_m && high_r"
+          name: "沉睡高價值客"
+        - condition: "low_m && high_r"
+          name: "流失客"
+
+    numeric_fallback:
+      prefix: "客群"
+      format: "客群{n}"
+
+  # 分群驗證
+  validation:
+    min_customers_per_cluster: 5  # 每群最少客戶數
+    max_silhouette_check: true  # 檢查輪廓係數
+    elbow_method: true  # 肘部法則檢查
+
+# ==========================================
+# RFM 分析設定
+# ==========================================
+rfm_analysis:
+  enabled: true
+
+  # 分數計算方法
+  scoring:
+    method: "quintile"  # quintile | quartile | custom
+    bins: 5  # 分為5個等級
+    reverse_recency: true  # R值越小越好
+
+  # 權重設定
+  weights:
+    recency: 0.3
+    frequency: 0.3
+    monetary: 0.4
+
+  # RFM 組合定義
+  segments:
+    champions:
+      condition: "R >= 4 && F >= 4 && M >= 4"
+      label: "冠軍客戶"
+      color: "#28a745"
+      priority: 1
+
+    loyal:
+      condition: "R >= 3 && F >= 4"
+      label: "忠誠客戶"
+      color: "#17a2b8"
+      priority: 2
+
+    potential:
+      condition: "R >= 4 && F <= 2 && M >= 3"
+      label: "潛力客戶"
+      color: "#ffc107"
+      priority: 3
+
+    at_risk:
+      condition: "R <= 2 && F >= 3 && M >= 3"
+      label: "流失風險"
+      color: "#fd7e14"
+      priority: 4
+
+    lost:
+      condition: "R <= 2 && F <= 2"
+      label: "已流失"
+      color: "#dc3545"
+      priority: 5
+
+# ==========================================
+# 屬性萃取設定 (AI-Powered)
+# ==========================================
+attribute_extraction:
+  enabled: true
+
+  # 萃取方法
+  method: "ai"  # ai | manual | hybrid
+
+  # AI 萃取設定
+  ai_extraction:
+    use_gpt: true
+    model: "gpt-5-nano"
+    max_attributes: 30
+    min_attributes: 5
+    default_attributes: 15
+
+    # 提取邏輯
+    extraction_prompt_type: "dna_attributes"
+    include_transaction_patterns: true
+    include_behavior_patterns: true
+    include_value_patterns: true
+
+  # 手動定義屬性
+  manual_attributes:
+    - id: "high_value"
+      name: "高價值客戶"
+      condition: "m_value > quantile(m_value, 0.75)"
+
+    - id: "frequent_buyer"
+      name: "高頻購買"
+      condition: "f_value > quantile(f_value, 0.75)"
+
+    - id: "recent_active"
+      name: "近期活躍"
+      condition: "r_value < quantile(r_value, 0.25)"
+
+# ==========================================
+# AI 分析設定
+# ==========================================
+ai_analysis:
+  enabled: true
+
+  # AI 引擎設定
+  engine:
+    provider: "openai"
+    model: "gpt-5-nano"
+    temperature: 0.7
+    max_tokens: 1500
+
+  # 分析類型
+  analysis_types:
+    - id: "metric_description"
+      name: "指標說明"
+      enabled: true
+      prompt_type: "dna_metric_description"
+
+    - id: "distribution_insight"
+      name: "分布洞察"
+      enabled: true
+      prompt_type: "dna_distribution_insight"
+
+    - id: "segment_profiling"
+      name: "客群畫像"
+      enabled: true
+      prompt_type: "dna_segment_profiling"
+
+    - id: "marketing_recommendations"
+      name: "行銷建議"
+      enabled: true
+      prompt_type: "dna_marketing_recommendations"
+
+    - id: "churn_prediction"
+      name: "流失預警"
+      enabled: true
+      prompt_type: "dna_churn_prediction"
+
+  # 批次分析設定
+  batch_analysis:
+    enabled: true
+    max_concurrent: 3
+    timeout: 60  # seconds per analysis
+    retry_on_fail: true
+    max_retries: 2
+
+# ==========================================
+# 視覺化設定
+# ==========================================
+visualization:
+  # 分布圖設定
+  histogram:
+    bins: 30
+    color: "#007bff"
+    show_density: true
+    show_mean: true
+    show_median: true
+
+  # 散點圖設定
+  scatter:
+    alpha: 0.6
+    size: 8
+    color_by_segment: true
+    show_centroids: true
+
+  # 雷達圖設定
+  radar:
+    enabled: true
+    show_average: true
+    fill_opacity: 0.3
+
+  # 樹狀圖設定 (階層式聚類)
+  dendrogram:
+    enabled: true
+    height: 600
+    orientation: "vertical"  # vertical | horizontal
+
+  # 熱力圖設定
+  heatmap:
+    enabled: true
+    color_scheme: "Blues"
+    show_values: true
+
+# ==========================================
+# 統計分析設定
+# ==========================================
+statistics:
+  # 描述統計
+  descriptive:
+    show_mean: true
+    show_median: true
+    show_std: true
+    show_quartiles: true
+    show_min_max: true
+
+  # 相關性分析
+  correlation:
+    enabled: true
+    method: "pearson"  # pearson | spearman | kendall
+    threshold: 0.3
+
+  # 異常值檢測
+  outlier_detection:
+    enabled: true
+    method: "iqr"  # iqr | zscore | isolation_forest
+    iqr_multiplier: 1.5
+    zscore_threshold: 3
+    handle_outliers: "flag"  # flag | remove | cap
+
+# ==========================================
+# 客戶狀態定義
+# ==========================================
+customer_status:
+  # 新客定義
+  new_customer:
+    condition: "f_value == 1"
+    label: "新客"
+    icon: "🆕"
+
+  # 回購客定義
+  repeat_customer:
+    condition: "f_value >= 2 && r_value <= 90"
+    label: "回購客"
+    icon: "🔄"
+
+  # 沉睡客定義
+  dormant_customer:
+    condition: "r_value > 90 && r_value <= 180"
+    label: "沉睡客"
+    icon: "😴"
+
+  # 流失客定義
+  churned_customer:
+    condition: "r_value > 180"
+    label: "流失客"
+    icon: "❌"
+    churn_threshold_days: 180
+
+# ==========================================
+# 資料處理設定
+# ==========================================
+data_processing:
+  # 資料清理
+  cleaning:
+    remove_duplicates: false
+    handle_missing: "remove"  # remove | impute | flag
+    remove_outliers: false
+
+  # 特徵工程
+  feature_engineering:
+    normalize: true
+    normalization_method: "min-max"  # min-max | z-score | robust
+    scale_before_clustering: true
+
+  # 資料驗證
+  validation:
+    min_customers: 10
+    min_transactions: 1
+    check_date_range: true
+    min_date_range_days: 30
+
+# ==========================================
+# 匯出設定
+# ==========================================
+export:
+  enabled: true
+
+  formats:
+    - id: "csv"
+      name: "CSV"
+      enabled: true
+
+    - id: "xlsx"
+      name: "Excel"
+      enabled: true
+      include_charts: true
+
+    - id: "pdf"
+      name: "PDF報告"
+      enabled: false
+
+  export_options:
+    include_raw_data: true
+    include_segment_assignments: true
+    include_statistics: true
+    include_ai_insights: true
+
+# ==========================================
+# 效能優化
+# ==========================================
+performance:
+  # 快取設定
+  cache:
+    enabled: true
+    cache_duration: 1800  # 30分鐘
+    cache_segmentation: true
+    cache_ai_results: true
+
+  # 平行處理
+  parallel:
+    enabled: true
+    max_workers: 4
+    use_future: true
+
+  # 資料取樣 (大數據集)
+  sampling:
+    enabled: false
+    method: "random"  # random | stratified
+    sample_size: 10000
+    trigger_threshold: 50000  # 超過5萬筆啟用取樣
+
+# ==========================================
+# UI 設定
+# ==========================================
+ui_settings:
+  # 操作面板
+  control_panel:
+    show_instructions: true
+    collapsible: true
+    default_collapsed: false
+
+  # 視圖模式
+  view_modes:
+    - id: "charts"
+      name: "統計圖表"
+      icon: "📊"
+      default: true
+
+    - id: "ai_results"
+      name: "AI分析結果"
+      icon: "🤖"
+
+    - id: "segmentation"
+      name: "客群分組"
+      icon: "👥"
+
+  # 指標按鈕
+  metric_buttons:
+    style: "outline-info"  # outline-info | outline-primary | solid
+    width: "100%"
+    show_icons: true
+
+  # 分析工具按鈕
+  analysis_buttons:
+    segmentation:
+      label: "執行客戶分群"
+      icon: "📊"
+      color: "primary"
+
+    ai_analysis:
+      label: "執行AI增強分析"
+      icon: "🤖"
+      color: "success"
+
+# ==========================================
+# 提示系統整合
+# ==========================================
+hints:
+  enabled: true
+
+  hint_targets:
+    - id: "metric_buttons"
+      category: "dna"
+      position: "right"
+
+    - id: "segmentation_result"
+      category: "dna"
+      position: "top"
+
+    - id: "ai_insights"
+      category: "dna"
+      position: "bottom"
+
+# ==========================================
+# Prompt 管理
+# ==========================================
+prompts:
+  enabled: true
+
+  prompt_types:
+    - id: "dna_metric_description"
+      variables: ["metric_name", "metric_value", "customer_count"]
+
+    - id: "dna_distribution_insight"
+      variables: ["metric_name", "mean", "median", "std", "quantiles"]
+
+    - id: "dna_segment_profiling"
+      variables: ["segment_name", "customer_count", "rfm_profile", "behavior_patterns"]
+
+    - id: "dna_marketing_recommendations"
+      variables: ["segment_profile", "business_context"]
+
+    - id: "dna_churn_prediction"
+      variables: ["at_risk_count", "churn_indicators"]
+
+# ==========================================
+# 工作流程整合
+# ==========================================
+workflow_integration:
+  # 輸入資料要求
+  required_input:
+    - "customer_id"
+    - "payment_time"
+    - "lineitem_price"
+
+  # 輸出資料
+  output:
+    customer_segments:
+      format: "data.frame"
+      columns:
+        - "customer_id"
+        - "segment_id"
+        - "segment_name"
+        - "rfm_score"
+        - "r_value"
+        - "f_value"
+        - "m_value"
+
+    analysis_summary:
+      format: "list"
+      includes:
+        - "total_customers"
+        - "segment_distribution"
+        - "key_insights"
+        - "recommendations"
+
+  # 與其他模組整合
+  module_integration:
+    revenue_pulse: true
+    acquisition: true
+    retention: true
+    engagement: true

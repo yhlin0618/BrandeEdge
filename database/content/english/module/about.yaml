@@ -1,0 +1,55 @@
+# ==========================================
+# About Module Text Content - English
+# ==========================================
+
+title: "About Us"
+subtitle: "Precision Marketing Platform"
+menu: "About Us"
+description: "AI-Driven Precision Marketing Platform"
+
+pages:
+  about:
+    title: "About Us"
+    menu_title: "About Us"
+
+ui:
+  card:
+    title: "About Us"
+    loading: "Loading..."
+    error: "Unable to load content"
+
+content:
+  title: "Precision Marketing Platform"
+  description: "We are an AI-driven precision marketing platform that helps brands develop personalized marketing strategies based on customer characteristics and behavioral data."
+
+services:
+  title: "Our Services"
+  items:
+    - name: "Customer Segmentation Modeling"
+      description: "Segmentation Modeling"
+      icon: "🎯"
+    - name: "Intent Detection & Recommendation"
+      description: "Intent Detection & Recommendation"
+      icon: "🧠"
+    - name: "Sentiment & Aspect Analysis"
+      description: "Sentiment & Aspect Analysis"
+      icon: "💬"
+    - name: "Campaign Forecasting & Tracking"
+      description: "Campaign Forecasting & Tracking"
+      icon: "📈"
+    - name: "Omni-channel Dashboard & ETL"
+      description: "Omni-channel Dashboard & ETL"
+      icon: "📊"
+
+contact:
+  title: "Contact Information"
+  company: "Company"
+  company_name: "PeakEdges Marketing Technology Co., Ltd."
+  email: "Contact"
+  email_address: "mr.no.one01@gmail.com"
+  message: "For business collaboration or platform experience, please contact our data analysis team."
+
+messages:
+  content_not_found: "Content not found"
+  markdown_error: "Failed to load Markdown file"
+  loading: "Loading..."

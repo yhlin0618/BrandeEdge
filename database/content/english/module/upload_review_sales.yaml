@@ -1,0 +1,118 @@
+# ==========================================
+# Data Upload Module Text Content - English
+# ==========================================
+
+title: "📁 Data Upload & Management"
+subtitle: "Upload your data files for analysis"
+description: "Supports CSV, Excel formats. Please ensure data contains brand/product variant fields"
+
+file_upload:
+  label: "Choose File"
+  placeholder: "Click to select or drag files here"
+  accepted_formats: "Accepted formats: .csv, .xlsx, .xls"
+  max_size: "File size limit: 10MB"
+
+options:
+  header: "First row as header"
+  encoding: "File encoding"
+  separator: "Separator"
+
+preview:
+  title: "Data Preview"
+  rows_shown: "Showing first 10 rows"
+  total_rows: "Total rows"
+  total_columns: "Total columns"
+
+validation:
+  checking: "Checking data format..."
+  valid: "✅ Data format correct"
+  invalid: "❌ Data format error"
+  missing_column: "Missing required column: {column}"
+  empty_file: "File is empty"
+
+buttons:
+  upload: "Start Upload"
+  clear: "Clear Data"
+  proceed: "Continue Analysis"
+
+sections:
+  review_upload: "1.1 Upload Review Data"
+  sales_upload: "1.2 Upload Sales Data (Optional)"
+  review_file_label: "Upload multiple customer review files (system will merge automatically)"
+  sales_file_label: "Upload multiple sales data files (system will merge automatically)"
+  review_limit: "Limit: Max {max_brands} brands, max {max_records} reviews per brand"
+  sales_limit: "Limit: Max {max_brands} brands, max {max_records} sales records per brand"
+
+# Column descriptions
+column_descriptions:
+  review:
+    title: "📋 Review Data Column Descriptions"
+    columns:
+      - name: "Variation"
+        type: "String"
+        required: true
+        description: "Product/Brand identifier (e.g., Amazon ASIN, brand name)"
+      - name: "ASIN"
+        type: "String"
+        required: false
+        description: "Amazon Standard Identification Number (optional, can replace Variation)"
+      - name: "Title"
+        type: "String"
+        required: true
+        description: "Review title; brief summary; recommended length 10~100 characters"
+      - name: "Body"
+        type: "String"
+        required: true
+        description: "Review content; complete experience description; recommended length 50~1000 characters"
+    note: "⚡ Column names are case-insensitive: system auto-recognizes variation, Variation, VARIATION, etc."
+  sales:
+    title: "📋 Sales Data Column Descriptions"
+    columns:
+      - name: "Variation"
+        type: "String"
+        required: true
+        description: "Product/Brand identifier (must match review data Variation)"
+      - name: "ASIN"
+        type: "String"
+        required: false
+        description: "Amazon Standard Identification Number (optional, can replace Variation)"
+      - name: "Sales"
+        type: "Numeric"
+        required: true
+        description: "Sales quantity"
+      - name: "payment_time"
+        type: "Date"
+        required: false
+        description: "Transaction date (optional, format: YYYY-MM-DD)"
+      - name: "price"
+        type: "Numeric"
+        required: false
+        description: "Product unit price (optional)"
+    note: "⚡ Sales data Variation must match review data for proper merged analysis"
+
+tabs:
+  review_preview: "Review Data Preview"
+  sales_preview: "Sales Data Preview"
+
+messages:
+  upload_success: "Data uploaded successfully! {rows} rows processed"
+  upload_failed: "Upload failed: {error}"
+  processing: "Processing data, please wait..."
+  brand_limit: "⚠️ Limited to top {max_brands} brands, max {max_records} reviews per brand"
+  sales_brand_limit: "⚠️ Limited to top {max_brands} brands, max {max_records} sales records per brand"
+  no_data: "⚠️ Please upload and preview review data first"
+  file_format_error: "⚠️ File '{filename}' format not supported, only .xlsx / .xls/.csv allowed"
+  missing_columns: "⚠️ File '{filename}' missing Variation / Title / Body columns"
+  review_uploaded: "✅ Review data uploaded: {brands} brands, {records} records total (limit {limit} per brand)"
+  sales_uploaded: "✅ Sales data uploaded: {brands} brands, {records} records total (limit {limit} per brand)"
+  at_least_upload: "⚠️ Please upload at least review data"
+
+console:
+  reading_file: "📖 Reading file: {filename}"
+  file_type_detected: "📄 File type: {type}"
+  rows_detected: "📊 Detected {rows} rows"
+  columns_detected: "📋 Detected {columns} columns"
+  processing_data: "⏳ Processing data..."
+  validation_success: "✅ Data validation successful"
+  validation_failed: "❌ Data validation failed: {reason}"
+

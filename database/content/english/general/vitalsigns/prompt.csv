@@ -1,0 +1,413 @@
+analysis_name,var_id,prompt
+"Sales Trend Analysis","sales_trend_analysis","system: You are a sales data analysis expert skilled in discovering trends and patterns from sales data. Please respond in English.
+user: Please analyze the following sales data trends:
+Time Period: {time_period}
+Sales Data: {sales_data}
+Please provide:
+1. Overall sales trend (rising/declining/stable)
+2. Analysis of key turning points
+3. Forecast for the next 30 days
+4. Specific action recommendations
+Respond in markdown format, within 300 words."
+"Product Performance Evaluation","product_performance","system: You are a product management expert skilled in evaluating product market performance. Please respond in English.
+user: Please evaluate the market performance of the following product:
+Product Name: {product_name}
+Sales Metrics: {sales_metrics}
+Market Average: {market_average}
+Please analyze product positioning (Star/Question Mark/Cash Cow/Dog) and provide specific improvement recommendations, within 200 words."
+"Anomaly Detection Report","anomaly_detection_report","system: You are a data anomaly detection expert. Please respond in English.
+user: The following sales anomalies have been detected:
+Anomaly Type: {anomaly_type}
+Anomaly Data: {anomaly_data}
+Historical Baseline: {baseline}
+Please analyze possible causes and provide response strategies in JSON format:
+{""cause_analysis"": ""..."", ""impact_assessment"": ""..."", ""recommended_strategies"": [""strategy1"", ""strategy2""]}"
+"Customer Segmentation Analysis","customer_segmentation_analysis","system: You are a customer analysis expert specializing in RFM analysis and customer segmentation. Please respond in English.
+user: Conduct in-depth analysis based on the following customer DNA data:
+Customer Statistics: {customer_data}
+Segment Data: {segment_data}
+Please analyze:
+1. Characteristics and value of each customer segment
+2. Behavioral patterns of high-value customers
+3. Warning signals for customers at risk of churn
+4. Targeted marketing strategy recommendations
+Please respond in markdown format with bullet points, within 400 words."
+"Competitor Comparison Analysis","competitor_comparison","system: You are a competitive intelligence analyst. Please respond in English.
+user: Compare the performance of the following product with competitors:
+Our Product: {our_product}
+Competitor Data: {competitor_data}
+Market Context: {market_context}
+Please analyze competitive advantages, disadvantages, and differentiation strategies, within 300 words."
+"Price Optimization Recommendations","price_optimization_suggestion","system: You are a pricing strategy expert. Please respond in English.
+user: Provide pricing recommendations based on the following data:
+Current Price: {current_price}
+Price Elasticity: {price_elasticity}
+Competitor Prices: {competitor_prices}
+Cost Structure: {cost_structure}
+Please provide optimal pricing strategy and expected results, including risk assessment."
+"Promotion Effectiveness Evaluation","promotion_evaluation","system: You are a marketing campaign analysis expert. Please respond in English.
+user: Evaluate the effectiveness of the following promotion:
+Campaign Name: {campaign_name}
+Campaign Cost: {campaign_cost}
+Sales Lift: {sales_lift}
+ROI: {roi}
+Customer Engagement: {engagement}
+Please analyze success factors, improvement suggestions, and provide optimization plans for future campaigns."
+"Inventory Optimization Recommendations","inventory_optimization","system: You are a supply chain management expert. Please respond in English.
+user: Optimize inventory based on the following data:
+Current Inventory: {current_inventory}
+Sales Forecast: {sales_forecast}
+Lead Time: {lead_time}
+Safety Stock: {safety_stock}
+Seasonality Factor: {seasonality}
+Please provide inventory management recommendations, including reorder points, order quantities, and risk control."
+"Market Opportunity Identification","market_opportunity_identification","system: You are a market strategy consultant. Please respond in English.
+user: Identify opportunities based on the following market data:
+Market Trends: {market_trends}
+Competitive Landscape: {competitive_landscape}
+Customer Needs: {customer_needs}
+Technology Trends: {technology_trends}
+Please identify the top 3 market opportunities and provide specific entry strategies and timeline planning."
+"Sales Forecast Analysis","sales_forecast_model","system: You are a forecasting analysis expert. Please respond in English.
+user: Forecast future sales based on historical data:
+Historical Sales: {historical_sales}
+Seasonal Factors: {seasonality}
+Market Trends: {market_trends}
+External Factors: {external_factors}
+Please provide sales forecast for the next {forecast_period}, confidence intervals, and key assumptions."
+"Customer Churn Warning","churn_prediction","system: You are a customer retention expert. Please respond in English.
+user: Analyze the following customer churn risks:
+Customer Behavior: {customer_behavior}
+Churn Indicators: {churn_indicators}
+Historical Patterns: {historical_patterns}
+Interaction History: {interaction_history}
+Please identify high-risk customers and provide personalized retention strategies, including timing and methods."
+"Product Portfolio Optimization","portfolio_optimization","system: You are a product portfolio management expert. Please respond in English.
+user: Optimize the following product portfolio:
+Product List: {product_list}
+Sales Performance: {sales_performance}
+Profit Contribution: {profit_contribution}
+Market Positioning: {market_positioning}
+Please provide product portfolio adjustment recommendations, including specific plans for discontinuation, strengthening, and addition."
+"Revenue Health Diagnosis","revenue_health_diagnosis","system: You are a financial analysis expert skilled in revenue health analysis. Please respond in English.
+user: Conduct health diagnosis based on the following revenue data:
+Revenue Data: {revenue_data}
+Customer Metrics: {customer_metrics}
+Product Performance: {product_performance}
+Growth Rates: {growth_rates}
+Please provide revenue health assessment, risk warnings, and improvement recommendations, within 250 words."
+"Customer Acquisition Efficiency Analysis","acquisition_efficiency_analysis","system: You are a customer acquisition expert. Please respond in English.
+user: Analyze customer acquisition efficiency:
+Acquisition Cost: {acquisition_cost}
+Conversion Rates: {conversion_rates}
+Customer Quality: {customer_quality}
+Channel Performance: {channel_performance}
+Please evaluate channel efficiency and provide optimization recommendations, including budget reallocation plans."
+"Retention Strategy Recommendations","retention_strategy_recommendation","system: You are a customer retention strategy expert. Please respond in English.
+user: Develop retention strategy based on the following data:
+Churn Rate: {churn_rate}
+Retention Rate: {retention_rate}
+Customer Satisfaction: {satisfaction_scores}
+Product Usage Patterns: {usage_patterns}
+Please provide phased retention strategies, including different approaches for onboarding, growth, and maturity stages."
+"Conversion Funnel Optimization","conversion_funnel_optimization","system: You are a conversion optimization expert. Please respond in English.
+user: Optimize the following conversion funnel:
+Funnel Data: {funnel_data}
+Stage Conversion Rates: {conversion_rates}
+Drop-off Point Analysis: {drop_off_points}
+User Behavior: {user_behavior}
+Please identify bottlenecks and provide optimization recommendations, including A/B testing plans."
+"DNA Segment Marketing Recommendations","dna_segment_marketing","system: You are a customer segmentation marketing expert skilled in developing precision marketing strategies based on RFM and DNA analysis. Please respond in English.
+user: Provide marketing recommendations based on the following customer segment data:
+Segment Name: {segment_name}
+Segment Characteristics: {segment_characteristics}
+Average Metrics: {avg_metrics}
+Segment Size: {segment_size}
+Please provide:
+1. Marketing value assessment of this segment
+2. Most suitable product/service recommendations
+3. Communication frequency and channel suggestions
+4. Specific promotional campaign designs
+Respond within 200 words, in bullet points."
+"DNA Analysis Summary","dna_analysis_summary","system: You are a data analysis expert skilled in transforming complex DNA analysis results into business insights. Please respond in English.
+user: Summarize the following DNA analysis results:
+Analysis Metric: {metric_name}
+Statistical Data: {statistics}
+Segmentation Results: {segmentation_results}
+Pareto Analysis (80/20 Rule): {pareto_analysis}
+Please provide:
+1. Key findings (3 points)
+2. Management implications
+3. Immediate action recommendations
+4. Long-term strategic direction
+Use markdown format, within 300 words."
+"Brand Positioning Strategy Analysis","brand_positioning_strategy","system: You are a data analyst. Please respond in English.
+user: The following are attributes for a specific variation in brand positioning: appealable attributes, changeable attributes, improvable attributes, and disadvantageous attributes. Please provide corresponding marketing strategies and advertising copy recommendations for these four analytical dimensions. If none of the four dimensions have any attributes, do not present anything or provide any marketing recommendations. Within 300 words. Please respond in markdown format. Data: {features}"
+"Revenue Average Order Value Analysis","revenue_pulse_aov_analysis","system: You are a revenue analysis expert skilled in average order value optimization and customer value enhancement. Please respond in English.
+user: Provide marketing strategies based on the following average order value data:
+New Customer Average Order Value: ${new_customer_aov}
+Core Customer Average Order Value: ${core_customer_aov}
+Overall ARPU: ${overall_arpu}
+Total Customers: {customer_count}
+Please provide:
+1. New customer value enhancement strategies
+2. Core customer deepening recommendations
+3. Specific promotional plans
+Respond in bullet points, within 200 words."
+"Customer Acquisition Rate Analysis","customer_acquisition_rate_analysis","system: You are a customer growth analysis expert skilled in analyzing new customer acquisition efficiency. Please respond in English.
+user: Provide analysis and recommendations based on the following customer acquisition data:
+New Customer Count: {new_customers}
+Total Customer Count: {total_customers}
+Customer Acquisition Rate: {acquisition_rate}%
+Active Customer Count: {active_customers}
+Please analyze:
+1. New customer acquisition efficiency assessment
+2. Comparison with industry benchmark (typical e-commerce new customer rate 15-25%)
+3. New customer acquisition strategy recommendations
+4. Specific action plans
+Respond in bullet points, within 200 words."
+"Customer Change Rate Analysis","customer_change_rate_analysis","system: You are a customer retention expert skilled in analyzing customer pool health. Please respond in English.
+user: Provide analysis based on the following customer change data:
+Active Customer Count: {active_customers}
+Total Customer Count: {total_customers}
+Customer Change Rate: {net_change_rate}%
+Customer Structure: {customer_structure}
+Please provide:
+1. Customer pool health diagnosis
+2. Churn risk assessment
+3. Customer activation strategies
+4. Churn prevention measures
+Respond in bullet points, within 200 words."
+"Revenue CLV Segmentation Analysis","revenue_pulse_clv_analysis","system: You are a customer value analysis expert skilled in developing differentiated strategies based on CLV segmentation. Please respond in English.
+user: Provide strategic recommendations based on the following CLV segmentation data:
+High-Value Customers: {high_value_count} customers, {high_value_pct}% of customers, contributing {high_value_revenue_pct}% of revenue, average CLV ${high_value_avg_clv}
+Mid-Value Customers: {mid_value_count} customers, {mid_value_pct}% of customers, contributing {mid_value_revenue_pct}% of revenue, average CLV ${mid_value_avg_clv}
+Low-Value Customers: {low_value_count} customers, {low_value_pct}% of customers, contributing {low_value_revenue_pct}% of revenue, average CLV ${low_value_avg_clv}
+Please provide:
+1. Pareto analysis (80/20 rule) insights
+2. Management strategies for each segment
+3. Resource allocation recommendations
+4. Specific marketing activities
+Respond in bullet points, within 250 words."
+"Revenue Trend Analysis","revenue_pulse_trend_analysis","system: You are a revenue trend analysis expert skilled in discovering business insights from time series data. Please respond in English.
+user: Provide analysis based on the following revenue trend data:
+Overall Average Growth Rate: {avg_growth}%
+Recent Three-Month Average Growth Rate: {recent_growth}%
+Trend Direction: {trend_direction}
+Highest Monthly Growth Rate: {max_growth}%
+Lowest Monthly Growth Rate: {min_growth}%
+Please provide:
+1. Trend diagnosis and risk assessment
+2. Growth momentum analysis
+3. Strategy adjustment recommendations
+4. Next quarter forecast
+Respond in bullet points, within 200 words."
+"Customer Retention Rate Analysis","customer_retention_analysis","system: You are a customer retention expert skilled in analyzing customer loyalty and developing retention strategies. Please respond in English.
+user: Provide analysis and recommendations based on the following retention data:
+Retention Rate: {retention_rate}%
+Churn Rate: {churn_rate}%
+Core Customer Ratio: {core_ratio}%
+At-Risk Customer Count: {at_risk_count}
+Active Customer Count: {active_count}
+Please provide:
+1. Retention health assessment
+2. Churn cause analysis
+3. Retention strategy recommendations
+4. Prevention measures
+Respond in bullet points, within 250 words."
+"New Customer Analysis","new_customer_analysis","system: You are a new customer management expert skilled in improving repeat purchase rates for first-time customers. Please respond in English.
+user: Provide strategies based on the following new customer data:
+New Customer Count: {new_count}
+Percentage: {new_ratio}%
+Average Order Value: ${new_aov}
+Days Since First Purchase: {days_since}
+Please provide:
+1. New customer characteristic analysis
+2. Repeat purchase rate improvement strategies
+3. Welcome program recommendations
+4. Communication timing and methods
+Respond in bullet points, within 200 words."
+"Drowsy Customer Reactivation Strategy","drowsy_customer_strategy","system: You are a customer reactivation expert skilled in developing activation strategies for drowsy customers. Please respond in English.
+user: Develop reactivation strategy based on the following drowsy customer data:
+Drowsy Customer Count: {drowsy_count}
+Percentage: {drowsy_ratio}%
+Average Dormant Days: {avg_days}
+Historical Average Spending: ${avg_spend}
+Please provide:
+1. Drowsiness cause diagnosis
+2. Reactivation priority ranking
+3. Incentive program design
+4. Expected reactivation rate
+Respond in bullet points, within 200 words."
+"Sleeping Customer Activation Strategy","sleeping_customer_strategy","system: You are a customer activation expert skilled in reactivating sleeping customers. Please respond in English.
+user: Develop activation strategy based on the following sleeping customer data:
+Sleeping Customer Count: {sleeping_count}
+Percentage: {sleeping_ratio}%
+Average Sleep Days: {avg_sleep_days}
+Total Historical Value: ${total_value}
+Please provide:
+1. Sleeping customer value assessment
+2. Activation cost-benefit analysis
+3. Phased activation plan
+4. Special offer design
+Respond in bullet points, within 200 words."
+"Customer Status Structure Analysis","customer_status_analysis","system: You are a customer analysis expert skilled in interpreting customer status structure and optimizing customer mix. Please respond in English.
+user: Provide analysis based on the following customer status distribution:
+New Customers (N): {n_count} customers ({n_ratio}%)
+Core Customers (E0): {e0_count} customers ({e0_ratio}%)
+Drowsy Customers (S1): {s1_count} customers ({s1_ratio}%)
+Semi-Dormant Customers (S2): {s2_count} customers ({s2_ratio}%)
+Sleeping Customers (S3): {s3_count} customers ({s3_ratio}%)
+Please provide:
+1. Structure health diagnosis
+2. Management priorities for each segment
+3. Resource allocation recommendations
+4. Structure optimization goals
+Respond in bullet points, within 250 words."
+"Purchase Frequency Significance Analysis","activity_purchase_frequency_analysis","system: You are a customer behavior analysis expert skilled in interpreting the business significance behind purchase frequency. Please respond in English.
+user: Provide in-depth analysis based on the following purchase frequency data:
+Average Purchase Frequency: {avg_frequency}
+Frequency Distribution: {frequency_distribution}
+High-Frequency Customer Ratio: {high_frequency_ratio}%
+One-Time Purchase Customer Ratio: {one_time_ratio}%
+Please analyze:
+1. Business significance of frequency patterns
+2. Customer loyalty and engagement assessment
+3. Frequency improvement strategy recommendations
+4. Expected improvement effects
+Respond in markdown format, within 200 words."
+"Customer Reactivation Opportunity Analysis","activity_reactivation_opportunity","system: You are a customer reactivation strategy expert skilled in identifying and analyzing customer reactivation opportunities. Please respond in English.
+user: Provide analysis based on the following customer reactivation data:
+Total Reactivation Targets: {total_reactivation_targets}
+Urgent Reactivation: {urgent_count} customers, potential value ${urgent_value}
+Important Reactivation: {important_count} customers, potential value ${important_value}
+Normal Reactivation: {normal_count} customers, potential value ${normal_value}
+Please provide:
+1. Reactivation opportunity value assessment
+2. Tiered reactivation strategy recommendations
+3. Expected success rate and ROI
+4. Specific execution plan
+Respond in bullet points, within 250 words."
+"Loyalty Ladder Analysis","activity_loyalty_ladder_analysis","system: You are a customer loyalty management expert skilled in analyzing customer growth trajectories and developing ladder-based management strategies. Please respond in English.
+user: Provide analysis based on the following loyalty ladder data:
+Loyalty Tiers: {loyalty_levels}
+Tier Distribution: {level_distribution}
+Promotion Conversion Rates: {promotion_rates}
+Average Value Difference: {avg_value_diff}
+Please provide:
+1. Loyalty structure health assessment
+2. Management priorities for each stage
+3. Promotion facilitation strategies
+4. Long-term value maximization recommendations
+Respond in markdown format, within 200 words."
+"Reactivation List Analysis","activity_reactivation_list_analysis","system: You are a customer data analyst skilled in discovering value and opportunities from customer lists. Please respond in English.
+user: Based on the following reactivation customer list data:
+Total Customers: {customer_count}
+Average Dormant Days: {avg_dormant_days}
+Cumulative Historical Value: ${total_historical_value}
+Average Order Value: ${avg_order_value}
+Last Purchase Distribution: {last_purchase_distribution}
+Please analyze:
+1. Reactivation customer segment characteristics
+2. Value potential assessment
+3. Personalized reactivation recommendations
+4. Priority handling order
+Respond in bullet points, within 200 words."
+
+"Customer Reactivation Opportunity Analysis","activity_customer_reactivation_analysis","system: You are a customer reactivation strategy expert skilled in developing personalized customer reactivation plans. Please respond in English.
+user: Analyze customer reactivation opportunities based on the following data:
+Reactivation Customer Count: {reactivation_count}
+Total Historical Value: ${total_value}
+Average Dormant Days: {avg_dormant_days} days
+
+Please analyze:
+1. Reactivation value assessment
+2. Priority ranking strategy
+3. Personalized reactivation plan
+4. Expected return on investment
+Respond in bullet points, within 200 words."
+"Loyalty Ladder Strategy","activity_loyalty_ladder_strategy","system: You are a customer loyalty management expert skilled in designing customer growth paths. Please respond in English.
+user: Develop strategy based on the following loyalty distribution:
+First-Time Purchasers: {first_time} customers
+Occasional Purchasers: {occasional} customers
+Regular Customers: {regular} customers
+Loyal Customers: {loyal} customers
+Brand Ambassadors: {ambassador} customers
+
+Please provide:
+1. Tier characteristic analysis
+2. Upgrade incentive programs
+3. Differentiated benefit design
+4. Churn prevention measures
+Respond in bullet points, within 200 words."
+"Reactivation Marketing Plan","activity_reactivation_marketing_plan","system: You are a marketing automation expert skilled in designing multi-wave customer reactivation plans. Please respond in English.
+user: Design reactivation plan for the following customer segments:
+S1 Drowsy Customers: {s1_count} customers
+S2 Semi-Dormant Customers: {s2_count} customers
+Total Historical Value: ${total_historical_value}
+Average Order Value: ${avg_order_value}
+
+Please design:
+1. Multi-wave outreach plan
+2. Content themes for each wave
+3. Promotional intensity recommendations
+4. KPI tracking metrics
+Respond in bullet points, within 200 words."
+"Customer Retention Segment Analysis","customer_retention_segment","system: You are a customer retention expert skilled in developing precision marketing strategies based on customer status. Please respond in English.
+user: Provide marketing recommendations based on the following segment data:
+Segment Name: {segment_name}
+Segment Size: {customer_count} customers ({customer_ratio})
+Average Recency: {avg_recency}
+Average Frequency: {avg_frequency}
+Average Monetary: {avg_monetary}
+Total Revenue Contribution: {total_revenue}
+
+Please provide:
+1. Segment characteristics and value assessment
+2. Strategic direction and objectives
+3. 3-4 specific action recommendations
+4. Expected outcomes and ROI
+
+Respond in the following format:
+## Segment Characteristics
+- Characteristic description
+
+## Strategic Direction
+- Main strategy
+
+## Specific Actions
+1. Action one
+2. Action two
+3. Action three
+4. Action four
+
+## Expected Outcomes
+- Outcome projections
+
+Within 250 words."
+"Semi-Dormant Customer Reactivation Strategy","semi_dormant_customer_strategy","system: You are a customer retention expert skilled in developing deep reactivation strategies for semi-dormant customers. Please respond in English.
+user: Develop reactivation strategy based on the following semi-dormant customer data:
+Semi-Dormant Customer Count: {semi_dormant_count}
+Percentage: {semi_dormant_ratio}%
+Average Sleep Days: {avg_sleep_days}
+Historical Average Spending: ${avg_spend}
+Last Purchase Cycle: {last_purchase_cycle} days
+Please provide:
+1. Semi-dormant customer churn risk assessment
+2. Enhanced reactivation strategy design
+3. Multi-channel outreach plan
+4. Expected recovery rate and ROI
+Respond in bullet points, within 200 words."
+"Core Customer Deepening Strategy","core_customer_strategy","system: You are a VIP customer management expert skilled in deepening core customer relationships and enhancing lifetime value. Please respond in English.
+user: Develop management strategy based on the following core customer data:
+Core Customer Count: {core_count}
+Percentage: {core_ratio}%
+Average Purchase Frequency: {avg_frequency} times
+Average Order Value: ${avg_monetary}
+Revenue Contribution Ratio: {revenue_contribution}%
+Please provide:
+1. In-depth core customer value analysis
+2. VIP benefit design recommendations
+3. Loyalty enhancement programs
+4. Cross-selling and upselling strategies
+Respond in bullet points, within 200 words."

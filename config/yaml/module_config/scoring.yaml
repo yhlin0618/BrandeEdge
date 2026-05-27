@@ -1,0 +1,234 @@
+# ==========================================
+# 屬性評分模組配置
+# ==========================================
+# Module: scoring
+# Path: modules/module_scoring.R
+# Version: 2.0.0
+
+module:
+  id: "scoring"
+  name: "scoring_module"
+  description: "ai_attribute_extraction_scoring"
+  version: "2.0.0"
+  path: "modules/module_scoring.R"
+  type: "analysis"
+  icon: "star"
+
+# UI 配置
+ui:
+  title_key: "title"
+  card_status: "warning"
+
+  sections:
+    attribute_generation:
+      title_key: "sections.attribute_generation"
+      hint_id: "num_attributes"
+
+    review_sampling:
+      title_key: "sections.review_sampling"
+      hint_id: "nrows"
+
+    scoring:
+      title_key: "sections.scoring"
+      hint_id: "score_button"
+
+  buttons:
+    generate:
+      id: "gen_facets"
+      label_key: "buttons.generate"
+      class: "btn-secondary"
+      hint_id: "gen_facets"
+
+    score:
+      id: "score"
+      label_key: "buttons.score"
+      class: "btn-primary"
+
+    next:
+      id: "to_step3"
+      label_key: "buttons.next"
+      class: "btn-info"
+
+# 屬性萃取設定
+attribute_extraction:
+  # 屬性數量限制
+  num_attributes:
+    min: 5          # 改為 5（原本是 10）
+    max: 25         # 改為 25（原本是 30）
+    default: 12     # 改為 12（原本是 15）
+    step: 1
+
+  # 萃取時的抽樣設定
+  sampling_for_extraction:
+    records_per_variation: 30        # 每個 Variation 抽樣數量
+    min_records_required: 5          # 最少需要的記錄數
+    method: "random"                 # random | stratified | latest
+
+  # AI 模型設定
+  ai_settings:
+    model: "gpt-5-nano"             # 使用的模型
+    temperature: 0.3                 # 較低的 temperature 獲得更穩定的結果
+    max_tokens: 2000
+    retry_on_failure: true
+    max_retries: 3
+    timeout: 60                      # 秒
+
+  # 屬性品質控制
+  quality_control:
+    min_frequency: 2                 # 屬性最少出現次數
+    remove_duplicates: true          # 移除重複屬性
+    standardize_names: true          # 標準化屬性名稱
+    max_attribute_length: 20         # 屬性名稱最大長度
+    filter_generic_terms: true       # 過濾通用詞彙
+
+# 評分設定
+scoring:
+  # 評論抽樣設定
+  review_sampling:
+    min: 2
+    max: 500
+    default: 50
+    step: 10
+    per_variation: true              # 是否按 Variation 抽樣
+
+  # 評分範圍
+  score_range:
+    min: 1
+    max: 5
+    allow_decimals: false            # 是否允許小數分數
+
+  # 批次處理
+  batch_processing:
+    enabled: true
+    batch_size: 10                   # 同時處理的評論數
+    parallel_requests: 5             # 並行 API 請求數
+
+  # AI 評分設定
+  ai_settings:
+    model: "gpt-5-nano"
+    temperature: 0.1                 # 很低的 temperature 確保評分一致性
+    max_tokens: 100                  # 評分只需要少量 tokens
+    timeout: 60
+
+  # 評分驗證
+  validation:
+    require_numeric: true            # 必須是數字
+    handle_invalid_scores:
+      strategy: "retry"              # retry | skip | default
+      default_score: 3               # 預設分數
+      max_retries: 2
+
+# Prompt 管理
+prompts:
+  use_centralized: true              # 使用集中式 prompt 管理
+  prompt_ids:
+    extract_attributes: "extract_attributes"
+    score_attribute: "score_attribute"
+    scoring_summary: "scoring_summary"
+
+  # 備用 prompts（當集中管理系統不可用時）
+  fallback_prompts:
+    extract_attributes: |
+      Analyze the reviews and extract {num_attributes} key product attributes.
+      Return only attribute names, comma separated.
+
+    score_attribute: |
+      Rate the attribute '{attribute}' based on reviews (1-5).
+      Return only numeric score.
+
+# 效能優化
+performance:
+  cache:
+    enabled: true                    # 啟用快取
+    ttl: 3600                       # 快取存活時間（秒）
+    max_size: 100                   # 最大快取項目數
+
+  parallel_processing:
+    enabled: true
+    num_workers: 2                   # 工作程序數
+    strategy: "future"              # future | parallel | sequential
+
+  error_handling:
+    continue_on_error: true         # 單一錯誤不中斷整體處理
+    error_threshold: 0.3            # 錯誤率超過此值時停止
+    log_errors: true
+
+# 進度顯示
+progress:
+  show_progress_bar: true
+  update_interval: 1                 # 更新間隔（處理幾筆後更新）
+  detailed_messages: true           # 顯示詳細處理訊息
+
+# 結果處理
+results:
+  # 資料輸出
+  output:
+    include_raw_scores: true        # 包含原始分數
+    calculate_statistics: true      # 計算統計資料
+    round_decimals: 2              # 小數位數
+
+  # 統計資料
+  statistics:
+    calculate_mean: true
+    calculate_std: true
+    calculate_median: true
+    calculate_quartiles: true
+
+  # 視覺化
+  visualization:
+    auto_generate_plots: false     # 自動產生圖表
+    plot_types: ["heatmap", "bar"]
+
+# 通知設定
+notifications:
+  attribute_generation:
+    success:
+      type: "message"
+      template_key: "notifications.attribute_generated"
+      duration: 3
+
+    failure:
+      type: "error"
+      template_key: "notifications.attribute_failed"
+      duration: 6
+
+  scoring:
+    start:
+      type: "message"
+      template_key: "notifications.scoring_start"
+      duration: 2
+
+    progress:
+      template_key: "notifications.scoring_progress"
+
+    complete:
+      type: "message"
+      template_key: "notifications.scoring_complete"
+      duration: 5
+
+    partial_failure:
+      type: "warning"
+      template_key: "notifications.scoring_partial_failure"
+      duration: 10
+
+# 進階設定
+advanced:
+  # 除錯模式
+  debug:
+    enabled: false
+    save_api_responses: false
+    log_prompts: false
+
+  # 實驗性功能
+  experimental:
+    use_embeddings: false          # 使用 embeddings 改善屬性萃取
+    cross_validation: false        # 交叉驗證評分一致性
+    sentiment_adjustment: false    # 根據情感調整評分
+
+  # API 限制管理
+  rate_limiting:
+    respect_limits: true
+    requests_per_minute: 100
+    backoff_strategy: "exponential"
+    max_wait_time: 30              # 秒
+

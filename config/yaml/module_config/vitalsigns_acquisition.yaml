@@ -1,0 +1,281 @@
+module_info:
+  id: vitalsigns_acquisition
+  path: modules/module_vitalsigns_acquisition.R
+  name: 客戶增長模組
+  version: 1.0.0
+  description: 追蹤新客獲取、增長率與首購行為分析
+  functions:
+    ui: acquisitionVitalsignsModuleUI
+    server: acquisitionVitalsignsModuleServer
+metrics:
+  new_customers:
+    name: 新客戶數
+    icon: user-plus
+    color: success
+    calculation: count(distinct customer_id where first_purchase)
+  acquisition_rate:
+    name: 新客獲取率
+    unit: '%'
+    icon: chart-line
+    color: primary
+    calculation: new_customers / total_customers * 100
+    format: percentage
+  avg_first_purchase:
+    name: 平均首購金額
+    unit: USD
+    icon: shopping-bag
+    color: info
+    calculation: mean(first_purchase_amount)
+    format: currency
+  new_customer_revenue:
+    name: 新客貢獻收入
+    unit: USD
+    icon: dollar-sign
+    color: warning
+    calculation: sum(revenue where is_new_customer)
+    format: currency
+  new_customer_revenue_pct:
+    name: 新客收入佔比
+    unit: '%'
+    icon: pie-chart
+    color: success
+    calculation: new_customer_revenue / total_revenue * 100
+    format: percentage
+new_customer_definition:
+  criteria: first_purchase
+  time_window:
+    method: transaction_based
+    threshold_days: 30
+  exclusions:
+    exclude_returns: yes
+    exclude_cancelled: yes
+    min_purchase_amount: 0
+acquisition_analysis:
+  temporal:
+    enabled: yes
+    aggregation_periods:
+    - daily
+    - weekly
+    - monthly
+    - quarterly
+    default_period: monthly
+  growth_trend:
+    enabled: yes
+    show_absolute_growth: yes
+    show_growth_rate: yes
+    calculate_mom: yes
+    calculate_yoy: yes
+    show_moving_average: yes
+    ma_window: 3
+  cohort_analysis:
+    enabled: yes
+    cohort_period: monthly
+    track_periods: 12
+    metrics_to_track:
+    - retention_rate
+    - cumulative_revenue
+    - repeat_purchase_rate
+  first_purchase:
+    enabled: yes
+    analyze_amount: yes
+    analyze_timing: yes
+    analyze_products: no
+    analyze_channels: no
+growth_rate:
+  methods:
+    absolute:
+      name: 絕對增長
+      formula: current_period - previous_period
+    percentage:
+      name: 百分比增長
+      formula: (current - previous) / previous * 100
+    cagr:
+      name: 複合年增長率
+      formula: ((end_value / start_value) ^ (1/years)) - 1
+      enabled: no
+  comparison:
+    previous_period: yes
+    same_period_last_year: yes
+    custom_baseline: no
+cohort_settings:
+  definition:
+    cohort_by: first_purchase_month
+    track_metric: retention
+  tracking:
+    max_cohorts: 12
+    track_periods: 12
+    period_unit: month
+  visualization:
+    heatmap:
+      enabled: yes
+      color_scheme: Blues
+      show_values: yes
+      format: percentage
+    retention_curves:
+      enabled: yes
+      show_average: yes
+      highlight_best_cohort: yes
+first_purchase_analysis:
+  amount_analysis:
+    enabled: yes
+    distribution:
+      show_histogram: yes
+      bins: 30
+      outlier_detection: yes
+    segmentation:
+      buckets:
+      - label: 高價首購
+        threshold: '> P75'
+      - label: 中價首購
+        threshold: P25-P75
+      - label: 低價首購
+        threshold: < P25
+  timing_analysis:
+    enabled: yes
+    dimensions:
+    - day_of_week
+    - hour_of_day
+    - month
+    - quarter
+    patterns:
+      detect_seasonality: yes
+      detect_trends: yes
+  conversion_analysis:
+    enabled: no
+    track_from_signup: no
+    calculate_conversion_rate: no
+channel_analysis:
+  enabled: no
+  dimensions:
+  - marketing_channel
+  - acquisition_source
+  - campaign
+  metrics:
+  - customer_count
+  - acquisition_cost
+  - revenue_per_customer
+  - ltv
+customer_value:
+  new_customer_value:
+    enabled: yes
+    metrics:
+    - first_purchase_value
+    - predicted_ltv
+    - early_engagement
+  comparison:
+    enabled: yes
+    compare_metrics:
+    - average_purchase_value
+    - purchase_frequency
+    - revenue_contribution
+predictive_analysis:
+  acquisition_forecast:
+    enabled: yes
+    method: time_series
+    forecast_periods: 3
+    confidence_level: 0.95
+  quality_prediction:
+    enabled: no
+    predict_repeat_purchase: no
+    predict_ltv: no
+visualization:
+  kpi_cards:
+    show: yes
+    metrics:
+    - new_customers
+    - acquisition_rate
+    - avg_first_purchase
+    - new_customer_revenue_pct
+  charts:
+    new_customers_trend:
+      type: line
+      show_growth_rate: yes
+    cohort_heatmap:
+      type: heatmap
+      color_scheme: Blues
+    first_purchase_distribution:
+      type: histogram
+      bins: 30
+    acquisition_funnel:
+      type: funnel
+      enabled: no
+  tables:
+    cohort_table:
+      show: yes
+      format: percentage
+    top_acquiring_periods:
+      show: yes
+      top_n: 10
+ai_insights:
+  enabled: yes
+  gpt:
+    model: gpt-5-nano
+    temperature: 0.7
+    max_tokens: 1000
+  insight_types:
+  - id: acquisition_summary
+    name: 獲取總結
+    prompt_type: acquisition_summary
+  - id: growth_analysis
+    name: 增長分析
+    prompt_type: growth_insights
+  - id: cohort_insights
+    name: Cohort洞察
+    prompt_type: cohort_analysis
+  - id: optimization_strategies
+    name: 優化策略
+    prompt_type: acquisition_optimization
+data_requirements:
+  required_fields:
+  - customer_id
+  - payment_time
+  - lineitem_price
+  derived_fields:
+  - name: is_new_customer
+    formula: first_purchase_date == payment_time
+  - name: acquisition_cohort
+    formula: format(first_purchase_date, '%Y-%m')
+export:
+  enabled: yes
+  formats:
+  - xlsx
+  - csv
+  - pdf
+  reports:
+  - id: acquisition_report
+    name: 新客獲取報告
+    includes:
+    - kpi_summary
+    - trends
+    - cohort_analysis
+    - ai_insights
+performance:
+  cache:
+    enabled: yes
+    cache_duration: 1800
+  parallel:
+    enabled: yes
+    max_workers: 2
+ui_settings:
+  layout:
+    show_kpi_cards: yes
+    show_trends: yes
+    show_cohort_analysis: yes
+    show_ai_insights: yes
+  controls:
+    date_range_selector: yes
+    cohort_period_selector: yes
+    metric_selector: yes
+hints:
+  enabled: yes
+  hint_targets:
+  - id: acquisition_new_customers
+  - id: acquisition_rate
+  - id: acquisition_cohort
+prompts:
+  enabled: yes
+  prompt_types:
+  - id: acquisition_summary
+  - id: growth_insights
+  - id: cohort_analysis
+  - id: acquisition_optimization

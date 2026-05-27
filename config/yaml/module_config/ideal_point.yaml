@@ -1,0 +1,232 @@
+# ==========================================
+# BrandEdge 理想點分析模組配置
+# ==========================================
+# Module: ideal_point
+# Path: modules/module_brandedge_ideal_point.R
+# Version: 1.0.0
+
+module:
+  id: "ideal_point"
+  name: "ideal_point_module"
+  description: "brand_ideal_point_proximity_ranking"
+  version: "1.0.0"
+  path: "modules/module_brandedge_ideal_point.R"
+  type: "analysis"
+  icon: "bullseye"
+
+# UI 配置
+ui:
+  title_key: "title"
+  subtitle_key: "subtitle"
+  card_status: "success"
+
+  tabs:
+    distances:
+      id: "distances"
+      title_key: "tabs.distances"
+      icon: "ruler"
+
+    rankings:
+      id: "rankings"
+      title_key: "tabs.rankings"
+      icon: "sort-amount-down"
+
+    gaps:
+      id: "gaps"
+      title_key: "tabs.gaps"
+      icon: "arrows-alt-h"
+
+# 理想點計算方法
+ideal_point:
+  # 計算方法
+  calculation_method: "mamba"          # mamba | max | percentile | weighted_average | custom
+
+  # MAMBA 方法設定
+  mamba:
+    use_max_per_attribute: true        # 每個屬性使用最高分
+    adjust_for_importance: false       # 是否根據重要性調整
+    importance_threshold: 3.5          # 重要性閾值（低於此值可能降低理想點）
+
+  # 百分位方法設定
+  percentile:
+    level: 90                          # 使用第 90 百分位
+
+  # 加權平均方法設定
+  weighted_average:
+    weights_source: "importance"       # importance | frequency | correlation | equal
+    normalize_weights: true
+
+  # 自訂理想點（當 calculation_method = "custom"）
+  custom:
+    enabled: false
+    values: {}                         # 格式: {attribute_name: ideal_score}
+
+# 距離計算
+distance_calculation:
+  # 距離度量
+  metric: "euclidean"                  # euclidean | manhattan | chebyshev | cosine
+
+  # 標準化設定
+  normalization:
+    enabled: true
+    method: "scale"                    # scale | minmax | robust
+    per_attribute: true                # 每個屬性獨立標準化
+
+  # 權重設定
+  weighting:
+    enabled: true
+    method: "importance"               # importance | equal | variance | custom
+    custom_weights: {}                 # 格式: {attribute_name: weight}
+
+# 排名分析
+ranking:
+  # 排名方法
+  method: "distance"                   # distance | score | hybrid
+
+  # 混合方法設定（當 method = "hybrid"）
+  hybrid:
+    distance_weight: 0.6
+    score_weight: 0.4
+
+  # 輸出設定
+  output:
+    show_scores: true
+    show_distances: true
+    show_gaps: true
+    show_percentile: true
+    highlight_top_3: true
+
+# 差距分析
+gap_analysis:
+  # 分析維度
+  dimensions:
+    - "overall_gap"                    # 整體差距
+    - "by_attribute"                   # 按屬性拆解
+    - "by_category"                    # 按類別拆解（如有）
+
+  # 優先級排序
+  prioritization:
+    method: "impact"                   # impact | gap_size | feasibility
+    top_n: 10                          # 優先改善的屬性數量
+
+  # 視覺化
+  visualization:
+    chart_type: "waterfall"            # waterfall | bar | lollipop
+    show_positive_negative: true
+    color_scheme: "RdYlGn"
+
+# 改善建議
+improvement_recommendations:
+  # AI 生成設定
+  ai_generation:
+    enabled: true
+    model: "gpt-5-nano"
+    temperature: 0.7
+    max_tokens: 1500
+
+  # 建議類型
+  recommendation_types:
+    - "quick_wins"                     # 快速見效的改善
+    - "strategic_moves"                # 策略性改善
+    - "long_term_investments"          # 長期投資
+
+  # 優先級評估
+  prioritization:
+    criteria:
+      - name: "impact"
+        weight: 0.4
+      - name: "feasibility"
+        weight: 0.3
+      - name: "cost_effectiveness"
+        weight: 0.3
+
+# 競爭分析
+competitive_analysis:
+  # 比較對象
+  comparison:
+    include_all_brands: true
+    highlight_leader: true
+    show_laggard: true
+
+  # 領先優勢分析
+  leadership_analysis:
+    min_lead_to_qualify: 0.2           # 最小領先幅度
+    consistency_required: true         # 需要多個屬性領先
+
+  # 追趕機會分析
+  catch_up_analysis:
+    identify_opportunities: true
+    max_gap_to_consider: 1.0           # 超過此差距視為難以追趕
+    focus_on_feasible: true
+
+# 視覺化設定
+visualization:
+  # 距離矩陣熱圖
+  distance_heatmap:
+    show: true
+    clustering: true                   # 品牌聚類
+    color_scheme: "Blues"
+
+  # 理想點雷達圖
+  ideal_radar:
+    show: true
+    overlay_brands: true
+    max_brands: 5                      # 最多疊加品牌數
+    highlight_gaps: true
+
+  # 排名條形圖
+  ranking_bars:
+    show: true
+    orientation: "horizontal"
+    show_values: true
+    color_by_rank: true
+
+  # 差距瀑布圖
+  gap_waterfall:
+    show: true
+    sort_by: "size"                    # size | name | importance
+    show_cumulative: true
+
+# 資料驗證
+validation:
+  min_brands: 2
+  min_attributes: 5
+  require_scored_data: true
+  check_completeness: true
+  min_completeness_rate: 0.7           # 每個品牌至少 70% 屬性有分數
+
+# 輸出設定
+output:
+  # 表格
+  tables:
+    distance_matrix:
+      show: true
+      format: "datatable"
+      highlight_minimum: true
+
+    rankings:
+      show: true
+      show_changes: false              # 顯示排名變化（需要歷史資料）
+      export_enabled: true
+
+    gap_details:
+      show: true
+      group_by: "brand"
+      sort_by: "gap_size"
+
+  # 圖表
+  charts:
+    all_enabled: true
+    interactive: true
+    download_enabled: true
+
+  # 摘要報告
+  summary:
+    generate: true
+    include_insights: true
+    include_recommendations: true
+
+# 語言內容路徑
+language:
+  content_path: "database/content/{language}/module/ideal_point.yaml"
+  fallback_path: "database/content/chinese/module/ideal_point.yaml"

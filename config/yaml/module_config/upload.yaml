@@ -1,0 +1,203 @@
+# ==========================================
+# 資料上傳模組配置 (通用/已棄用)
+# ==========================================
+# ⚠️ 此檔案已棄用，請使用各 app 專屬配置：
+#   - BrandEdge: upload_brandedge.yaml
+#   - InsightForge: upload_review_sales.yaml
+#   - VitalSigns: vitalsigns_upload.yaml
+# Version: 2.1.0
+
+module:
+  id: "upload_generic"
+  name: "upload_module"
+  description: "generic_upload_deprecated"
+  version: "2.1.0"
+  path: "modules/module_upload_review_sales.R"
+  type: "data_upload"
+  icon: "upload"
+
+# UI 配置
+ui:
+  title_key: "title"
+  card_status: "primary"
+
+  sections:
+    reviews:
+      title_key: "sections.reviews"
+      hint_id: "upload_reviews"
+      required: true
+      show_notification: true
+      notification_file: "notification.md"  # 語言化檔案，實際路徑由語言管理器決定
+
+    sales:
+      title_key: "sections.sales"
+      hint_id: "upload_sales"
+      required: false
+
+  buttons:
+    upload:
+      id: "load_btn"
+      label_key: "buttons.upload"
+      class: "btn-success"
+
+    next:
+      id: "to_step2"
+      label_key: "buttons.next"
+      class: "btn-info"
+
+# 資料限制設定
+data_limits:
+  reviews:
+    max_brands: 10                    # 最大品牌數量
+    max_records_per_brand: 500        # 每個品牌最大評論數
+    total_max_records: 5000           # 總評論數上限
+    min_records_per_brand: 10         # 每個品牌最少評論數（建議）
+
+  sales:
+    max_brands: 10                    # 最大品牌數量
+    max_records_per_brand: 2000       # 每個品牌最大銷售記錄
+    total_max_records: 20000          # 總銷售記錄上限
+
+# 檔案設定
+file_settings:
+  max_file_size_mb: 50                # 單檔最大大小 (MB)
+  max_files_per_upload: 20            # 單次最多上傳檔案數
+  accepted_formats:
+    - ".xlsx"
+    - ".xls"
+    - ".csv"
+
+  encoding:
+    csv: "UTF-8"                      # CSV 檔案編碼
+    auto_detect: true                  # 自動偵測編碼
+
+# 資料驗證規則
+validation:
+  # BrandEdge 特定限制
+  max_rows: 1000                      # 最大總資料筆數
+  max_brands: 20                      # 最大品牌數量
+
+  reviews:
+    required_columns:
+      - name: "Variation"
+        type: "character"
+        description_key: "validation.variation_desc"
+
+      - name: "Title"
+        type: "character"
+        description_key: "validation.title_desc"
+        allow_empty: true
+
+      - name: "Body"
+        type: "character"
+        description_key: "validation.body_desc"
+        min_length: 10
+
+    optional_columns:
+      - name: "Rating"
+        type: "numeric"
+        range: [1, 5]
+
+      - name: "Date"
+        type: "date"
+        format: "YYYY-MM-DD"
+
+  sales:
+    required_columns:
+      - name: "Variation"
+        type: "character"
+        description_key: "validation.variation_desc"
+
+      - name: "Sales"
+        type: "numeric"
+        min_value: 0
+        description_key: "validation.sales_desc"
+
+    optional_columns:
+      - name: "Time"
+        type: "date"
+        description_key: "validation.time_desc"
+
+      - name: "Revenue"
+        type: "numeric"
+        min_value: 0
+
+# 資料處理設定
+processing:
+  auto_merge: true                    # 自動合併多個檔案
+  remove_duplicates: true             # 移除重複記錄
+
+  sampling:
+    enabled: true                     # 啟用抽樣
+    method: "random"                  # random | stratified
+    preserve_distribution: true       # 保持原始分布
+
+  transformation:
+    trim_whitespace: true            # 移除前後空白
+    standardize_variation_names: true # 標準化 Variation 名稱
+    handle_missing_values:
+      strategy: "remove"              # remove | impute | keep
+      impute_method: "mean"           # mean | median | mode | forward_fill
+
+# 儲存設定
+storage:
+  database:
+    reviews_table: "rawdata"
+    sales_table: "salesdata"
+    format: "json"                    # 資料儲存格式
+    compress: false                   # 是否壓縮
+
+  backup:
+    enabled: true
+    location: "backups/uploads/"
+    retention_days: 30
+
+# 錯誤處理
+error_handling:
+  show_detailed_errors: true         # 顯示詳細錯誤訊息
+  log_errors: true                   # 記錄錯誤
+
+  recovery:
+    auto_retry: true                  # 自動重試
+    max_retries: 3
+    retry_delay: 1000                 # 毫秒
+
+# 效能優化
+performance:
+  chunk_size: 1000                   # 批次處理大小
+  parallel_processing: false         # 平行處理（上傳模組通常不需要）
+
+# 通知設定
+notifications:
+  upload_success:
+    type: "message"
+    duration: 5
+    template_key: "notifications.upload_success"
+
+  upload_error:
+    type: "error"
+    duration: 10
+    template_key: "notifications.upload_error"
+
+  data_limit_warning:
+    type: "warning"
+    duration: 8
+    template_key: "notifications.data_limit_warning"
+
+# 進階設定
+advanced:
+  enable_preview: true                # 啟用資料預覽
+
+preview:
+  max_rows: 1000                      # 資料預覽最大行數
+
+  smart_matching:
+    enabled: true                     # 智能檔名匹配
+    patterns:
+      sales: ["_sales", "_sales_zh", "_revenue"]
+      reviews: ["_review", "_reviews_zh", "_comment"]
+
+  auto_categorization:
+    enabled: true                     # 自動分類上傳的檔案
+    confidence_threshold: 0.8
+

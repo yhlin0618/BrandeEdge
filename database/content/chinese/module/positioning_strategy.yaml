@@ -1,0 +1,175 @@
+# ==========================================
+# BrandEdge - 定位策略建議模組語言內容（中文）
+# ==========================================
+# Version: 1.0
+# Last Updated: 2025-10-08
+
+# 模組基本資訊
+title: "定位策略建議"
+subtitle: "四象限策略分析"
+description: "依據品牌屬性表現提供策略定位建議"
+
+# UI 文字
+ui:
+  # 無資料狀態
+  no_data:
+    title: "定位策略分析"
+    message: "請先上傳評論資料以進行定位策略分析"
+    upload_button: "前往資料上傳"
+
+  # 選擇控制
+  select_variation:
+    label: "選擇 Variation"
+    placeholder: "請選擇要分析的品牌"
+
+  # 按鈕
+  buttons:
+    run_strategy: "策略探索"
+
+  # 圖表標題
+  chart:
+    title: "策略定位四象限圖"
+    subtitle: "基於關鍵屬性與非關鍵屬性的策略建議"
+
+# 四象限標籤
+quadrants:
+  appeal: "訴求"        # 右上：關鍵屬性且高於平均
+  change: "改變"        # 右下：關鍵屬性但低於平均
+  improve: "改善"       # 左上：非關鍵屬性但高於平均
+  weakness: "劣勢"      # 左下：非關鍵屬性且低於平均
+
+# 四象限說明
+quadrant_descriptions:
+  appeal: "關鍵優勢屬性 - 應持續強化並作為主要訴求"
+  change: "關鍵弱勢屬性 - 需要優先改進以提升競爭力"
+  improve: "非關鍵優勢屬性 - 可考慮轉化為差異化優勢"
+  weakness: "非關鍵弱勢屬性 - 低優先度，資源有限時可暫緩"
+
+# 策略建議
+strategy_recommendations:
+  appeal:
+    title: "訴求策略"
+    description: "這些是品牌的核心優勢，應該："
+    actions:
+      - "在行銷溝通中強調這些屬性"
+      - "持續投資以維持領先地位"
+      - "作為品牌定位的主要支柱"
+
+  change:
+    title: "改變策略"
+    description: "這些是需要改進的關鍵領域，應該："
+    actions:
+      - "優先分配資源進行改善"
+      - "研究競爭對手的成功做法"
+      - "設定明確的改進目標和時程"
+
+  improve:
+    title: "改善策略"
+    description: "這些是潛在的差異化機會，應該："
+    actions:
+      - "評估是否能轉化為競爭優勢"
+      - "考慮結合市場需求強化這些屬性"
+      - "選擇性投資以創造差異化"
+
+  weakness:
+    title: "劣勢管理"
+    description: "這些是低優先度領域，應該："
+    actions:
+      - "維持基本水準即可"
+      - "避免過度投資"
+      - "視資源狀況決定是否改善"
+
+# 訊息文字
+messages:
+  # 導航訊息
+  redirect_to_upload: "請從側邊欄選擇「資料上傳」頁面"
+
+  # 成功訊息
+  success:
+    analysis_completed: "✅ 定位策略分析完成"
+    quadrant_generated: "✅ 四象限圖已生成"
+
+  # 錯誤訊息
+  error:
+    no_data: "❌ 找不到資料"
+    no_variation_selected: "❌ 請選擇要分析的 Variation"
+    no_key_factors: "❌ 缺少關鍵因素定義"
+    calculation_failed: "❌ 計算失敗: {error}"
+    api_failed: "❌ API調用失敗"
+
+  # 處理中訊息
+  processing:
+    analyzing_strategy: "策略分析中..."
+
+  # 資訊訊息
+  info:
+    calculating: "正在計算四象限分布..."
+    generating_chart: "正在生成策略圖表..."
+    click_strategy_button: "尚未產生策略分析，請點擊「策略探索」。"
+
+# 圖表元素
+chart_elements:
+  axis_labels:
+    horizontal: "屬性重要性"
+    vertical: "表現水準"
+
+  dividers:
+    horizontal: "平均表現水準"
+    vertical: "關鍵/非關鍵分界"
+
+# 統計資訊
+stats:
+  total_attributes: "總屬性數"
+  key_attributes: "關鍵屬性數"
+  non_key_attributes: "非關鍵屬性數"
+  appeal_count: "訴求屬性數"
+  change_count: "改變屬性數"
+  improve_count: "改善屬性數"
+  weakness_count: "劣勢屬性數"
+
+# 說明文字
+help:
+  overview: |
+    定位策略四象限分析將品牌屬性分為四類：
+
+    1. 訴求（右上）：關鍵屬性且表現優異
+       → 品牌核心優勢，應持續強化
+
+    2. 改變（右下）：關鍵屬性但表現不佳
+       → 需優先改進以提升競爭力
+
+    3. 改善（左上）：非關鍵屬性但表現優異
+       → 可考慮轉化為差異化優勢
+
+    4. 劣勢（左下）：非關鍵屬性且表現不佳
+       → 低優先度，資源有限時可暫緩
+
+  interpretation: |
+    策略解讀：
+
+    - 橫軸：屬性是否為關鍵因素
+    - 縱軸：品牌在該屬性的表現水準
+    - 分界線：平均值作為高/低表現的分界
+
+    建議優先順序：改變 > 訴求 > 改善 > 劣勢
+
+  usage: |
+    使用方式：
+
+    1. 選擇要分析的品牌 (Variation)
+    2. 系統自動計算各屬性的平均表現
+    3. 根據關鍵因素定義和表現水準分配到四象限
+    4. 參考策略建議制定行動計畫
+
+# 配置資訊
+config:
+  plot_height: "800px"
+  font_size:
+    title: 15
+    attribute: 14
+  colors:
+    appeal: "#28a745"      # 綠色
+    change: "#dc3545"      # 紅色
+    improve: "#ffc107"     # 黃色
+    weakness: "#6c757d"    # 灰色
+    divider: "#000000"     # 黑色

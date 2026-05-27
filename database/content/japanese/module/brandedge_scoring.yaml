@@ -1,0 +1,114 @@
+title: "ステップ2：属性スコアリング"
+subtitle: "製品属性を抽出してスコアリング分析を実行"
+
+ui:
+  sections:
+    attributes: "1. 属性抽出設定"
+    scoring: "2. スコアリング設定"
+    results: "3. スコアリング結果"
+
+  labels:
+    attr_count: "属性数"
+    sample_size: "ブランドごとのサンプルレビュー数"
+
+  buttons:
+    generate_attributes: "🪄 属性を生成"
+    start_scoring: "スコアリング開始"
+    next: "次へ ➡️"
+
+  descriptions:
+    attr_extract: "システムはAIを使用してレビュー内容を分析し、最も重要な製品属性を自動的に識別します"
+    scoring: "サンプルレビューに対して各属性をスコアリング（1-5段階）"
+
+  tables:
+    avg_scores_caption: "ブランド別平均属性スコア"
+
+settings:
+  attributes: "1. 属性数を選択"
+  generated_attributes: "2. 生成された属性"
+  scoring_title: "3. スコアリング"
+  sample_size: "ブランドあたりのサンプルサイズ："
+  review_count: "2. 分析する顧客レビュー数を選択"
+  start_scoring: "3. [スコアリング開始]をクリック"
+
+buttons:
+  generate_attributes: "属性を生成"
+  start_scoring: "スコアリング開始"
+  proceed: "次へ ➡️"
+  calculate_score: "スコアを計算"
+  save_criteria: "基準を保存"
+  load_template: "テンプレートを読み込む"
+  export_results: "結果をエクスポート"
+  reset_all: "すべてリセット"
+
+  placeholders:
+    enter_criteria: "スコアリング基準を入力"
+    select_category: "カテゴリを選択"
+    weight_value: "重み値（0-100）"
+
+messages:
+  success:
+    score_calculated: "スコア計算が完了しました！"
+    criteria_saved: "スコアリング基準が保存されました！"
+    template_loaded: "テンプレートが正常に読み込まれました！"
+    results_exported: "結果がエクスポートされました！"
+    data_ready: "✅ スコアリングデータの準備が完了し、後続の分析が可能です"
+    scoring_complete: "✅ スコアリング完了！{total}件のデータを正常に処理しました"
+
+  error:
+    calculation_failed: "スコア計算に失敗しました"
+    invalid_criteria: "無効なスコアリング基準です"
+    save_failed: "保存に失敗しました"
+    template_not_found: "テンプレートが見つかりません"
+    api_failed: "❌ API呼び出しに失敗しました："
+    no_data: "❌ スコアリングに使用できるデータがありません"
+    attribute_generation_failed: "❌ 属性の生成に失敗しました：{error}"
+    attribute_parse_failed: "⚠️ 十分な属性を解析できませんでした（{required}個必要、{found}個のみ取得）"
+    prompt_failed: "❌ プロンプトの準備ができません"
+
+  warning:
+    incomplete_data: "不完全なデータ"
+    low_confidence: "信頼度が低い"
+    weight_sum_error: "重みの合計が100%になりません"
+    scoring_warning: "⚠️ スコアリングが完了しましたが、APIエラーにより{error_count}/{total}レコードがスキップされました"
+
+  info:
+    calculating: "スコアを計算中..."
+    loading: "データを読み込み中..."
+    processing: "処理中..."
+    analyzing_attributes: "属性を分析中..."
+    preparing_analysis: "レビュー内容を分析中、製品属性を抽出中..."
+    scoring_in_progress: "スコアリング進行中..."
+    processing_item: "アイテム{current}/{total}を処理中（ブランド：{brand}）"
+    generating_attributes: "顧客レビューから属性を生成中..."
+    attributes_generated: "✅ {count}個の属性を生成しました：{attrs}"
+    attributes_generated_notify: "✅ {count}個の属性を生成しました！"
+    scoring_completed: "✅ {count}アイテムのスコアリングが完了しました"
+    scoring_success: "✅ スコアリング完了！{total}件のデータを正常に処理しました"
+
+console:
+  starting_extraction: "🚀 属性抽出を開始、ターゲット属性数："
+  attributes_generated: "✅ {count}個の属性を生成しました"
+  partial_extraction: "⚠️ {count}個のみ抽出されました"
+  extraction_failed: "❌ 属性抽出に失敗しました："
+  start_scoring: "🚀 スコアリングを開始、サンプルサイズ："
+  attributes_num: "、属性数："
+  scoring_complete: "✅ スコアリングが完了しました、合計"
+  brands_count: "ブランド（"
+  scoring_failed: "❌ スコアリングに失敗しました："
+  scoring_error_detail: "⚠️ スコアリングエラー（アイテム{index}、ブランド：{brand}）：{error}"
+  generating_attributes: "🔄 属性を生成中..."
+  attribute_count: "📊 {count}個の属性を生成しました"
+  scoring_started: "🚀 スコアリングを開始しました"
+  processing_brand: "処理中：{brand} ({current}/{total})"
+  api_error: "❌ APIエラー：{error}"
+  retrying: "🔄 再試行中... (試行{attempt}/{max})"
+  saving_results: "💾 結果を保存中..."
+  results_saved: "✅ 結果が保存されました"
+
+validation:
+  min_attributes: "最低{min}個の属性が必要です"
+  max_attributes: "最大{max}個の属性まで許可されています"
+  min_reviews: "最低{min}件のレビューが必要です"
+  max_reviews: "最大{max}件のレビューまで処理できます"
+  invalid_weight: "重みは0から100の間である必要があります"

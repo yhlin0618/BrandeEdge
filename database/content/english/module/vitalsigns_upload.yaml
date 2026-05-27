@@ -1,0 +1,391 @@
+# ==========================================
+# VitalSigns - Upload Module Language Content (English)
+# ==========================================
+# Data Upload Module Language Content (English)
+# Version: 1.0.0
+# Last Updated: 2025-10-11
+
+# Module Basic Information
+title: "Data Upload"
+subtitle: "Upload Customer Transaction Data"
+description: "Upload CSV or Excel files containing customer purchase data. System will auto-detect and validate field formats"
+
+# UI Text
+ui:
+  # Section titles (for UI headers)
+  sections:
+    instructions: "📋 Upload Instructions"
+    example: "📷 Amazon CSV Example"
+    upload_files: "📁 Upload Sales Data"
+    preview: "Data Preview"
+
+  # Instruction texts
+  instructions:
+    supported_formats: "📊 Supported Formats"
+    amazon_report: "Amazon Sales Report"
+    general_text: "General Text Format"
+    format: "Format"
+    multi_file: "Can upload multiple CSV files by month for auto-merge"
+    auto_detect: "📦 Auto-Detect Fields"
+    auto_detect_desc: "System will automatically detect the following fields and convert to standard variable names:"
+
+  # Warning texts
+  warnings:
+    important: "Important Note"
+    data_months: "Please upload at least 3-12 months of data to ensure analysis accuracy."
+
+  # Info texts
+  info:
+    standardization: "💡 Standardization Note"
+    standardization_desc: "Regardless of your original field names, the system will convert them to the blue standard variable names for analysis."
+    example: "For example: 'buyer email' → <strong>customer_id</strong>, 'purchase date' → <strong>payment_time</strong>"
+
+  # Field names
+  fields:
+    customer_id: "Customer Identification"
+    customer_priority: "Priority: buyer email, buyer_email, email"
+    customer_fallback: "Fallback: customer_id, customer, buyer_id, user_id"
+    payment_time: "Transaction Time"
+    time_detect: "Detect: purchase date, payments date, payment_time"
+    time_other: "Other: date, time, datetime"
+    lineitem_price: "Transaction Amount"
+    price_detect: "Detect: item price, lineitem_price, amount"
+    price_other: "Other: sales, price, total"
+
+  # Input field labels
+  inputs:
+    file_input: "Multiple File Upload (Auto-merge, max 12 files)"
+
+  # Example image texts
+  example:
+    alt_text: "Amazon CSV Example"
+    caption: "Above is an example of Amazon Sales Report CSV format"
+
+  # Button texts
+  buttons:
+    upload: "Upload File"
+    upload_preview: "Upload & Preview"
+    validate: "Validate Data"
+    clear: "Clear"
+    download_template: "Download Template"
+    next: "Next Step ➡️"
+    next_step: "Start Analysis"
+    retry: "Retry Upload"
+    edit_mapping: "Edit Column Mapping"
+
+  # Upload Area
+  upload:
+    title: "Data Upload"
+    subtitle: "Supports Multiple File Upload & Auto-Merge"
+    instruction: "Please upload files containing customer transaction data"
+    supported_formats: "Supported formats: CSV, Excel (.xlsx, .xls)"
+    auto_detect: "Auto-detect fields: Customer ID (Email), Purchase Time, Amount"
+    file_input_label: "Choose Files (Multiple Selection Allowed)"
+    button: "Choose File"
+    drag_drop: "or drag and drop files here"
+    file_requirements: "File Requirements"
+
+    # Upload Instructions
+    instructions:
+      title: "Upload Instructions"
+      step1: "1. Prepare CSV or Excel file with customer transaction data"
+      step2: "2. Ensure file contains required fields (Customer ID, Time, Amount)"
+      step3: "3. Can select multiple files, system will auto-merge"
+      step4: "4. System will automatically validate data format after upload"
+
+    # Amazon Format Notes
+    amazon_format:
+      title: "Amazon Report Format"
+      description: "System supports Amazon sales report format and will auto-detect and convert the following fields:"
+      buyer_email: "• Buyer Email → Customer ID"
+      purchase_date: "• Purchase Date / Payments Date → Purchase Time"
+      item_price: "• Item Price → Transaction Amount"
+
+  # File Information
+  file_info:
+    title: "File Information"
+    name: "File Name"
+    size: "File Size"
+    format: "File Format"
+    rows: "Row Count"
+    columns: "Column Count"
+    status: "Status"
+    multiple_files: "{count} files selected"
+
+  # Required Fields
+  required_fields:
+    title: "Required Fields"
+    customer_id: "Customer ID / Email"
+    customer_id_desc: "Unique customer identifier (Email recommended)"
+    payment_time: "Purchase Time / Transaction Date"
+    payment_time_desc: "Timestamp of transaction"
+    lineitem_price: "Transaction Amount / Item Price"
+    lineitem_price_desc: "Amount of single transaction"
+
+  # Optional Fields
+  optional_fields:
+    title: "Optional Fields"
+    platform_id: "Platform ID / Channel"
+    platform_id_desc: "Sales platform or channel name"
+    product_id: "Product ID / SKU"
+    product_id_desc: "Product identifier or SKU"
+
+  # Column Mapping
+  column_mapping:
+    title: "Column Mapping Results"
+    auto_detected: "Auto-detected"
+    manual_mapping: "Manual Mapping"
+    mapped_to: "Mapped to"
+    not_mapped: "Not Mapped"
+    confidence: "Confidence"
+
+  # Data Preview
+  preview:
+    title: "Data Preview"
+    subtitle: "Uploaded Data Overview"
+    first_rows: "First {n} rows"
+    total_rows: "Total {total} rows"
+    show_all: "Show All"
+    show_less: "Show Less"
+
+  # Summary Statistics
+  summary_stats:
+    title: "Summary Statistics"
+    total_transactions: "Total Transactions"
+    unique_customers: "Unique Customers"
+    date_range: "Date Range"
+    total_revenue: "Total Revenue"
+    avg_transaction_value: "Avg Transaction Value"
+    transaction_months: "Months Covered"
+    data_quality: "Data Quality"
+
+  # Validation Results
+  validation_results:
+    title: "Validation Results"
+    passed: "Passed"
+    failed: "Failed"
+    warnings: "Warnings"
+    errors: "Errors"
+    all_checks_passed: "✓ All checks passed"
+
+
+# Messages
+messages:
+  # Success Messages
+  success:
+    upload: "✅ File uploaded successfully"
+    upload_with_count: "✅ Uploaded {count} transaction records"
+    upload_multiple: "✅ Successfully merged {file_count} files, total {row_count} records"
+    upload_complete: "✅ Uploaded {row_count} records (✅ All fields detected)"
+    notification: "✅ Data uploaded successfully!"
+    validation: "✅ Data validation passed"
+    column_detection: "✅ All required columns auto-detected"
+    processing: "✅ Data processing complete"
+    ready: "✅ Data ready for analysis"
+    merged: "✅ Multiple files successfully merged"
+    navigate_to_dna: "✅ Navigating to DNA Analysis..."
+
+  # Processing Messages
+  processing:
+    uploading: "Uploading..."
+    reading: "Reading file..."
+    validating: "Validating data..."
+    processing: "Processing data..."
+    analyzing: "Analyzing data structure..."
+    merging: "Merging files..."
+    detecting_columns: "Detecting columns..."
+
+  # Error Messages
+  error:
+    no_file: "❌ Please select a file"
+    no_file_selected: "⚠️ Please select file(s) to upload"
+    invalid_format: "❌ Invalid file format (CSV or Excel only)"
+    unsupported_format: "⚠️ File '{filename}' format not supported, only .csv / .xlsx / .xls allowed"
+    empty_file: "⚠️ File '{filename}' is empty"
+    too_large: "❌ File too large (max {max_size}MB)"
+    too_many_files: "❌ Too many files (max {max_files})"
+    read_error: "❌ File read error: {error}"
+    processing_error: "❌ File processing error: {error}"
+    notification: "❌ Upload failed:"
+
+    # Column Errors
+    missing_columns: "❌ Missing required columns: {columns}"
+    column_detection_failed: "❌ Unable to auto-detect required columns"
+    invalid_column_type: "❌ Invalid column type: {column}"
+
+    # Data Validation Errors
+    validation_failed: "❌ Data validation failed"
+    insufficient_rows: "❌ Insufficient rows (minimum {min_rows} required)"
+    too_many_rows: "❌ Too many rows (maximum {max_rows})"
+    insufficient_customers: "❌ Insufficient customers (minimum {min_customers} required)"
+    insufficient_months: "❌ Insufficient date range (minimum {min_months} months required)"
+    invalid_dates: "❌ Invalid date formats detected"
+    invalid_prices: "❌ Invalid price data detected"
+    negative_prices: "❌ Negative prices detected"
+    no_data: "❌ No valid data in file"
+
+    # Merge Errors
+    merge_failed: "❌ File merge failed"
+    inconsistent_columns: "❌ Inconsistent columns across files, cannot merge"
+
+  # Warning Messages
+  warning:
+    large_file: "⚠️ Large file, processing may take longer"
+    many_rows: "⚠️ Many rows ({rows} records), processing may take time"
+    many_files: "⚠️ Many files ({count}), merging may take time"
+    partial_detection: "⚠️ Only partial column detection successful, please verify mapping"
+    incomplete_fields: "✅ Uploaded {row_count} records (⚠️ Incomplete field detection)"
+    notification: "⚠️ Incomplete field detection, please check data format"
+    missing_optional: "⚠️ Missing optional fields: {fields}"
+    duplicate_transactions: "⚠️ Found {count} duplicate transactions"
+    data_quality_issues: "⚠️ Potential data quality issues, please review"
+    short_date_range: "⚠️ Short date range ({months} months), analysis may be limited"
+    few_customers: "⚠️ Few customers ({count}), some analysis features may be limited"
+
+  # Info Messages
+  info:
+    file_selected: "File selected: {filename}"
+    rows_detected: "Detected {rows} rows"
+    customers_detected: "Detected {customers} customers"
+    months_detected: "Data covers {months} months"
+    ready_to_analyze: "Data ready for analysis"
+    amazon_format_detected: "Amazon report format detected"
+
+  # Navigation Prompts
+  next_steps:
+    title: "Next Steps"
+    description: "Data upload successful! Select an analysis module from the sidebar:"
+    acquisition: "• Customer Acquisition: Understand new customer trends"
+    retention: "• Customer Retention: Track retention and churn risk"
+    engagement: "• Engagement Analysis: Assess customer engagement"
+    revenue_pulse: "• Revenue Pulse: Analyze revenue contribution"
+    dna: "• Customer DNA: Deep segmentation & AI insights"
+
+# Data Limits
+limits:
+  max_file_size: 200  # MB
+  max_files: 12
+  min_rows: 10
+  max_rows: 1000000
+  min_customers: 10
+  min_months: 3
+  max_months: 36
+  recommended_months: 12
+  max_file_size_display: "200MB"
+
+# Supported Formats
+formats:
+  supported: "Supported Formats"
+  csv: "CSV File (.csv)"
+  excel: "Excel File (.xlsx, .xls)"
+  description: "Supports standard CSV and Excel formats, UTF-8 encoding recommended"
+
+# Data Template
+template:
+  title: "Data Format Template"
+  description: "Download template file to understand correct data format"
+  columns:
+    customer_id: "customer_id"
+    payment_time: "payment_time"
+    lineitem_price: "lineitem_price"
+    platform_id: "platform_id (optional)"
+    product_id: "product_id (optional)"
+  sample_data:
+    row1: "customer001@email.com, 2024-01-15 10:30:00, 1500"
+    row2: "customer002@email.com, 2024-01-16 14:20:00, 2300"
+    row3: "customer001@email.com, 2024-02-10 09:15:00, 1800"
+
+# Help Text
+help:
+  overview: |
+    VitalSigns Data Upload module supports CSV and Excel format customer transaction data.
+    System will auto-detect file format and validate data integrity.
+
+  file_requirements: |
+    File Requirements:
+    - Supports CSV (.csv) or Excel (.xlsx, .xls) format
+    - File size not exceeding 200MB
+    - Maximum 12 files per upload (system will auto-merge)
+    - UTF-8 encoding recommended
+
+  data_requirements: |
+    Data Requirements:
+    - Minimum 10 transaction records
+    - Minimum 10 unique customers
+    - Minimum 3 months of transaction history (12 months recommended)
+    - Must contain complete Customer ID, Time, Amount fields
+
+  column_requirements: |
+    Required Fields:
+    - Customer ID/Email: Unique customer identifier (e.g., Email, Member ID)
+    - Purchase Time: Transaction date/time
+    - Transaction Amount: Transaction amount (must be positive)
+
+    Optional Fields:
+    - Platform ID: Sales platform or channel (e.g., Amazon, Website)
+    - Product ID: Product identifier or SKU
+
+  amazon_format: |
+    Amazon Report Format Support:
+    System can auto-detect and process Amazon sales reports, supporting:
+    - Buyer Email → Customer ID
+    - Purchase Date / Payments Date → Purchase Time
+    - Item Price → Transaction Amount
+
+    Directly upload reports downloaded from Amazon Seller Central.
+
+  multi_file_upload: |
+    Multi-File Upload:
+    - Select multiple files at once (maximum 12)
+    - System will automatically merge all files
+    - Suitable for monthly separated report files
+    - All files must have identical column structure
+
+  troubleshooting: |
+    Common Issues:
+
+    Q: Why can't columns be detected?
+    A: Ensure first row contains column names with clear labels
+
+    Q: How to handle date format issues?
+    A: System supports multiple date formats, recommend YYYY-MM-DD or YYYY-MM-DD HH:MM:SS
+
+    Q: Can I upload data from different platforms?
+    A: Yes, use optional "Platform ID" field to distinguish sources
+
+    Q: Do I need to pre-clean data?
+    A: System will handle common format issues, but recommend removing obvious errors
+
+# Validation Rules
+validation_rules:
+  customer_id:
+    title: "Customer ID Validation"
+    rules:
+      - "Cannot be null"
+      - "Email format recommended"
+      - "Minimum 10 unique customers"
+
+  payment_time:
+    title: "Purchase Time Validation"
+    rules:
+      - "Cannot be null"
+      - "Must be valid date/time format"
+      - "Date range must cover at least 3 months"
+      - "No future dates allowed"
+
+  lineitem_price:
+    title: "Transaction Amount Validation"
+    rules:
+      - "Cannot be null"
+      - "Must be numeric format"
+      - "Cannot be negative"
+      - "Recommended maximum 1,000,000"
+
+# Hints
+hints:
+  upload_area: "Drag files here or click to select. Supports CSV and Excel, multiple files allowed."
+  required_fields: "These are the minimum fields required for system analysis."
+  optional_fields: "These fields provide additional analysis dimensions but are not required."
+  column_mapping: "System auto-detects column mappings, adjust manually if incorrect."
+  validation_results: "Validation results show if data meets analysis requirements. Fix errors as prompted."
+  summary_stats: "Quick overview of uploaded data basic statistics."

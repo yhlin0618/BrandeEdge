@@ -1,0 +1,575 @@
+# ==========================================
+# VitalSigns - Acquisition Module Language Content (Japanese)
+# ==========================================
+# 顧客獲得分析モジュール言語コンテンツ（日本語）
+# Version: 1.0.0
+# Last Updated: 2025-10-11
+
+# モジュール基本情報
+title: "顧客獲得分析"
+subtitle: "新規顧客ソース、成長トレンド、コホート分析"
+description: "新規顧客獲得効率の追跡、コホートパフォーマンス分析、獲得戦略効果の評価"
+
+# UI ブロック
+ui:
+  # KPI ラベル
+  kpis:
+    active_customers: "総顧客数"
+    cumulative_customers: "累積顧客数"
+    acquisition_rate: "顧客獲得率"
+    net_change_rate: "顧客変動率"
+
+  # カードタイトルとコンテンツ
+  cards:
+    customer_structure: "顧客プール構造分析"
+    acquisition_funnel: "獲得ファネル分析"
+    growth_trend: "顧客成長トレンド"
+    growth_trend_notice: "注意：トレンド分析には時系列データが必要です。現在静的分析を表示しています"
+    ai_analysis: "🤖 AI 顧客成長分析"
+    acquisition_analysis_title: "顧客獲得率分析"
+    change_rate_analysis_title: "顧客変動率分析"
+    details: "顧客成長指標詳細"
+
+  # ボタン
+  buttons:
+    download_details: "📥 完全な顧客リストをダウンロード"
+    analyze: "分析を開始"
+    refresh: "更新"
+    export_cohort: "コホートデータをエクスポート"
+    generate_insights: "AI インサイトを生成"
+    compare_periods: "期間比較"
+
+  sections:
+    overview: "獲得概要"
+    new_customers: "新規顧客獲得"
+    growth_trends: "成長トレンド"
+    cohort_analysis: "コホート分析"
+    acquisition_channels: "獲得チャネル"
+    quality_metrics: "獲得品質"
+    ai_insights: "AI インサイト"
+
+  # コントロールパネル
+  controls:
+    title: "分析コントロール"
+    time_period: "期間"
+    cohort_definition: "コホート定義"
+    metric_selection: "指標選択"
+    comparison_mode: "比較モード"
+    period_selector: "時間粒度:"
+
+    # 時間粒度オプション
+    period_options:
+      daily: "毎日"
+      weekly: "毎週"
+      monthly: "毎月"
+      quarterly: "四半期"
+
+# 指標定義
+metrics:
+  # コア指標
+  total_new_customers:
+    name: "新規顧客数"
+    short_name: "新規顧客"
+    description: "初回購入の顧客数"
+    icon: "user-plus"
+    unit: "人"
+
+  new_customer_rate:
+    name: "新規顧客率"
+    short_name: "新規顧客率"
+    description: "新規顧客が全顧客に占める割合"
+    icon: "percentage"
+    unit: "%"
+
+  acquisition_growth_rate:
+    name: "獲得成長率"
+    short_name: "成長率"
+    description: "前期比の新規顧客成長幅"
+    icon: "chart-line"
+    unit: "%"
+
+  avg_first_purchase:
+    name: "平均初回購入額"
+    short_name: "初回購入額"
+    description: "新規顧客の初回購入平均金額"
+    icon: "dollar-sign"
+    unit: "円"
+
+  new_customer_revenue_pct:
+    name: "新規顧客売上貢献"
+    short_name: "新規顧客売上"
+    description: "新規顧客が全体売上に占める割合"
+    icon: "pie-chart"
+    unit: "%"
+
+  # 成長指標
+  mom_growth:
+    name: "月次成長率 (MoM)"
+    description: "前月比の成長率"
+    formula: "((今月 - 先月) / 先月) × 100%"
+
+  qoq_growth:
+    name: "四半期成長率 (QoQ)"
+    description: "前四半期比の成長率"
+    formula: "((今四半期 - 前四半期) / 前四半期) × 100%"
+
+  yoy_growth:
+    name: "年次成長率 (YoY)"
+    description: "前年同期比の成長率"
+    formula: "((今年 - 昨年) / 昨年) × 100%"
+
+  # コホート指標
+  cohort_size:
+    name: "コホート規模"
+    description: "その期間に参加した新規顧客数"
+
+  cohort_retention:
+    name: "コホートリテンション率"
+    description: "そのコホートの後続月のリテンション状況"
+
+  cohort_revenue:
+    name: "コホート累積売上"
+    description: "そのコホートが創出した総売上"
+
+  cohort_clv:
+    name: "コホート平均CLV"
+    description: "そのコホートの平均顧客生涯価値"
+
+# コホート分析
+cohort:
+  # 定義方法
+  definitions:
+    by_month:
+      name: "月次定義"
+      description: "顧客の初回購入月でグループ化"
+    by_quarter:
+      name: "四半期定義"
+      description: "顧客の初回購入四半期でグループ化"
+    by_year:
+      name: "年次定義"
+      description: "顧客の初回購入年でグループ化"
+
+  # タイムライン
+  time_periods:
+    month_0: "M0 (当月)"
+    month_1: "M1"
+    month_2: "M2"
+    month_3: "M3"
+    month_6: "M6"
+    month_12: "M12"
+
+  # チャートラベル
+  chart_labels:
+    cohort_period: "コホート（初回購入時期）"
+    time_since_first: "初回購入からの経過"
+    retention_rate: "リテンション率"
+    revenue_contribution: "売上貢献"
+
+# 成長分析
+growth:
+  # 成長タイプ
+  types:
+    absolute: "絶対成長"
+    relative: "相対成長率"
+    cumulative: "累積成長"
+
+  # 比較期間
+  comparison_periods:
+    previous_month: "前月"
+    previous_quarter: "前四半期"
+    previous_year: "前年同期"
+    same_period_last_year: "前年同期"
+
+  # トレンド判断
+  trends:
+    accelerating: "加速成長"
+    steady: "安定成長"
+    slowing: "成長鈍化"
+    declining: "マイナス成長"
+
+# 獲得品質
+quality:
+  # 品質指標
+  metrics:
+    repeat_purchase_rate:
+      name: "初回購入リピート率"
+      description: "一定期間内にリピート購入する新規顧客の割合"
+
+    time_to_second_purchase:
+      name: "リピート購入時間"
+      description: "初回購入から2回目の購入までの平均日数"
+
+    first_year_retention:
+      name: "初年度リテンション率"
+      description: "新規顧客が初年度内に継続購入する割合"
+
+    avg_lifetime_value:
+      name: "平均生涯価値"
+      description: "新規顧客の予想生涯価値"
+
+  # 品質グレード
+  tiers:
+    high_quality:
+      name: "高品質獲得"
+      description: "高リピート、高価値の新規顧客"
+      color: "success"
+
+    medium_quality:
+      name: "中品質獲得"
+      description: "一般的なリピートと価値の新規顧客"
+      color: "warning"
+
+    low_quality:
+      name: "低品質獲得"
+      description: "低リピートまたは低価値の新規顧客"
+      color: "danger"
+
+# チャート設定
+charts:
+  # 新規顧客トレンドチャート
+  new_customer_trend:
+    title: "新規顧客獲得トレンド"
+    x_axis: "時間"
+    y_axis: "新規顧客数"
+    tooltip: "{date}: {count} 人の新規顧客"
+
+  # 成長率チャート
+  growth_rate_chart:
+    title: "獲得成長率"
+    x_axis: "期間"
+    y_axis: "成長率 (%)"
+    types:
+      mom: "月次成長率"
+      qoq: "四半期成長率"
+      yoy: "年次成長率"
+
+  # コホートヒートマップ
+  cohort_heatmap:
+    title: "コホートリテンションヒートマップ"
+    x_axis: "初回購入からの月数"
+    y_axis: "コホート（初回購入時期）"
+    color_scale: "リテンション率"
+    tooltip: "コホート {cohort}、{month}ヶ月後: {rate}%"
+
+  # 初回購入額分布
+  first_purchase_distribution:
+    title: "初回購入額分布"
+    x_axis: "初回購入額範囲"
+    y_axis: "顧客数"
+    bins: ["0-500", "500-1000", "1000-2000", "2000-5000", "5000+"]
+
+  # 新規顧客ソースチャネル
+  acquisition_channels:
+    title: "新規顧客獲得チャネル"
+    tooltip: "{channel}: {count} 人 ({percentage}%)"
+
+# メッセージテキスト
+messages:
+  # 成功メッセージ
+  success:
+    analysis_complete: "✅ 獲得分析が完了しました"
+    cohort_generated: "✅ コホート分析が生成されました"
+    insights_generated: "✅ AI インサイトが生成されました"
+
+  # 処理中
+  processing:
+    analyzing: "新規顧客データを分析中..."
+    generating_cohorts: "コホート分析を生成中..."
+    calculating_growth: "成長指標を計算中..."
+
+  # エラーメッセージ
+  error:
+    insufficient_data: "❌ データ不足、獲得分析を実行できません"
+    no_new_customers: "❌ 選択期間内に新規顧客がいません"
+    cohort_analysis_failed: "❌ コホート分析に失敗しました"
+
+  # 警告メッセージ
+  warning:
+    few_cohorts: "⚠️ コホート数が少なく、分析結果が不完全な可能性があります"
+    short_period: "⚠️ 分析期間が短く、成長トレンドが明確でない可能性があります"
+
+  # 情報メッセージ
+  info:
+    new_customers_found: "{count} 人の新規顧客が見つかりました"
+    cohorts_generated: "{count} 個のコホートが生成されました"
+    analyzing_period: "分析期間：{start} から {end}"
+
+# AI 分析タイプ
+ai_analysis:
+  types:
+    acquisition_trend:
+      name: "獲得トレンド分析"
+      description: "新規顧客獲得の時間トレンドと季節性パターンを分析"
+      prompt_category: "acquisition_trend"
+
+    cohort_performance:
+      name: "コホートパフォーマンス評価"
+      description: "異なるコホートのリテンションと価値パフォーマンスを比較"
+      prompt_category: "cohort_performance"
+
+    growth_drivers:
+      name: "成長ドライバー"
+      description: "獲得成長に影響する主要要因を特定"
+      prompt_category: "growth_drivers"
+
+    quality_assessment:
+      name: "獲得品質評価"
+      description: "新規顧客の品質と長期価値を評価"
+      prompt_category: "quality_assessment"
+
+# AI 機能設定
+ai:
+  # データサマリーテンプレート（AI 分析用）
+  data_summary_template: |
+    新規顧客数: {new_customers}
+    総顧客数: {total_customers}
+    獲得率: {acquisition_rate}%
+    平均初回購入額: ${avg_first_purchase}
+    新規顧客売上比率: {new_customer_revenue_pct}%
+
+    コホート分析:
+    - {cohort_count} コホートを追跡
+    - 最新コホートサイズ: {latest_cohort_size} 顧客
+    - 平均リテンション率 (3ヶ月): {avg_retention_3m}%
+
+  # デフォルト AI プロンプトテンプレート
+  default_prompt_template: "以下の顧客獲得データを分析し、インサイトと推奨事項を提供してください：\n\n{data}"
+
+  # AI インサイト表示
+  insights_title: "AI 分析結果"
+  generated_at: "生成時刻:"
+
+# 説明テキスト
+help:
+  overview: |
+    顧客獲得分析モジュールは、新規顧客獲得戦略の追跡と最適化を支援します。
+    コホート分析と成長トレンドを通じて、獲得効率と品質を深く理解します。
+
+  new_customer_definition: |
+    新規顧客の定義：
+    - システムで初めて購入記録が現れた顧客
+    - 「初回購入日」を獲得時刻として使用
+    - 各顧客は一度のみカウント
+
+  cohort_analysis: |
+    コホート分析（Cohort Analysis）：
+    - 同じ時期に初回購入した顧客を1つのグループに分類
+    - 各グループの後続時間の行動パフォーマンスを追跡
+    - 異なる時期に獲得した顧客の品質差を比較
+    - 獲得戦略の長期効果を評価
+
+  growth_metrics: |
+    成長指標説明：
+    - MoM (Month-over-Month)：月次成長率、前月と比較
+    - QoQ (Quarter-over-Quarter)：四半期成長率、前四半期と比較
+    - YoY (Year-over-Year)：年次成長率、前年同期と比較
+
+  quality_metrics: |
+    獲得品質評価：
+    - 初回購入リピート率：新規顧客の定着度を測定
+    - リピート購入時間：顧客アクティビティを反映
+    - 初年度リテンション率：長期価値の早期指標
+    - 平均CLV：新規顧客の予想生涯価値
+
+  best_practices: |
+    分析推奨事項：
+    1. 定期的に獲得トレンドを追跡し、異常を早期発見
+    2. 異なるコホートのパフォーマンスを比較し、獲得戦略を最適化
+    3. 獲得品質に注目し、数量だけでなく質も重視
+    4. チャネル分析と組み合わせ、最も効果的な獲得チャネルを見つける
+    5. AI インサイトを活用し、隠れたパターンと機会を発見
+
+# ヒントテキスト
+hints:
+  active_customers: "総顧客数は現在アクティブなすべての顧客数です。ビジネス規模を反映します。"
+  cumulative_customers: "累積顧客数は創業以来獲得したすべての顧客の合計です。顧客ベースの成長を示します。"
+  acquisition_rate: "顧客獲得率は新規獲得顧客が総顧客に占める割合です。成長の勢いを反映します。"
+  net_change_rate: "顧客変動率は顧客数の増減の純変化率です。正の値は成長、負の値は減少を示します。"
+  cohort_heatmap: "色が濃いほどリテンション率が高いことを示します。横方向で単一コホートのリテンション変化を、縦方向で異なる時期の獲得品質を比較できます。"
+  growth_rate: "正の値は成長、負の値は減少を示します。成長率の変化トレンドに注目し、単一期間の数値だけでなくトレンドを見てください。"
+  first_purchase: "初回購入額の分布は、獲得ターゲットの正確性を反映します。理想的にはターゲット顧客の価値と一致する必要があります。"
+  quality_metrics: "高品質獲得の特徴：迅速なリピート、高リテンション率、高生涯価値。"
+
+# 統計用語
+statistics:
+  mean: "平均値"
+  median: "中央値"
+  std_dev: "標準偏差"
+  percentile: "パーセンタイル"
+  correlation: "相関性"
+  significance: "有意性"
+
+# 表のカラム
+tables:
+  cohort:
+    columns:
+      cohort: "コホート"
+      months_since_first: "初回購入からの月数"
+      customers: "顧客数"
+      cohort_size: "コホートサイズ"
+      retention_rate: "リテンション率 (%)"
+      revenue: "収益"
+      transactions: "取引数"
+
+  # 顧客成長指標詳細テーブル
+  details:
+    columns:
+      customer_id: "顧客ID"
+      customer_type: "顧客タイプ"
+      times: "購入回数"
+      total_spent: "総購入額"
+      days_since_last: "最終購入からの日数"
+
+  # ダウンロードCSVカラム
+  download:
+    columns:
+      customer_id: "顧客ID"
+      customer_type: "顧客タイプ"
+      times: "購入回数"
+      total_spent: "総購入額"
+      days_since_last: "最終購入からの日数"
+      f_value: "購入頻度"
+      m_value: "平均購入額"
+
+# サーバーコンテンツ
+server:
+  # 顧客タイプラベル (NESステータス)
+  customer_types:
+    N: "新規顧客"
+    E0: "コア顧客"
+    S1: "仮眠顧客"
+    S2: "半休眠顧客"
+    S3: "休眠顧客"
+    other: "その他"
+
+  # チャートコンテンツ
+  charts:
+    # 顧客プール構造チャート
+    structure:
+      title: "顧客ステータス分布"
+      hover_template: "顧客数: {value}<br>割合: {percent}"
+
+    # 獲得ファネルチャート
+    funnel:
+      title: "顧客コンバージョンファネル"
+      stages:
+        first_purchase: "初回購入"
+        repeat_purchase: "リピート購入"
+        multiple_purchase: "複数回購入"
+        core_customer: "コア顧客"
+      hover_template: "顧客数: {x}<br>コンバージョン率: {text}"
+
+    # 顧客成長トレンドチャート
+    growth:
+      title: "月次顧客成長トレンド"
+      x_axis: "月"
+      y_axis: "顧客数"
+      y_axis_secondary: "成長率 (%)"
+      series:
+        monthly_customers: "月次顧客数"
+        growth_rate: "成長率 (%)"
+      hover_customers: "顧客数: {y}"
+      hover_growth: "成長率: {y}%"
+
+    # 静的分析チャート（時系列データがない場合）
+    static:
+      title: "顧客購入頻度分布"
+      x_axis: "購入回数"
+      y_axis: "顧客数"
+      groups:
+        once: "1回"
+        twice: "2回"
+        three_to_five: "3-5回"
+        six_to_ten: "6-10回"
+        more_than_ten: "10回以上"
+      hover_template: "顧客数: {y}"
+
+  # AI分析テンプレート
+  ai:
+    # 顧客獲得率分析テンプレート
+    acquisition_analysis:
+      title: "📊 新規顧客獲得効率評価"
+      metrics:
+        new_customers: "新規顧客数：<strong>{value}人</strong>"
+        acquisition_rate: "獲得率：<strong>{value}%</strong>"
+        industry_benchmark: "業界ベンチマーク：EC 15-25%"
+      evaluation_prefix: "評価："
+      evaluation:
+        low: "業界平均以下、獲得強化が必要"
+        high: "業界平均以上、優秀な成果"
+        normal: "業界基準を満たしている"
+      strategy_title: "💡 戦略的推奨"
+      strategies:
+        low_rate:
+          - "マーケティング予算の増加と獲得チャネルの拡大を検討"
+          - "新規顧客向けの特別オファーを展開し、コンバージョンを改善"
+        normal_rate:
+          - "現在の獲得戦略を維持しつつ、最適化を継続"
+          - "顧客生涯価値の向上に注力"
+      # HTMLテンプレート
+      html_template: |
+        <div style='padding: 15px; background: #f8f9fa; border-radius: 8px;'>
+        <h6 style='color: #2c3e50; margin-bottom: 10px;'>📊 新規顧客獲得効率評価</h6>
+        <ul style='margin: 0; padding-left: 20px;'>
+          <li>新規顧客数：<strong>%d人</strong></li>
+          <li>獲得率：<strong>%.1f%%</strong></li>
+          <li>業界ベンチマーク：EC 15-25%%</li>
+          <li>評価：%s</li>
+        </ul>
+        <h6 style='color: #2c3e50; margin-top: 15px; margin-bottom: 10px;'>💡 戦略的推奨</h6>
+        <ul style='margin: 0; padding-left: 20px;'>
+          <li>%s</li>
+          <li>%s</li>
+        </ul>
+        </div>
+
+    # 顧客変動率分析テンプレート
+    change_rate_analysis:
+      title: "🔍 顧客プール健康診断"
+      metrics:
+        active_rate: "アクティブ率：<strong>{value}%</strong>"
+        health_status: "健康状態：<strong>{status}</strong>"
+        dormant_rate: "休眠顧客率：<strong>{value}%</strong>"
+      health_levels:
+        healthy: "健康"
+        warning: "警告"
+        danger: "危険"
+      prevention_title: "🛡️ リスク防止対策"
+      prevention_strategies:
+        high_risk:
+          - "直ちに顧客再活性化キャンペーンを開始"
+          - "休眠顧客向けの特別オファーを提供"
+          - "顧客離脱早期警告システムを確立"
+        low_risk:
+          - "定期的に顧客活動を監視"
+          - "顧客エンゲージメント頻度を強化"
+          - "顧客離脱早期警告システムを確立"
+      # HTMLテンプレート
+      html_template: |
+        <div style='padding: 15px; background: #fff3e0; border-radius: 8px;'>
+        <h6 style='color: #e65100; margin-bottom: 10px;'>🔍 顧客プール健康診断</h6>
+        <ul style='margin: 0; padding-left: 20px;'>
+          <li>アクティブ率：<strong>%.1f%%</strong></li>
+          <li>健康状態：<strong>%s</strong></li>
+          <li>休眠顧客率：<strong>%.1f%%</strong></li>
+        </ul>
+        <h6 style='color: #e65100; margin-top: 15px; margin-bottom: 10px;'>🛡️ リスク防止対策</h6>
+        <ul style='margin: 0; padding-left: 20px;'>
+          <li>%s</li>
+          <li>%s</li>
+          <li>%s</li>
+        </ul>
+        </div>
+
+    # AIエラーメッセージ
+    error: "AI分析エラー: {message}"
+
+    # AIデータサマリーフィールド名（分析データ準備用）
+    data_fields:
+      new_customers_label: "新規顧客数："
+      total_customers_label: "総顧客数："
+      acquisition_rate_label: "獲得率："
+      active_customers_label: "アクティブ顧客数："
+      net_change_rate_label: "顧客変動率："
+      customer_structure_label: "顧客構造："
+      status_format: "%s：%d人 (%.1f%%)"

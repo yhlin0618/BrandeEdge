@@ -1,0 +1,38 @@
+# ==========================================
+# 登入模組文字內容 - 中文
+# ==========================================
+
+title: "使用者登入"
+subtitle: "請輸入您的帳號密碼"
+fields:
+  username: "使用者名稱"
+  password: "密碼"
+  password_confirm: "確認密碼"
+  remember_me: "記住我"
+buttons:
+  login: "登入"
+  register: "註冊新帳號"
+  register_btn: "註冊"
+  to_login: "已有帳號？回登入"
+  forgot_password: "忘記密碼？"
+messages:
+  login_success: "登入成功！"
+  login_failed: "登入失敗，請檢查帳號密碼"
+  logout_success: "已成功登出"
+  account_locked: "帳號已被鎖定，請聯絡管理員"
+console:
+  creating_db_connection: "⏳ 建立資料庫連接..."
+  db_connection_failed: "⚠️ 資料庫連接失敗: {error}"
+  initializing_tables: "📝 初始化資料表..."
+  creating_test_user: "📝 創建測試管理員用戶..."
+  verifying_password: "🔐 驗證密碼..."
+  user_not_found: "❌ 找不到使用者: {username}"
+  login_attempt: "🔑 登入嘗試: {username}"
+  login_limit_exceeded: "⚠️ 超過登入次數限制"
+  updating_login_count: "📊 更新登入次數"
+  register_attempt: "📝 註冊嘗試: {username}"
+  password_mismatch: "❌ 兩次密碼不一致"
+  password_too_short: "❌ 密碼太短，至少需要6個字元"
+  user_exists: "⚠️ 使用者已存在: {username}"
+  register_success: "✅ 註冊成功: {username}"
+

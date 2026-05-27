@@ -1,0 +1,161 @@
+# ==========================================
+# BrandEdge - ASIN 評論抓取模組語言內容（中文）
+# ==========================================
+# Version: 1.0
+# Last Updated: 2025-10-06
+
+# 模組基本資訊
+title: "ASIN 評論抓取"
+subtitle: "輸入 ASIN 並抓取 Amazon 顧客評論"
+description: "透過商品 ASIN 取得評論資料以進行品牌屬性分析"
+
+# UI 文字
+ui:
+  # 上傳區域
+  upload:
+    title: "步驟 1：上傳資料"
+    subtitle: "上傳 DNA 分析資料"
+    instruction: "支援格式："
+    supported_formats: "Amazon 銷售報告"
+    auto_detect: "自動偵測欄位：客戶ID/Email、時間、金額等"
+    file_input_label: "多檔案上傳 (自動合併)"
+    button: "選擇檔案"
+    drag_drop: "或拖曳檔案至此處"
+    file_requirements: "檔案要求"
+
+  # 檔案資訊
+  file_info:
+    name: "檔案名稱"
+    size: "檔案大小"
+    format: "檔案格式"
+    rows: "資料筆數"
+    columns: "欄位數量"
+    brands: "品牌數量"
+
+  # 必要欄位
+  required_fields:
+    title: "必要欄位"
+    variation: "品牌/產品名稱 (Variation)"
+    title_field: "評論標題 (Title)"
+    body: "評論內容 (Body)"
+    rating: "評分 (Rating，選填)"
+    date: "日期 (Date，選填)"
+
+  # 資料預覽
+  preview:
+    title: "資料預覽"
+    first_rows: "前 {n} 筆資料"
+    total_rows: "共 {total} 筆"
+    show_all: "顯示全部"
+
+  # 按鈕
+  buttons:
+    upload: "上傳檔案"
+    upload_preview: "上傳並預覽"
+    next_step: "下一步 ➡️"
+    validate: "驗證資料"
+    clear: "清除"
+    download_template: "下載範本"
+    next: "下一步"
+
+# 訊息文字
+messages:
+  # 🆕 Direct access messages (for get_msg without "success" prefix)
+  upload_with_detection: "✅ 已上傳評論資料，共 {count} 筆，{brands} 個品牌"
+
+  # 成功訊息
+  success:
+    upload: "✅ 檔案上傳成功"
+    upload_with_detection: "✅ 已上傳DNA分析資料，共 {count} 筆 (✅ 已偵測到DNA分析欄位)"
+    validation: "✅ 資料驗證通過"
+    processing: "✅ 資料處理完成"
+    saved: "✅ 資料已儲存"
+
+  # 處理中訊息
+  processing:
+    uploading: "處理中..."
+    reading: "讀取檔案中..."
+    validating: "驗證資料中..."
+    processing: "處理資料中..."
+    analyzing: "分析資料結構中..."
+
+  # 錯誤訊息
+  error:
+    no_file: "❌ 請選擇檔案"
+    no_file_selected: "⚠️ 請選擇要上傳的檔案"
+    no_data_uploaded: "⚠️ 請先上傳並預覽DNA分析資料"
+    invalid_format: "❌ 檔案格式不符（僅支援 Excel 或 CSV）"
+    unsupported_format: "⚠️ 檔案 '{filename}' 格式不支援，只能上傳 .xlsx / .xls/.csv"
+    missing_columns: "❌ 缺少必要欄位: {columns}"
+    empty_file: "⚠️ 檔案 '{filename}' 是空的"
+    processing_error: "❌ 檔案處理錯誤: {error}"
+    too_large: "❌ 檔案過大（最大 {max_size}MB）"
+    exceeds_limit: "❌ 超過資料限制: {limit}"
+    read_error: "❌ 檔案讀取錯誤: {error}"
+    validation_failed: "❌ 資料驗證失敗"
+    too_many_rows: "❌ 資料筆數超過限制（最多 {max_rows} 筆）"
+    too_many_brands: "❌ 品牌數量超過限制（最多 {max_brands} 個）"
+    no_data: "❌ 檔案中沒有有效資料"
+    db_save_failed: "❌ 資料庫儲存失敗: {error}"
+
+  # 警告訊息
+  warning:
+    upload_no_detection: "✅ 已上傳資料，共 {count} 筆 (⚠️ 未偵測到完整DNA分析欄位)"
+    large_file: "⚠️ 檔案較大，處理可能需要較長時間"
+    many_rows: "⚠️ 資料筆數較多（{rows} 筆），建議篩選後再分析"
+    many_brands: "⚠️ 品牌數量較多（{brands} 個），分析時間可能較長"
+    missing_optional: "⚠️ 缺少選填欄位: {fields}"
+
+  # 資訊訊息
+  info:
+    file_selected: "已選擇檔案: {filename}"
+    rows_detected: "偵測到 {rows} 筆資料"
+    brands_detected: "偵測到 {brands} 個品牌"
+    ready_to_analyze: "資料已就緒，可以開始分析"
+
+  # 🆕 導航提示訊息
+  ready_for_analysis: "✅ 資料上傳成功！請從左側選單選擇分析模組開始分析"
+
+# 資料限制
+limits:
+  max_file_size: 50  # MB
+  max_reviews: 1000
+  max_brands: 20
+  max_file_size_display: "50MB"
+
+# 支援格式
+formats:
+  supported: "支援的格式"
+  excel: "Excel (.xlsx, .xls)"
+  csv: "CSV (.csv)"
+
+# 說明文字
+help:
+  overview: |
+    請上傳包含品牌評論的資料檔案。系統將自動驗證資料格式並提取品牌資訊。
+
+  file_format: |
+    檔案格式要求：
+    - 支援 Excel (.xlsx, .xls) 或 CSV (.csv) 格式
+    - 檔案大小不超過 50MB
+    - 必須包含 Variation（品牌名稱）、Title（標題）、Body（內容）欄位
+
+  data_requirements: |
+    資料要求：
+    - 最多 1000 則評論
+    - 最多 20 個品牌
+    - 每則評論需有完整的標題和內容
+
+  column_mapping: |
+    欄位說明：
+    - Variation: 品牌或產品名稱（必填）
+    - Title: 評論標題（必填）
+    - Body: 評論內容（必填）
+    - Rating: 評分，通常為 1-5 分（選填）
+    - Date: 評論日期（選填）
+
+# 範例資料
+sample:
+  title: "資料格式範例"
+  download_text: "下載範本檔案"
+  description: "下載範本檔案以了解正確的資料格式"

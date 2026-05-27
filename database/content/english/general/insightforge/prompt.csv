@@ -1,0 +1,186 @@
+analysis_name,var_id,prompt
+"Attribute Extraction","extract_attributes","system: You are a professional marketing data analyst. Please respond in English.
+user: Based on the following customer reviews, extract the most important and frequently mentioned {num_attributes} positive, specific characteristics from product positioning theory aspects such as attributes, functions, benefits, and uses. Rank by frequency.
+
+**Important format requirement**: Output ONLY a comma-separated list of attributes in the format: Attribute1, Attribute2, Attribute3, ...
+Do NOT use any brackets, braces, or other symbols. No other text allowed.
+
+Reviews:
+{sample_reviews}"
+"Attribute Scoring (Single)","score_attribute","system: You are a professional marketing data analyst. Please respond in English.
+user: For the following JSON: {review_json} Please only respond with {attribute}:<1-5 or None>"
+"Attribute Scoring (Batch)","score_attributes","system: You are a product review analysis expert. Rate product attributes based on review content. Please respond in English.
+user: Please rate the following attributes (1-5) based on the review. Return JSON format: {""scores"": {""Attribute1"": score, ""Attribute2"": score, ...}}
+Attributes: {attributes}
+Review: {review_text}"
+"Poisson Model Interpretation","poisson_interpretation","system: You are a sales analysis expert, skilled at interpreting Poisson regression results and providing business insights.
+user: 🎯 Product Attribute Positive Impact Analysis Report
+
+📊 Analysis Summary:
+• Successfully analyzed {num_attributes} attributes with positive impact
+• All coefficients are positive, indicating these attributes promote sales
+
+🏁 Track Champion (Strategic Priority):
+• {top_track_attr} - Track Multiplier {top_track_multiplier}x
+• Meaning: Greatest overall positive impact potential from lowest to highest
+• Recommendation: Suitable for long-term strategic improvement planning, enhancing this attribute will bring maximum returns
+
+⚡ Marginal Effect Champion (Daily Optimization):
+• {top_marginal_attr} - Each 1-unit increase promotes sales by {top_marginal_effect}%
+• Meaning: Small improvements show significant positive effects
+• Recommendation: Suitable for quick daily operations optimization with high ROI
+
+Please provide specific action recommendations within 300 words."
+"Smart Matching Explanation","smart_matching","system: You are a data analysis expert.
+user: System performed smart matching:
+Rating variant count: {eval_count}
+Sales variant count: {sales_count}
+Direct match count: {common_count}
+Matching strategy: Take top {min_length} for pairing
+
+Please briefly explain the rationality of this matching approach within 100 words."
+"PCA Analysis Interpretation","pca_interpretation","system: You are a statistical analysis expert, skilled at interpreting Principal Component Analysis results.
+user: PCA analysis reduced {num_attrs} product attributes to 3 main dimensions:
+PC1: Explains {pc1_var}% variance, mainly represents {pc1_attrs}
+PC2: Explains {pc2_var}% variance, mainly represents {pc2_attrs}
+PC3: Explains {pc3_var}% variance, mainly represents {pc3_attrs}
+
+Brand distribution in 3D space: {brands_distribution}
+
+Please explain:
+1. Business meaning of the three principal components
+2. Competitive positioning of brands
+Within 200 words."
+"Ideal Product Analysis","ideal_analysis","system: You are a product optimization expert.
+user: Ideal Product Analysis (MAMBA approach):
+Ideal point for each attribute is the highest score among all brands
+Brand scores 1 point if it reaches or exceeds the ideal point for an attribute
+
+{brand_name} Performance:
+• Total Score: {total_score}/{max_score}
+• Achieved Attributes: {achieved_attrs}
+• Improvement Needed: {gap_attrs}
+
+Please provide improvement strategies within 200 words."
+"Scoring Results Summary","scoring_summary","system: You are a professional marketing data analyst.
+user: Completed scoring of {total_reviews} reviews covering {num_variations} brands/products.
+
+Scoring attributes: {attributes}
+Average score distribution: {score_distribution}
+
+Please briefly summarize key findings from the scoring results within 150 words."
+"Upload Data Validation","data_validation","system: You are a data quality expert.
+user: Uploaded review data check results:
+• Total rows: {total_rows}
+• Number of brands: {num_variations}
+• Included columns: {columns}
+• Missing values: {missing_values}
+
+Please assess data quality and provide recommendations within 100 words."
+"Sales Data Merge","sales_merge","system: You are a data integration expert.
+user: Sales data merge status:
+• Review data brands: {review_brands}
+• Sales data brands: {sales_brands}
+• Successfully merged: {merged_count}/{total_count}
+• Merge strategy: {merge_strategy}
+
+Please explain the reliability of merge results within 100 words."
+"Personalized Marketing Strategy","personalized_marketing","system: You are a precision marketing strategy expert, skilled at developing personalized marketing strategies based on product attribute analysis results.
+user: Based on sales model analysis results, develop personalized marketing strategy for {brand_name}:
+
+📊 Product Attribute Performance:
+• Strength Attributes (high score & high impact): {strength_attrs}
+• Weakness Attributes (low score but high impact): {weakness_attrs}
+• Opportunity Attributes (high score but low impact): {opportunity_attrs}
+• Marginal Attributes (low score & low impact): {marginal_attrs}
+
+🎯 Key Metrics:
+• Highest Track Multiplier Attribute: {top_track_attr} ({track_multiplier}x)
+• Highest Marginal Effect Attribute: {top_marginal_attr} ({marginal_effect}%)
+• Average Attribute Score: {avg_score}/5
+
+Please develop personalized marketing strategy including:
+1. Brand positioning recommendations (50 words)
+2. Core selling points (3 key points)
+3. Target audience definition (30 words)
+4. Marketing message priorities (3 keywords)
+5. Improvement priorities (top 3 items)
+
+Total within 300 words, use precise and actionable language."
+"Keyword Generation","keyword_generation","system: You are a digital marketing expert, proficient in search engine marketing and keyword advertising strategies.
+user: Generate keyword advertising recommendations for {brand_name}:
+
+**IMPORTANT**: Based on the core advantage attributes below, first determine what type of product this is, then generate keywords directly related to that product type.
+For example: If attributes include 'protection', 'safety', 'impact-resistant', it might be safety glasses; if it includes 'sound quality', 'noise-canceling', it might be headphones.
+
+Core advantage attributes: {top_attributes}
+Average rating: {avg_score}/5
+Recommended quantity: {keyword_count} keywords
+Placement platform: {platform}
+
+Please provide:
+0. First, infer the product type (e.g., safety glasses, sunglasses, electric can opener, etc.)
+1. High-conversion keywords (5, must be related to the inferred product type)
+2. Long-tail keywords (5, must be related to the inferred product type)
+3. Competitor comparison keywords (3)
+4. Brand keywords (3)
+5. Negative keyword suggestions (to avoid ineffective traffic)
+
+For each keyword, please indicate:
+- Search intent (informational/transactional/navigational)
+- Competition level (high/medium/low)
+- Recommended bidding strategy
+
+Within 250 words, focus on practicality."
+"Product Development Recommendations","product_development","system: You are a product innovation expert, skilled at market analysis and new product development strategies.
+user: Based on market analysis, develop new product development recommendations:
+
+Development strategy: {strategy}
+Target audience: {target_segment}
+Focus attributes: {focus_attributes}
+Market gaps: {market_gaps}
+Strength areas: {strength_areas}
+Priority count: {priority_count}
+
+Please provide:
+1. Product concept (brief new product positioning)
+2. Core functions (3-5 essential functions)
+3. Differentiation selling points (differences from existing products)
+4. Technical requirements (key technical points)
+5. Expected benefits (market potential assessment)
+
+Within 250 words, focus on executability."
+"Ad Timing Recommendations","ad_timing","system: You are a media placement expert, proficient in advertising schedule optimization.
+user: Based on sales data analysis, optimal advertising placement timing:
+
+Sales peak hours: {peak_hours}
+Sales peak days: {peak_days}
+Highest conversion time: {best_conversion_time}
+Audience active time: {audience_active_time}
+Budget allocation recommendations: {budget_allocation}
+
+Please provide:
+1. Golden placement hours (specific to hours)
+2. Weekly placement plan (which days for focused placement)
+3. Monthly placement rhythm (early/mid/late month)
+4. Seasonal adjustment recommendations
+5. Budget time allocation ratios
+
+Within 150 words, data-driven."
+"Personalized Advertising","personalized_ads","system: You are a personalized marketing expert, skilled at customizing advertising content.
+user: Design personalized advertisements for different customer segments:
+
+Customer characteristics: {customer_segment}
+Preferred attributes: {preferred_attributes}
+Purchase motivation: {purchase_motivation}
+Pain points: {pain_points}
+Communication style: {communication_style}
+
+Please provide:
+1. Ad headline (attention-grabbing)
+2. Main appeal (core selling point)
+3. Emotional connection (resonance point)
+4. Call to action (CTA)
+5. Visual recommendations (image style)
+
+Within 200 words per customer segment, creative and precise."

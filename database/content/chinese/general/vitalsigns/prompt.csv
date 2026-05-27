@@ -1,0 +1,413 @@
+analysis_name,var_id,prompt
+"銷售趨勢分析","sales_trend_analysis","system: 你是銷售數據分析專家，擅長從銷售數據中發現趨勢和模式。請用繁體中文回答。
+user: 請分析以下銷售數據的趨勢：
+時間範圍：{time_period}
+銷售數據：{sales_data}
+請提供：
+1. 整體銷售趨勢（上升/下降/穩定）
+2. 關鍵轉折點分析
+3. 預測未來30天趨勢
+4. 具體行動建議
+回覆格式為markdown，300字內。"
+"產品表現評估","product_performance","system: 你是產品管理專家，擅長評估產品市場表現。請用繁體中文回答。
+user: 請評估以下產品的市場表現：
+產品名稱：{product_name}
+銷售指標：{sales_metrics}
+市場平均：{market_average}
+請分析產品定位（明星/問題/現金牛/瘦狗）並提供具體改進建議，200字內。"
+"異常檢測報告","anomaly_detection_report","system: 你是數據異常檢測專家。請用繁體中文回答。
+user: 以下是檢測到的銷售異常：
+異常類型：{anomaly_type}
+異常數據：{anomaly_data}
+歷史基準：{baseline}
+請分析可能原因並提供應對策略，格式為JSON：
+{\"原因分析\": \"...\", \"影響評估\": \"...\", \"建議策略\": [\"策略1\", \"策略2\"]}"
+"客戶分群分析","customer_segmentation_analysis","system: 你是客戶分析專家，專精於RFM分析與客戶分群。請用繁體中文回答。
+user: 根據以下客戶DNA數據進行深入分析：
+客戶統計：{customer_data}
+分群數據：{segment_data}
+請分析：
+1. 各客戶群體的特徵與價值
+2. 高價值客戶的行為模式
+3. 流失風險客戶的預警信號
+4. 針對性的行銷策略建議
+請用markdown格式回覆，重點條列，400字內。"
+"競品比較分析","competitor_comparison","system: 你是競爭情報分析師。請用繁體中文回答。
+user: 比較以下產品與競品的表現：
+自家產品：{our_product}
+競品數據：{competitor_data}
+市場環境：{market_context}
+請分析競爭優勢、劣勢及差異化策略，300字內。"
+"價格優化建議","price_optimization_suggestion","system: 你是定價策略專家。請用繁體中文回答。
+user: 基於以下數據提供定價建議：
+當前價格：{current_price}
+價格彈性：{price_elasticity}
+競品價格：{competitor_prices}
+成本結構：{cost_structure}
+請提供最優定價策略和預期效果，包含風險評估。"
+"促銷效果評估","promotion_evaluation","system: 你是行銷活動分析專家。請用繁體中文回答。
+user: 評估以下促銷活動效果：
+活動名稱：{campaign_name}
+活動成本：{campaign_cost}
+銷售提升：{sales_lift}
+ROI：{roi}
+客戶參與度：{engagement}
+請分析成功因素、改進建議，並提供未來活動優化方案。"
+"庫存優化建議","inventory_optimization","system: 你是供應鏈管理專家。請用繁體中文回答。
+user: 根據以下數據優化庫存：
+當前庫存：{current_inventory}
+銷售預測：{sales_forecast}
+前置時間：{lead_time}
+安全庫存：{safety_stock}
+季節性因子：{seasonality}
+請提供庫存管理建議，包含補貨點、訂購量、風險控制。"
+"市場機會識別","market_opportunity_identification","system: 你是市場策略顧問。請用繁體中文回答。
+user: 基於以下市場數據識別機會：
+市場趨勢：{market_trends}
+競爭格局：{competitive_landscape}
+客戶需求：{customer_needs}
+技術趨勢：{technology_trends}
+請識別前3大市場機會並提供具體的進入策略與時程規劃。"
+"銷售預測分析","sales_forecast_model","system: 你是預測分析專家。請用繁體中文回答。
+user: 基於歷史數據預測未來銷售：
+歷史銷售：{historical_sales}
+季節因素：{seasonality}
+市場趨勢：{market_trends}
+外部因素：{external_factors}
+請提供未來{forecast_period}的銷售預測、信心區間及關鍵假設。"
+"客戶流失預警","churn_prediction","system: 你是客戶保留專家。請用繁體中文回答。
+user: 分析以下客戶流失風險：
+客戶行為：{customer_behavior}
+流失指標：{churn_indicators}
+歷史模式：{historical_patterns}
+互動記錄：{interaction_history}
+請識別高風險客戶並提供個人化挽留策略，包含時機與方法。"
+"產品組合優化","portfolio_optimization","system: 你是產品組合管理專家。請用繁體中文回答。
+user: 優化以下產品組合：
+產品列表：{product_list}
+銷售表現：{sales_performance}
+利潤貢獻：{profit_contribution}
+市場定位：{market_positioning}
+請提供產品組合調整建議，包含淘汰、強化、新增的具體方案。"
+"營收健康診斷","revenue_health_diagnosis","system: 你是財務分析專家，擅長營收健康度分析。請用繁體中文回答。
+user: 根據以下營收數據進行健康診斷：
+營收數據：{revenue_data}
+客戶指標：{customer_metrics}
+產品表現：{product_performance}
+成長率：{growth_rates}
+請提供營收健康度評估、風險預警及改善建議，250字內。"
+"客戶獲取效率分析","acquisition_efficiency_analysis","system: 你是客戶獲取專家。請用繁體中文回答。
+user: 分析客戶獲取效率：
+獲取成本：{acquisition_cost}
+轉換率：{conversion_rates}
+客戶品質：{customer_quality}
+管道表現：{channel_performance}
+請評估各管道效率並提供優化建議，包含預算重新配置方案。"
+"留存策略建議","retention_strategy_recommendation","system: 你是客戶留存策略專家。請用繁體中文回答。
+user: 基於以下數據制定留存策略：
+流失率：{churn_rate}
+留存率：{retention_rate}
+客戶滿意度：{satisfaction_scores}
+產品使用情況：{usage_patterns}
+請提供分階段留存策略，包含新手期、成長期、成熟期的不同做法。"
+"轉化漏斗優化","conversion_funnel_optimization","system: 你是轉化優化專家。請用繁體中文回答。
+user: 優化以下轉化漏斗：
+漏斗數據：{funnel_data}
+各階段轉換率：{conversion_rates}
+流失點分析：{drop_off_points}
+用戶行為：{user_behavior}
+請識別瓶頸並提供優化建議，包含A/B測試方案。"
+"DNA分群行銷建議","dna_segment_marketing","system: 你是客戶分群行銷專家，擅長根據RFM和DNA分析制定精準行銷策略。請用繁體中文回答。
+user: 根據以下客戶分群數據提供行銷建議：
+分群名稱：{segment_name}
+群體特徵：{segment_characteristics}
+平均指標：{avg_metrics}
+群體規模：{segment_size}
+請提供：
+1. 該群體的行銷價值評估
+2. 最適合的產品/服務推薦
+3. 溝通頻率與管道建議
+4. 具體的促銷活動設計
+回覆200字內，重點條列。"
+"DNA分析摘要","dna_analysis_summary","system: 你是數據分析專家，擅長將複雜的DNA分析結果轉化為商業洞察。請用繁體中文回答。
+user: 總結以下DNA分析結果：
+分析指標：{metric_name}
+統計數據：{statistics}
+分群結果：{segmentation_results}
+80/20法則分析：{pareto_analysis}
+請提供：
+1. 關鍵發現（3點）
+2. 管理意涵
+3. 立即行動建議
+4. 長期策略方向
+用markdown格式，300字內。"
+"品牌定位策略分析","brand_positioning_strategy","system: 你是一位數據分析師，請用繁體中文回答。
+user: 以下為特定Variation在品牌定位上，可訴求的屬性、可改變的屬性、可改善的屬性、品牌的劣勢屬性等，請針對此四個分析面向，提出相應的行銷策略、廣告文案建議。如果四個分析面向都沒有半個屬性，則完全不要呈現，也不要提供任何行銷建議。字數300字內。請回覆為markdown的格式。資料: {features}"
+"營收客單價分析","revenue_pulse_aov_analysis","system: 你是營收分析專家，擅長客單價優化與客群價值提升。請用繁體中文回答。
+user: 根據以下客單價數據提供行銷策略：
+新客平均客單價：${new_customer_aov}
+主力客平均客單價：${core_customer_aov}
+整體ARPU：${overall_arpu}
+客戶總數：{customer_count}
+請提供：
+1. 新客價值提升策略
+2. 主力客深化經營建議
+3. 具體促銷方案
+以要點形式回覆，200字內。"
+"顧客新增率分析","customer_acquisition_rate_analysis","system: 你是客戶增長分析專家，擅長分析新客獲取效率。請用繁體中文回答。
+user: 根據以下顧客新增數據提供分析和建議：
+新客戶數量：{new_customers}
+總客戶數：{total_customers}  
+顧客新增率：{acquisition_rate}%
+活躍客戶數：{active_customers}
+請分析：
+1. 新客獲取效率評估
+2. 與行業基準比較（一般電商新客率15-25%）
+3. 新客獲取策略建議
+4. 具體行動方案
+以要點形式回覆，200字內。"
+"顧客變動率分析","customer_change_rate_analysis","system: 你是客戶留存專家，擅長分析客戶池健康度。請用繁體中文回答。
+user: 根據以下顧客變動數據提供分析：
+活躍客戶數：{active_customers}
+總客戶數：{total_customers}
+顧客變動率：{net_change_rate}%
+客戶結構：{customer_structure}
+請提供：
+1. 客戶池健康度診斷
+2. 流失風險評估
+3. 客戶活化策略
+4. 預防流失措施
+以要點形式回覆，200字內。"
+"營收CLV分群分析","revenue_pulse_clv_analysis","system: 你是客戶價值分析專家，擅長根據CLV分群制定差異化策略。請用繁體中文回答。
+user: 根據以下CLV分群數據提供策略建議：
+高價值客戶：{high_value_count}人，佔{high_value_pct}%客戶，貢獻{high_value_revenue_pct}%營收，平均CLV ${high_value_avg_clv}
+中價值客戶：{mid_value_count}人，佔{mid_value_pct}%客戶，貢獻{mid_value_revenue_pct}%營收，平均CLV ${mid_value_avg_clv}
+低價值客戶：{low_value_count}人，佔{low_value_pct}%客戶，貢獻{low_value_revenue_pct}%營收，平均CLV ${low_value_avg_clv}
+請提供：
+1. 80/20法則分析洞察
+2. 各群體經營策略
+3. 資源配置建議
+4. 具體行銷活動
+以要點形式回覆，250字內。"
+"營收趨勢分析","revenue_pulse_trend_analysis","system: 你是營收趨勢分析專家，擅長從時間序列數據中發現商業洞察。請用繁體中文回答。
+user: 根據以下營收趨勢數據提供分析：
+整體平均成長率：{avg_growth}%
+最近三個月平均成長率：{recent_growth}%
+趨勢方向：{trend_direction}
+最高月成長率：{max_growth}%
+最低月成長率：{min_growth}%
+請提供：
+1. 趨勢診斷與風險評估
+2. 成長動能分析
+3. 策略調整建議
+4. 下季度預測
+以要點形式回覆，200字內。"
+"客戶留存率分析","customer_retention_analysis","system: 你是客戶留存專家，擅長分析客戶忠誠度並制定留存策略。請用繁體中文回答。
+user: 根據以下留存數據提供分析和建議：
+留存率：{retention_rate}%
+流失率：{churn_rate}%
+主力客比率：{core_ratio}%
+風險客戶數：{at_risk_count}
+活躍客戶數：{active_count}
+請提供：
+1. 留存健康度評估
+2. 流失原因分析
+3. 挽留策略建議
+4. 預防措施
+以要點形式回覆，250字內。"
+"新客分析","new_customer_analysis","system: 你是新客戶經營專家，擅長提升新客的二購率。請用繁體中文回答。
+user: 根據以下新客數據提供策略：
+新客數量：{new_count}
+佔比：{new_ratio}%
+平均客單價：${new_aov}
+首購至今天數：{days_since}
+請提供：
+1. 新客特徵分析
+2. 二購率提升策略
+3. 歡迎計劃建議
+4. 溝通時機與方式
+以要點形式回覆，200字內。"
+"瞌睡客喚醒策略","drowsy_customer_strategy","system: 你是客戶喚醒專家，擅長制定瞌睡客戶的激活策略。請用繁體中文回答。
+user: 根據以下瞌睡客數據制定喚醒策略：
+瞌睡客數量：{drowsy_count}
+佔比：{drowsy_ratio}%
+平均沉睡天數：{avg_days}
+歷史平均消費：${avg_spend}
+請提供：
+1. 瞌睡原因診斷
+2. 喚醒優先順序
+3. 激勵方案設計
+4. 預期喚醒率
+以要點形式回覆，200字內。"
+"沉睡客激活策略","sleeping_customer_strategy","system: 你是客戶激活專家，擅長重新激活沉睡客戶。請用繁體中文回答。
+user: 根據以下沉睡客數據制定激活策略：
+沉睡客數量：{sleeping_count}
+佔比：{sleeping_ratio}%
+平均沉睡天數：{avg_sleep_days}
+歷史總價值：${total_value}
+請提供：
+1. 沉睡客價值評估
+2. 激活成本效益分析
+3. 分批激活計劃
+4. 特殊優惠設計
+以要點形式回覆，200字內。"
+"客戶狀態結構分析","customer_status_analysis","system: 你是客戶分析專家，擅長解讀客戶狀態結構並優化客戶組合。請用繁體中文回答。
+user: 根據以下客戶狀態分布提供分析：
+新客(N)：{n_count}人({n_ratio}%)
+主力客(E0)：{e0_count}人({e0_ratio}%)
+瞌睡客(S1)：{s1_count}人({s1_ratio}%)
+半睡客(S2)：{s2_count}人({s2_ratio}%)
+沉睡客(S3)：{s3_count}人({s3_ratio}%)
+請提供：
+1. 結構健康度診斷
+2. 各群體經營重點
+3. 資源配置建議
+4. 結構優化目標
+以要點形式回覆，250字內。"
+"購買頻率意義分析","activity_purchase_frequency_analysis","system: 你是客戶行為分析專家，擅長解讀購買頻率背後的商業意義。請用繁體中文回答。
+user: 根據以下購買頻率數據提供深度分析：
+平均購買頻率：{avg_frequency}
+頻率分布：{frequency_distribution}
+高頻客戶比例：{high_frequency_ratio}%
+單次購買客戶比例：{one_time_ratio}%
+請分析：
+1. 頻率模式對業務的商業意義
+2. 客戶忠誠度與黏著度評估
+3. 頻率提升的策略建議
+4. 預期改善效果
+以markdown格式回覆，200字內。"
+"客戶喚醒機會分析","activity_reactivation_opportunity","system: 你是客戶喚醒策略專家，擅長識別並分析客戶重新激活的機會。請用繁體中文回答。
+user: 根據以下客戶喚醒數據提供分析：
+需喚醒客戶總數：{total_reactivation_targets}
+緊急喚醒：{urgent_count}人，潛在價值${urgent_value}
+重要喚醒：{important_count}人，潛在價值${important_value}
+一般喚醒：{normal_count}人，潛在價值${normal_value}
+請提供：
+1. 喚醒機會價值評估
+2. 分層喚醒策略建議
+3. 預期成功率與ROI
+4. 具體執行計劃
+以要點形式回覆，250字內。"
+"忠誠度階梯分析","activity_loyalty_ladder_analysis","system: 你是客戶忠誠度管理專家，擅長分析客戶成長軌跡並制定階梯式經營策略。請用繁體中文回答。
+user: 根據以下忠誠度階梯數據提供分析：
+忠誠度分層：{loyalty_levels}
+各層級分布：{level_distribution}
+晉級轉換率：{promotion_rates}
+平均消費差異：{avg_value_diff}
+請提供：
+1. 忠誠度結構健康評估
+2. 各階段客戶經營重點
+3. 晉級促進策略
+4. 長期價值最大化建議
+以markdown格式回覆，200字內。"
+"需要喚醒客戶清單分析","activity_reactivation_list_analysis","system: 你是客戶數據分析師，擅長從客戶清單中發現價值與機會。請用繁體中文回答。
+user: 根據以下需要喚醒的客戶清單數據：
+客戶總數：{customer_count}
+平均沉睡天數：{avg_dormant_days}
+累積歷史價值：${total_historical_value}
+平均客單價：${avg_order_value}
+上次購買分布：{last_purchase_distribution}
+請分析：
+1. 喚醒客戶群體特徵
+2. 價值潛力評估
+3. 個人化喚醒建議
+4. 優先處理順序
+以要點形式回覆，200字內。"
+
+"客戶喚醒機會分析","activity_customer_reactivation_analysis","system: 你是客戶喚醒策略專家，擅長制定個人化的客戶重新激活方案。請用繁體中文回答。
+user: 根據以下數據分析客戶喚醒機會：
+需喚醒客戶數：{reactivation_count}
+總歷史價值：${total_value}
+平均沉睡天數：{avg_dormant_days}天
+
+請分析：
+1. 喚醒價值評估
+2. 優先級排序策略
+3. 個人化喚醒方案
+4. 預期投資回報率
+以要點形式回覆，200字內。"
+"忠誠度階梯策略","activity_loyalty_ladder_strategy","system: 你是客戶忠誠度管理專家，擅長設計客戶成長路徑。請用繁體中文回答。
+user: 根據以下忠誠度分布制定策略：
+初次購買：{first_time}人
+偶爾購買：{occasional}人
+常客：{regular}人
+忠誠客戶：{loyal}人
+品牌大使：{ambassador}人
+
+請提供：
+1. 各層級特徵分析
+2. 升級激勵方案
+3. 差異化權益設計
+4. 防流失措施
+以要點形式回覆，200字內。"
+"喚醒客戶行銷計畫","activity_reactivation_marketing_plan","system: 你是行銷自動化專家，擅長設計多波次的客戶喚醒計畫。請用繁體中文回答。
+user: 為以下客戶群設計喚醒計畫：
+S1瞌睡客：{s1_count}人
+S2半睡客：{s2_count}人
+總歷史價值：${total_historical_value}
+平均客單價：${avg_order_value}
+
+請設計：
+1. 多波次觸達計畫
+2. 各波次內容主題
+3. 優惠力度建議
+4. KPI追蹤指標
+以要點形式回覆，200字內。"
+"客戶留存客群分析","customer_retention_segment","system: 你是客戶留存專家，擅長根據客戶狀態制定精準行銷策略。請用繁體中文回答。
+user: 根據以下客群數據提供行銷建議：
+客群名稱：{segment_name}
+客群規模：{customer_count}人（{customer_ratio}）
+平均最近購買時間：{avg_recency}
+平均購買頻率：{avg_frequency}
+平均購買金額：{avg_monetary}
+總營收貢獻：{total_revenue}
+
+請提供：
+1. 該客群的特徵與價值評估
+2. 策略方向與目標
+3. 3-4個具體行動建議
+4. 預期成效與ROI
+
+以下列格式回覆：
+## 客群特徵
+- 特徵描述
+
+## 策略方向
+- 主要策略
+
+## 具體行動
+1. 行動一
+2. 行動二
+3. 行動三
+4. 行動四
+
+## 預期成效
+- 成效預估
+
+250字內。"
+"半睡客喚醒策略","semi_dormant_customer_strategy","system: 你是客戶挽留專家，擅長制定半睡客戶的深度喚醒策略。請用繁體中文回答。
+user: 根據以下半睡客數據制定喚醒策略：
+半睡客數量：{semi_dormant_count}
+佔比：{semi_dormant_ratio}%
+平均沉睡天數：{avg_sleep_days}
+歷史平均消費：${avg_spend}
+最近購買週期：{last_purchase_cycle}天
+請提供：
+1. 半睡客流失風險評估
+2. 強化喚醒策略設計
+3. 多管道觸達方案
+4. 預期挽回率與ROI
+以要點形式回覆，200字內。"
+"主力客深化策略","core_customer_strategy","system: 你是VIP客戶經營專家，擅長深化主力客戶關係並提升終身價值。請用繁體中文回答。
+user: 根據以下主力客數據制定經營策略：
+主力客數量：{core_count}
+佔比：{core_ratio}%
+平均購買頻率：{avg_frequency}次
+平均客單價：${avg_monetary}
+貢獻營收比例：{revenue_contribution}%
+請提供：
+1. 主力客價值深度分析
+2. VIP權益設計建議
+3. 忠誠度提升方案
+4. 交叉銷售與升級策略
+以要點形式回覆，200字內。"

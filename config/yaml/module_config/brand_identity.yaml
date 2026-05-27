@@ -1,0 +1,252 @@
+# ==========================================
+# BrandEdge 品牌識別度分析模組配置
+# ==========================================
+# Module: brand_identity
+# Path: modules/module_brandedge_brand_identity.R
+# Version: 1.0.0
+
+module:
+  id: "brand_identity"
+  name: "brand_identity_module"
+  description: "uniqueness_differentiation_strategy"
+  version: "1.0.0"
+  path: "modules/module_brandedge_brand_identity.R"
+  type: "analysis"
+  icon: "fingerprint"
+
+# UI 配置
+ui:
+  title_key: "title"
+  subtitle_key: "subtitle"
+  card_status: "info"
+
+  tabs:
+    uniqueness:
+      id: "uniqueness"
+      title_key: "tabs.uniqueness"
+      icon: "star"
+
+    differentiation:
+      id: "differentiation"
+      title_key: "tabs.differentiation"
+      icon: "chart-scatter"
+
+    strategy:
+      id: "strategy"
+      title_key: "tabs.strategy"
+      icon: "compass"
+
+# 獨特性分析
+uniqueness_analysis:
+  # 🆕 Module configuration parameters
+  top_n: 10                              # Top N unique attributes to display
+  diff_score_decimal: 2                  # Decimal places for difference scores
+
+  # 計算方法
+  calculation:
+    method: "variance_based"           # variance_based | distance_based | hybrid
+    distance_metric: "euclidean"      # euclidean | manhattan | cosine
+
+  # 獨特性指標
+  metrics:
+    - name: "attribute_variance"
+      weight: 0.4
+      description_key: "metrics.attribute_variance"
+
+    - name: "distance_from_average"
+      weight: 0.3
+      description_key: "metrics.distance_from_average"
+
+    - name: "outlier_score"
+      weight: 0.3
+      description_key: "metrics.outlier_score"
+
+  # 閾值設定
+  thresholds:
+    highly_unique: 0.7
+    moderately_unique: 0.4
+    similar: 0.0
+
+# 差異化分析
+differentiation_analysis:
+  # 比較方式
+  comparison:
+    type: "pairwise"                   # pairwise | group | best_in_class
+    focus: "key_attributes"            # key_attributes | all_attributes | top_performers
+
+  # 關鍵差異識別
+  key_differences:
+    min_gap: 0.5                       # 最小差距才算關鍵差異
+    top_n: 5                           # 識別前 N 個差異點
+    significance_test: true
+    alpha: 0.05
+
+  # 視覺化
+  visualization:
+    chart_type: "scatter"              # scatter | bubble | heatmap
+    axes:
+      x: "avg_score"
+      y: "variance"
+    color_by: "brand"
+    size_by: "importance"              # importance | frequency | none
+
+# 🆕 Visualization Configuration (module expects this structure)
+visualization:
+  matrix:
+    marker_size:
+      target: 12                         # Marker size for target brand
+      other: 8                           # Marker size for other brands
+    colors:
+      target: "#FF6B6B"                  # Color for target brand (red)
+      other: "#4ECDC4"                   # Color for other brands (teal)
+    quadrant_positions:                  # Label positions for quadrants (paper coordinates 0-1)
+      high_identity_high_strength:
+        position:
+          x: 0.75
+          y: 0.85
+        font_size: 14
+      low_identity_high_strength:
+        position:
+          x: 0.15
+          y: 0.85
+        font_size: 14
+      high_identity_low_strength:
+        position:
+          x: 0.75
+          y: 0.15
+        font_size: 14
+      low_identity_low_strength:
+        position:
+          x: 0.15
+          y: 0.15
+        font_size: 14
+
+# 定位策略建議
+strategy_recommendations:
+  # AI 生成設定
+  ai_generation:
+    enabled: true
+    model: "gpt-5-nano"
+    temperature: 0.8
+    max_tokens: 2000
+
+  # 策略類型
+  strategy_types:
+    - name: "strengthen_unique"
+      condition: "high_uniqueness"
+      description_key: "strategies.strengthen_unique"
+
+    - name: "create_differentiation"
+      condition: "low_uniqueness"
+      description_key: "strategies.create_differentiation"
+
+    - name: "maintain_position"
+      condition: "moderate_uniqueness"
+      description_key: "strategies.maintain_position"
+
+  # 輸出格式
+  output:
+    format: "structured"               # structured | narrative | bullet_points
+    include_examples: true
+    include_metrics: true
+    prioritize_actions: true
+
+# 品牌定位地圖
+positioning_map:
+  # 維度選擇
+  dimensions:
+    auto_select: true                  # 自動選擇最具區辨力的維度
+    method: "pca"                      # pca | discriminant | manual
+    num_dimensions: 2
+
+  # 手動維度（當 auto_select = false）
+  manual_dimensions:
+    x_axis: "quality"
+    y_axis: "innovation"
+
+  # 視覺化
+  visualization:
+    show_density: false                # 顯示密度等高線
+    show_convex_hull: true             # 顯示品牌群組邊界
+    label_method: "ggrepel"
+    point_size: 4
+    alpha: 0.7
+
+# 競爭優勢識別
+competitive_advantage:
+  # 識別標準
+  criteria:
+    min_score: 4.0                     # 最低分數
+    min_lead: 0.3                      # 最小領先幅度
+    consistency_required: true         # 需要跨屬性一致性
+
+  # 優勢類型
+  types:
+    - "absolute_advantage"             # 絕對優勢（所有競品中最高）
+    - "relative_advantage"             # 相對優勢（高於平均一定幅度）
+    - "niche_advantage"                # 利基優勢（特定屬性突出）
+
+  # 輸出設定
+  output:
+    show_all_types: true
+    rank_by: "strength"                # strength | breadth | sustainability
+    top_n: 10
+
+# 弱點識別
+weakness_identification:
+  # 識別標準
+  criteria:
+    max_score: 3.0                     # 最高分數
+    min_gap_from_leader: 0.5           # 與領先者最小差距
+    high_importance_only: true         # 只考慮重要屬性
+
+  # 優先級排序
+  prioritization:
+    method: "impact_feasibility"       # impact_feasibility | gap_size | importance
+    weights:
+      impact: 0.6
+      feasibility: 0.4
+
+# 資料驗證
+validation:
+  min_brands: 3                        # 需要至少 3 個品牌才能做差異化分析
+  min_attributes: 5
+  require_scored_data: true
+  check_variance: true                 # 確保資料有足夠變異性
+  min_variance: 0.1
+
+# 輸出設定
+output:
+  # 圖表
+  charts:
+    uniqueness_scatter:
+      show: true
+      height: 500
+
+    differentiation_heatmap:
+      show: true
+      height: 450
+
+    positioning_map:
+      show: true
+      height: 500
+
+  # 表格
+  tables:
+    uniqueness_scores:
+      show: true
+      format: "datatable"
+      highlight_extremes: true
+
+    key_differences:
+      show: true
+      show_significance: true
+
+    advantages_weaknesses:
+      show: true
+      group_by: "brand"
+
+# 語言內容路徑
+language:
+  content_path: "database/content/{language}/module/brand_identity.yaml"
+  fallback_path: "database/content/chinese/module/brand_identity.yaml"

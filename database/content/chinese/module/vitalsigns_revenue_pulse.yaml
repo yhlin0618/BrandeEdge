@@ -1,0 +1,913 @@
+# ==========================================
+# VitalSigns - Revenue Pulse Module Language Content (Chinese)
+# ==========================================
+# 營收脈能分析模組語言內容（中文）
+# Version: 1.0.0
+# Last Updated: 2025-10-11
+
+# 模組基本資訊
+title: "營收脈能分析"
+subtitle: "量化收入規模、單客價值與獲利韌性"
+description: "評估營收健康度、分析價值分布、識別高貢獻客戶、優化獲利結構"
+
+# UI 區塊
+ui:
+  sections:
+    overview: "營收概覽"
+    revenue_metrics: "核心指標"
+    consistency_score: "營收穩定度評分"
+    revenue_distribution: "營收分布"
+    pareto_analysis: "Pareto 80/20 法則"
+    revenue_segments: "客戶營收分群"
+    arpu_analysis: "客單價分析"
+    clv_segments: "CLV 客群分析"
+    clv_distribution: "顧客終生價值分布"
+    revenue_trends: "營收趨勢"
+    contribution_analysis: "貢獻度分析"
+    top_customers: "高價值客戶排名"
+    metrics_table: "營收指標明細"
+    ai_insights: "AI 洞察"
+
+  # 標籤
+  labels:
+    consistency_label: "一致性分數"
+    stability_interpretation: "穩定度解讀"
+
+  # 按鈕
+  buttons:
+    calculate_metrics: "計算指標"
+    analyze_pareto: "分析 Pareto"
+    segment_clv: "CLV 分群"
+    generate_insights: "生成 AI 洞察"
+    export_analysis: "匯出分析報告"
+    download_segments: "下載客戶名單"
+    download_full_list: "下載完整客戶名單"
+    download_revenue_list: "下載完整客戶營收清單"
+
+# 指標定義
+metrics:
+  # 核心營收指標
+  total_revenue:
+    name: "總銷售額"
+    short_name: "銷售額"
+    description: "所有交易的總金額"
+    icon: "dollar-sign"
+    unit: "元"
+    color: "primary"
+
+  arpu:
+    name: "人均購買金額 (ARPU)"
+    short_name: "ARPU"
+    full_name: "Average Revenue Per User"
+    description: "平均每位客戶貢獻的營收"
+    icon: "user-dollar"
+    unit: "元"
+    color: "success"
+    formula: "總營收 / 客戶數"
+
+  clv:
+    name: "平均顧客終生價值 (CLV)"
+    short_name: "CLV"
+    full_name: "Customer Lifetime Value"
+    description: "客戶在整個生命週期內貢獻的總價值"
+    icon: "chart-line"
+    unit: "元"
+    color: "info"
+    formula: "ARPU × 購買頻率 × 客戶壽命"
+
+  aov:
+    name: "平均訂單價值 (AOV)"
+    short_name: "AOV"
+    full_name: "Average Order Value"
+    description: "每筆訂單的平均金額"
+    icon: "shopping-cart"
+    unit: "元"
+    color: "warning"
+    formula: "總營收 / 訂單數"
+
+  consistency_score:
+    name: "營收穩定度"
+    short_name: "穩定度"
+    description: "營收一致性和可預測性評分"
+    icon: "heartbeat"
+    unit: "分"
+    color: "success"
+    range: "0-100"
+
+# 營收穩定度
+consistency:
+  # 穩定度等級
+  levels:
+    excellent:
+      name: "極佳"
+      min_score: 80
+      color: "success"
+      icon: "💚"
+      interpretation: "營收非常穩定，業務健康"
+
+    good:
+      name: "良好"
+      min_score: 60
+      color: "primary"
+      icon: "💙"
+      interpretation: "營收較為穩定，略有波動"
+
+    moderate:
+      name: "中等"
+      min_score: 40
+      color: "warning"
+      icon: "💛"
+      interpretation: "營收波動明顯，需要關注"
+
+    poor:
+      name: "不佳"
+      min_score: 0
+      color: "danger"
+      icon: "❤️"
+      interpretation: "營收不穩定，風險較高"
+
+  # 評估維度
+  dimensions:
+    revenue_stability:
+      name: "營收波動性"
+      description: "營收變異係數（CV）"
+      weight: 0.4
+
+    growth_consistency:
+      name: "成長一致性"
+      description: "成長率的穩定程度"
+      weight: 0.3
+
+    customer_concentration:
+      name: "客戶集中度"
+      description: "營收來源的分散程度"
+      weight: 0.3
+
+# Pareto 分析
+pareto:
+  # 80/20 法則
+  rule_8020:
+    name: "Pareto 80/20 法則"
+    description: "80% 的營收來自 20% 的客戶"
+    interpretation: "識別高價值客戶，優化資源配置"
+
+  # 客群分類
+  segments:
+    top_20:
+      name: "高價值客戶（前20%）"
+      short_name: "Top 20%"
+      description: "貢獻最多營收的客戶群"
+      color: "success"
+      icon: "👑"
+      typical_contribution: "70-90%"
+
+    middle_60:
+      name: "中價值客戶（中間60%）"
+      short_name: "Middle 60%"
+      description: "貢獻中等營收的客戶群"
+      color: "primary"
+      icon: "⭐"
+      typical_contribution: "10-25%"
+
+    bottom_20:
+      name: "低價值客戶（後20%）"
+      short_name: "Bottom 20%"
+      description: "貢獻最少營收的客戶群"
+      color: "warning"
+      icon: "👤"
+      typical_contribution: "0-5%"
+
+  # Pareto 指標
+  metrics:
+    pareto_ratio:
+      name: "Pareto 比率"
+      description: "前20%客戶的營收占比"
+      ideal_range: "70-80%"
+
+    concentration_index:
+      name: "集中度指數"
+      description: "營收集中程度的量化指標"
+      interpretation: "越高表示越集中於少數客戶"
+
+# CLV 分群
+clv_segments:
+  # 依 CLV 分群
+  tiers:
+    platinum:
+      name: "白金客戶"
+      description: "最高價值的客戶群"
+      color: "#E5E4E2"
+      icon: "💎"
+      percentile: "前10%"
+      strategy: "頂級服務，全力維護"
+
+    gold:
+      name: "黃金客戶"
+      description: "高價值客戶群"
+      color: "#FFD700"
+      icon: "🥇"
+      percentile: "10-25%"
+      strategy: "優質服務，積極提升"
+
+    silver:
+      name: "白銀客戶"
+      description: "中等價值客戶群"
+      color: "#C0C0C0"
+      icon: "🥈"
+      percentile: "25-75%"
+      strategy: "標準服務，持續培養"
+
+    bronze:
+      name: "銅牌客戶"
+      description: "基礎價值客戶群"
+      color: "#CD7F32"
+      icon: "🥉"
+      percentile: "75-100%"
+      strategy: "基礎服務，選擇性投入"
+
+  # CLV 計算方法
+  calculation:
+    simple:
+      name: "簡化法"
+      formula: "平均購買價值 × 購買頻率 × 客戶壽命"
+      use_case: "快速估算"
+
+    cohort_based:
+      name: "同期群法"
+      formula: "基於實際同期群的累積營收"
+      use_case: "精確計算"
+
+    predictive:
+      name: "預測法"
+      formula: "歷史資料 + 流失率預測"
+      use_case: "未來價值估算"
+
+# 營收趨勢
+revenue_trends:
+  # 趨勢類型
+  types:
+    time_series:
+      name: "時間序列趨勢"
+      description: "營收隨時間變化的趨勢"
+
+    moving_average:
+      name: "移動平均"
+      description: "平滑後的趨勢線"
+      periods: [7, 14, 30]
+
+    growth_rate:
+      name: "成長率趨勢"
+      description: "營收成長率的變化"
+
+  # 期間比較
+  comparisons:
+    mom:
+      name: "月比較 (MoM)"
+      description: "與上月比較"
+
+    yoy:
+      name: "年比較 (YoY)"
+      description: "與去年同期比較"
+
+    cumulative:
+      name: "累積比較"
+      description: "累積營收比較"
+
+# 貢獻度分析
+contribution:
+  # 貢獻度指標
+  metrics:
+    revenue_contribution:
+      name: "營收貢獻度"
+      description: "個別客戶或客群的營收占比"
+      unit: "%"
+
+    transaction_contribution:
+      name: "交易貢獻度"
+      description: "交易次數的占比"
+      unit: "%"
+
+    customer_share:
+      name: "客戶占比"
+      description: "客戶數量的占比"
+      unit: "%"
+
+  # 貢獻度分析類型
+  analysis_types:
+    by_customer:
+      name: "按客戶分析"
+      description: "個別客戶的營收貢獻"
+
+    by_segment:
+      name: "按客群分析"
+      description: "不同客群的營收貢獻"
+
+    by_period:
+      name: "按時間分析"
+      description: "不同時期的營收貢獻"
+
+# 圖表配置
+charts:
+  # 客單價比較圖 (AOV Comparison)
+  aov_comparison:
+    title: "客單價分析"
+    subtitle: "不同客群平均客單價比較"
+    categories:
+      overall: "全體平均"
+      new: "新客"
+      core: "主力客"
+    x_axis: "客戶類型"
+    y_axis: "平均客單價 ($)"
+    hover_label: "平均客單價"
+
+  # CLV 分布散點圖 (CLV Distribution)
+  clv_distribution:
+    title: "顧客終生價值分布 (80/20法則)"
+    subtitle: "CLV 分布 (80/20法則)"
+    segments:
+      high: "高價值客戶"
+      mid: "中價值客戶"
+      low: "低價值客戶"
+    x_axis: "客戶分群"
+    y_axis: "顧客終生價值 ($)"
+    x_labels:
+      low: "低價值\n(Bottom 20%)"
+      mid: "中價值\n(Middle 60%)"
+      high: "高價值\n(Top 20%)"
+    legend:
+      median: "中位數"
+      mean: "平均值"
+    annotations:
+      note: "📊 高價值客戶貢獻 80% 營收 | 🔶 中位數 | 🔹 平均值 | 灰色區域: 四分位範圍 (Q1-Q3)"
+
+  # 收入趨勢圖 (Revenue Trend)
+  revenue_trend:
+    title: "收入成長曲線"
+    no_data: "收入趨勢分析需要時間序列數據\n請確保上傳資料包含詳細交易時間"
+
+  # 營收分布直方圖
+  revenue_distribution_chart:
+    title: "營收分布"
+    x_axis: "營收區間"
+    y_axis: "客戶數"
+    tooltip: "{range}: {count} 位客戶"
+
+  # Pareto 曲線圖
+  pareto_curve_chart:
+    title: "Pareto 曲線（累積營收占比）"
+    x_axis: "累積客戶比例 (%)"
+    y_axis: "累積營收比例 (%)"
+    reference_line: "80/20 基準線"
+    tooltip: "前 {customer_pct}% 客戶貢獻 {revenue_pct}% 營收"
+
+  # CLV 分群餅圖
+  clv_segments_pie:
+    title: "CLV 客群分布"
+    tooltip: "{segment}: {count} 位 ({percentage}%)"
+
+  # 營收趨勢圖
+  revenue_trend_chart:
+    title: "營收趨勢"
+    x_axis: "時間"
+    y_axis: "營收金額"
+    tooltip: "{date}: NT${amount}"
+
+  # ARPU 趨勢圖
+  arpu_trend_chart:
+    title: "ARPU 趨勢"
+    x_axis: "時間期間"
+    y_axis: "ARPU 金額"
+    tooltip: "{period}: NT${arpu}"
+
+  # 貢獻度堆疊圖
+  contribution_stack_chart:
+    title: "客群營收貢獻度"
+    x_axis: "時間期間"
+    y_axis: "營收占比 (%)"
+    tooltip: "{segment} in {period}: {percentage}%"
+
+# 訊息文字
+messages:
+  # 成功訊息
+  success:
+    metrics_calculated: "✅ 營收指標計算完成"
+    pareto_analyzed: "✅ Pareto 分析完成"
+    clv_segmented: "✅ CLV 分群完成"
+    insights_generated: "✅ AI 洞察已生成"
+
+  # 處理中
+  processing:
+    calculating_metrics: "計算營收指標中..."
+    analyzing_distribution: "分析營收分布中..."
+    segmenting_customers: "客戶分群中..."
+    analyzing_trends: "分析趨勢中..."
+
+  # 錯誤訊息
+  error:
+    insufficient_data: "❌ 資料不足，無法進行營收分析"
+    no_revenue_data: "❌ 無營收資料"
+    calculation_failed: "❌ 計算失敗"
+
+  # 警告訊息
+  warning:
+    high_concentration: "⚠️ 營收過度集中於少數客戶（{percentage}%），風險較高"
+    low_consistency: "⚠️ 營收穩定度較低（{score}分），波動較大"
+    declining_arpu: "⚠️ ARPU 呈下降趨勢，需要關注"
+
+  # 資訊訊息
+  info:
+    total_revenue: "總營收：NT${amount}"
+    customers_analyzed: "已分析 {count} 位客戶的營收資料"
+    pareto_ratio: "前20%客戶貢獻 {percentage}% 營收"
+
+# AI 分析類型
+ai_analysis:
+  types:
+    revenue_health:
+      name: "營收健康度評估"
+      description: "綜合評估營收規模、成長性和穩定性"
+      prompt_category: "revenue_health"
+
+    pareto_insights:
+      name: "Pareto 洞察"
+      description: "分析高價值客戶特徵和維護策略"
+      prompt_category: "pareto_insights"
+
+    clv_optimization:
+      name: "CLV 優化建議"
+      description: "提升客戶終生價值的策略建議"
+      prompt_category: "clv_optimization"
+
+    revenue_forecasting:
+      name: "營收預測與建議"
+      description: "基於趨勢的營收預測和優化建議"
+      prompt_category: "revenue_forecasting"
+
+# 說明文字
+help:
+  overview: |
+    營收脈能分析模組幫助您量化收入健康度，識別高價值客戶。
+    透過 Pareto 分析和 CLV 分群，優化資源配置和獲利結構。
+
+  core_metrics: |
+    核心營收指標說明：
+
+    1. 總銷售額：所有交易的總金額，反映業務規模
+
+    2. ARPU（人均購買金額）：
+       - 計算：總營收 / 客戶數
+       - 意義：平均每位客戶的貢獻
+       - 用途：評估客戶價值和定價策略
+
+    3. CLV（顧客終生價值）：
+       - 計算：ARPU × 購買頻率 × 客戶壽命
+       - 意義：客戶長期價值
+       - 用途：指導獲客成本和投資決策
+
+    4. AOV（平均訂單價值）：
+       - 計算：總營收 / 訂單數
+       - 意義：單次購買金額
+       - 用途：優化產品組合和促銷策略
+
+  consistency_score: |
+    營收穩定度評分：
+    綜合評估營收的一致性和可預測性（0-100分）
+
+    評估維度：
+    1. 營收波動性 (40%)：變異係數越小越穩定
+    2. 成長一致性 (30%)：成長率穩定程度
+    3. 客戶集中度 (30%)：營收來源分散程度
+
+    分數解讀：
+    - 80分以上：極佳，業務非常健康
+    - 60-79分：良好，略有波動
+    - 40-59分：中等，波動明顯
+    - 40分以下：不佳，風險較高
+
+  pareto_analysis: |
+    Pareto 80/20 法則分析：
+
+    基本概念：
+    - 通常80%的營收來自20%的客戶
+    - 識別高價值客戶是關鍵
+
+    三個客群：
+    1. 前20%（Top Performers）：
+       - 貢獻70-90%營收
+       - 需要頂級服務和全力維護
+
+    2. 中間60%（Mid-tier）：
+       - 貢獻10-25%營收
+       - 有提升潛力，值得培養
+
+    3. 後20%（Low Value）：
+       - 貢獻0-5%營收
+       - 基礎服務，選擇性投入
+
+    應用建議：
+    - 優先配置資源給高價值客戶
+    - 制定差異化的服務策略
+    - 持續監控客群變化
+
+  clv_segments: |
+    CLV 客群分析：
+    根據客戶終生價值分為四個等級：
+
+    1. 白金客戶（前10%）：
+       - 最高價值客群
+       - 策略：頂級服務，全力維護
+
+    2. 黃金客戶（10-25%）：
+       - 高價值客群
+       - 策略：優質服務，積極提升
+
+    3. 白銀客戶（25-75%）：
+       - 中等價值客群
+       - 策略：標準服務，持續培養
+
+    4. 銅牌客戶（75-100%）：
+       - 基礎價值客群
+       - 策略：基礎服務，選擇性投入
+
+  best_practices: |
+    分析建議：
+    1. 定期追蹤核心營收指標變化
+    2. 維護Pareto法則的健康平衡（不要過度集中）
+    3. 重點投資高CLV客戶
+    4. 提升ARPU和AOV以增加總營收
+    5. 監控營收穩定度，降低業務風險
+    6. 利用AI洞察制定精準的營收優化策略
+
+# 提示文字
+hints:
+  total_revenue: "總營收是所有客戶交易金額的總和，反映業務規模"
+  arpu: "ARPU 是平均每位客戶貢獻的營收，越高代表客戶價值越高"
+  clv: "CLV 代表客戶在生命週期內的總價值，用於評估長期投資回報"
+  consistency_score: "穩定度分數越高表示營收越可預測，業務風險越低。若分數過低，建議分散營收來源。"
+  consistency: "交易穩定度反映客戶購買行為的一致性，越高越穩定"
+  revenue_distribution: "營收分布反映客戶價值的差異。理想情況下應呈現長尾分布，即少數高價值客戶和多數中低價值客戶。"
+  pareto: "Pareto 分析幫助識別高價值客戶，維護這些客戶是維持營收的關鍵"
+  pareto_curve: "曲線越陡峭表示營收越集中。若曲線過陡（前20%貢獻超過90%），表示過度依賴少數客戶，風險較高。"
+  clv_segments: "CLV分群可幫助制定差異化策略。白金和黃金客戶應獲得最多資源和關注。"
+  revenue_trends: "關注趨勢而非單一數值。持續上升的趨勢表示業務健康成長。"
+
+# 行動建議
+action_recommendations:
+  high_value_customers:
+    title: "高價值客戶維護策略"
+    actions:
+      - "提供VIP專屬權益和服務"
+      - "建立專屬客戶經理"
+      - "優先獲得新品和限量商品"
+      - "定期回饋和感謝"
+      - "邀請參與品牌決策"
+
+  improve_arpu:
+    title: "提升ARPU策略"
+    actions:
+      - "交叉銷售和向上銷售"
+      - "推出產品組合優惠"
+      - "提供附加價值服務"
+      - "優化產品定價策略"
+      - "鼓勵增加購買頻率"
+
+  improve_consistency:
+    title: "提升營收穩定度策略"
+    actions:
+      - "分散客戶基礎，降低集中度"
+      - "發展訂閱或會員制度"
+      - "建立預測性補貨機制"
+      - "平衡新客獲取和舊客維護"
+      - "開發多元營收來源"
+
+  optimize_clv:
+    title: "優化CLV策略"
+    actions:
+      - "延長客戶生命週期"
+      - "提高購買頻率"
+      - "增加單次購買金額"
+      - "降低客戶流失率"
+      - "建立忠誠計劃"
+
+# ==========================================
+# MISSING KEYS ADDITIONS (For Language System Integration)
+# Added: 2025-10-14
+# ==========================================
+
+# 客群標籤簡稱（用於程式碼中的segment分類）
+segment_labels:
+  high_value: "高價值客戶 (Top 20%)"
+  mid_value: "中價值客戶 (Middle 60%)"
+  low_value: "低價值客戶 (Bottom 20%)"
+
+# 表格欄位標題
+tables:
+  # Top customers table
+  top_customers:
+    title: "高價值客戶排名"
+    columns:
+      customer_id: "客戶ID"
+      total_revenue: "總營收"
+      purchase_count: "購買次數"
+      avg_transaction: "平均單次消費"
+
+  # Revenue metrics detail table
+  revenue_metrics:
+    title: "營收指標明細"
+    columns:
+      customer_id: "客戶ID"
+      total_revenue: "總營收"
+      purchase_count: "購買次數"
+      avg_transaction: "平均單次消費"
+      days_since_last: "最近購買天數"
+      purchase_frequency: "購買頻率"
+      aov: "AOV"
+      clv: "CLV"
+
+  # Revenue details table
+  revenue_details:
+    title: "營收指標明細"
+    columns:
+      customer_id: "客戶ID"
+      total_spent: "總消費金額"
+      avg_spent: "平均單次消費"
+      clv: "顧客終生價值"
+      status: "客戶狀態"
+      times: "購買次數"
+      recency: "最近購買天數"
+      frequency: "購買頻率"
+
+  # Segments table
+  segments:
+    column_segment: "價值分群"
+
+# ADDED: Singular "table" keys for module code compatibility (2025-10-14)
+table:
+  revenue_details:
+    title: "營收指標明細"
+    columns:
+      customer_id: "客戶ID"
+      total_spent: "總消費金額"
+      avg_spent: "平均單次消費"
+      clv: "顧客終生價值"
+      status: "客戶狀態"
+      times: "購買次數"
+      recency: "最近購買天數"
+      frequency: "購買頻率"
+
+  segments:
+    column_segment: "價值分群"
+
+  # Revenue metrics detail table
+  revenue_metrics:
+    title: "營收指標明細"
+    columns:
+      customer_id: "客戶ID"
+      total_revenue: "總營收"
+      purchase_count: "購買次數"
+      avg_transaction: "平均單次消費"
+      days_since_last: "最近購買天數"
+      purchase_frequency: "購買頻率"
+      aov: "AOV"
+      clv: "CLV"
+
+  # Segment summary table
+  segment_summary:
+    title: "各分群詳細統計"
+    columns:
+      segment: "分群"
+      customer_count: "客戶數"
+      revenue_pct: "營收佔比"
+      avg_revenue: "平均營收"
+
+# 一致性評分詳細解釋（擴展consistency section）
+consistency_interpretation:
+  excellent:
+    label: "高度一致"
+    icon: "check-circle"
+    color: "#28a745"
+    message: "營收表現穩定，客戶消費行為一致性高"
+  good:
+    label: "中等一致"
+    icon: "exclamation-circle"
+    color: "#ffc107"
+    message: "營收波動適中，建議加強客戶分群管理"
+  poor:
+    label: "低一致性"
+    icon: "times-circle"
+    color: "#dc3545"
+    message: "營收波動較大，需要優化客戶結構"
+  cv_label: "變異係數 (CV): {value}"
+
+# 圖表詳細配置（擴展charts section以包含所有需要的label）
+chart_details:
+  # Revenue distribution histogram
+  revenue_distribution_chart:
+    title: "客戶營收分布"
+    x_axis: "客戶營收 ($)"
+    y_axis: "客戶數量"
+    hover_template: "營收範圍: $%{x}<br>客戶數: %{y}"
+    no_chart_message: "無法生成圖表"
+
+  # Pareto curve chart
+  pareto_curve_chart:
+    title: "Pareto 80/20 分析"
+    x_axis: "客戶排名"
+    y_axis_left: "個人營收 ($)"
+    y_axis_right: "累積營收佔比 (%)"
+    legend:
+      individual: "個人營收"
+      cumulative: "累積營收%"
+      target: "80% 目標"
+    hover_individual: "客戶排名: %{x}<br>營收: $%{y:,.0f}"
+    hover_cumulative: "累積營收: %{y:.1f}%"
+    no_chart_message: "無法生成圖表"
+
+  # Pareto curve chart (simplified keys for module)
+  pareto_curve:
+    title: "Pareto 80/20 累積曲線"
+    interpretation_title: "圖表說明"
+    interpretation: "Pareto 80/20 法則顯示了客戶營收的累積分布。藍色柱狀圖表示個別客戶營收，紅色曲線顯示累積營收百分比。典型情況下，約 20% 的客戶貢獻 80% 的營收。"
+    legend:
+      individual_revenue: "個人營收"
+      cumulative_pct: "累積營收%"
+      target_80: "80% 目標線"
+    hover:
+      customer_rank: "客戶排名"
+      revenue: "營收"
+      cumulative: "累積營收"
+    annotation:
+      pareto_point: "Pareto點: "
+      customers: "的客戶"
+    x_axis: "客戶排名（按營收降序）"
+    y_axis_left: "個人營收 ($)"
+    y_axis_right: "累積營收佔比 (%)"
+
+  # Revenue segments pie chart
+  revenue_segments_pie:
+    title: "客戶營收分群貢獻"
+    hover_template: "%{label}<br>營收佔比: %{value:.1f}%<br>客戶數: %{customdata}"
+    no_chart_message: "無法生成圖表"
+
+  # ARPU comparison chart
+  arpu_comparison_chart:
+    title: "各分群平均營收比較"
+    x_axis: ""
+    y_axis: "平均營收 ($)"
+    hover_template: "%{x}<br>平均營收: $%{y:,.0f}"
+    no_chart_message: "無法生成圖表"
+
+  # Revenue trend over time chart
+  revenue_trend_chart:
+    title: "月度營收趨勢與成長率"
+    x_axis: "月份"
+    y_axis_left: "營收 ($)"
+    y_axis_right: "成長率 (%)"
+    legend:
+      revenue: "月度營收"
+      moving_avg: "移動平均"
+      growth: "成長率 (%)"
+    hover_revenue: "%{x|%Y-%m}<br>營收: $%{y:,.0f}"
+    hover_ma: "%{x|%Y-%m}<br>MA: $%{y:,.0f}"
+    hover_growth: "%{x|%Y-%m}<br>成長率: %{y:.1f}%"
+    no_data_title: "時間序列數據不足"
+    no_data_message: "需要更多交易記錄以進行趨勢分析"
+    no_chart_message: "無法生成圖表"
+
+  # CLV distribution box plot
+  clv_distribution_chart:
+    title: "各分群 CLV 分布"
+    x_axis: ""
+    y_axis: "顧客終生價值 ($)"
+    hover_template: "CLV: $%{y:,.0f}"
+    no_chart_message: "無法生成圖表"
+
+# AI 分析與洞察
+ai:
+  # AI 洞察文本
+  insights:
+    clv_analysis_label: "AI 價值分群建議"
+    trend_analysis_label: "AI 趨勢分析"
+    aov_high_ratio_prefix: "✅ 主力客單價是新客的 "
+    aov_high_ratio_suffix: " 倍，建議加強新客轉換策略"
+    aov_low_ratio_prefix: "⚠️ 主力客單價偏低（只有新客的 "
+    aov_low_ratio_suffix: " 倍），需要提升忠誠客戶價值"
+    aov_moderate_ratio_prefix: "📊 主力客單價與新客比值適中（"
+    aov_moderate_ratio_suffix: " 倍）"
+    aov_insufficient_data: "📊 資料不足，無法比較新客與主力客"
+    trend_need_data: "📊 需要更多時間序列資料進行趨勢分析"
+    pareto_analysis_prefix: "📊 80/20分析："
+    pareto_analysis_middle: "% 的客戶貢獻了 "
+    pareto_analysis_suffix: "% 的營收"
+    marketing_recommendations: "行銷建議："
+
+  # AI 策略建議
+  recommendations:
+    new_customer_strategy: "🎯 新客策略：提供首購優惠，搭配滿額贈品，提升初次購買價值"
+    core_customer_strategy: "🎯 主力客策略：VIP 專屬優惠、限量商品、會員積分加倍"
+    balanced_strategy: "🎯 平衡策略：提供階梯式優惠，鼓勵消費升級"
+    high_value_customers: "🎆 高價值客戶：VIP 專屬服務、優先預購權、定制化產品、生日特殊優惠"
+    mid_value_customers: "🎯 中價值客戶：會員積分計劃、滿額贈品、季度優惠券、推薦獎勵"
+    low_value_customers: "💡 低價值客戶：首購優惠、入門產品推廣、限時特價、免運費活動"
+
+  # AI 備用文本（當無資料時）
+  fallbacks:
+    need_more_data: "📌 建議收集更多交易資料進行分析"
+
+# AI 洞察內容（擴展ai_analysis section）
+ai_insights:
+  # GPT prompts
+  prompts:
+    revenue_summary:
+      system: "分析以下營收數據並提供戰略洞察："
+      metrics_template: |
+        - 總營收: ${total_revenue}
+        - 客戶數: {customer_count}
+        - ARPU: ${arpu}
+        - 平均 CLV: ${clv}
+        - AOV: ${aov}
+        - 營收一致性: {consistency}%
+        - Pareto 分析: {pareto_pct}% 客戶貢獻 80% 營收
+      request: "請提供：1) 整體營收健康度評估 2) 關鍵發現 3) 優化建議"
+
+  # Fallback content (when GPT disabled or fails)
+  fallback:
+    revenue_summary:
+      title: "📊 營收概況"
+      template_line1: "✓ 總營收: ${total_revenue}"
+      template_line2: "✓ {customer_count} 位客戶"
+      template_line3: "✓ 人均貢獻: ${arpu}"
+      high_consistency: "✅ 營收穩定度高，客戶消費行為一致"
+      medium_consistency: "⚠️ 營收波動適中，建議加強高價值客戶經營"
+      low_consistency: "🔴 營收波動較大，需優化客戶結構"
+
+    arpu_analysis:
+      title: "💰 ARPU 深度分析"
+      line1: "人均購買金額: ${arpu}"
+      line2: "高價值客戶平均: ${high_value_avg}"
+      line3: "低價值客戶平均: ${low_value_avg}"
+      recommendations_title: "💡 建議："
+      rec1: "對高價值客戶提供 VIP 專屬服務"
+      rec2: "中價值客戶推動升級方案"
+      rec3: "低價值客戶激活促銷活動"
+
+    clv_recommendations:
+      title: "📈 CLV 提升策略"
+      line1: "當前平均 CLV: ${clv}"
+      line2: "AOV: ${aov}"
+      line3: "回購率: {purchase_frequency} 次/人"
+      optimization_title: "🎯 優化方向："
+      opt1: "1. 提升 AOV：捆綁銷售、滿額贈品"
+      opt2: "2. 增加購買頻率：會員計劃、定期優惠"
+      opt3: "3. 延長客戶生命週期：忠誠度獎勵、售後服務"
+
+    consistency_analysis:
+      title: "⚖️ 營收穩定度分析"
+      score_line: "一致性分數: {score}%"
+      cv_line: "變異係數: {cv}"
+      excellent_level: "✅ 優秀：營收表現穩定，客戶基礎扎實"
+      excellent_advice: "建議：保持當前策略，持續優化"
+      good_level: "⚠️ 良好：營收波動適中"
+      good_advice_title: "建議："
+      good_advice1: "- 分析高波動客戶特徵"
+      good_advice2: "- 建立客戶分級管理"
+      good_advice3: "- 平衡新客與老客投入"
+      poor_level: "🔴 需改善：營收波動大"
+      poor_advice_title: "建議："
+      poor_advice1: "- 多元化客戶來源"
+      poor_advice2: "- 減少對單一大客戶依賴"
+      poor_advice3: "- 建立預警機制"
+
+  # Empty state messages
+  empty_state:
+    default: "點擊「生成 AI 洞察」按鈕以查看分析"
+    processing: "分析中..."
+    error: "AI 洞察生成失敗，請稍後再試"
+
+# 下載檔案名稱
+downloads:
+  customer_revenue:
+    filename: "customer_revenue_{date}.csv"
+  clv_segments:
+    filename: "clv_segments_{date}.csv"
+
+# UI按鈕擴展
+ui_buttons:
+  download_revenue_list: "下載完整客戶營收清單"
+  download_clv_segments: "下載客戶名單"
+
+# 洞察標籤頁名稱
+insights:
+  tabs:
+    revenue_summary:
+      name: "營收總結"
+      icon: "chart-pie"
+    arpu_analysis:
+      name: "ARPU 分析"
+      icon: "dollar-sign"
+    clv_recommendations:
+      name: "CLV 優化"
+      icon: "chart-line"
+    consistency_insights:
+      name: "穩定度洞察"
+      icon: "balance-scale"

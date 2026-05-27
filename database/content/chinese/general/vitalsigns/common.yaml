@@ -1,0 +1,322 @@
+# ==========================================
+# VitalSigns - Common Language Content (Chinese)
+# ==========================================
+# 共用語言內容 - 中文（繁體）
+# Version: 1.0.0
+# Last Updated: 2025-10-11
+
+# 應用程式層級文字
+app:
+  name: "VitalSigns"
+  title: "VitalSigns"  # Used in login page (title line) and navbar
+  subtitle: "行銷健檢雷達引擎"  # Used in login page (subtitle line)
+  full_name: "客戶生命力診斷系統"
+  tagline: "量化健檢，精準診脈"
+  welcome: "歡迎使用 VitalSigns"
+  description: "透過六大核心模組，深度解析客戶價值與行為模式"
+
+# 通用按鈕
+buttons:
+  confirm: "確認"
+  cancel: "取消"
+  save: "儲存"
+  close: "關閉"
+  back: "返回"
+  next: "下一步"
+  previous: "上一步"
+  submit: "提交"
+  reset: "重設"
+  export: "匯出"
+  download: "下載"
+  upload: "上傳"
+  refresh: "重新整理"
+  calculate: "計算"
+  analyze: "分析"
+  generate: "生成"
+  apply: "套用"
+  clear: "清除"
+  select_all: "全選"
+  deselect_all: "取消全選"
+  expand: "展開"
+  collapse: "收合"
+  show_more: "顯示更多"
+  show_less: "顯示較少"
+  edit: "編輯"
+  delete: "刪除"
+  copy: "複製"
+  view_details: "查看詳情"
+  help: "說明"
+
+# 通用訊息
+messages:
+  loading: "載入中..."
+  processing: "處理中..."
+  calculating: "計算中..."
+  analyzing: "分析中..."
+  generating: "生成中..."
+  saving: "儲存中..."
+  exporting: "匯出中..."
+  uploading: "上傳中..."
+  operation_success: "操作成功"
+  error: "發生錯誤"
+  warning: "警告"
+  info: "資訊"
+  no_data: "無資料"
+  no_results: "無結果"
+  please_wait: "請稍候"
+  operation_complete: "操作完成"
+  operation_failed: "操作失敗"
+  data_saved: "資料已儲存"
+  data_exported: "資料已匯出"
+  invalid_input: "輸入無效"
+  required_field: "必填欄位"
+  confirm_action: "確認執行此操作？"
+  unsaved_changes: "有未儲存的變更"
+
+  # Navigation messages
+  success:
+    navigate_to_dna: "正在進入DNA分析..."
+
+# 通用標籤
+labels:
+  select: "選擇"
+  options: "選項"
+  settings: "設定"
+  filters: "篩選"
+  sort_by: "排序方式"
+  group_by: "分組方式"
+  date_range: "日期範圍"
+  from: "從"
+  to: "到"
+  start_date: "開始日期"
+  end_date: "結束日期"
+  count: "數量"
+  total: "總計"
+  average: "平均"
+  median: "中位數"
+  minimum: "最小值"
+  maximum: "最大值"
+  percentage: "百分比"
+  ratio: "比率"
+  score: "分數"
+  rank: "排名"
+  category: "類別"
+  segment: "客群"
+  status: "狀態"
+  name: "名稱"
+  description: "說明"
+  value: "值"
+  unit: "單位"
+  type: "類型"
+
+# 通用日期時間
+datetime:
+  today: "今天"
+  yesterday: "昨天"
+  this_week: "本週"
+  last_week: "上週"
+  this_month: "本月"
+  last_month: "上月"
+  this_quarter: "本季"
+  last_quarter: "上季"
+  this_year: "今年"
+  last_year: "去年"
+  last_7_days: "過去7天"
+  last_14_days: "過去14天"
+  last_30_days: "過去30天"
+  last_60_days: "過去60天"
+  last_90_days: "過去90天"
+  last_180_days: "過去180天"
+  last_365_days: "過去365天"
+  custom_range: "自訂範圍"
+  all_time: "所有時間"
+
+  # 時間單位
+  units:
+    day: "天"
+    days: "天"
+    week: "週"
+    weeks: "週"
+    month: "月"
+    months: "月"
+    quarter: "季"
+    quarters: "季"
+    year: "年"
+    years: "年"
+
+# 通用導航
+nav:
+  dashboard: "儀表板"
+  modules: "分析模組"
+  upload: "資料上傳"
+  analysis: "分析"
+  reports: "報表"
+  settings: "設定"
+  help: "說明"
+  about: "關於"
+  logout: "登出"
+  home: "首頁"
+
+  # 模組導航
+  module_upload: "資料上傳"
+  module_acquisition: "客戶獲取分析"
+  module_retention: "客戶留存分析"
+  module_engagement: "活躍轉化分析"
+  module_revenue_pulse: "營收脈能分析"
+  module_dna: "客戶DNA分析"
+
+# 頁面標題 (用於側邊欄)
+pages:
+  login: "登入"
+  vitalsigns_upload: "資料上傳"
+  vitalsigns_dna: "客戶DNA分析"
+  vitalsigns_revenue_pulse: "營收脈能"
+  vitalsigns_acquisition: "客戶增長"
+  vitalsigns_retention: "客戶留存"
+  vitalsigns_engagement: "活躍轉化"
+  about: "關於我們"
+
+# 通用圖表元素
+charts:
+  title: "圖表"
+  x_axis: "X軸"
+  y_axis: "Y軸"
+  legend: "圖例"
+  no_data: "無資料可顯示"
+  loading: "載入圖表中..."
+  export_chart: "匯出圖表"
+  zoom_in: "放大"
+  zoom_out: "縮小"
+  reset_zoom: "重設縮放"
+  pan: "平移"
+  select: "選取"
+
+# 通用資料表格
+table:
+  no_data: "無資料"
+  no_results: "無符合條件的結果"
+  showing: "顯示"
+  to: "到"
+  of: "共"
+  entries: "筆資料"
+  search: "搜尋"
+  previous: "上一頁"
+  next: "下一頁"
+  first: "第一頁"
+  last: "最後一頁"
+  rows_per_page: "每頁顯示"
+  loading: "載入中..."
+
+# 通用篩選器
+filters:
+  all: "全部"
+  apply: "套用篩選"
+  clear: "清除篩選"
+  reset: "重設"
+  advanced: "進階篩選"
+
+# 通用匯出
+export:
+  title: "匯出資料"
+  format: "檔案格式"
+  csv: "CSV 檔案"
+  excel: "Excel 檔案"
+  pdf: "PDF 報告"
+  json: "JSON 資料"
+  include_charts: "包含圖表"
+  include_summary: "包含摘要統計"
+  success: "資料已成功匯出"
+  error: "匯出失敗"
+
+# 通用說明
+help:
+  title: "說明文件"
+  user_guide: "使用指南"
+  faq: "常見問題"
+  contact_support: "聯絡支援"
+  video_tutorial: "影片教學"
+  quick_start: "快速開始"
+  tips: "使用技巧"
+
+# 通用狀態
+status:
+  active: "啟用"
+  inactive: "停用"
+  pending: "待處理"
+  completed: "已完成"
+  failed: "失敗"
+  in_progress: "進行中"
+  cancelled: "已取消"
+
+# 通用驗證訊息
+validation:
+  required: "此欄位為必填"
+  invalid_format: "格式不正確"
+  invalid_date: "日期格式不正確"
+  invalid_number: "數字格式不正確"
+  invalid_email: "Email格式不正確"
+  min_length: "至少需要 {n} 個字元"
+  max_length: "最多 {n} 個字元"
+  min_value: "最小值為 {n}"
+  max_value: "最大值為 {n}"
+  out_of_range: "數值超出範圍"
+
+# 通用單位
+units:
+  currency:
+    twd: "新台幣"
+    usd: "美元"
+    symbol: "NT$"
+  percentage: "%"
+  count: "次"
+  people: "人"
+  items: "個"
+
+# 通用數值格式
+formatting:
+  thousand_separator: ","
+  decimal_separator: "."
+  decimal_places: 2
+  percentage_format: "{value}%"
+  currency_format: "NT${value}"
+  number_format: "{value}"
+
+# 通用等級/評分
+ratings:
+  excellent: "優秀"
+  very_good: "很好"
+  good: "良好"
+  average: "普通"
+  below_average: "待改善"
+  poor: "差"
+  very_poor: "很差"
+
+# 通用趨勢指標
+trends:
+  increasing: "上升"
+  decreasing: "下降"
+  stable: "穩定"
+  volatile: "波動"
+  up: "↑"
+  down: "↓"
+  neutral: "→"
+
+# 通用比較詞
+comparisons:
+  higher: "較高"
+  lower: "較低"
+  same: "相同"
+  better: "較好"
+  worse: "較差"
+  improved: "改善"
+  declined: "下降"
+  vs: "相對於"
+  compared_to: "相較於"
+
+# 通用建議層級
+recommendations:
+  critical: "🔴 緊急"
+  high_priority: "🟠 高優先"
+  medium_priority: "🟡 中優先"
+  low_priority: "🟢 低優先"
+  optional: "⚪ 選擇性"

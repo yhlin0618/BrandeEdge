@@ -1,0 +1,78 @@
+# ==========================================
+# BrandEdge - 登入模組語言內容（中文）
+# ==========================================
+# Version: 1.0
+# Last Updated: 2025-10-06
+
+# 模組基本資訊
+title: "BrandEdge 品牌印記引擎"
+subtitle: "企業級品牌定位分析平台"
+version: "v3.2.1 Flagship Edition"
+
+# UI 文字
+ui:
+  # 登入頁面
+  login:
+    title: "BrandEdge 品牌印記引擎"
+    logo_alt: "BrandEdge Logo"
+    username_label: "帳號"
+    username_placeholder: "請輸入帳號"
+    password_label: "密碼"
+    password_placeholder: "請輸入密碼"
+    login_button: "登入"
+    register_link: "沒有帳號？點此註冊"
+    contact_info: "聯絡資訊: mr.no.one01@gmail.com"
+
+  # 註冊頁面
+  register:
+    title: "📝 註冊新帳號"
+    username_label: "帳號"
+    username_placeholder: "請輸入帳號"
+    password_label: "密碼"
+    password_placeholder: "請輸入密碼"
+    password_confirm_label: "確認密碼"
+    password_confirm_placeholder: "請再次輸入密碼"
+    register_button: "註冊"
+    login_link: "已有帳號？回登入"
+    contact_info: "聯絡資訊: mr.no.one01@gmail.com"
+
+# 訊息文字
+messages:
+  # 登入訊息
+  login:
+    success: "✅ 登入成功！歡迎使用"
+    failed: "❌ 帳號或密碼錯誤"
+    account_not_found: "❌ 帳號不存在"
+    password_incorrect: "❌ 密碼錯誤"
+    limit_reached: "⛔ 已達登入次數上限"
+    empty_username: "❌ 請輸入帳號"
+    empty_password: "❌ 請輸入密碼"
+    welcome: "歡迎回來，{username}！"
+
+  # 註冊訊息
+  register:
+    success: "✅ 註冊成功！請登入"
+    failed: "❌ 註冊失敗"
+    password_mismatch: "❌ 兩次密碼不一致"
+    password_too_short: "❌ 密碼至少 6 個字元"
+    username_exists: "❌ 帳號已存在"
+    username_invalid: "❌ 帳號格式不正確"
+    empty_fields: "❌ 請填寫所有欄位"
+
+  # 登出訊息
+  logout:
+    success: "👋 已登出"
+    confirm: "確定要登出嗎？"
+
+# 錯誤訊息
+errors:
+  database_error: "資料庫錯誤: {error}"
+  connection_error: "連線錯誤"
+  unknown_error: "未知錯誤"
+
+# 說明文字
+help:
+  login_info: "請使用您的帳號密碼登入系統"
+  register_info: "填寫帳號與密碼即可註冊"
+  password_requirements: "密碼需至少 6 個字元"
+  contact_support: "如有問題請聯絡: mr.no.one01@gmail.com"

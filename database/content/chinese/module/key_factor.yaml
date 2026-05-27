@@ -1,0 +1,38 @@
+# ==========================================
+# 關鍵因素分析模組 - 中文（簡化版）
+# ==========================================
+# 版本: 2.0
+# 最後更新: 2025-10-10
+# 說明: 簡化版本，匹配原始 BrandEdge 實現
+
+# 模組基本資訊
+title: "關鍵因素分析"
+subtitle: "識別核心成功因素"
+description: "簡單分析顯示哪些屬性是關鍵因素以及它們的重要性指標"
+
+# UI 文字
+ui:
+  key_factors:
+    title: "關鍵成功因素識別"
+  importance:
+    title: "關鍵因素重要性分析"
+
+# 標籤
+labels:
+  key_factors: "關鍵因素："
+
+# 訊息
+messages:
+  redirect_to_upload: "請從側邊欄選擇「資料上傳」頁面"
+  no_key_factors: "尚未識別關鍵因素"
+
+# 表格欄位
+tables:
+  columns:
+    attribute: "屬性"
+    mean: "平均分"
+    std_dev: "標準差"
+    max: "最大值"
+    min: "最小值"
+    importance_index: "重要性指數"
+    rank: "排名"

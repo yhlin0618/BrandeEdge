@@ -1,0 +1,117 @@
+# ==========================================
+# Data Upload Module Text Content - Japanese
+# ==========================================
+
+title: "📁 データアップロードと管理"
+subtitle: "分析用のデータファイルをアップロード"
+description: "CSV、Excel形式をサポートしています。データにブランド/製品バリアントフィールドが含まれていることを確認してください"
+
+file_upload:
+  label: "ファイルを選択"
+  placeholder: "クリックしてファイルを選択するか、ここにドラッグ"
+  accepted_formats: "対応形式：.csv、.xlsx、.xls"
+  max_size: "ファイルサイズ制限：10MB"
+
+options:
+  header: "最初の行をヘッダーとする"
+  encoding: "ファイルエンコーディング"
+  separator: "区切り文字"
+
+preview:
+  title: "データプレビュー"
+  rows_shown: "最初の10行を表示"
+  total_rows: "合計行数"
+  total_columns: "合計列数"
+
+validation:
+  checking: "データ形式を確認中..."
+  valid: "✅ データ形式が正しい"
+  invalid: "❌ データ形式エラー"
+  missing_column: "必須列が不足しています：{column}"
+  empty_file: "ファイルが空です"
+
+buttons:
+  upload: "アップロード開始"
+  clear: "データをクリア"
+  proceed: "分析を続ける"
+
+sections:
+  review_upload: "1.1 レビューデータをアップロード"
+  sales_upload: "1.2 販売データをアップロード（オプション）"
+  review_file_label: "複数の顧客レビューファイルをアップロード（システムが自動的に結合します）"
+  sales_file_label: "複数の販売データファイルをアップロード（システムが自動的に結合します）"
+  review_limit: "制限：最大{max_brands}ブランド、ブランドあたり最大{max_records}レビュー"
+  sales_limit: "制限：最大{max_brands}ブランド、ブランドあたり最大{max_records}販売レコード"
+
+# 列の説明
+column_descriptions:
+  review:
+    title: "📋 レビューデータ列の説明"
+    columns:
+      - name: "Variation"
+        type: "文字列"
+        required: true
+        description: "商品/ブランド識別子（例：Amazon ASIN、ブランド名）"
+      - name: "ASIN"
+        type: "文字列"
+        required: false
+        description: "Amazon標準識別番号（オプション、Variationの代わりに使用可能）"
+      - name: "Title"
+        type: "文字列"
+        required: true
+        description: "レビュータイトル；簡潔な要約；推奨長さ10〜100文字"
+      - name: "Body"
+        type: "文字列"
+        required: true
+        description: "レビュー内容；完全な使用体験の説明；推奨長さ50〜1000文字"
+    note: "⚡ 列名は大文字小文字を区別しません：システムはvariation、Variation、VARIATIONなどを自動認識します"
+  sales:
+    title: "📋 販売データ列の説明"
+    columns:
+      - name: "Variation"
+        type: "文字列"
+        required: true
+        description: "商品/ブランド識別子（レビューデータのVariationと一致する必要があります）"
+      - name: "ASIN"
+        type: "文字列"
+        required: false
+        description: "Amazon標準識別番号（オプション、Variationの代わりに使用可能）"
+      - name: "Sales"
+        type: "数値"
+        required: true
+        description: "販売数量"
+      - name: "payment_time"
+        type: "日付"
+        required: false
+        description: "取引日（オプション、形式：YYYY-MM-DD）"
+      - name: "price"
+        type: "数値"
+        required: false
+        description: "商品単価（オプション）"
+    note: "⚡ 販売データのVariationは、正確な結合分析のためにレビューデータと一致する必要があります"
+
+tabs:
+  review_preview: "レビューデータプレビュー"
+  sales_preview: "販売データプレビュー"
+
+messages:
+  upload_success: "データが正常にアップロードされました！{rows}行が処理されました"
+  upload_failed: "アップロードに失敗しました：{error}"
+  processing: "データを処理中です。お待ちください..."
+  brand_limit: "⚠️ 上位{max_brands}ブランドに制限、ブランドあたり最大{max_records}レビュー"
+  sales_brand_limit: "⚠️ 上位{max_brands}ブランドに制限、ブランドあたり最大{max_records}販売レコード"
+  no_data: "⚠️ 最初にレビューデータをアップロードしてプレビューしてください"
+  file_format_error: "⚠️ ファイル'{filename}'の形式はサポートされていません。.xlsx / .xls / .csvのみ許可されています"
+  missing_columns: "⚠️ ファイル'{filename}'にVariation / Title / Body列がありません"
+  review_uploaded: "✅ レビューデータがアップロードされました：{brands}ブランド、合計{records}レコード（ブランドあたり制限{limit}）"
+  sales_uploaded: "✅ 販売データがアップロードされました：{brands}ブランド、合計{records}レコード（ブランドあたり制限{limit}）"
+  at_least_upload: "⚠️ 少なくともレビューデータをアップロードしてください"
+
+console:
+  reading_file: "📖 ファイルを読み込み中：{filename}"
+  file_type_detected: "📄 ファイルタイプ：{type}"
+  rows_detected: "📊 {rows}行が検出されました"
+  columns_detected: "📋 {columns}列が検出されました"
+  processing_data: "⏳ データを処理中..."
+  validation_success: "✅ データ検証に成功しました"
+  validation_failed: "❌ データ検証に失敗しました：{reason}"

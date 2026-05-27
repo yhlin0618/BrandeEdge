@@ -1,0 +1,406 @@
+module_info:
+  id: vitalsigns_engagement
+  path: modules/module_vitalsigns_engagement.R
+  name: 活躍轉化模組
+  version: 1.0.0
+  description: 活躍度評分、轉化漏斗、參與模式分析與行為優化
+  functions:
+    ui: engagementVitalsignsModuleUI
+    server: engagementVitalsignsModuleServer
+metrics:
+  active_customers:
+    name: 活躍客戶數
+    icon: user-check
+    color: success
+    calculation: count(customers where active_in_period)
+  activity_rate:
+    name: 活躍率
+    unit: '%'
+    icon: chart-line
+    color: primary
+    calculation: active_customers / total_customers * 100
+    format: percentage
+  avg_engagement_score:
+    name: 平均參與度分數
+    unit: score
+    icon: fire
+    color: warning
+    range:
+    - 0
+    - 100
+    calculation: mean(customer_engagement_scores)
+  conversion_rate:
+    name: 轉化率
+    unit: '%'
+    icon: funnel
+    color: info
+    calculation: converted_customers / total_customers * 100
+    format: percentage
+  avg_interaction_frequency:
+    name: 平均互動頻率
+    unit: per month
+    icon: sync
+    color: success
+    calculation: total_interactions / total_customers / months
+activity_definition:
+  criteria: recent_purchase
+  threshold:
+    days: 30
+    configurable: yes
+  activity_levels:
+  - level: 高活躍
+    condition: activities_per_month >= 4
+    color: '#28a745'
+  - level: 中活躍
+    condition: activities_per_month >= 2 && activities_per_month < 4
+    color: '#ffc107'
+  - level: 低活躍
+    condition: activities_per_month >= 1 && activities_per_month < 2
+    color: '#fd7e14'
+  - level: 不活躍
+    condition: activities_per_month < 1
+    color: '#dc3545'
+engagement_scoring:
+  enabled: yes
+  dimensions:
+  - id: purchase_frequency
+    name: 購買頻率
+    weight: 0.3
+    calculation: transactions_per_month
+    normalization: min-max
+  - id: recency
+    name: 最近活躍度
+    weight: 0.25
+    calculation: days_since_last_activity
+    normalization: inverse
+  - id: purchase_value
+    name: 購買價值
+    weight: 0.2
+    calculation: average_order_value
+    normalization: min-max
+  - id: interaction_depth
+    name: 互動深度
+    weight: 0.15
+    calculation: avg_items_per_transaction
+    normalization: min-max
+  - id: consistency
+    name: 行為一致性
+    weight: 0.1
+    calculation: 1 - cv(purchase_intervals)
+    normalization: min-max
+  scoring_method: weighted_sum
+  score_range:
+  - 0
+  - 100
+  score_tiers:
+  - tier: 超高參與
+    range:
+    - 80
+    - 100
+    icon: "\U0001F525"
+    color: '#dc3545'
+  - tier: 高參與
+    range:
+    - 60
+    - 79
+    icon: ⚡
+    color: '#ff6b6b'
+  - tier: 中參與
+    range:
+    - 40
+    - 59
+    icon: "\U0001F4CA"
+    color: '#ffc107'
+  - tier: 低參與
+    range:
+    - 20
+    - 39
+    icon: "\U0001F4C9"
+    color: '#17a2b8'
+  - tier: 極低參與
+    range:
+    - 0
+    - 19
+    icon: "\U0001F634"
+    color: '#6c757d'
+conversion_funnel:
+  enabled: yes
+  stages:
+  - stage: 訪客
+    id: visitor
+    metric: total_customers
+    next_stage: browse
+  - stage: 瀏覽
+    id: browse
+    metric: customers_with_views
+    next_stage: add_to_cart
+  - stage: 加入購物車
+    id: add_to_cart
+    metric: customers_with_cart
+    next_stage: purchase
+    optional: yes
+  - stage: 首次購買
+    id: first_purchase
+    metric: customers_with_first_purchase
+    next_stage: repeat
+  - stage: 重複購買
+    id: repeat_purchase
+    metric: repeat_customers
+  conversion_calculation:
+    method: step_by_step
+    show_drop_off: yes
+    show_conversion_time: yes
+  visualization:
+    chart_type: funnel
+    show_percentages: yes
+    show_absolute_numbers: yes
+    highlight_bottlenecks: yes
+behavior_patterns:
+  purchase_patterns:
+    enabled: yes
+    analyses:
+    - id: frequency_pattern
+      name: 購買頻率模式
+      detect_regular: yes
+      detect_sporadic: yes
+    - id: timing_pattern
+      name: 購買時間模式
+      dimensions:
+      - day_of_week
+      - time_of_day
+      - month
+    - id: value_pattern
+      name: 購買金額模式
+      detect_increasing: yes
+      detect_decreasing: yes
+      detect_stable: yes
+  interaction_patterns:
+    enabled: yes
+    track_metrics:
+    - session_duration
+    - pages_per_session
+    - bounce_rate
+    optional: yes
+  product_preferences:
+    enabled: no
+    analyses:
+    - category_preferences
+    - brand_preferences
+    - price_range_preferences
+activity_trends:
+  enabled: yes
+  temporal_analysis:
+    periods:
+    - daily
+    - weekly
+    - monthly
+    default_period: monthly
+  trend_metrics:
+  - active_user_count
+  - average_engagement_score
+  - activity_frequency
+  forecasting:
+    enabled: yes
+    method: time_series
+    forecast_periods: 3
+engagement_segmentation:
+  enabled: yes
+  method: score_based
+  score_based_segments:
+  - id: power_users
+    name: 超級用戶
+    condition: engagement_score >= 80
+    characteristics:
+    - 高頻購買
+    - 高價值
+    - 高忠誠度
+  - id: engaged_users
+    name: 參與用戶
+    condition: engagement_score >= 60 && engagement_score < 80
+    characteristics:
+    - 穩定購買
+    - 中等價值
+  - id: casual_users
+    name: 休閒用戶
+    condition: engagement_score >= 40 && engagement_score < 60
+    characteristics:
+    - 偶爾購買
+    - 需要激勵
+  - id: at_risk_users
+    name: 流失風險用戶
+    condition: engagement_score < 40
+    characteristics:
+    - 低參與
+    - 需要挽回
+conversion_optimization:
+  bottleneck_detection:
+    enabled: yes
+    threshold: 30
+    auto_identify: yes
+  ab_test_recommendations:
+    enabled: no
+  optimization_strategies:
+    enabled: yes
+    based_on:
+    - funnel_analysis
+    - engagement_scores
+    - behavior_patterns
+rfe_analysis:
+  enabled: yes
+  dimensions:
+    recency:
+      weight: 0.3
+      bins: 5
+    frequency:
+      weight: 0.35
+      bins: 5
+    engagement:
+      weight: 0.35
+      bins: 5
+  scoring:
+    method: quintile
+    combine_method: weighted_sum
+visualization:
+  kpi_cards:
+    show: yes
+    metrics:
+    - active_customers
+    - activity_rate
+    - avg_engagement_score
+    - conversion_rate
+  charts:
+    engagement_score_distribution:
+      type: histogram
+      bins: 20
+      color: '#ff6b6b'
+    conversion_funnel:
+      type: funnel
+      show_drop_off: yes
+    activity_trend:
+      type: line
+      show_moving_average: yes
+    engagement_heatmap:
+      type: heatmap
+      dimensions:
+      - day_of_week
+      - hour
+      color_scheme: Reds
+  tables:
+    top_engaged_customers:
+      show: yes
+      top_n: 50
+      sortable: yes
+    engagement_segments:
+      show: yes
+      show_metrics: yes
+ai_insights:
+  enabled: yes
+  gpt:
+    model: gpt-5-nano
+    temperature: 0.7
+    max_tokens: 1000
+  insight_types:
+  - id: engagement_summary
+    name: 參與度總結
+    prompt_type: engagement_summary
+  - id: funnel_analysis
+    name: 漏斗分析
+    prompt_type: funnel_insights
+  - id: behavior_insights
+    name: 行為洞察
+    prompt_type: behavior_patterns
+  - id: optimization_strategies
+    name: 優化策略
+    prompt_type: engagement_optimization
+data_requirements:
+  required_fields:
+  - customer_id
+  - payment_time
+  - lineitem_price
+  optional_fields:
+  - session_data
+  - interaction_events
+  - product_views
+  derived_fields:
+  - name: days_since_last_activity
+    formula: today() - max(payment_time)
+  - name: activity_frequency
+    formula: count(activities) / months_active
+  - name: engagement_score
+    formula: calculate_engagement_score()
+export:
+  enabled: yes
+  formats:
+  - xlsx
+  - csv
+  - pdf
+  reports:
+  - id: engagement_report
+    name: 參與度分析報告
+    includes:
+    - engagement_metrics
+    - funnel_analysis
+    - behavior_patterns
+    - ai_insights
+performance:
+  cache:
+    enabled: yes
+    cache_duration: 1800
+  parallel:
+    enabled: yes
+    max_workers: 2
+  big_data_optimization:
+    enabled: yes
+    sampling_threshold: 100000
+    sample_size: 50000
+ui_settings:
+  layout:
+    show_kpi_cards: yes
+    show_engagement_scoring: yes
+    show_funnel_analysis: yes
+    show_behavior_patterns: yes
+    show_ai_insights: yes
+  controls:
+    date_range_selector: yes
+    segment_filter: yes
+    score_range_slider: yes
+    activity_threshold_slider: yes
+  interactive:
+    drill_down: yes
+    segment_comparison: yes
+    export_segments: yes
+notifications:
+  enabled: yes
+  alert_conditions:
+  - condition: activity_rate < 30
+    severity: warning
+    message: 活躍率低於30%，需要關注
+  - condition: avg_engagement_score < 40
+    severity: warning
+    message: 平均參與度分數偏低
+  - condition: conversion_rate < 10
+    severity: critical
+    message: 轉化率低於10%，需要立即優化
+hints:
+  enabled: yes
+  hint_targets:
+  - id: engagement_score
+  - id: conversion_funnel
+  - id: activity_patterns
+prompts:
+  enabled: yes
+  prompt_types:
+  - id: engagement_summary
+  - id: funnel_insights
+  - id: behavior_patterns
+  - id: engagement_optimization
+module_integration:
+  dna_module:
+    use_segments: yes
+    enrich_with_dna: yes
+  revenue_module:
+    correlate_engagement_revenue: yes
+  retention_module:
+    correlate_engagement_retention: yes
+  acquisition_module:
+    track_new_user_engagement: yes

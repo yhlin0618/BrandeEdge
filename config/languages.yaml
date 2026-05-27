@@ -1,0 +1,23 @@
+default_language: "zh_TW"
+
+supported_languages:
+  - code: "zh_TW"
+    dir: "chinese"
+    display_name: "中文"
+    flag: "🇹🇼"
+    enabled: true
+
+  - code: "en_US"
+    dir: "english"
+    display_name: "English"
+    flag: "🇺🇸"
+    enabled: true
+
+  - code: "ja_JP"
+    dir: "japanese"
+    display_name: "日本語"
+    flag: "🇯🇵"
+    enabled: true
+
+fallback:
+  fallback_language: "zh_TW"

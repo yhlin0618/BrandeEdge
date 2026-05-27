@@ -1,0 +1,843 @@
+# ==========================================
+# VitalSigns - Revenue Pulse Module Language Content (Japanese)
+# ==========================================
+# 売上パルス分析モジュール言語コンテンツ（日本語）
+# Version: 1.0.0
+# Last Updated: 2025-10-11
+
+# モジュール基本情報
+title: "売上パルス分析"
+subtitle: "収入規模、単一顧客価値、収益性の定量化"
+description: "売上健全度の評価、価値分布の分析、高貢献顧客の特定、収益構造の最適化"
+
+# UI ブロック
+ui:
+  sections:
+    overview: "売上概要"
+    revenue_metrics: "コア指標"
+    consistency_score: "売上安定度スコア"
+    revenue_distribution: "売上分布"
+    pareto_analysis: "Pareto 80/20 法則"
+    clv_segments: "CLV 顧客グループ分析"
+    revenue_segments: "顧客売上セグメント"
+    arpu_analysis: "ARPU 分析"
+    clv_distribution: "顧客生涯価値分布"
+    top_customers: "高価値顧客ランキング"
+    metrics_table: "売上指標詳細"
+    revenue_trends: "売上トレンド"
+    contribution_analysis: "貢献度分析"
+    ai_insights: "AI インサイト"
+
+  # ラベル
+  labels:
+    consistency_label: "一貫性スコア"
+    stability_interpretation: "安定度解釈"
+
+  # ボタン
+  buttons:
+    calculate_metrics: "指標を計算"
+    analyze_pareto: "Pareto を分析"
+    segment_clv: "CLV でセグメント化"
+    generate_insights: "AI インサイトを生成"
+    export_analysis: "分析レポートをエクスポート"
+    download_segments: "顧客リストをダウンロード"
+    download_full_list: "完全な顧客リストをダウンロード"
+    download_revenue_list: "完全な顧客売上リストをダウンロード"
+
+# 指標定義
+metrics:
+  # コア売上指標
+  total_revenue:
+    name: "総売上高"
+    short_name: "売上高"
+    description: "すべての取引の総金額"
+    icon: "dollar-sign"
+    unit: "円"
+    color: "primary"
+
+  arpu:
+    name: "ユーザーあたり平均売上 (ARPU)"
+    short_name: "ARPU"
+    full_name: "Average Revenue Per User"
+    description: "顧客1人あたりの平均売上貢献"
+    icon: "user-dollar"
+    unit: "円"
+    color: "success"
+    formula: "総売上 / 顧客数"
+
+  clv:
+    name: "平均顧客生涯価値 (CLV)"
+    short_name: "CLV"
+    full_name: "Customer Lifetime Value"
+    description: "顧客がライフサイクル全体で貢献する総価値"
+    icon: "chart-line"
+    unit: "円"
+    color: "info"
+    formula: "ARPU × 購入頻度 × 顧客寿命"
+
+  aov:
+    name: "平均注文額 (AOV)"
+    short_name: "AOV"
+    full_name: "Average Order Value"
+    description: "注文1件あたりの平均金額"
+    icon: "shopping-cart"
+    unit: "円"
+    color: "warning"
+    formula: "総売上 / 注文数"
+
+  consistency_score:
+    name: "売上安定度"
+    short_name: "安定度"
+    description: "売上の一貫性と予測可能性のスコア"
+    icon: "heartbeat"
+    unit: "点"
+    color: "success"
+    range: "0-100"
+
+# 売上安定度
+consistency:
+  # 安定度レベル
+  levels:
+    excellent:
+      name: "非常に良好"
+      min_score: 80
+      color: "success"
+      icon: "💚"
+      interpretation: "売上が非常に安定しており、ビジネスが健全"
+
+    good:
+      name: "良好"
+      min_score: 60
+      color: "primary"
+      icon: "💙"
+      interpretation: "売上が比較的安定しており、若干の変動あり"
+
+    moderate:
+      name: "中程度"
+      min_score: 40
+      color: "warning"
+      icon: "💛"
+      interpretation: "売上の変動が明確で、注意が必要"
+
+    poor:
+      name: "不良"
+      min_score: 0
+      color: "danger"
+      icon: "❤️"
+      interpretation: "売上が不安定で、リスクが高い"
+
+  # 評価ディメンション
+  dimensions:
+    revenue_stability:
+      name: "売上変動性"
+      description: "売上変動係数（CV）"
+      weight: 0.4
+
+    growth_consistency:
+      name: "成長一貫性"
+      description: "成長率の安定度"
+      weight: 0.3
+
+    customer_concentration:
+      name: "顧客集中度"
+      description: "売上ソースの分散度"
+      weight: 0.3
+
+# Pareto 分析
+pareto:
+  # 80/20 法則
+  rule_8020:
+    name: "Pareto 80/20 法則"
+    description: "売上の80%は顧客の20%から"
+    interpretation: "高価値顧客を特定し、リソース配分を最適化"
+
+  # 顧客グループ分類
+  segments:
+    top_20:
+      name: "高価値顧客（上位20%）"
+      short_name: "Top 20%"
+      description: "最も多くの売上を貢献する顧客グループ"
+      color: "success"
+      icon: "👑"
+      typical_contribution: "70-90%"
+
+    middle_60:
+      name: "中価値顧客（中間60%）"
+      short_name: "Middle 60%"
+      description: "中程度の売上を貢献する顧客グループ"
+      color: "primary"
+      icon: "⭐"
+      typical_contribution: "10-25%"
+
+    bottom_20:
+      name: "低価値顧客（下位20%）"
+      short_name: "Bottom 20%"
+      description: "最も少ない売上を貢献する顧客グループ"
+      color: "warning"
+      icon: "👤"
+      typical_contribution: "0-5%"
+
+  # Pareto 指標
+  metrics:
+    pareto_ratio:
+      name: "Pareto 比率"
+      description: "上位20%顧客の売上占有率"
+      ideal_range: "70-80%"
+
+    concentration_index:
+      name: "集中度指数"
+      description: "売上集中度の定量化指標"
+      interpretation: "高いほど少数の顧客に集中していることを示す"
+
+# CLV セグメント
+clv_segments:
+  # CLV によるセグメント
+  tiers:
+    platinum:
+      name: "プラチナ顧客"
+      description: "最高価値の顧客グループ"
+      color: "#E5E4E2"
+      icon: "💎"
+      percentile: "上位10%"
+      strategy: "最高のサービス、全力で維持"
+
+    gold:
+      name: "ゴールド顧客"
+      description: "高価値顧客グループ"
+      color: "#FFD700"
+      icon: "🥇"
+      percentile: "10-25%"
+      strategy: "優れたサービス、積極的に向上"
+
+    silver:
+      name: "シルバー顧客"
+      description: "中価値顧客グループ"
+      color: "#C0C0C0"
+      icon: "🥈"
+      percentile: "25-75%"
+      strategy: "標準サービス、継続的に育成"
+
+    bronze:
+      name: "ブロンズ顧客"
+      description: "基本価値顧客グループ"
+      color: "#CD7F32"
+      icon: "🥉"
+      percentile: "75-100%"
+      strategy: "基本サービス、選択的に投資"
+
+  # CLV 計算方法
+  calculation:
+    simple:
+      name: "簡易法"
+      formula: "平均購入価値 × 購入頻度 × 顧客寿命"
+      use_case: "迅速な見積もり"
+
+    cohort_based:
+      name: "コホート法"
+      formula: "実際のコホートの累積売上に基づく"
+      use_case: "正確な計算"
+
+    predictive:
+      name: "予測法"
+      formula: "履歴データ + チャーン率予測"
+      use_case: "将来価値の見積もり"
+
+# 売上トレンド
+revenue_trends:
+  # トレンドタイプ
+  types:
+    time_series:
+      name: "時系列トレンド"
+      description: "時間に伴う売上の変化トレンド"
+
+    moving_average:
+      name: "移動平均"
+      description: "平滑化されたトレンドライン"
+      periods: [7, 14, 30]
+
+    growth_rate:
+      name: "成長率トレンド"
+      description: "期間ごとの成長率変化"
+
+  # Period Comparisons
+  comparisons:
+    mom:
+      name: "月次比較（MoM）"
+      description: "前月との比較"
+
+    yoy:
+      name: "年次比較（YoY）"
+      description: "前年同期との比較"
+
+    cumulative:
+      name: "累積比較"
+      description: "累積売上比較"
+
+# Contribution Analysis
+contribution:
+  # Contribution Metrics
+  metrics:
+    revenue_contribution:
+      name: "売上貢献度"
+      description: "個別顧客またはセグメントからの売上割合"
+      unit: "%"
+
+    transaction_contribution:
+      name: "取引貢献度"
+      description: "取引数の割合"
+      unit: "%"
+
+    customer_share:
+      name: "顧客シェア"
+      description: "顧客数の割合"
+      unit: "%"
+
+  # Contribution Analysis Types
+  analysis_types:
+    by_customer:
+      name: "顧客別"
+      description: "個別顧客の売上貢献"
+
+    by_segment:
+      name: "セグメント別"
+      description: "異なるセグメントの売上貢献"
+
+    by_period:
+      name: "期間別"
+      description: "異なる期間の売上貢献"
+
+# チャート設定
+charts:
+  aov_comparison:
+    title: "AOV 分析"
+    subtitle: "セグメント別平均注文額比較"
+    categories:
+      overall: "全体平均"
+      new: "新規顧客"
+      core: "コア顧客"
+    x_axis: "顧客タイプ"
+    y_axis: "平均注文額 ($)"
+    hover_label: "平均注文額"
+
+  clv_distribution:
+    title: "顧客生涯価値分布 (80/20法則)"
+    subtitle: "CLV 分布 (80/20法則)"
+    segments:
+      high: "高価値顧客"
+      mid: "中価値顧客"
+      low: "低価値顧客"
+    x_axis: "顧客セグメント"
+    y_axis: "顧客生涯価値 ($)"
+    x_labels:
+      low: "低価値\n(下位20%)"
+      mid: "中価値\n(中位60%)"
+      high: "高価値\n(上位20%)"
+    legend:
+      median: "中央値"
+      mean: "平均値"
+    annotations:
+      note: "📊 上位20%が売上の80%に貢献 | 🔶 中央値 | 🔹 平均値 | グレー領域: IQR (Q1-Q3)"
+
+  revenue_trend:
+    title: "売上成長曲線"
+    no_data: "売上トレンド分析には時系列データが必要です\nアップロードしたデータに詳細な取引タイムスタンプが含まれていることを確認してください"
+
+  revenue_trend_chart:
+    title: "売上トレンド"
+    x_axis: "時間"
+    y_axis: "売上高"
+    tooltip: "{date}: {revenue} 円"
+
+  revenue_distribution:
+    title: "売上分布"
+    x_axis: "売上範囲"
+    y_axis: "顧客数"
+    tooltip: "{range}: {count} 人の顧客"
+
+  pareto_chart:
+    title: "Pareto 分析 (80/20 法則)"
+    x_axis: "累積顧客割合"
+    y_axis: "累積売上割合"
+    tooltip: "上位 {customer_pct}% の顧客が {revenue_pct}% の売上を貢献"
+
+  clv_segments_chart:
+    title: "CLV セグメント分布"
+    tooltip: "{tier}: {count} 人の顧客 ({percentage}%)"
+
+  consistency_gauge:
+    title: "売上安定度スコア"
+    tooltip: "スコア: {score} 点 - {interpretation}"
+
+  # Pareto cumulative curve chart (for module code)
+  pareto_curve:
+    title: "Pareto 80/20 累積曲線"
+    interpretation_title: "グラフの説明"
+    interpretation: "Pareto 80/20 法則は顧客売上の累積分布を示します。青い棒グラフは個別顧客の売上、赤い曲線は累積売上のパーセンテージを示します。一般的に、約20%の顧客が80%の売上を貢献します。"
+    legend:
+      individual_revenue: "個別売上"
+      cumulative_pct: "累積売上%"
+      target_80: "80%目標線"
+    hover:
+      customer_rank: "顧客ランク"
+      revenue: "売上"
+      cumulative: "累積売上"
+    annotation:
+      pareto_point: "Paretoポイント: "
+      customers: "の顧客"
+    x_axis: "顧客ランク（売上降順）"
+    y_axis_left: "個別売上（円）"
+    y_axis_right: "累積売上割合（%）"
+
+# メッセージテキスト
+messages:
+  success:
+    analysis_complete: "✅ 売上分析が完了しました"
+    pareto_analyzed: "✅ Pareto 分析が完了しました"
+    clv_segmented: "✅ CLV セグメント化が完了しました"
+    insights_generated: "✅ AI インサイトが生成されました"
+
+  processing:
+    calculating_metrics: "売上指標を計算中..."
+    analyzing_pareto: "Pareto 分析中..."
+    segmenting_clv: "CLV でセグメント化中..."
+    analyzing_trends: "トレンドを分析中..."
+
+  error:
+    insufficient_data: "❌ データ不足、売上分析を実行できません"
+    no_revenue_data: "❌ 売上データがありません"
+    calculation_failed: "❌ 計算に失敗しました"
+
+  warning:
+    low_consistency: "⚠️ 売上安定度が低いです（{score}点）、ビジネスリスクに注意"
+    high_concentration: "⚠️ 売上が少数の顧客に過度に集中しています（{pct}%）"
+    declining_revenue: "⚠️ 売上が減少傾向にあります（{rate}%）"
+
+  info:
+    metrics_calculated: "{count} 人の顧客の売上指標を計算しました"
+    segments_created: "{count} 個の CLV セグメントを作成しました"
+    pareto_ratio: "上位20%の顧客が {pct}% の売上を貢献しています"
+
+# AI 分析タイプ
+ai_analysis:
+  types:
+    revenue_optimization:
+      name: "売上最適化"
+      description: "売上成長の機会と最適化戦略を特定"
+      prompt_category: "revenue_optimization"
+
+    value_drivers:
+      name: "価値ドライバー"
+      description: "顧客価値に影響する主要要因を分析"
+      prompt_category: "value_drivers"
+
+    clv_enhancement:
+      name: "CLV 向上"
+      description: "顧客生涯価値を向上させる方法を提案"
+      prompt_category: "clv_enhancement"
+
+    revenue_stability:
+      name: "売上安定化"
+      description: "売上変動を減らし安定性を向上させる戦略"
+      prompt_category: "revenue_stability"
+
+# 説明テキスト
+help:
+  overview: |
+    売上パルス分析モジュールは売上健全度と収益構造の評価を支援します。
+    Pareto 分析とCLVセグメント化を通じて、高価値顧客を特定し、収益を最適化します。
+
+  core_metrics: |
+    コア売上指標：
+    - 総売上高：すべての取引の総金額
+    - ARPU：顧客1人あたりの平均売上、売上を総顧客数で割る
+    - CLV：顧客生涯価値、ARPU × 購入頻度 × 顧客寿命
+    - AOV：注文1件あたりの平均金額、売上を注文数で割る
+
+  consistency_score: |
+    売上安定度スコア：
+    3つのディメンションで評価：
+    1. 売上変動性 (40%)：売上変動係数（CV）が低いほどスコアが高い
+    2. 成長一貫性 (30%)：成長率が安定しているほどスコアが高い
+    3. 顧客集中度 (30%)：売上が分散しているほどスコアが高い
+
+    スコア範囲：0-100点
+    - 80点以上：非常に良好、売上が非常に安定
+    - 60-79点：良好、売上が比較的安定
+    - 40-59点：中程度、変動が明確で注意が必要
+    - 40点未満：不良、売上が不安定でリスクが高い
+
+  pareto_analysis: |
+    Pareto 80/20 法則：
+    - 一般的に、売上の80%は顧客の20%から
+    - 高価値顧客（上位20%）を特定してリソースを集中
+    - 中価値顧客（中間60%）を育成して高価値に昇格
+    - 低価値顧客（下位20%）には基本サービスを提供
+
+  clv_segmentation: |
+    CLV セグメント戦略：
+    - プラチナ顧客（上位10%）：最高のサービス、全力で維持
+    - ゴールド顧客（10-25%）：優れたサービス、積極的に向上
+    - シルバー顧客（25-75%）：標準サービス、継続的に育成
+    - ブロンズ顧客（75-100%）：基本サービス、選択的に投資
+
+  best_practices: |
+    分析推奨事項：
+    1. 定期的に売上指標を追跡し、トレンドと異常を理解
+    2. 高価値顧客を特定し、VIP待遇を提供
+    3. 売上安定度を監視し、リスクを早期に発見
+    4. 顧客CLVを向上させ、長期価値を最大化
+    5. AI インサイトを活用して売上最適化戦略を策定
+
+# ヒントテキスト
+hints:
+  total_revenue: "総売上はすべての顧客の取引額の合計で、事業規模を反映します"
+  arpu: "ARPUが高いほど、各顧客の平均価値が高いことを示します。ARPUの向上は売上成長の重要な方法です。"
+  clv: "CLVは顧客の長期価値を測定し、どの顧客グループに投資すべきかを決定するのに役立ちます。"
+  consistency_score: "取引安定度は顧客の購入行動の一貫性を反映し、高いほど安定しています"
+  consistency: "売上安定度が高いほど、ビジネスの予測可能性が高く、リスクが低いことを示します。"
+  pareto: "Pareto 分析は高価値顧客を特定するのに役立ち、これらの顧客を維持することが売上維持の鍵です。"
+
+# 行動推奨
+action_recommendations:
+  high_value_customers:
+    title: "高価値顧客維持戦略"
+    actions:
+      - "VIP専用特典とサービスを提供"
+      - "専任カスタマーマネージャーを設置"
+      - "新商品と限定商品への優先アクセス"
+      - "定期的な感謝とフィードバック"
+      - "ブランド決定への参加を招待"
+
+  improve_arpu:
+    title: "ARPU向上戦略"
+    actions:
+      - "クロスセルとアップセル"
+      - "商品バンドルオファーの展開"
+      - "付加価値サービスの提供"
+      - "商品価格戦略の最適化"
+      - "購入頻度の増加を促進"
+
+  improve_consistency:
+    title: "売上安定度向上戦略"
+    actions:
+      - "顧客ベースを多様化し、集中度を低減"
+      - "サブスクリプションまたはメンバーシッププログラムを開発"
+      - "予測的な補充メカニズムを確立"
+      - "新規顧客獲得と既存顧客維持のバランス"
+      - "多様な収益源を開発"
+
+  optimize_clv:
+    title: "CLV最適化戦略"
+    actions:
+      - "顧客ライフタイムを延長"
+      - "購入頻度を増加"
+      - "1回の購入金額を増加"
+      - "顧客離脱率を低減"
+      - "ロイヤルティプログラムを確立"
+
+# ==========================================
+# MISSING KEYS ADDITIONS (For Language System Integration)
+# Added: 2025-10-14
+# ==========================================
+
+# セグメントラベル（コード内のsegment分類に使用）
+segment_labels:
+  high_value: "高価値顧客（上位20%）"
+  mid_value: "中価値顧客（中間60%）"
+  low_value: "低価値顧客（下位20%）"
+
+# テーブル列ヘッダー
+tables:
+  # Top customers table
+  top_customers:
+    title: "売上上位顧客"
+    columns:
+      customer_id: "顧客ID"
+      total_revenue: "総売上"
+      purchase_count: "購入回数"
+      avg_transaction: "平均取引額"
+
+  # Revenue metrics detail table
+  revenue_metrics:
+    title: "売上指標詳細"
+    columns:
+      customer_id: "顧客ID"
+      total_revenue: "総売上"
+      purchase_count: "購入回数"
+      avg_transaction: "平均取引額"
+      days_since_last: "最終購入からの日数"
+      purchase_frequency: "購入頻度"
+      aov: "AOV"
+      clv: "CLV"
+
+  # Segment summary table
+  segment_summary:
+    title: "セグメント別詳細統計"
+    columns:
+      segment: "セグメント"
+      customer_count: "顧客数"
+      revenue_pct: "売上割合"
+      avg_revenue: "平均売上"
+
+  # Revenue details table
+  revenue_details:
+    title: "売上指標詳細"
+    columns:
+      customer_id: "顧客ID"
+      total_spent: "総支出額"
+      avg_spent: "取引あたりの平均支出"
+      clv: "顧客生涯価値"
+      status: "顧客ステータス"
+      times: "購入回数"
+      recency: "最終購入からの日数"
+      frequency: "購入頻度"
+
+  # Segments
+  segments:
+    column_segment: "価値セグメント"
+
+# ADDED: Singular "table" keys for module code compatibility (2025-10-14)
+table:
+  revenue_details:
+    title: "売上指標詳細"
+    columns:
+      customer_id: "顧客ID"
+      total_spent: "総支出額"
+      avg_spent: "取引あたりの平均支出"
+      clv: "顧客生涯価値"
+      status: "顧客ステータス"
+      times: "購入回数"
+      recency: "最終購入からの日数"
+      frequency: "購入頻度"
+
+  segments:
+    column_segment: "価値セグメント"
+
+# 一貫性スコア詳細解釈
+consistency_interpretation:
+  excellent:
+    label: "高度に一貫"
+    icon: "check-circle"
+    color: "#28a745"
+    message: "売上パフォーマンスが安定し、顧客行動の一貫性が高い"
+  good:
+    label: "中程度の一貫性"
+    icon: "exclamation-circle"
+    color: "#ffc107"
+    message: "売上変動は中程度、顧客セグメント管理の強化を推奨"
+  poor:
+    label: "低い一貫性"
+    icon: "times-circle"
+    color: "#dc3545"
+    message: "売上変動が大きい、顧客構造の最適化が必要"
+  cv_label: "変動係数（CV）: {value}"
+
+# 詳細チャート設定
+chart_details:
+  # Revenue distribution histogram
+  revenue_distribution_chart:
+    title: "顧客売上分布"
+    x_axis: "顧客売上（円）"
+    y_axis: "顧客数"
+    hover_template: "売上範囲: ¥%{x}<br>顧客数: %{y}"
+    no_chart_message: "チャートを生成できません"
+
+  # Pareto curve chart
+  pareto_curve_chart:
+    title: "Pareto 80/20 分析"
+    x_axis: "顧客ランク"
+    y_axis_left: "個別売上（円）"
+    y_axis_right: "累積売上割合（%）"
+    legend:
+      individual: "個別売上"
+      cumulative: "累積売上%"
+      target: "80%目標"
+    hover_individual: "顧客ランク: %{x}<br>売上: ¥%{y:,.0f}"
+    hover_cumulative: "累積売上: %{y:.1f}%"
+    no_chart_message: "チャートを生成できません"
+
+  # Pareto curve chart (simplified keys for module)
+  pareto_curve:
+    title: "Pareto 80/20 累積曲線"
+    interpretation_title: "グラフの説明"
+    interpretation: "Pareto 80/20 法則は顧客売上の累積分布を示します。青い棒グラフは個別顧客の売上、赤い曲線は累積売上のパーセンテージを示します。一般的に、約20%の顧客が80%の売上を貢献します。"
+    legend:
+      individual_revenue: "個別売上"
+      cumulative_pct: "累積売上%"
+      target_80: "80%目標線"
+    hover:
+      customer_rank: "顧客ランク"
+      revenue: "売上"
+      cumulative: "累積売上"
+    annotation:
+      pareto_point: "Paretoポイント: "
+      customers: "の顧客"
+    x_axis: "顧客ランク（売上降順）"
+    y_axis_left: "個別売上（円）"
+    y_axis_right: "累積売上割合（%）"
+
+  # Revenue segments pie chart
+  revenue_segments_pie:
+    title: "顧客売上セグメント貢献"
+    hover_template: "%{label}<br>売上シェア: %{value:.1f}%<br>顧客数: %{customdata}"
+    no_chart_message: "チャートを生成できません"
+
+  # ARPU comparison chart
+  arpu_comparison_chart:
+    title: "セグメント別平均売上比較"
+    x_axis: ""
+    y_axis: "平均売上（円）"
+    hover_template: "%{x}<br>平均売上: ¥%{y:,.0f}"
+    no_chart_message: "チャートを生成できません"
+
+  # Revenue trend over time chart
+  revenue_trend_chart:
+    title: "月次売上トレンドと成長率"
+    x_axis: "月"
+    y_axis_left: "売上（円）"
+    y_axis_right: "成長率（%）"
+    legend:
+      revenue: "月次売上"
+      moving_avg: "移動平均"
+      growth: "成長率（%）"
+    hover_revenue: "%{x|%Y-%m}<br>売上: ¥%{y:,.0f}"
+    hover_ma: "%{x|%Y-%m}<br>MA: ¥%{y:,.0f}"
+    hover_growth: "%{x|%Y-%m}<br>成長率: %{y:.1f}%"
+    no_data_title: "時系列データ不足"
+    no_data_message: "トレンド分析にはより多くの取引記録が必要です"
+    no_chart_message: "チャートを生成できません"
+
+  # CLV distribution box plot
+  clv_distribution_chart:
+    title: "セグメント別CLV分布"
+    x_axis: ""
+    y_axis: "顧客生涯価値（円）"
+    hover_template: "CLV: ¥%{y:,.0f}"
+    no_chart_message: "チャートを生成できません"
+
+# AIインサイトコンテンツ
+ai_insights:
+  # GPT prompts
+  prompts:
+    revenue_summary:
+      system: "以下の売上データを分析し、戦略的インサイトを提供してください："
+      metrics_template: |
+        - 総売上: ¥{total_revenue}
+        - 顧客数: {customer_count}
+        - ARPU: ¥{arpu}
+        - 平均CLV: ¥{clv}
+        - AOV: ¥{aov}
+        - 売上一貫性: {consistency}%
+        - Pareto分析: {pareto_pct}%の顧客が80%の売上を貢献
+      request: "次を提供してください: 1) 全体的な売上健全性評価 2) 主要な発見 3) 最適化推奨事項"
+
+  # Fallback content (when GPT disabled or fails)
+  fallback:
+    revenue_summary:
+      title: "📊 売上概要"
+      template_line1: "✓ 総売上: ¥{total_revenue}"
+      template_line2: "✓ {customer_count}人の顧客"
+      template_line3: "✓ 顧客あたり: ¥{arpu}"
+      high_consistency: "✅ 売上の一貫性が高く、顧客行動が安定"
+      medium_consistency: "⚠️ 売上変動が中程度、高価値顧客への注力を推奨"
+      low_consistency: "🔴 売上変動が大きい、顧客構造の最適化が必要"
+
+    arpu_analysis:
+      title: "💰 ARPU詳細分析"
+      line1: "ユーザーあたり平均売上: ¥{arpu}"
+      line2: "高価値顧客平均: ¥{high_value_avg}"
+      line3: "低価値顧客平均: ¥{low_value_avg}"
+      recommendations_title: "💡 推奨事項:"
+      rec1: "高価値顧客にVIP専用サービスを提供"
+      rec2: "中価値顧客にアップグレードプログラムを促進"
+      rec3: "低価値顧客にプロモーションキャンペーンを実施"
+
+    clv_recommendations:
+      title: "📈 CLV向上戦略"
+      line1: "現在の平均CLV: ¥{clv}"
+      line2: "AOV: ¥{aov}"
+      line3: "再購入率: {purchase_frequency}回/人"
+      optimization_title: "🎯 最適化方向:"
+      opt1: "1. AOVを増加: バンドル販売、購入時の贈答品"
+      opt2: "2. 購入頻度を増加: メンバーシッププログラム、定期オファー"
+      opt3: "3. 顧客ライフタイムを延長: ロイヤルティリワード、アフターサービス"
+
+    consistency_analysis:
+      title: "⚖️ 売上一貫性分析"
+      score_line: "一貫性スコア: {score}%"
+      cv_line: "変動係数: {cv}"
+      excellent_level: "✅ 優秀: 安定した売上パフォーマンス、堅実な顧客基盤"
+      excellent_advice: "推奨: 現在の戦略を維持し、最適化を継続"
+      good_level: "⚠️ 良好: 中程度の売上変動"
+      good_advice_title: "推奨事項:"
+      good_advice1: "- 高変動顧客の特性を分析"
+      good_advice2: "- 階層的顧客管理を確立"
+      good_advice3: "- 新規顧客と既存顧客への投資をバランス"
+      poor_level: "🔴 改善が必要: 高い売上変動"
+      poor_advice_title: "推奨事項:"
+      poor_advice1: "- 顧客ソースを多様化"
+      poor_advice2: "- 単一大口顧客への依存を減少"
+      poor_advice3: "- 早期警告メカニズムを確立"
+
+  # Empty state messages
+  empty_state:
+    default: "「AIインサイトを生成」ボタンをクリックして分析を表示"
+    processing: "分析中..."
+    error: "AIインサイト生成に失敗しました。後でもう一度お試しください"
+
+# ダウンロードファイル名
+downloads:
+  customer_revenue:
+    filename: "customer_revenue_{date}.csv"
+  clv_segments:
+    filename: "clv_segments_{date}.csv"
+
+# UIボタン拡張
+ui_buttons:
+  download_revenue_list: "完全な顧客売上リストをダウンロード"
+  download_clv_segments: "顧客リストをダウンロード"
+
+# インサイトタブ名
+insights:
+  tabs:
+    revenue_summary:
+      name: "売上サマリー"
+      icon: "chart-pie"
+    arpu_analysis:
+      name: "ARPU分析"
+      icon: "dollar-sign"
+    clv_recommendations:
+      name: "CLV最適化"
+      icon: "chart-line"
+    consistency_insights:
+      name: "一貫性インサイト"
+      icon: "balance-scale"
+
+# AI 分析とインサイト
+ai:
+  insights:
+    clv_analysis_label: "AI 価値セグメント化の推奨事項"
+    trend_analysis_label: "AI トレンド分析"
+    aov_high_ratio_prefix: "✅ コア顧客のAOVは "
+    aov_high_ratio_suffix: "倍です。新規顧客のコンバージョン戦略の強化を推奨"
+    aov_low_ratio_prefix: "⚠️ コア顧客のAOVが低い（"
+    aov_low_ratio_suffix: "倍のみ）、ロイヤル顧客の価値向上が必要"
+    aov_moderate_ratio_prefix: "📊 コア顧客のAOV対新規顧客の比率は適度（"
+    aov_moderate_ratio_suffix: "倍）"
+    aov_insufficient_data: "📊 新規顧客とコア顧客を比較するためのデータが不足"
+    trend_need_data: "📊 トレンド分析にはより多くの時系列データが必要"
+    pareto_analysis_prefix: "📊 80/20分析： "
+    pareto_analysis_middle: "% の顧客が "
+    pareto_analysis_suffix: "% の売上に貢献"
+    marketing_recommendations: "マーケティングの推奨事項："
+
+  recommendations:
+    new_customer_strategy: "🎯 新規顧客戦略：初回購入割引、最低購入額でのギフト、初回購入価値の向上"
+    core_customer_strategy: "🎯 コア顧客戦略：VIP限定オファー、限定商品、ダブルメンバーシップポイント"
+    balanced_strategy: "🎯 バランス戦略：段階的オファー、支出アップグレードの促進"
+    high_value_customers: "🎆 高価値顧客：VIP専用サービス、優先予約アクセス、カスタマイズ製品、誕生日特別オファー"
+    mid_value_customers: "🎯 中価値顧客：メンバーシップポイントプログラム、購入時のギフト、四半期クーポン、紹介報酬"
+    low_value_customers: "💡 低価値顧客：初回購入オファー、エントリー製品プロモーション、期間限定割引、送料無料"
+
+  fallbacks:
+    need_more_data: "📌 分析のためにより多くの取引データの収集を推奨"

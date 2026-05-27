@@ -1,0 +1,155 @@
+title: "銷售模型分析"
+subtitle: "智能銷售預測與分析工具"
+
+tabs:
+  regression: "迴歸分析"
+  prediction: "預測分析"
+  visualization: "視覺化分析"
+
+ui:
+  labels:
+    product_type: "產品類型"
+    time_period: "時間區間"
+    sales_volume: "銷售量"
+    revenue: "營收"
+    customer_count: "客戶數量"
+    promotion_effect: "促銷效果"
+    seasonal_factor: "季節因子"
+
+  buttons:
+    run_analysis: "執行分析"
+    download_report: "下載報告"
+    save_model: "儲存模型"
+    load_model: "載入模型"
+    reset_params: "重設參數"
+
+placeholders:
+  select_product: "選擇產品類型"
+  enter_volume: "輸入銷售量"
+  select_period: "選擇時間區間"
+
+messages:
+  success:
+    analysis_complete: "✅ 銷售迴歸分析完成！"
+    model_saved: "✅ 模型已成功儲存"
+    data_loaded: "✅ 資料載入完成"
+    report_generated: "✅ 報告生成完成"
+    strategy_generated: "✅ 已產生 {brand} 的行銷策略！"
+
+  error:
+    analysis_failed: "❌ 分析執行失敗"
+    invalid_data: "❌ 資料格式不正確"
+    model_load_failed: "❌ 模型載入失敗"
+    insufficient_data: "❌ 資料量不足"
+    strategy_failed: "❌ 行銷策略生成失敗"
+    no_sales_column: "❌ 沒有找到評分欄位"
+
+  warning:
+    data_quality: "⚠️ 資料品質警告"
+    model_accuracy: "⚠️ 模型準確度較低"
+
+  info:
+    processing: "🔄 正在處理資料..."
+    analyzing: "🔄 正在執行銷售迴歸分析..."
+    generating: "📝 正在生成報告..."
+
+tooltips:
+  regression: "使用迴歸分析銷售數據"
+  prediction: "基於歷史數據預測未來銷售"
+  visualization: "圖表化展示分析結果"
+
+help:
+  regression: "迴歸分析適用於計數型數據分析，特別適合銷售量預測"
+  prediction: "預測功能將根據歷史趨勢和季節性因素進行預測"
+
+validation:
+  required_field: "此欄位為必填"
+  invalid_number: "請輸入有效數字"
+  date_range_error: "日期範圍不正確"
+
+# 📌 補齊與英文版對應的 buttons 鍵和其他缺失內容
+mean_scores:
+  title: "各變體的平均屬性分數"
+
+sales_model:
+  title: "銷售迴歸分析"
+  merged_data_preview: "合併資料預覽："
+
+strategy:
+  title: "基於分析生成行銷策略"
+  select_brand: "選擇品牌："
+  recommendation_title: "行銷策略建議"
+  key_attributes: "📊 關鍵屬性分析："
+  marketing_suggestions: "💡 行銷建議："
+  execution_strategy: "🚀 執行策略："
+  ab_test_recommendation: "建議先進行小規模 A/B 測試，驗證屬性強調的效果，再逐步擴大投放規模。"
+  suggestion_1: "重點強調 {attribute} 的優勢，這是影響銷售的核心因素"
+  suggestion_2: "在廣告文案中突出以上關鍵屬性的表現"
+  suggestion_3: "針對不同客群調整屬性強調的優先順序"
+  suggestion_4: "定期監控這些屬性的市場反饋並優化"
+
+results:
+  title: "📊 銷售模型分析結果"
+  visualization: "📈 邊際效應視覺化"
+  marginal_effect: "邊際效應"
+  multiplier: "賽道倍數"
+  business_significance_label: "商業意義:"
+  marginal_effect_label: "邊際效應:"
+
+# Column names for regression results table
+columns:
+  attribute: "屬性"
+  coefficient: "係數"
+  marginal_effect: "邊際效應"
+  multiplier: "賽道倍數"
+  interpretation: "解釋"
+  business_significance: "商業意義"
+
+# Default messages
+defaults:
+  analysis_failed: "模型擬合失敗"
+  unable_to_analyze: "無法分析"
+
+# Translation mappings for regression results
+# Maps original Chinese output from regression function to translated text
+translation_map:
+  interpretation:
+    # Error messages
+    "資料不足": "模型擬合失敗"
+    "缺少銷量資料": "模型擬合失敗"
+    "銷量資料無效": "模型擬合失敗"
+    "模型擬合失敗": "模型擬合失敗"
+    # Positive impacts
+    "強烈.*正面影響": "對銷量有強烈正面影響"
+    "中等.*正面影響": "對銷量有中等正面影響"
+    "微弱.*正面影響": "對銷量有微弱正面影響"
+    # Negative impacts
+    "強烈.*負面影響": "對銷量有強烈負面影響"
+    "中等.*負面影響": "對銷量有中等負面影響"
+    "微弱.*負面影響": "對銷量有微弱負面影響"
+
+  meaning:
+    # Error messages
+    "無法分析": "無法分析"
+    # Negative impact (new)
+    "不需要強調，會負向影響銷售": "不需要強調，會負向影響銷售"
+    # Positive impact levels
+    "影響很小，不是關鍵因素": "影響很小，不是關鍵因素"
+    "有一定影響，可考慮優化": "有一定影響，可考慮優化"
+    "重要影響因素，應重點關注": "重要影響因素，應重點關注"
+    "極重要因素，是核心競爭力": "極重要因素，是核心競爭力"
+
+chart:
+  title: "屬性對銷售的邊際效應"
+  xaxis_title: "邊際效應 (%)"
+
+console:
+  data_check: "資料檢查："
+  evaluation_brands: "評估品牌：{eval_count}"
+  sales_brands: "銷售品牌：{sales_count}"
+  common_brands: "共同品牌：{common_count}"
+  merged_records: "合併資料：{records} 筆"
+  running_regression: "執行銷售迴歸中..."
+  regression_failed: "❌ 銷售迴歸失敗："
+  no_sales_data: "⚠️ 未上傳銷售資料。跳過銷售模型分析。"
+

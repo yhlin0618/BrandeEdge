@@ -1,0 +1,38 @@
+# ==========================================
+# Key Factor Analysis Module - English (Simplified)
+# ==========================================
+# Version: 2.0
+# Last Updated: 2025-10-10
+# Note: Simplified version matching original BrandEdge implementation
+
+# Module Basic Information
+title: "Key Factor Analysis"
+subtitle: "Identify Core Success Factors"
+description: "Simple analysis showing which attributes are key factors and their importance metrics"
+
+# UI Text
+ui:
+  key_factors:
+    title: "Key Success Factors Identification"
+  importance:
+    title: "Key Factors Importance Analysis"
+
+# Labels
+labels:
+  key_factors: "Key Factors: "
+
+# Messages
+messages:
+  redirect_to_upload: "Please select 'Data Upload' from the sidebar"
+  no_key_factors: "Key factors not yet identified"
+
+# Table Columns
+tables:
+  columns:
+    attribute: "Attribute"
+    mean: "Average Score"
+    std_dev: "Std Dev"
+    max: "Max"
+    min: "Min"
+    importance_index: "Importance Index"
+    rank: "Rank"

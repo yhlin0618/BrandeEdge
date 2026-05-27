@@ -1,0 +1,154 @@
+# ==========================================
+# About Module Configuration
+# ==========================================
+# 關於我們模組配置
+# Version: 1.0.0
+# Last Updated: 2025-10-15
+
+module_info:
+  id: "about"
+  name: "關於我們"
+  version: "1.0.0"
+  description: "平台介紹與服務說明"
+  type: "information"
+  icon: "info-circle"
+  path: "modules/module_about.R"
+
+  # 函數名稱 (明確指定，不使用自動發現)
+  functions:
+    ui: "aboutModuleUI"
+    server: "aboutModuleServer"
+
+# ==========================================
+# UI 配置
+# ==========================================
+ui:
+  card:
+    enabled: true
+    title_key: "about.title"
+    status: "primary"
+    solid_header: false
+    collapsible: false
+    width: 12
+
+  markdown:
+    enabled: true
+    path_template: "database/content/{language}/markdown/about.md"
+    render_options:
+      fragment_only: true
+      use_xhtml: true
+      smartypants: true
+      base64_images: true
+      mathjax: true
+
+# ==========================================
+# 內容設定
+# ==========================================
+content:
+  type: "markdown"
+  fallback_language: "chinese"
+  cache_enabled: true
+  cache_duration: 3600  # seconds
+
+# ==========================================
+# 語言對應
+# ==========================================
+language_mapping:
+  zh_TW: "chinese"
+  en_US: "english"
+  ja_JP: "japanese"
+
+# ==========================================
+# 功能開關
+# ==========================================
+features:
+  show_contact_info: true
+  show_company_logo: true
+  enable_external_links: true
+
+# ==========================================
+# 聯絡資訊
+# ==========================================
+contact:
+  company_name: "祈鋒行銷科技有限公司"
+  email: "mr.no.one01@gmail.com"
+  website: "https://peakedges.com"
+  documentation_url: "https://docs.peakedges.com"
+
+# ==========================================
+# 語言內容
+# ==========================================
+# 以下內容將被語言管理器載入
+
+languages:
+  chinese:
+    title: "關於我們"
+    menu: "關於我們"
+    subtitle: "精準行銷平台"
+    description: "AI驅動的精準行銷平台"
+
+    pages:
+      about:
+        title: "關於我們"
+        menu_title: "關於我們"
+
+    contact:
+      title: "聯絡方式"
+      company: "公司"
+      email: "聯絡資訊"
+
+    services:
+      title: "提供服務"
+      segmentation: "客群分群建模"
+      intent: "意圖辨識與推薦系統"
+      sentiment: "評論內容語意分析"
+      campaign: "行銷活動預測與績效追蹤"
+      dashboard: "多管道數據整合與儀表板"
+
+  english:
+    title: "About Us"
+    menu: "About Us"
+    subtitle: "Precision Marketing Platform"
+    description: "AI-Driven Precision Marketing Platform"
+
+    pages:
+      about:
+        title: "About Us"
+        menu_title: "About Us"
+
+    contact:
+      title: "Contact Information"
+      company: "Company"
+      email: "Contact"
+
+    services:
+      title: "Our Services"
+      segmentation: "Customer Segmentation Modeling"
+      intent: "Intent Detection & Recommendation"
+      sentiment: "Sentiment & Aspect Analysis"
+      campaign: "Campaign Forecasting & Tracking"
+      dashboard: "Omni-channel Dashboard & ETL"
+
+  japanese:
+    title: "私たちについて"
+    menu: "私たちについて"
+    subtitle: "精密マーケティングプラットフォーム"
+    description: "AI駆動の精密マーケティングプラットフォーム"
+
+    pages:
+      about:
+        title: "私たちについて"
+        menu_title: "私たちについて"
+
+    contact:
+      title: "お問い合わせ"
+      company: "会社"
+      email: "連絡先"
+
+    services:
+      title: "提供サービス"
+      segmentation: "顧客セグメンテーションモデリング"
+      intent: "意図検出と推薦システム"
+      sentiment: "レビューコンテンツのセンチメント分析"
+      campaign: "キャンペーン予測とパフォーマンス追跡"
+      dashboard: "オムニチャネルダッシュボードとETL"

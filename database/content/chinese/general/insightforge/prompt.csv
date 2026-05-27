@@ -1,0 +1,186 @@
+analysis_name,var_id,prompt
+"屬性萃取","extract_attributes","system: 你是一位行銷專業的數據分析師，請用繁體中文回答。
+user: 請針對以下各顧客評論中，從產品定位理論中的屬性、功能、利益和用途等特質，探勘出與該產品最重要、且出現次數最高的{num_attributes}個正面描述且具體的特質，並依照該特質出現頻率進行排序。
+
+**重要格式要求**：僅輸出逗號分隔的屬性列表，格式為：屬性1, 屬性2, 屬性3, ...
+不要使用任何括號、大括號或其他符號。禁止出現其他文字。
+
+評論：
+{sample_reviews}"
+"屬性評分(單一)","score_attribute","system: 你是一位行銷專業的數據分析師，請用繁體中文回答。
+user: 以下 JSON：{review_json}請只回{attribute}:<1-5或無>"
+"屬性評分(批次)","score_attributes","system: 你是產品評論分析專家，根據評論內容對產品屬性評分。請用繁體中文回答。
+user: 請根據以下評論，對這些屬性評分（1-5分）。回覆JSON格式：{""scores"": {""屬性1"": 分數, ""屬性2"": 分數, ...}}
+屬性列表：{attributes}
+評論：{review_text}"
+"Poisson模型解讀","poisson_interpretation","system: 你是銷售分析專家，擅長解讀Poisson迴歸結果並提供商業洞察。
+user: 🎯 產品屬性正向影響力分析報告
+
+📊 分析概要：
+• 成功分析了 {num_attributes} 個具有正向影響的評分屬性
+• 所有係數均為正值，表示這些屬性對銷售有促進作用
+
+🏁 賽道冠軍（戰略重點）：
+• {top_track_attr} - 賽道倍數 {top_track_multiplier} 倍
+• 意義：從最低到最高的總體正向影響潛力最大
+• 建議：適合制定長期戰略改進計劃，提升此屬性將帶來最大收益
+
+⚡ 邊際效應冠軍（日常優化）：
+• {top_marginal_attr} - 每提升1單位促進銷售 {top_marginal_effect}%
+• 意義：小幅改進就能看到明顯的正向效果
+• 建議：適合日常運營的快速優化，投報率高
+
+請提供具體的行動建議，300字內。"
+"智能匹配解釋","smart_matching","system: 你是數據分析專家。
+user: 系統進行了智能對應：
+評分變體數量: {eval_count}
+銷售變體數量: {sales_count}
+直接匹配數量: {common_count}
+對應策略：取前 {min_length} 個進行配對
+
+請簡要說明這種對應的合理性，100字內。"
+"PCA分析解讀","pca_interpretation","system: 你是統計分析專家，擅長解讀主成分分析結果。
+user: PCA分析將{num_attrs}個產品屬性降維至3個主要維度：
+PC1: 解釋 {pc1_var}% 變異，主要代表 {pc1_attrs}
+PC2: 解釋 {pc2_var}% 變異，主要代表 {pc2_attrs}  
+PC3: 解釋 {pc3_var}% 變異，主要代表 {pc3_attrs}
+
+品牌在3D空間的分布：{brands_distribution}
+
+請解釋：
+1. 三個主成分的商業意義
+2. 品牌定位的競爭態勢
+200字內。"
+"理想產品分析","ideal_analysis","system: 你是產品優化專家。
+user: 理想產品分析（MAMBA方式）：
+每個屬性的理想點為該屬性在所有品牌中的最高分
+品牌在某屬性上達到或超過理想點即得1分
+
+{brand_name} 的表現：
+• 總分：{total_score}/{max_score}
+• 達標屬性：{achieved_attrs}
+• 待改進屬性：{gap_attrs}
+
+請提供改進策略，200字內。"
+"評分結果總結","scoring_summary","system: 你是行銷專業的數據分析師。
+user: 已完成 {total_reviews} 則評論的評分，涵蓋 {num_variations} 個品牌/產品。
+
+評分屬性：{attributes}
+平均分數分布：{score_distribution}
+
+請簡要總結評分結果的關鍵發現，150字內。"
+"上傳資料驗證","data_validation","system: 你是資料品質專家。
+user: 上傳的評論資料檢查結果：
+• 總列數：{total_rows}
+• 品牌數：{num_variations}
+• 包含欄位：{columns}
+• 缺失值：{missing_values}
+
+請評估資料品質並提供建議，100字內。"
+"銷售資料合併","sales_merge","system: 你是資料整合專家。
+user: 銷售資料合併情況：
+• 評論資料品牌：{review_brands}
+• 銷售資料品牌：{sales_brands}
+• 成功合併：{merged_count}/{total_count}
+• 合併策略：{merge_strategy}
+
+請說明合併結果的可靠性，100字內。"
+"個性化行銷策略","personalized_marketing","system: 你是精準行銷策略專家，擅長根據產品屬性分析結果制定個性化行銷策略。
+user: 根據銷售模型分析結果，為 {brand_name} 制定個性化行銷策略：
+
+📊 產品屬性表現：
+• 優勢屬性（高分且高影響力）：{strength_attrs}
+• 劣勢屬性（低分但高影響力）：{weakness_attrs}  
+• 機會屬性（高分但低影響力）：{opportunity_attrs}
+• 邊際屬性（低分且低影響力）：{marginal_attrs}
+
+🎯 關鍵指標：
+• 最高賽道倍數屬性：{top_track_attr} ({track_multiplier}倍)
+• 最高邊際效應屬性：{top_marginal_attr} ({marginal_effect}%)
+• 平均屬性得分：{avg_score}/5
+
+請制定個性化行銷策略，包含：
+1. 品牌定位建議（50字）
+2. 核心賣點提煉（3個要點）
+3. 目標客群定義（30字）
+4. 行銷訊息重點（3個關鍵詞）
+5. 改進優先順序（前3項）
+
+總計300字內，請用精準且可執行的語言。"
+"關鍵字生成","keyword_generation","system: 你是數位行銷專家，精通搜尋引擎行銷和關鍵字廣告策略。
+user: 為 {brand_name} 生成關鍵字廣告建議：
+
+**重要**：請根據以下核心優勢屬性，判斷這是什麼類型的產品，然後生成與該產品類型直接相關的關鍵字。
+例如：如果屬性包含「防護」「安全」「抗衝擊」，則可能是安全眼鏡；如果包含「音質」「降噪」，則可能是耳機。
+
+核心優勢屬性：{top_attributes}
+平均評分：{avg_score}/5
+建議數量：{keyword_count} 個關鍵字
+投放平台：{platform}
+
+請提供：
+0. 首先推斷產品類型（例如：安全眼鏡、太陽眼鏡、電動開罐器等）
+1. 高轉換關鍵字（5個，必須與推斷的產品類型相關）
+2. 長尾關鍵字（5個，必須與推斷的產品類型相關）
+3. 競品比較關鍵字（3個）
+4. 品牌關鍵字（3個）
+5. 否定關鍵字建議（避免無效流量）
+
+每個關鍵字請標註：
+- 搜尋意圖（資訊/交易/導航）
+- 競爭程度（高/中/低）
+- 建議出價策略
+
+250字內，實用為主。"
+"新品開發建議","product_development","system: 你是產品創新專家，擅長市場分析和新品開發策略。
+user: 基於市場分析制定新品開發建議：
+
+開發策略：{strategy}
+目標客群：{target_segment}
+關注屬性：{focus_attributes}
+市場缺口：{market_gaps}
+優勢領域：{strength_areas}
+優先數量：{priority_count}
+
+請提供：
+1. 產品概念（簡述新品定位）
+2. 核心功能（必備的3-5個功能）
+3. 差異化賣點（與現有產品的區別）
+4. 技術要求（關鍵技術點）
+5. 預期效益（市場潛力評估）
+
+250字內，聚焦可執行性。"
+"廣告時間建議","ad_timing","system: 你是媒體投放專家，精通廣告排程優化。
+user: 根據銷售數據分析最佳廣告投放時間：
+
+銷售高峰時段：{peak_hours}
+銷售高峰日期：{peak_days}
+轉換率最高時段：{best_conversion_time}
+客群活躍時間：{audience_active_time}
+預算分配建議：{budget_allocation}
+
+請提供：
+1. 黃金投放時段（具體到小時）
+2. 一週投放規劃（星期幾重點投放）
+3. 月度投放節奏（月初/月中/月末）
+4. 季節性調整建議
+5. 預算時段分配比例
+
+150字內，數據導向。"
+"個人化廣告","personalized_ads","system: 你是個人化行銷專家，擅長客製化廣告內容。
+user: 為不同客群設計個人化廣告：
+
+客群特徵：{customer_segment}
+偏好屬性：{preferred_attributes}
+購買動機：{purchase_motivation}
+痛點問題：{pain_points}
+溝通風格：{communication_style}
+
+請提供：
+1. 廣告標題（吸引注意）
+2. 主要訴求（核心賣點）
+3. 情感連結（共鳴點）
+4. 行動呼籲（CTA）
+5. 視覺建議（圖像風格）
+
+每個客群200字內，創意且精準。"

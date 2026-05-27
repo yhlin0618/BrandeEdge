@@ -1,0 +1,7 @@
+module_id: "upload_brandedge"
+enabled: true
+upload_limits:
+  max_file_size_mb: 50
+  accepted_formats:
+    - ".xlsx"
+    - ".csv"

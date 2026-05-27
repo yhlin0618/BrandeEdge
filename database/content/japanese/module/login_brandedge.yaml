@@ -1,0 +1,72 @@
+# ==========================================
+# BrandEdge - ログインモジュール言語コンテンツ（日本語）
+# ==========================================
+# Version: 1.0
+# Last Updated: 2025-10-06
+
+# モジュール基本情報
+title: "BrandEdge ブランドポジショニングエンジン"
+subtitle: "エンタープライズブランドポジショニング分析プラットフォーム"
+version: "v3.2.1 Flagship Edition"
+
+# フィールドラベル（login module が期待する構造）
+fields:
+  username: "ユーザー名"
+  password: "パスワード"
+  password_confirm: "パスワード確認"
+  remember_me: "ログイン状態を保持"
+
+# ボタンテキスト（login module が期待する構造）
+buttons:
+  login: "ログイン"
+  register: "アカウントをお持ちでない方はこちらから登録"
+  register_btn: "登録"
+  to_login: "すでにアカウントをお持ちの方はログインへ"
+  forgot_password: "パスワードをお忘れですか？"
+
+# デモアカウント
+demo:
+  title: "デモアカウント"
+  description: "テスト用アカウントでシステムを体験"
+  button: "デモモードで入る"
+
+# メッセージテキスト
+messages:
+  # ログインメッセージ
+  login:
+    success: "✅ ログインに成功しました！ようこそ"
+    failed: "❌ ユーザー名またはパスワードが正しくありません"
+    account_not_found: "❌ アカウントが存在しません"
+    password_incorrect: "❌ パスワードが正しくありません"
+    limit_reached: "⛔ ログイン試行回数の上限に達しました"
+    empty_username: "❌ ユーザー名を入力してください"
+    empty_password: "❌ パスワードを入力してください"
+    welcome: "おかえりなさい、{username}さん！"
+
+  # 登録メッセージ
+  register:
+    success: "✅ 登録が完了しました！ログインしてください"
+    failed: "❌ 登録に失敗しました"
+    password_mismatch: "❌ パスワードが一致しません"
+    password_too_short: "❌ パスワードは6文字以上である必要があります"
+    username_exists: "❌ ユーザー名はすでに存在します"
+    username_invalid: "❌ ユーザー名の形式が正しくありません"
+    empty_fields: "❌ すべてのフィールドを入力してください"
+
+  # ログアウトメッセージ
+  logout:
+    success: "👋 ログアウトしました"
+    confirm: "ログアウトしてもよろしいですか？"
+
+# エラーメッセージ
+errors:
+  database_error: "データベースエラー: {error}"
+  connection_error: "接続エラー"
+  unknown_error: "不明なエラー"
+
+# ヘルプテキスト
+help:
+  login_info: "ユーザー名とパスワードを使用してシステムにログインしてください"
+  register_info: "ユーザー名とパスワードを入力して登録してください"
+  password_requirements: "パスワードは6文字以上である必要があります"
+  contact_support: "問題がある場合はお問い合わせください: mr.no.one01@gmail.com"

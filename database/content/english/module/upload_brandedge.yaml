@@ -1,0 +1,161 @@
+# ==========================================
+# BrandEdge - Data Upload Module Language Content (English)
+# ==========================================
+# Version: 1.0
+# Last Updated: 2025-10-06
+
+# Module Basic Information
+title: "Data Upload"
+subtitle: "Upload Review Data File"
+description: "Upload your brand review data for analysis"
+
+# UI Text
+ui:
+  # Upload Area
+  upload:
+    title: "Step 1: Upload Data"
+    subtitle: "Upload DNA Analysis Data"
+    instruction: "Supported formats:"
+    supported_formats: "Amazon Sales Report"
+    auto_detect: "Auto-detect fields: Customer ID/Email, Time, Amount, etc."
+    file_input_label: "Multi-file Upload (auto-merge)"
+    button: "Choose File"
+    drag_drop: "or drag and drop files here"
+    file_requirements: "File Requirements"
+
+  # File Information
+  file_info:
+    name: "File Name"
+    size: "File Size"
+    format: "File Format"
+    rows: "Row Count"
+    columns: "Column Count"
+    brands: "Brand Count"
+
+  # Required Fields
+  required_fields:
+    title: "Required Fields"
+    variation: "Brand/Product Name (Variation)"
+    title_field: "Review Title (Title)"
+    body: "Review Content (Body)"
+    rating: "Rating (Rating, optional)"
+    date: "Date (Date, optional)"
+
+  # Data Preview
+  preview:
+    title: "Data Preview"
+    first_rows: "First {n} rows"
+    total_rows: "Total {total} rows"
+    show_all: "Show All"
+
+  # Buttons
+  buttons:
+    upload: "Upload File"
+    upload_preview: "Upload & Preview"
+    next_step: "Next Step ➡️"
+    validate: "Validate Data"
+    clear: "Clear"
+    download_template: "Download Template"
+    next: "Next"
+
+# Message Text
+messages:
+  # 🆕 Direct access messages (for get_msg without "success" prefix)
+  upload_with_detection: "✅ Uploaded review data, {count} records, {brands} brands"
+
+  # Success Messages
+  success:
+    upload: "✅ File uploaded successfully"
+    upload_with_detection: "✅ DNA analysis data uploaded, {count} records (✅ DNA analysis fields detected)"
+    validation: "✅ Data validation passed"
+    processing: "✅ Data processing complete"
+    saved: "✅ Data saved"
+
+  # Processing Messages
+  processing:
+    uploading: "Processing..."
+    reading: "Reading file..."
+    validating: "Validating data..."
+    processing: "Processing data..."
+    analyzing: "Analyzing data structure..."
+
+  # Error Messages
+  error:
+    no_file: "❌ Please select a file"
+    no_file_selected: "⚠️ Please select a file to upload"
+    no_data_uploaded: "⚠️ Please upload and preview DNA analysis data first"
+    invalid_format: "❌ Invalid file format (Excel or CSV only)"
+    unsupported_format: "⚠️ File '{filename}' format not supported, only .xlsx / .xls / .csv allowed"
+    missing_columns: "❌ Missing required columns: {columns}"
+    empty_file: "⚠️ File '{filename}' is empty"
+    processing_error: "❌ File processing error: {error}"
+    too_large: "❌ File too large (max {max_size}MB)"
+    exceeds_limit: "❌ Exceeds data limit: {limit}"
+    read_error: "❌ File read error: {error}"
+    validation_failed: "❌ Data validation failed"
+    too_many_rows: "❌ Row count exceeds limit (max {max_rows} rows)"
+    too_many_brands: "❌ Brand count exceeds limit (max {max_brands} brands)"
+    no_data: "❌ No valid data in file"
+    db_save_failed: "❌ Database save failed: {error}"
+
+  # Warning Messages
+  warning:
+    upload_no_detection: "✅ Data uploaded, {count} records (⚠️ Complete DNA analysis fields not detected)"
+    large_file: "⚠️ Large file, processing may take longer"
+    many_rows: "⚠️ Many rows ({rows} records), recommend filtering before analysis"
+    many_brands: "⚠️ Many brands ({brands} brands), analysis may take longer"
+    missing_optional: "⚠️ Missing optional fields: {fields}"
+
+  # Info Messages
+  info:
+    file_selected: "File selected: {filename}"
+    rows_detected: "Detected {rows} rows"
+    brands_detected: "Detected {brands} brands"
+    ready_to_analyze: "Data ready, you can start analysis"
+
+  # 🆕 Navigation Prompt Messages
+  ready_for_analysis: "✅ Data uploaded successfully! Please select an analysis module from the sidebar to begin"
+
+# Data Limits
+limits:
+  max_file_size: 50  # MB
+  max_reviews: 1000
+  max_brands: 20
+  max_file_size_display: "50MB"
+
+# Supported Formats
+formats:
+  supported: "Supported Formats"
+  excel: "Excel (.xlsx, .xls)"
+  csv: "CSV (.csv)"
+
+# Help Text
+help:
+  overview: |
+    Please upload a data file containing brand reviews. The system will automatically validate the data format and extract brand information.
+
+  file_format: |
+    File Format Requirements:
+    - Supports Excel (.xlsx, .xls) or CSV (.csv) format
+    - File size not exceeding 50MB
+    - Must contain Variation (brand name), Title, and Body columns
+
+  data_requirements: |
+    Data Requirements:
+    - Maximum 1000 reviews
+    - Maximum 20 brands
+    - Each review must have complete title and content
+
+  column_mapping: |
+    Column Description:
+    - Variation: Brand or product name (required)
+    - Title: Review title (required)
+    - Body: Review content (required)
+    - Rating: Rating, usually 1-5 scale (optional)
+    - Date: Review date (optional)
+
+# Sample Data
+sample:
+  title: "Data Format Example"
+  download_text: "Download Template File"
+  description: "Download template file to understand the correct data format"

@@ -1,0 +1,95 @@
+# ==========================================
+# Product Development Module Text Content - English
+# ==========================================
+
+title: "🚀 New Product Development Recommendations"
+subtitle: "Based on market attribute analysis, provide new product development direction recommendations"
+description: "Discover market opportunities and formulate product innovation strategies"
+
+strategy:
+  title: "🎯 Development Strategy Settings"
+  approach: "Development Strategy"
+  priority_count: "Priority Development Count"
+  timeline: "Development Timeline"
+
+strategies:
+  gap: "Fill Market Gap"
+  strength: "Strengthen Advantage Areas"
+
+analysis:
+  button: "Analyze Development Opportunities"
+  processing: "🔄 Analyzing market opportunities..."
+  complete: "✅ New product development recommendations generated!"
+
+market_gaps:
+  title: "📊 Market Gap Analysis"
+  low_score_attrs: "Market Gaps (Low-Score Attributes)"
+  high_score_attrs: "Competitive Advantages (High-Score Attributes)"
+  opportunity_score: "Opportunity Score"
+  market_size: "Market Size"
+  # Gap strategy labels
+  focus_improve: "🎯 Focus on Improvement (Market Gaps):"
+  existing_advantages: "✅ Existing Advantages (Maintain):"
+  avg_score: "Average score"
+  urgent_improve: "(Urgent improvement needed)"
+  # Strength strategy labels
+  core_strengths: "⭐ Core Strengths (Continue enhancing):"
+  competitive_advantage: "(Competitive advantage)"
+  areas_to_improve: "⚠️ Areas to Improve:"
+  # Balanced strategy labels
+  market_gaps_low: "Market Gaps (Low-Score Attributes):"
+  competitive_high: "Competitive Advantages (High-Score Attributes):"
+  current_strategy: "Current Strategy:"
+
+suggestions:
+  title: "💡 New Product Development Recommendations"
+  product_concept: "Product Concept"
+  key_features: "Core Features"
+  target_price: "Suggested Price"
+  development_cost: "Estimated Development Cost"
+  roi_forecast: "ROI Forecast"
+
+roadmap:
+  title: "🗓️ Development Roadmap"
+  priority: "Priority"
+  phase: "Development Phase"
+  milestone: "Milestone"
+  resources: "Required Resources"
+  timeline: "Timeline Planning"
+
+risks:
+  title: "Risk Assessment"
+  technical: "Technical Risk"
+  market: "Market Risk"
+  competition: "Competition Risk"
+  mitigation: "Risk Mitigation Strategy"
+
+messages:
+  analysis_complete: "Market opportunity analysis completed"
+  suggestions_ready: "Generated {count} product development recommendations"
+  roadmap_created: "Development roadmap created"
+  analysis_failed: "Analysis failed: {error}"
+
+strategy_descriptions:
+  gap: "Fill Market Gap - Prioritize improving low-score attributes"
+  strength: "Strengthen Advantage Areas - Continue enhancing high-score attributes"
+
+action_verbs:
+  gap: "Improve"
+  strength: "Strengthen"
+
+strategy_details:
+  gap: "Prioritize filling market gaps, rapidly respond to customer needs"
+  strength: "Continuously strengthen competitive advantages, consolidate market position"
+  default: "Formulate clear product development strategy"
+
+console:
+  analyzing_market: "🔍 Analyzing market opportunities..."
+  identifying_gaps: "Identifying market gaps..."
+  evaluating_opportunities: "Evaluating development opportunities..."
+  generating_concepts: "💡 Generating product concepts..."
+  concepts_generated: "✅ Generated {count} product concepts"
+  creating_roadmap: "📅 Creating development roadmap..."
+  risk_assessment: "⚠️ Conducting risk assessment..."
+  analysis_done: "🎉 Analysis completed"
+

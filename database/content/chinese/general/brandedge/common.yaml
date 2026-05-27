@@ -1,0 +1,638 @@
+# ==========================================
+# BrandEdge 品牌印記引擎 - 通用語言內容（中文）
+# ==========================================
+# Version: 3.2.1
+# Last Updated: 2025-10-06
+
+# ==========================================
+# 應用程式基本資訊
+# ==========================================
+app:
+  title: "BrandEdge"  # Used in login page (title line) and navbar
+  subtitle: "品牌定位策略引擎"  # Used in login page (subtitle line)
+  description_short: "企業級品牌定位分析平台"
+  tagline: "AI驅動的品牌策略引擎"
+  version: "v3.2.1 Flagship Edition"
+  description: "透過AI深度分析顧客評論，提供全方位的品牌策略建議"
+  welcome: "歡迎使用 BrandEdge 品牌印記引擎"
+  footer_left: "BrandEdge v3.2 - 品牌印記引擎"
+  footer_right: "© 2025 PeakEdges. All Rights Reserved"
+
+# ==========================================
+# 導航選單
+# ==========================================
+navigation:
+  home: "首頁"
+  dashboard: "儀表板"
+  upload: "資料上傳"
+  analysis: "品牌分析"
+  results: "分析結果"
+  settings: "設定"
+  help: "說明"
+  about: "關於系統"
+  logout: "登出"
+
+# ==========================================
+# 通用按鈕
+# ==========================================
+buttons:
+  submit: "送出"
+  cancel: "取消"
+  confirm: "確認"
+  save: "儲存"
+  delete: "刪除"
+  edit: "編輯"
+  download: "下載"
+  upload: "上傳"
+  export: "匯出"
+  import: "匯入"
+  reset: "重置"
+  refresh: "重新整理"
+  back: "返回"
+  next: "下一步"
+  previous: "上一步"
+  finish: "完成"
+  close: "關閉"
+  search: "搜尋"
+  filter: "篩選"
+  apply: "套用"
+  clear: "清除"
+  select: "選擇"
+  browse: "瀏覽"
+  run_analysis: "執行分析"
+  view_results: "查看結果"
+  generate_report: "產生報告"
+  generate_attributes: "產生屬性"
+  start_scoring: "開始評分"
+
+# ==========================================
+# 通用訊息
+# ==========================================
+messages:
+  success: "操作成功"
+  error: "操作失敗"
+  warning: "警告"
+  info: "提示"
+  loading: "載入中..."
+  processing: "處理中..."
+  saving: "儲存中..."
+  deleting: "刪除中..."
+  uploading: "上傳中..."
+  downloading: "下載中..."
+  analyzing: "分析中..."
+  generating: "產生中..."
+  complete: "完成"
+  failed: "失敗"
+  pending: "等待中"
+
+  # 錯誤訊息
+  error_occurred: "發生錯誤: {error}"
+  invalid_input: "輸入資料無效"
+  missing_field: "缺少必要欄位: {field}"
+  file_not_found: "找不到檔案"
+  connection_error: "連線錯誤"
+  authentication_failed: "認證失敗"
+  permission_denied: "權限不足"
+  timeout: "操作逾時"
+
+  # 成功訊息
+  save_success: "儲存成功"
+  upload_success: "上傳成功"
+  delete_success: "刪除成功"
+  analysis_complete: "分析完成"
+  ready_for_analysis: "✅ 資料上傳成功！請從左側選單選擇分析模組開始分析"
+  upload_with_detection: "✅ 已上傳評論資料，共 {count} 筆，{brands} 個品牌"
+
+  # 確認訊息
+  confirm_delete: "確定要刪除嗎？"
+  confirm_reset: "確定要重置嗎？"
+  confirm_cancel: "確定要取消嗎？"
+  unsaved_changes: "有未儲存的變更，確定要離開嗎？"
+
+# ==========================================
+# 狀態標籤
+# ==========================================
+status:
+  active: "啟用"
+  inactive: "停用"
+  enabled: "已啟用"
+  disabled: "已停用"
+  online: "線上"
+  offline: "離線"
+  connected: "已連接"
+  disconnected: "已斷線"
+  running: "執行中"
+  stopped: "已停止"
+  completed: "已完成"
+  failed: "失敗"
+  pending: "待處理"
+  in_progress: "進行中"
+
+# ==========================================
+# 資料相關
+# ==========================================
+data:
+  upload_title: "上傳資料"
+  upload_description: "請上傳您的評論資料檔案（支援 Excel 或 CSV 格式）"
+  required_columns: "必要欄位"
+  column_variation: "品牌/產品名稱（Variation）"
+  column_title: "評論標題（Title）"
+  column_body: "評論內容（Body）"
+  column_rating: "評分（Rating，選填）"
+  column_date: "日期（Date，選填）"
+
+  file_format: "檔案格式"
+  file_size: "檔案大小"
+  row_count: "資料筆數"
+  brand_count: "品牌數量"
+
+  validation_success: "資料驗證成功"
+  validation_failed: "資料驗證失敗"
+  invalid_format: "檔案格式不符"
+  missing_columns: "缺少必要欄位: {columns}"
+  exceeds_limit: "超過資料限制: {limit}"
+
+# ==========================================
+# 分析相關
+# ==========================================
+analysis:
+  # 通用
+  title: "品牌分析"
+  start_analysis: "開始分析"
+  analysis_settings: "分析設定"
+  analysis_progress: "分析進度"
+  analysis_results: "分析結果"
+
+  # 屬性相關
+  attributes: "產品屬性"
+  attribute_extraction: "屬性萃取"
+  attribute_scoring: "屬性評分"
+  num_attributes: "屬性數量"
+  select_attributes: "選擇屬性數量 (10-30個)"
+  extracting_attributes: "正在萃取產品屬性..."
+  scoring_attributes: "正在評分產品屬性..."
+
+  # 品牌相關
+  brands: "品牌"
+  brand_comparison: "品牌比較"
+  brand_performance: "品牌表現"
+  select_brands: "選擇品牌"
+  all_brands: "所有品牌"
+
+  # 分析類型
+  market_profile: "市場輪廓分析"
+  market_track: "市場賽道分析"
+  dna_analysis: "DNA分析"
+  key_factors: "關鍵因素分析"
+  ideal_point: "理想點分析"
+  strategy_positioning: "策略定位分析"
+  brand_identity: "品牌識別度分析"
+  ai_insights: "AI綜合洞察"
+
+# ==========================================
+# 工作流程步驟指示器（頂部橫條）
+# ==========================================
+workflow:
+  steps:
+    step1_short: "上傳"
+    step2_short: "屬性"
+    step3_short: "評分"
+    step4_short: "分析"
+
+    step1_full: "步驟 1：上傳評論資料"
+    step2_full: "步驟 2：屬性萃取"
+    step3_full: "步驟 3：屬性評分"
+
+# ==========================================
+# 側邊欄結構（完全對應原版 BrandEdge）
+# ==========================================
+sidebar:
+  # 側邊欄區塊標題
+  sections:
+    data_preparation: "資料準備"
+    core_analysis: "核心分析"
+    strategy_recommendations: "策略建議"
+    system_info: "系統資訊"
+
+  # 資料準備區塊（1-3）
+  data_preparation:
+    item1: "1. 上傳評論資料"
+    item2: "2. 屬性萃取 (10-30個)"
+    item3: "3. 屬性評分"
+
+  # 核心分析區塊（4-7）
+  core_analysis:
+    item4: "4. 目標市場輪廓"
+    item5: "5. 市場賽道分析"
+    item6: "6. 品牌DNA比較"
+    item7: "7. 關鍵因素分析"
+
+  # 策略建議區塊（8-10）
+  strategy_recommendations:
+    item8: "8. 理想點分析"
+    item9: "9. 定位策略建議"
+    item10: "10. 識別度策略"
+
+  # 系統資訊區塊
+  system_info:
+    about: "關於系統"
+
+# ==========================================
+# 八大分析模組標題（與原版完全一致）
+# ==========================================
+modules:
+  market_profile:
+    title: "目標市場輪廓"
+    full_title: "目標市場輪廓分析"
+    subtitle: "市場區隔與客群分析"
+    description: "透過AI自動為不同客群命名"
+
+  market_track:
+    title: "市場賽道分析"
+    subtitle: "成長機會識別與策略優先級"
+    description: "識別高成長潛力屬性、四象限策略分析"
+
+  advanced_dna:
+    title: "品牌DNA比較"
+    full_title: "進階DNA分析"
+    subtitle: "品牌DNA雷達圖"
+    description: "多維度競爭力分析"
+
+  key_factors:
+    title: "關鍵因素分析"
+    subtitle: "成功要素識別"
+    description: "找出影響成敗的核心屬性"
+    sensitivity: "分析靈敏度"
+    summary: "關鍵因素摘要"
+    achievement_ranking: "品牌達成排名"
+    factor_details: "關鍵因素詳情"
+    benchmarks: "標竿品牌"
+    analyzing: "正在分析關鍵因素..."
+    analysis_complete: "✅ 關鍵因素分析完成"
+    no_factors: " 未識別到關鍵因素，請調整靈敏度參數"
+    identified: "識別到 {count} 個關鍵成功因素："
+    threshold_info: "閾值: "
+    no_data: "無分析資料"
+    brand_achievement: "品牌關鍵因素達成率"
+    no_details: "無詳細資料"
+    ideal_value: "理想值: "
+    top_brands: "表現最佳品牌: "
+    no_benchmarks: "無標竿品牌資料"
+
+  ideal_point:
+    title: "理想點分析"
+    subtitle: "目標達成分析"
+    description: "衡量與理想狀態的距離"
+
+  strategy_positioning:
+    title: "定位策略建議"
+    full_title: "品牌定位策略建議"
+    subtitle: "四象限策略建議"
+    description: "明確改善優先順序"
+
+  brand_identity:
+    title: "識別度策略"
+    full_title: "品牌識別度分析"
+    subtitle: "差異化分析"
+    description: "建立獨特市場定位"
+
+  # 屬性評分（對應原版的進階品牌屬性評價）
+  scoring:
+    title: "屬性評分"
+    original_title: "進階品牌屬性評價"
+    subtitle: "產品屬性萃取與評分"
+    description: "萃取10-30個產品屬性並進行1-5分評分"
+
+  # 進階屬性評價（獨立模組）
+  advanced_attribute:
+    title: "進階品牌屬性評價"
+    subtitle: "深度屬性分析"
+    description: "從評論中萃取10-30個產品屬性並進行評分"
+    attr_count: "已產生的屬性（共{count}個）"
+
+  ai_insights:
+    title: "AI綜合洞察"
+    subtitle: "綜合策略報告"
+    description: "整合所有分析的智慧建議"
+
+# ==========================================
+# 舊版模組（向下相容）
+# ==========================================
+legacy:
+  pca:
+    need_data: "請先完成屬性評分，並且至少需要2個數值屬性才能進行PCA分析。"
+    constant_cols: "⚠️ 數據中存在常數列（變異為0），無法進行PCA分析。請確認評分數據的變異性。"
+    removed_cols: "ℹ️ 已自動移除 {removed} 個常數列，使用 {used} 個變數進行PCA分析。"
+    using_attrs: "✅ 使用 {count} 個屬性進行PCA分析"
+    brand_label: "品牌:"
+    attribute_label: "屬性:"
+    map_title: "PCA 品牌定位地圖"
+    error: "PCA 分析錯誤:"
+    check_data: "請確認數據品質和變異性"
+    analysis_title: "PCA 分析"
+
+  ideal:
+    key_factors_label: "關鍵因素："
+
+  strategy:
+    appeal: "訴求"
+    change: "改變"
+    improve: "改善"
+    weakness: "劣勢"
+    analyzing: "策略分析中…"
+    not_generated: "尚未產生策略分析，請點擊「策略探索」。"
+
+# ==========================================
+# 圖表相關
+# ==========================================
+charts:
+  title: "圖表"
+  type: "圖表類型"
+  radar: "雷達圖"
+  bar: "長條圖"
+  line: "折線圖"
+  scatter: "散點圖"
+  heatmap: "熱圖"
+  table: "表格"
+
+  axis_x: "X軸"
+  axis_y: "Y軸"
+  legend: "圖例"
+  download_chart: "下載圖表"
+  fullscreen: "全螢幕"
+
+# ==========================================
+# 報告相關
+# ==========================================
+reports:
+  title: "分析報告"
+  generate: "產生報告"
+  download: "下載報告"
+  export_pdf: "匯出PDF"
+  export_word: "匯出Word"
+  export_ppt: "匯出PPT"
+  export_excel: "匯出Excel"
+
+  summary: "摘要"
+  overview: "總覽"
+  details: "詳細資料"
+  recommendations: "建議"
+  conclusion: "結論"
+
+# ==========================================
+# 說明與提示
+# ==========================================
+help:
+  title: "說明"
+  user_guide: "使用指南"
+  faq: "常見問題"
+  tutorial: "教學"
+  contact_support: "聯絡支援"
+  documentation: "文檔"
+  video_tutorial: "影片教學"
+
+  # 系統資訊
+  system_info: "系統資訊"
+  version: "版本"
+  build_date: "建置日期"
+  license: "授權"
+
+# ==========================================
+# 設定
+# ==========================================
+settings:
+  title: "設定"
+  general: "一般設定"
+  language: "語言"
+  theme: "主題"
+  notifications: "通知"
+  privacy: "隱私"
+  account: "帳號"
+
+  # 語言選項
+  chinese: "繁體中文"
+  english: "English"
+  japanese: "日本語"
+
+# ==========================================
+# 關於系統
+# ==========================================
+about:
+  title: "關於系統"
+  description: "BrandEdge 品牌印記引擎是一個企業級品牌定位分析平台，透過AI深度分析顧客評論，提供全方位的品牌策略建議。"
+
+  features:
+    title: "核心特色"
+    feature_1: "支援10-30個產品屬性的多維度分析"
+    feature_2: "最多1000則評論，20個品牌同時分析"
+    feature_3: "八大分析模組完整覆蓋品牌策略"
+    feature_4: "AI驅動的智慧化文本分析"
+    feature_5: "集中式Prompt和Hint管理系統"
+
+  contact:
+    title: "聯絡我們"
+    email: "mr.no.one01@gmail.com"
+    website: "https://www.peakedges.com"
+    support: "技術支援"
+
+  copyright: "© 2025 PeakEdges. All Rights Reserved"
+  version_info: "版本 {version}"
+
+# ==========================================
+# 時間相關
+# ==========================================
+time:
+  date: "日期"
+  time: "時間"
+  datetime: "日期時間"
+  today: "今天"
+  yesterday: "昨天"
+  tomorrow: "明天"
+  this_week: "本週"
+  last_week: "上週"
+  this_month: "本月"
+  last_month: "上月"
+  this_year: "今年"
+  last_year: "去年"
+
+# ==========================================
+# 單位
+# ==========================================
+units:
+  items: "項"
+  records: "筆"
+  files: "個檔案"
+  rows: "列"
+  columns: "欄"
+  percent: "百分比"
+  score: "分數"
+  count: "數量"
+  total: "總計"
+  average: "平均"
+  maximum: "最大值"
+  minimum: "最小值"
+
+# ==========================================
+# 頁面標題
+# ==========================================
+pages:
+  login_brandedge: "登入模組"
+  upload_brandedge: "ASIN 評論抓取"
+  brandedge_scoring: "屬性評分"
+  market_profile: "市場輪廓分析"
+  market_track: "市場賽道分析"
+  advanced_attribute: "進階屬性評價"
+  key_factor: "關鍵因素分析"
+  advanced_dna: "進階DNA分析"
+  brand_identity: "品牌識別度分析"
+  ideal_point: "理想點分析"
+  positioning_strategy: "定位策略建議"
+  brandedge_flagship: "品牌印記引擎"
+  about: "關於我們"
+
+# ==========================================
+# 系統通知
+# ==========================================
+system:
+  notifications:
+    switch_to_scoring: "✅ 切換至評分頁面"
+    enter_analysis: "✅ 進入分析模組"
+    switch_to_analysis: "✅ 切換至分析頁面"
+    data_uploaded: "✅ 資料上傳成功"
+    scoring_complete: "✅ 評分完成"
+    analysis_complete: "✅ 分析完成"
+
+  # Progress and error messages for scoring module
+  messages:
+    info:
+      analyzing_reviews: "正在分析評論內容，萃取產品屬性中..."
+      scoring_in_progress: "正在評分中，請稍候..."
+      processing_item: "正在處理第 {current}/{total} 筆 (品牌: {brand})"
+
+    success:
+      attributes_extracted: "已成功萃取"
+      scoring_complete: "✅ 評分完成！成功處理 {total} 筆資料"
+      data_ready: "✅ 評分資料已準備完成，可以進行後續分析"
+
+    warning:
+      scoring_warning: "⚠️ 評分完成，但有 {error_count}/{total} 筆資料因 API 錯誤而跳過"
+
+    error:
+      extraction_failed: "屬性萃取失敗："
+      scoring_failed: "評分失敗："
+      check_api: "請確認 OpenAI API 設定正確且有足夠配額"
+
+    labels:
+      product_attributes: "個產品屬性："
+      reviews_scored: "則評論進行評分"
+
+    console:
+      start_extraction: "🚀 開始屬性萃取，目標屬性數："
+      partial_extraction: "⚠️ 只萃取到"
+      partial_extraction_suffix: "個屬性，少於目標數"
+      extraction_success: "✅ 成功萃取"
+      attributes_count: "個屬性"
+      extraction_failed: "❌ 屬性萃取失敗："
+      start_scoring: "🚀 開始評分，樣本數："
+      attributes_num: "，屬性數："
+      scoring_error_detail: "⚠️ 評分錯誤 (第 {index} 筆，品牌: {brand}): {error}"
+      scoring_complete: "✅ 評分完成，共"
+      reviews_count: "則評論"
+      scoring_failed: "❌ 評分失敗："
+
+  ui:
+    tables:
+      avg_scores_caption: "各品牌屬性平均分數"
+
+# ==========================================
+# Market Profile Module
+# ==========================================
+market_profile:
+  controls:
+    segmentation_method: "市場區隔方法"
+    num_segments: "區隔數量"
+    run_analysis: "執行分析"
+    run_ai_analysis: "執行AI分析"
+
+  methods:
+    kmeans: "K-means聚類"
+    performance: "屬性表現"
+    combined: "綜合分析"
+
+  tabs:
+    overview: "市場區隔總覽"
+    detailed: "市場區隔分析"
+    preferences: "客群偏好分析"
+    opportunities: "潛在市場機會"
+    summary: "分析摘要"
+
+  charts:
+    segment_distribution: "市場區隔分布"
+    segment_characteristics: "區隔特徵分布"
+    preference_heatmap: "客群偏好熱圖"
+    preference_radar: "區隔偏好雷達圖"
+    opportunity_matrix: "市場機會矩陣"
+
+  positions:
+    leader: "市場領導者"
+    strong: "強勢競爭者"
+    mainstream: "主流品牌"
+    challenger: "挑戰者"
+
+  labels:
+    brands: "個品牌"
+    avg_score: "平均評分"
+    top_attributes: "優勢屬性數"
+    segment: "區隔"
+    attribute: "屬性"
+    score: "評分"
+    product_attributes: "產品屬性"
+    market_segment: "市場區隔"
+    growth_potential: "成長潛力"
+    market_size: "市場規模"
+    developing: "尚在發展中"
+    ai_insights: "AI客群洞察"
+    ai_opportunities: "AI市場機會分析"
+    ai_loading: "🤖 AI分析中..."
+    ai_complete: "✅ AI分析完成！"
+
+    # AI 分析進度詳情
+    ai_progress_segment_naming: "生成區隔名稱..."
+    ai_progress_customer_analysis: "分析客群偏好..."
+    ai_progress_market_opportunities: "識別市場機會..."
+    ai_progress_complete: "完成..."
+
+  quadrants:
+    high_potential_large: "高潛力大市場"
+    mature_large: "成熟大市場"
+    emerging_small: "新興小市場"
+    saturated_small: "飽和小市場"
+
+  tables:
+    segment_summary: "市場區隔總覽"
+
+  messages:
+    no_data: "請先上傳資料並執行屬性評分"
+
+  report:
+    segmentation_title: "市場區隔輪廓分析"
+    target_customer_title: "目標客群偏好分析"
+    market_opportunity_title: "潛在市場機會分析"
+    has: "擁有"
+    companies: "家廠商，"
+    market_share: "市占率為"
+    avg_score: "平均評分為"
+    features: "其特色為"
+    developing: "尚在發展中。"
+    highest_score: "具有最高平均評分（"
+    score_close: "），"
+    should_enhance: "應強化"
+    core_advantages: "核心優勢"
+    attract_target: "來吸引目標客群。"
+    run_ai_analysis: "請執行AI分析以生成客群偏好分析。"
+    considering: "考慮到"
+    lower_share: "市占率較低（"
+    but_avg: "但平均評分為"
+    indicates_opportunity: "，這表示潛在市場機會。"
+    suggest_enhance: "建議強化該區隔的市場策略。"
+    run_ai_for_opportunities: "請執行AI分析以生成市場機會分析。"

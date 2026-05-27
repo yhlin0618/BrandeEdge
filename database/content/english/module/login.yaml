@@ -1,0 +1,38 @@
+# ==========================================
+# User Login Module Text Content - English
+# ==========================================
+
+title: "User Login"
+subtitle: "Please enter your username and password"
+fields:
+  username: "Username"
+  password: "Password"
+  password_confirm: "Confirm Password"
+  remember_me: "Remember me"
+buttons:
+  login: "Login"
+  register: "Register New Account"
+  register_btn: "Register"
+  to_login: "Already have an account? Back to Login"
+  forgot_password: "Forgot Password?"
+messages:
+  login_success: "Login successful!"
+  login_failed: "Login failed, please check your username and password"
+  logout_success: "Successfully logged out"
+  account_locked: "Account has been locked, please contact administrator"
+console:
+  creating_db_connection: "⏳ Creating database connection..."
+  db_connection_failed: "⚠️ Database connection failed: {error}"
+  initializing_tables: "📝 Initializing tables..."
+  creating_test_user: "📝 Creating test admin user..."
+  verifying_password: "🔐 Verifying password..."
+  user_not_found: "❌ User not found: {username}"
+  login_attempt: "🔑 Login attempt: {username}"
+  login_limit_exceeded: "⚠️ Login limit exceeded"
+  updating_login_count: "📊 Updating login count"
+  register_attempt: "📝 Registration attempt: {username}"
+  password_mismatch: "❌ Passwords do not match"
+  password_too_short: "❌ Password too short, minimum 6 characters required"
+  user_exists: "⚠️ User already exists: {username}"
+  register_success: "✅ Registration successful: {username}"
+

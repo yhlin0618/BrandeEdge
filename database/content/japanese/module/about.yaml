@@ -1,0 +1,55 @@
+# ==========================================
+# About Module Text Content - Japanese
+# ==========================================
+
+title: "私たちについて"
+subtitle: "精密マーケティングプラットフォーム"
+menu: "私たちについて"
+description: "AI駆動の精密マーケティングプラットフォーム"
+
+pages:
+  about:
+    title: "私たちについて"
+    menu_title: "私たちについて"
+
+ui:
+  card:
+    title: "私たちについて"
+    loading: "読み込み中..."
+    error: "コンテンツを読み込めません"
+
+content:
+  title: "精密マーケティングプラットフォーム"
+  description: "私たちは、顧客の特性と行動データに基づいてパーソナライズされたマーケティング戦略を開発するAI駆動の精密マーケティングプラットフォームです。"
+
+services:
+  title: "提供サービス"
+  items:
+    - name: "顧客セグメンテーションモデリング"
+      description: "Segmentation Modeling"
+      icon: "🎯"
+    - name: "意図検出と推薦システム"
+      description: "Intent Detection & Recommendation"
+      icon: "🧠"
+    - name: "センチメントとアスペクト分析"
+      description: "Sentiment & Aspect Analysis"
+      icon: "💬"
+    - name: "キャンペーン予測とトラッキング"
+      description: "Campaign Forecasting & Tracking"
+      icon: "📈"
+    - name: "オムニチャネルダッシュボードとETL"
+      description: "Omni-channel Dashboard & ETL"
+      icon: "📊"
+
+contact:
+  title: "お問い合わせ"
+  company: "会社"
+  company_name: "PeakEdges マーケティングテクノロジー株式会社"
+  email: "連絡先"
+  email_address: "mr.no.one01@gmail.com"
+  message: "ビジネスコラボレーションやプラットフォーム体験については、データ分析チームにお問い合わせください。"
+
+messages:
+  content_not_found: "コンテンツが見つかりません"
+  markdown_error: "Markdownファイルの読み込みに失敗しました"
+  loading: "読み込み中..."

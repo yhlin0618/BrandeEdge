@@ -1,0 +1,375 @@
+# ==========================================
+# BrandEdge - フラッグシップコンソールモジュール言語コンテンツ（日本語）
+# ==========================================
+# Version: 1.0
+# Last Updated: 2025-10-06
+
+# モジュール基本情報
+title: "BrandEdge ブランドインプリントエンジン"
+subtitle: "ブランドポジショニング分析コンソール"
+description: "AIによる顧客レビュー深層分析を通じて、包括的なブランド戦略を提供"
+
+# UI テキスト
+ui:
+  # ウェルカムメッセージ
+  welcome:
+    banner: "BrandEdge ブランドインプリントエンジンへようこそ"
+    subtitle: "エンタープライズグレードのブランドポジショニング分析プラットフォーム"
+    version: "v3.2.1 Flagship Edition"
+    description: "10-30の製品属性、最大1000件のレビュー、20ブランドの同時分析をサポート"
+
+  # ステップインジケーター
+  steps:
+    step1: "① データアップロード"
+    step2: "② 属性抽出"
+    step3: "③ 属性スコアリング"
+    step4: "④ 分析結果"
+
+  # 属性抽出
+  attributes:
+    title: "属性抽出設定"
+    subtitle: "レビューから製品属性を抽出"
+    num_attributes_label: "属性数"
+    num_attributes_help: "抽出する製品属性の数を選択（10-30個）"
+    extract_button: "抽出開始"
+    extracting: "属性を抽出中..."
+    extracted: "{count} 個の属性を抽出しました"
+    attributes_list: "抽出された属性"
+
+  # 属性スコアリング
+  scoring:
+    title: "属性スコアリング"
+    subtitle: "各レビューの属性をスコアリング"
+    sample_size_label: "スコアリングサンプル数"
+    sample_size_help: "ブランドごとにスコアリングするレビュー数"
+    score_button: "スコアリング開始"
+    scoring: "スコアリング中..."
+    progress: "進捗: {done}/{total}"
+    completed: "スコアリング完了"
+
+  # 分析モジュール
+  analysis:
+    title: "分析モジュール"
+    subtitle: "実行する分析を選択"
+    select_all: "すべて選択"
+    deselect_all: "すべて解除"
+    run_analysis: "分析実行"
+    running: "分析中..."
+    completed: "分析完了"
+    select_brands: "比較するブランドを選択"
+    select_target_brand: "ターゲットブランドを選択"
+    generate_identity: "アイデンティティ戦略を生成"
+    select_variation: "バリエーションを選択"
+    run_strategy: "戦略探索"
+
+  # 分析モジュールリスト
+  modules:
+    market_profile: "市場プロファイル分析"
+    market_track: "市場トラック分析"
+    advanced_dna: "高度なDNA分析"
+    key_factors: "主要要因分析"
+    ideal_point: "理想点分析"
+    strategy_positioning: "戦略ポジショニング分析"
+    brand_identity: "ブランドアイデンティティ分析"
+    ai_insights: "AI総合インサイト"
+
+  # 結果表示
+  results:
+    title: "分析結果"
+    subtitle: "分析レポートを表示"
+    export_all: "すべての結果をエクスポート"
+    export_report: "レポートをエクスポート"
+    download_pdf: "PDFをダウンロード"
+    download_excel: "Excelをダウンロード"
+
+  # ボタン
+  buttons:
+    start: "開始"
+    next: "次へ"
+    previous: "前へ"
+    reset: "リセット"
+    refresh: "更新"
+    export: "エクスポート"
+    save: "保存"
+    cancel: "キャンセル"
+    close: "閉じる"
+
+# メッセージテキスト
+messages:
+  redirect_to_upload: "サイドバーから「データアップロード」を選択してください"
+
+  # 成功メッセージ
+  success:
+    attributes_extracted: "✅ {count} 個の属性を正常に抽出しました"
+    scoring_completed: "✅ スコアリング完了、{count} 件のレビューをスコアリングしました"
+    analysis_completed: "✅ 分析完了"
+    data_saved: "✅ データを保存しました"
+    export_completed: "✅ エクスポート完了"
+
+  # 処理中メッセージ
+  processing:
+    extracting_attributes: "🔄 属性を抽出中... ({progress}%)"
+    scoring_reviews: "🔄 レビュー {current}/{total} をスコアリング中..."
+    analyzing: "🔄 分析を実行中..."
+    generating_report: "🔄 レポートを生成中..."
+    exporting: "🔄 エクスポート中..."
+
+  # エラーメッセージ
+  error:
+    no_data: "❌ 先にデータをアップロードしてください"
+    no_attributes: "❌ 先に属性を抽出してください"
+    no_scoring: "❌ 先にスコアリングを完了してください"
+    extraction_failed: "❌ 属性抽出に失敗しました: {error}"
+    scoring_failed: "❌ スコアリングに失敗しました: {error}"
+    analysis_failed: "❌ 分析に失敗しました: {error}"
+    export_failed: "❌ エクスポートに失敗しました: {error}"
+    api_error: "❌ APIエラー: {error}"
+    invalid_attributes_count: "❌ 属性数は10-30の間である必要があります"
+
+  # 警告メッセージ
+  warning:
+    large_dataset: "⚠️ データ量が大きいため、処理に時間がかかる場合があります"
+    many_attributes: "⚠️ 属性数が多いため、スコアリングに時間がかかる場合があります"
+    api_quota: "⚠️ APIクォータ制限に近づいています"
+    slow_connection: "⚠️ ネットワーク接続が遅くなっています"
+
+  # 情報メッセージ
+  info:
+    ready: "準備完了"
+    processing: "処理中"
+    waiting: "待機中"
+    completed: "完了"
+    select_brands: "分析するブランドを選択してください"
+    select_attributes: "分析する属性を選択してください"
+
+# 統計情報
+stats:
+  total_reviews: "総レビュー数"
+  total_brands: "ブランド数"
+  attributes_count: "属性数"
+  scored_reviews: "スコアリング済みレビュー"
+  analysis_modules: "分析モジュール"
+  completed_modules: "完了したモジュール"
+
+# 進捗情報
+progress:
+  title: "処理進捗"
+  elapsed_time: "経過時間"
+  estimated_time: "推定残り時間"
+  current_step: "現在のステップ"
+  total_steps: "総ステップ数"
+
+# ヘルプテキスト
+help:
+  overview: |
+    BrandEdge ブランドインプリントエンジンは、エンタープライズグレードのブランドポジショニング分析プラットフォームです。
+    AIによる顧客レビューの深層分析を通じて、包括的なブランド戦略の提案を提供します。
+
+  workflow: |
+    分析ワークフロー：
+    1. レビューデータのアップロード - ブランドレビューを含むExcelまたはCSVファイルをアップロード
+    2. 属性抽出 - AIがレビューから10-30の主要な製品属性を自動抽出
+    3. 属性スコアリング - システムが各レビューのすべての属性をスコアリング（1-5スケール）
+    4. 分析実行 - 実行する分析モジュールを選択し、戦略レポートを生成
+
+  attributes_extraction: |
+    属性抽出の詳細：
+    - システムがレビューから消費者が注目する製品属性を自動抽出
+    - 10-30個の属性を選択（15個を推奨）
+    - 抽出には約2-5分かかります
+    - 重複および無関係な属性を自動的に削除
+
+  attributes_scoring: |
+    属性スコアリングの詳細：
+    - システムが各レビューのすべての属性をスコアリング（1-5スケール）
+    - レビュー内の属性に関する肯定的/否定的な記述に基づいてスコアリング
+    - スコアリング時間はレビュー数と属性数に依存
+    - 効率向上のためバッチ処理をサポート
+
+  analysis_modules: |
+    8つのコア分析モジュール：
+    1. 市場プロファイル - 市場セグメンテーションと顧客分析
+    2. 市場トラック - 成長機会の特定と戦略的優先順位
+    3. DNA分析 - ブランドDNAレーダーチャートと競争力評価
+    4. 主要要因 - 成功要因の特定
+    5. 理想点 - 目標達成度分析
+    6. 戦略ポジショニング - 4象限戦略提案
+    7. ブランドアイデンティティ - 差別化分析
+    8. AIインサイト - 包括的戦略レポート
+
+# 構成情報
+config:
+  min_attributes: 10
+  max_attributes: 30
+  default_attributes: 15
+  max_reviews: 1000
+  max_brands: 20
+  sample_size_default: 50
+
+# テーブルタイトル
+tables:
+  market_profile: "ブランド市場ポジショニングプロファイル"
+  brand_identity: "ブランドアイデンティティ分析"
+  growth_tracks: "成長トラック分析"
+  pca_loadings: "主成分負荷行列"
+  ideal_point: "理想点達成度"
+  strategy_matrix: "戦略マトリックス"
+  segment_summary: "市場セグメント概要"
+
+# テーブル列名
+table:
+  columns:
+    segment: "セグメント"
+    companies: "企業数"
+    market_share: "市場シェア"
+    total_revenue: "総収益"
+    avg_revenue: "平均収益"
+    key_characteristics: "主な特徴"
+
+# HTMLセクションテキスト
+segments:
+  market_status: "市場セグメンテーション状況："
+  track_recommendations: "推奨優先市場トラック："
+  brand_differentiation: "ブランド差別化レベル："
+  key_findings: "主要な発見："
+  recommendations: "戦略的提案："
+  top_tracks: "トップ5成長トラック"
+
+# チャートタイトル
+plots:
+  growth_track_title: "市場成長トラック機会チャート"
+  dna_radar_title: "ブランドDNAレーダーチャート"
+  identity_scatter_title: "ブランドアイデンティティ分析"
+  strategy_quadrant_title: "戦略ポジショニング4象限"
+  pca_biplot_title: "主成分分析バイプロット"
+  ideal_point_title: "理想点達成度分析"
+  attribute_importance_title: "属性重要度分析"
+
+# チャート軸ラベル
+axes:
+  growth_potential: "成長ポテンシャル"
+  market_importance: "市場重要度"
+  brand_strength: "ブランド強度"
+  differentiation: "差別化レベル"
+  pc1: "第1主成分"
+  pc2: "第2主成分"
+  ideal_distance: "理想点からの距離"
+  attribute_weight: "属性ウェイト"
+
+# セグメントラベル
+labels:
+  # 一般ラベル
+  brands: "ブランド"
+  avg_score: "平均スコア"
+  top_attributes: "トップ属性"
+  developing: "発展中"
+  segment: "セグメント"
+  attribute: "属性"
+  score: "スコア"
+  product_attributes: "製品属性"
+  market_segment: "市場セグメント"
+  ai_insights: "AI顧客インサイト"
+  growth_potential: "成長ポテンシャル"
+  market_size: "市場規模"
+  ai_opportunities: "AI市場機会分析"
+  ai_loading: "🤖 AI分析開始中..."
+  ai_progress_segment_naming: "セグメント名を生成中..."
+  ai_progress_customer_analysis: "顧客の好みを分析中..."
+  ai_progress_market_opportunities: "市場機会を特定中..."
+  ai_progress_complete: "完了..."
+  ai_complete: "✅ AI分析完了！"
+
+  # スコア関連ラベル
+  avg_prefix: "平均"
+  score_suffix: "点"
+  multi_advantage: "複数の強み"
+  specific_advantage: "特定の強み"
+
+  # セグメントタイプ
+  segments:
+    leader_brand: "リーダーブランド"
+    niche_brand: "ニッチブランド"
+    mass_brand: "マスブランド"
+    challenger_brand: "チャレンジャーブランド"
+
+  # トラックタイプ
+  tracks:
+    high_potential: "高ポテンシャルトラック"
+    mature_track: "成熟トラック"
+    niche_track: "ニッチトラック"
+    low_priority: "低優先度トラック"
+
+  # 戦略タイプ
+  strategy:
+    leader: "リーダー"
+    challenger: "チャレンジャー"
+    nicher: "ニッチャー"
+    follower: "フォロワー"
+
+# 統計ラベル
+stats_labels:
+  brand_count: "ブランド"
+  avg_market_share: "平均市場シェア"
+  score_range: "スコア範囲"
+  variance_explained: "説明された分散"
+
+# コントロールラベル
+controls:
+  segmentation_method: "市場セグメンテーション方法"
+  num_segments: "セグメント数"
+  run_analysis: "分析実行"
+  run_ai_analysis: "AI分析実行"
+
+# タブタイトル
+tabs:
+  overview: "市場セグメント概要"
+  detailed: "市場セグメント分析"
+  preferences: "顧客の好み分析"
+  opportunities: "潜在的市場機会"
+  summary: "分析概要"
+
+# ポジションラベル
+positions:
+  leader: "市場リーダー"
+  strong: "強力な競合"
+  mainstream: "メインストリームブランド"
+  challenger: "チャレンジャー"
+
+# チャートタイトル
+charts:
+  segment_distribution: "市場セグメント分布"
+  segment_characteristics: "セグメント特性分布"
+  preference_heatmap: "顧客の好みヒートマップ"
+  preference_radar: "セグメント好みレーダーチャート"
+  opportunity_matrix: "市場機会マトリックス"
+
+# クアドラントラベル
+quadrants:
+  high_potential_large: "高ポテンシャル大市場"
+  mature_large: "成熟大市場"
+  emerging_small: "新興小市場"
+  saturated_small: "飽和小市場"
+
+# レポートテキスト
+report:
+  has: "は"
+  companies: "社の企業があり、"
+  market_share: "市場シェアは"
+  avg_score: "平均スコアは"
+  features: "主な特徴："
+  developing: "発展中です。"
+  segmentation_title: "市場セグメンテーションプロファイル分析"
+  target_customer_title: "ターゲット顧客の好み分析"
+  highest_score: "は最も高い平均スコアを持っています（"
+  score_close: "）"
+  should_enhance: "強化すべき"
+  core_advantages: "コア競争力"
+  attract_target: "でターゲット顧客を引き付ける。"
+  run_ai_analysis: "AI分析を実行して顧客の好みインサイトを生成してください。"
+  market_opportunity_title: "潜在的市場機会分析"
+  considering: "考慮すると"
+  lower_share: "は市場シェアが低い（"
+  but_avg: "しかし平均スコアは"
+  indicates_opportunity: "これは潜在的な市場機会を示しています。"
+  suggest_enhance: "このセグメントの市場戦略を強化することを提案します。"
+  run_ai_for_opportunities: "AI分析を実行して市場機会インサイトを生成してください。"

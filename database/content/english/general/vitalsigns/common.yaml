@@ -1,0 +1,322 @@
+# ==========================================
+# VitalSigns - Common Language Content (English)
+# ==========================================
+# Common Language Content - English (US)
+# Version: 1.0.0
+# Last Updated: 2025-10-11
+
+# Application-level text
+app:
+  name: "VitalSigns"
+  title: "VitalSigns<br>Customer Vitality Diagnostic System"  # Used in login page and navbar
+  full_name: "Customer Vitality Diagnostic System"
+  tagline: "Quantify Health, Diagnose Precisely"
+  welcome: "Welcome to VitalSigns"
+  subtitle: "Comprehensive Customer Lifecycle Analysis Platform"
+  description: "Deep analysis of customer value and behavior patterns through six core modules"
+
+# Common buttons
+buttons:
+  confirm: "Confirm"
+  cancel: "Cancel"
+  save: "Save"
+  close: "Close"
+  back: "Back"
+  next: "Next"
+  previous: "Previous"
+  submit: "Submit"
+  reset: "Reset"
+  export: "Export"
+  download: "Download"
+  upload: "Upload"
+  refresh: "Refresh"
+  calculate: "Calculate"
+  analyze: "Analyze"
+  generate: "Generate"
+  apply: "Apply"
+  clear: "Clear"
+  select_all: "Select All"
+  deselect_all: "Deselect All"
+  expand: "Expand"
+  collapse: "Collapse"
+  show_more: "Show More"
+  show_less: "Show Less"
+  edit: "Edit"
+  delete: "Delete"
+  copy: "Copy"
+  view_details: "View Details"
+  help: "Help"
+
+# Common messages
+messages:
+  loading: "Loading..."
+  processing: "Processing..."
+  calculating: "Calculating..."
+  analyzing: "Analyzing..."
+  generating: "Generating..."
+  saving: "Saving..."
+  exporting: "Exporting..."
+  uploading: "Uploading..."
+  operation_success: "Operation successful"
+  error: "Error occurred"
+  warning: "Warning"
+  info: "Information"
+  no_data: "No data available"
+  no_results: "No results found"
+  please_wait: "Please wait"
+  operation_complete: "Operation complete"
+  operation_failed: "Operation failed"
+  data_saved: "Data saved"
+  data_exported: "Data exported"
+  invalid_input: "Invalid input"
+  required_field: "Required field"
+  confirm_action: "Confirm this action?"
+  unsaved_changes: "You have unsaved changes"
+
+  # Navigation messages
+  success:
+    navigate_to_dna: "Navigating to DNA analysis..."
+
+# Common labels
+labels:
+  select: "Select"
+  options: "Options"
+  settings: "Settings"
+  filters: "Filters"
+  sort_by: "Sort by"
+  group_by: "Group by"
+  date_range: "Date Range"
+  from: "From"
+  to: "To"
+  start_date: "Start Date"
+  end_date: "End Date"
+  count: "Count"
+  total: "Total"
+  average: "Average"
+  median: "Median"
+  minimum: "Minimum"
+  maximum: "Maximum"
+  percentage: "Percentage"
+  ratio: "Ratio"
+  score: "Score"
+  rank: "Rank"
+  category: "Category"
+  segment: "Segment"
+  status: "Status"
+  name: "Name"
+  description: "Description"
+  value: "Value"
+  unit: "Unit"
+  type: "Type"
+
+# Common date/time
+datetime:
+  today: "Today"
+  yesterday: "Yesterday"
+  this_week: "This Week"
+  last_week: "Last Week"
+  this_month: "This Month"
+  last_month: "Last Month"
+  this_quarter: "This Quarter"
+  last_quarter: "Last Quarter"
+  this_year: "This Year"
+  last_year: "Last Year"
+  last_7_days: "Last 7 Days"
+  last_14_days: "Last 14 Days"
+  last_30_days: "Last 30 Days"
+  last_60_days: "Last 60 Days"
+  last_90_days: "Last 90 Days"
+  last_180_days: "Last 180 Days"
+  last_365_days: "Last 365 Days"
+  custom_range: "Custom Range"
+  all_time: "All Time"
+
+  # Time units
+  units:
+    day: "Day"
+    days: "Days"
+    week: "Week"
+    weeks: "Weeks"
+    month: "Month"
+    months: "Months"
+    quarter: "Quarter"
+    quarters: "Quarters"
+    year: "Year"
+    years: "Years"
+
+# Common navigation
+nav:
+  dashboard: "Dashboard"
+  modules: "Analysis Modules"
+  upload: "Data Upload"
+  analysis: "Analysis"
+  reports: "Reports"
+  settings: "Settings"
+  help: "Help"
+  about: "About"
+  logout: "Logout"
+  home: "Home"
+
+  # Module navigation
+  module_upload: "Data Upload"
+  module_acquisition: "Customer Acquisition"
+  module_retention: "Customer Retention"
+  module_engagement: "Engagement & Conversion"
+  module_revenue_pulse: "Revenue Pulse"
+  module_dna: "Customer DNA"
+
+# Page titles (for sidebar)
+pages:
+  login: "Login"
+  vitalsigns_upload: "Data Upload"
+  vitalsigns_dna: "Customer DNA Analysis"
+  vitalsigns_revenue_pulse: "Revenue Pulse"
+  vitalsigns_acquisition: "Customer Growth"
+  vitalsigns_retention: "Customer Retention"
+  vitalsigns_engagement: "Engagement & Conversion"
+  about: "About Us"
+
+# Common chart elements
+charts:
+  title: "Chart"
+  x_axis: "X-Axis"
+  y_axis: "Y-Axis"
+  legend: "Legend"
+  no_data: "No data to display"
+  loading: "Loading chart..."
+  export_chart: "Export Chart"
+  zoom_in: "Zoom In"
+  zoom_out: "Zoom Out"
+  reset_zoom: "Reset Zoom"
+  pan: "Pan"
+  select: "Select"
+
+# Common data tables
+table:
+  no_data: "No data available"
+  no_results: "No matching records found"
+  showing: "Showing"
+  to: "to"
+  of: "of"
+  entries: "entries"
+  search: "Search"
+  previous: "Previous"
+  next: "Next"
+  first: "First"
+  last: "Last"
+  rows_per_page: "Rows per page"
+  loading: "Loading..."
+
+# Common filters
+filters:
+  all: "All"
+  apply: "Apply Filters"
+  clear: "Clear Filters"
+  reset: "Reset"
+  advanced: "Advanced Filters"
+
+# Common export
+export:
+  title: "Export Data"
+  format: "File Format"
+  csv: "CSV File"
+  excel: "Excel File"
+  pdf: "PDF Report"
+  json: "JSON Data"
+  include_charts: "Include Charts"
+  include_summary: "Include Summary Statistics"
+  success: "Data exported successfully"
+  error: "Export failed"
+
+# Common help
+help:
+  title: "Help Documentation"
+  user_guide: "User Guide"
+  faq: "FAQ"
+  contact_support: "Contact Support"
+  video_tutorial: "Video Tutorial"
+  quick_start: "Quick Start"
+  tips: "Tips & Tricks"
+
+# Common status
+status:
+  active: "Active"
+  inactive: "Inactive"
+  pending: "Pending"
+  completed: "Completed"
+  failed: "Failed"
+  in_progress: "In Progress"
+  cancelled: "Cancelled"
+
+# Common validation messages
+validation:
+  required: "This field is required"
+  invalid_format: "Invalid format"
+  invalid_date: "Invalid date format"
+  invalid_number: "Invalid number format"
+  invalid_email: "Invalid email format"
+  min_length: "Minimum {n} characters required"
+  max_length: "Maximum {n} characters"
+  min_value: "Minimum value is {n}"
+  max_value: "Maximum value is {n}"
+  out_of_range: "Value out of range"
+
+# Common units
+units:
+  currency:
+    twd: "Taiwan Dollar"
+    usd: "US Dollar"
+    symbol: "$"
+  percentage: "%"
+  count: "times"
+  people: "people"
+  items: "items"
+
+# Common formatting
+formatting:
+  thousand_separator: ","
+  decimal_separator: "."
+  decimal_places: 2
+  percentage_format: "{value}%"
+  currency_format: "${value}"
+  number_format: "{value}"
+
+# Common ratings
+ratings:
+  excellent: "Excellent"
+  very_good: "Very Good"
+  good: "Good"
+  average: "Average"
+  below_average: "Below Average"
+  poor: "Poor"
+  very_poor: "Very Poor"
+
+# Common trend indicators
+trends:
+  increasing: "Increasing"
+  decreasing: "Decreasing"
+  stable: "Stable"
+  volatile: "Volatile"
+  up: "↑"
+  down: "↓"
+  neutral: "→"
+
+# Common comparisons
+comparisons:
+  higher: "Higher"
+  lower: "Lower"
+  same: "Same"
+  better: "Better"
+  worse: "Worse"
+  improved: "Improved"
+  declined: "Declined"
+  vs: "vs"
+  compared_to: "compared to"
+
+# Common recommendation levels
+recommendations:
+  critical: "🔴 Critical"
+  high_priority: "🟠 High Priority"
+  medium_priority: "🟡 Medium Priority"
+  low_priority: "🟢 Low Priority"
+  optional: "⚪ Optional"

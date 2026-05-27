@@ -1,0 +1,175 @@
+# ==========================================
+# BrandEdge - Positioning Strategy Module (English)
+# ==========================================
+# Version: 1.0
+# Last Updated: 2025-10-08
+
+# Module Information
+title: "Positioning Strategy"
+subtitle: "Four-Quadrant Strategic Analysis"
+description: "Provide strategic positioning recommendations based on brand attribute performance"
+
+# UI Text
+ui:
+  # No Data State
+  no_data:
+    title: "Positioning Strategy Analysis"
+    message: "Please upload review data first to perform positioning strategy analysis"
+    upload_button: "Go to Data Upload"
+
+  # Selection Controls
+  select_variation:
+    label: "Select Variation"
+    placeholder: "Please select a brand to analyze"
+
+  # Buttons
+  buttons:
+    run_strategy: "Explore Strategy"
+
+  # Chart Title
+  chart:
+    title: "Strategic Positioning Four-Quadrant Diagram"
+    subtitle: "Strategic recommendations based on key and non-key attributes"
+
+# Quadrant Labels
+quadrants:
+  appeal: "Appeal"        # Top-right: Key attributes with above-average performance
+  change: "Change"        # Bottom-right: Key attributes with below-average performance
+  improve: "Improve"      # Top-left: Non-key attributes with above-average performance
+  weakness: "Weakness"    # Bottom-left: Non-key attributes with below-average performance
+
+# Quadrant Descriptions
+quadrant_descriptions:
+  appeal: "Key strength attributes - Should continue to strengthen and use as main appeals"
+  change: "Key weakness attributes - Need priority improvement to enhance competitiveness"
+  improve: "Non-key strength attributes - Consider transforming into differentiation advantages"
+  weakness: "Non-key weakness attributes - Low priority, can be delayed if resources are limited"
+
+# Strategy Recommendations
+strategy_recommendations:
+  appeal:
+    title: "Appeal Strategy"
+    description: "These are the brand's core strengths, should:"
+    actions:
+      - "Emphasize these attributes in marketing communications"
+      - "Continue investment to maintain leading position"
+      - "Use as main pillars of brand positioning"
+
+  change:
+    title: "Change Strategy"
+    description: "These are key areas that need improvement, should:"
+    actions:
+      - "Prioritize resource allocation for improvement"
+      - "Study competitors' successful practices"
+      - "Set clear improvement goals and timelines"
+
+  improve:
+    title: "Improve Strategy"
+    description: "These are potential differentiation opportunities, should:"
+    actions:
+      - "Evaluate whether they can be transformed into competitive advantages"
+      - "Consider combining with market demands to strengthen these attributes"
+      - "Selectively invest to create differentiation"
+
+  weakness:
+    title: "Weakness Management"
+    description: "These are low-priority areas, should:"
+    actions:
+      - "Maintain basic level is sufficient"
+      - "Avoid over-investment"
+      - "Decide whether to improve based on resource availability"
+
+# Messages
+messages:
+  # Navigation Messages
+  redirect_to_upload: "Please select 'Data Upload' from the sidebar"
+
+  # Success Messages
+  success:
+    analysis_completed: "✅ Positioning strategy analysis completed"
+    quadrant_generated: "✅ Four-quadrant diagram generated"
+
+  # Error Messages
+  error:
+    no_data: "❌ No data found"
+    no_variation_selected: "❌ Please select a Variation to analyze"
+    no_key_factors: "❌ Missing key factors definition"
+    calculation_failed: "❌ Calculation failed: {error}"
+    api_failed: "❌ API call failed"
+
+  # Processing Messages
+  processing:
+    analyzing_strategy: "Analyzing strategy..."
+
+  # Info Messages
+  info:
+    calculating: "Calculating four-quadrant distribution..."
+    generating_chart: "Generating strategy chart..."
+    click_strategy_button: "Strategy analysis not yet generated. Click 'Explore Strategy' to analyze."
+
+# Chart Elements
+chart_elements:
+  axis_labels:
+    horizontal: "Attribute Importance"
+    vertical: "Performance Level"
+
+  dividers:
+    horizontal: "Average Performance Level"
+    vertical: "Key/Non-Key Divider"
+
+# Statistics
+stats:
+  total_attributes: "Total Attributes"
+  key_attributes: "Key Attributes"
+  non_key_attributes: "Non-Key Attributes"
+  appeal_count: "Appeal Attributes"
+  change_count: "Change Attributes"
+  improve_count: "Improve Attributes"
+  weakness_count: "Weakness Attributes"
+
+# Help Text
+help:
+  overview: |
+    Positioning Strategy Four-Quadrant Analysis categorizes brand attributes into four types:
+
+    1. Appeal (Top-Right): Key attributes with excellent performance
+       → Brand core strengths, should continue to strengthen
+
+    2. Change (Bottom-Right): Key attributes with poor performance
+       → Need priority improvement to enhance competitiveness
+
+    3. Improve (Top-Left): Non-key attributes with excellent performance
+       → Consider transforming into differentiation advantages
+
+    4. Weakness (Bottom-Left): Non-key attributes with poor performance
+       → Low priority, can be delayed if resources are limited
+
+  interpretation: |
+    Strategy Interpretation:
+
+    - Horizontal Axis: Whether attribute is a key factor
+    - Vertical Axis: Brand's performance level on that attribute
+    - Divider: Average value as the boundary for high/low performance
+
+    Recommended Priority: Change > Appeal > Improve > Weakness
+
+  usage: |
+    How to Use:
+
+    1. Select the brand (Variation) to analyze
+    2. System automatically calculates average performance for each attribute
+    3. Allocates to four quadrants based on key factor definition and performance level
+    4. Refer to strategy recommendations to formulate action plans
+
+# Configuration
+config:
+  plot_height: "800px"
+  font_size:
+    title: 15
+    attribute: 14
+  colors:
+    appeal: "#28a745"      # Green
+    change: "#dc3545"      # Red
+    improve: "#ffc107"     # Yellow
+    weakness: "#6c757d"    # Gray
+    divider: "#000000"     # Black

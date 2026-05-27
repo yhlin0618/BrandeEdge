@@ -1,0 +1,391 @@
+# ==========================================
+# VitalSigns - Upload Module Language Content (Japanese)
+# ==========================================
+# データアップロードモジュール言語コンテンツ（日本語）
+# Version: 1.0.0
+# Last Updated: 2025-10-11
+
+# モジュール基本情報
+title: "データアップロード"
+subtitle: "顧客取引データのアップロード"
+description: "CSVまたはExcel形式の顧客購入データをアップロードし、システムが自動的に項目形式を検出・検証します"
+
+# UI テキスト
+ui:
+  # Section titles (for UI headers)
+  sections:
+    instructions: "📋 アップロード説明"
+    example: "📷 Amazon CSV サンプル"
+    upload_files: "📁 販売データアップロード"
+    preview: "データプレビュー"
+
+  # Instruction texts
+  instructions:
+    supported_formats: "📊 対応形式"
+    amazon_report: "Amazon 販売レポート"
+    general_text: "一般テキスト形式"
+    format: "形式"
+    multi_file: "月単位で複数のCSVファイルを同時にアップロード可能"
+    auto_detect: "📦 自動検出項目"
+    auto_detect_desc: "システムは以下の項目を自動検出し、標準変数名に変換します："
+
+  # Warning texts
+  warnings:
+    important: "重要な注意"
+    data_months: "分析の精度を確保するため、最低3〜12ヶ月のデータをアップロードしてください。"
+
+  # Info texts
+  info:
+    standardization: "💡 標準化の説明"
+    standardization_desc: "元の項目名に関わらず、システムは上記の青い標準変数名に変換して分析します。"
+    example: "例：'buyer email' → <strong>customer_id</strong>、'purchase date' → <strong>payment_time</strong>"
+
+  # Field names
+  fields:
+    customer_id: "顧客識別"
+    customer_priority: "優先: buyer email, buyer_email, email"
+    customer_fallback: "次選: customer_id, customer, buyer_id, user_id"
+    payment_time: "取引時刻"
+    time_detect: "検出: purchase date, payments date, payment_time"
+    time_other: "その他: date, time, datetime"
+    lineitem_price: "取引金額"
+    price_detect: "検出: item price, lineitem_price, amount"
+    price_other: "その他: sales, price, total"
+
+  # Input field labels
+  inputs:
+    file_input: "複数ファイルアップロード（自動統合、最大12ファイル）"
+
+  # Example image texts
+  example:
+    alt_text: "Amazon CSV サンプル"
+    caption: "上図はAmazon販売レポートCSV形式のサンプルです"
+
+  # Button texts
+  buttons:
+    upload: "ファイルをアップロード"
+    upload_preview: "アップロードしてプレビュー"
+    validate: "データを検証"
+    clear: "クリア"
+    download_template: "テンプレートをダウンロード"
+    next: "次のステップ ➡️"
+    next_step: "分析を開始"
+    retry: "再アップロード"
+    edit_mapping: "項目マッピングを編集"
+
+  # アップロードエリア
+  upload:
+    title: "データアップロード"
+    subtitle: "複数ファイルの統合アップロードに対応"
+    instruction: "顧客取引データを含むファイルをアップロードしてください"
+    supported_formats: "対応形式：CSV、Excel (.xlsx, .xls)"
+    auto_detect: "自動検出項目：顧客ID (Email)、購入時刻、金額"
+    file_input_label: "ファイルを選択（複数選択可）"
+    button: "ファイルを選択"
+    drag_drop: "またはファイルをここにドラッグ＆ドロップ"
+    file_requirements: "ファイル要件"
+
+    # アップロード説明
+    instructions:
+      title: "アップロード説明"
+      step1: "1. 顧客取引データを含むCSVまたはExcelファイルを準備"
+      step2: "2. 必須項目（顧客ID、時刻、金額）が含まれていることを確認"
+      step3: "3. 複数のファイルを一度に選択可能、システムが自動的に統合します"
+      step4: "4. アップロード後、システムが自動的にデータ形式を検証します"
+
+    # Amazon形式特別説明
+    amazon_format:
+      title: "Amazon レポート形式"
+      description: "システムはAmazon販売レポート形式に対応しており、以下の項目を自動検出・変換します："
+      buyer_email: "• Buyer Email → 顧客ID"
+      purchase_date: "• Purchase Date / Payments Date → 購入時刻"
+      item_price: "• Item Price → 取引金額"
+
+  # ファイル情報
+  file_info:
+    title: "ファイル情報"
+    name: "ファイル名"
+    size: "ファイルサイズ"
+    format: "ファイル形式"
+    rows: "データ件数"
+    columns: "項目数"
+    status: "ステータス"
+    multiple_files: "{count} 件のファイルが選択されました"
+
+  # 必須項目
+  required_fields:
+    title: "必須項目"
+    customer_id: "顧客ID / Email"
+    customer_id_desc: "顧客を一意に識別（Emailの使用を推奨）"
+    payment_time: "購入時刻 / 取引日時"
+    payment_time_desc: "取引発生時刻を記録"
+    lineitem_price: "取引金額 / 商品価格"
+    lineitem_price_desc: "1回の取引の金額"
+
+  # オプション項目
+  optional_fields:
+    title: "オプション項目"
+    platform_id: "プラットフォームID / チャネル"
+    platform_id_desc: "販売プラットフォームまたはチャネル名"
+    product_id: "商品ID / SKU"
+    product_id_desc: "商品識別コードまたはSKU"
+
+  # 項目マッピング
+  column_mapping:
+    title: "項目マッピング結果"
+    auto_detected: "自動検出"
+    manual_mapping: "手動マッピング"
+    mapped_to: "マッピング先"
+    not_mapped: "マッピングなし"
+    confidence: "信頼度"
+
+  # データプレビュー
+  preview:
+    title: "データプレビュー"
+    subtitle: "アップロードデータ概要"
+    first_rows: "最初の {n} 件"
+    total_rows: "合計 {total} 件"
+    show_all: "すべて表示"
+    show_less: "表示を減らす"
+
+  # データ統計サマリー
+  summary_stats:
+    title: "データ統計サマリー"
+    total_transactions: "総取引件数"
+    unique_customers: "ユニーク顧客数"
+    date_range: "データ期間"
+    total_revenue: "総取引金額"
+    avg_transaction_value: "平均取引金額"
+    transaction_months: "対象月数"
+    data_quality: "データ品質"
+
+  # 検証結果
+  validation_results:
+    title: "データ検証結果"
+    passed: "検証合格"
+    failed: "検証失敗"
+    warnings: "警告事項"
+    errors: "エラー事項"
+    all_checks_passed: "✓ すべてのチェックに合格しました"
+
+
+# メッセージテキスト
+messages:
+  # 成功メッセージ
+  success:
+    upload: "✅ ファイルのアップロードに成功しました"
+    upload_with_count: "✅ {count} 件の取引データをアップロードしました"
+    upload_multiple: "✅ {file_count} 件のファイルを正常に統合しました、合計 {row_count} 件のデータ"
+    upload_complete: "✅ {row_count} 件のデータをアップロードしました (✅ すべての項目を検出しました)"
+    notification: "✅ データのアップロードに成功しました！"
+    validation: "✅ データ検証に合格しました"
+    column_detection: "✅ すべての必須項目を自動検出しました"
+    processing: "✅ データ処理が完了しました"
+    ready: "✅ データの準備が完了しました、分析を開始できます"
+    merged: "✅ 複数のファイルが正常に統合されました"
+    navigate_to_dna: "✅ DNA分析モジュールに移動中..."
+
+  # 処理中メッセージ
+  processing:
+    uploading: "アップロード中..."
+    reading: "ファイルを読み込み中..."
+    validating: "データを検証中..."
+    processing: "データを処理中..."
+    analyzing: "データ構造を分析中..."
+    merging: "ファイルを統合中..."
+    detecting_columns: "項目を検出中..."
+
+  # エラーメッセージ
+  error:
+    no_file: "❌ ファイルを選択してください"
+    no_file_selected: "⚠️ アップロードするファイルを選択してください"
+    invalid_format: "❌ ファイル形式が不正です（CSV または Excel のみ対応）"
+    unsupported_format: "⚠️ ファイル '{filename}' の形式は対応していません。.csv / .xlsx / .xls のみアップロード可能です"
+    empty_file: "⚠️ ファイル '{filename}' は空です"
+    too_large: "❌ ファイルが大きすぎます（最大 {max_size}MB）"
+    too_many_files: "❌ ファイル数が多すぎます（最大 {max_files} 件）"
+    read_error: "❌ ファイル読み込みエラー：{error}"
+    processing_error: "❌ ファイル処理エラー：{error}"
+    notification: "❌ アップロード失敗："
+
+    # 項目エラー
+    missing_columns: "❌ 必須項目が不足しています：{columns}"
+    column_detection_failed: "❌ 必須項目を自動検出できませんでした"
+    invalid_column_type: "❌ 項目タイプが正しくありません：{column}"
+
+    # データ検証エラー
+    validation_failed: "❌ データ検証に失敗しました"
+    insufficient_rows: "❌ データ件数が不足しています（最低 {min_rows} 件必要）"
+    too_many_rows: "❌ データ件数が制限を超えています（最大 {max_rows} 件）"
+    insufficient_customers: "❌ 顧客数が不足しています（最低 {min_customers} 人必要）"
+    insufficient_months: "❌ データ期間が不足しています（最低 {min_months} ヶ月必要）"
+    invalid_dates: "❌ 無効な日付形式が見つかりました"
+    invalid_prices: "❌ 無効な金額データが見つかりました"
+    negative_prices: "❌ マイナスの金額が見つかりました"
+    no_data: "❌ ファイルに有効なデータがありません"
+
+    # 統合エラー
+    merge_failed: "❌ ファイルの統合に失敗しました"
+    inconsistent_columns: "❌ ファイルの項目が一致しません、統合できません"
+
+  # 警告メッセージ
+  warning:
+    large_file: "⚠️ ファイルが大きいため、処理に時間がかかる場合があります"
+    many_rows: "⚠️ データ件数が多いです（{rows} 件）、処理時間が長くなる可能性があります"
+    many_files: "⚠️ ファイル数が多いです（{count} 件）、統合時間が長くなる可能性があります"
+    partial_detection: "⚠️ 一部の項目のみ自動検出されました、項目マッピングを確認してください"
+    incomplete_fields: "✅ {row_count} 件のデータをアップロードしました (⚠️ 項目検出が不完全です)"
+    notification: "⚠️ 項目検出が不完全です、データ形式を確認してください"
+    missing_optional: "⚠️ オプション項目が不足しています：{fields}"
+    duplicate_transactions: "⚠️ {count} 件の重複取引が見つかりました"
+    data_quality_issues: "⚠️ データ品質に問題がある可能性があります、確認をお勧めします"
+    short_date_range: "⚠️ データ期間が短いです（{months} ヶ月）、分析結果が制限される可能性があります"
+    few_customers: "⚠️ 顧客数が少ないです（{count} 人）、一部の分析機能が制限される可能性があります"
+
+  # 情報メッセージ
+  info:
+    file_selected: "ファイルを選択しました：{filename}"
+    rows_detected: "{rows} 件のデータを検出しました"
+    customers_detected: "{customers} 人の顧客を検出しました"
+    months_detected: "データは {months} ヶ月をカバーしています"
+    ready_to_analyze: "データの準備が完了しました、分析を開始できます"
+    amazon_format_detected: "Amazon レポート形式を検出しました"
+
+  # ナビゲーションヒント
+  next_steps:
+    title: "次のステップ"
+    description: "データアップロード成功！左側のメニューから分析モジュールを選択してください："
+    acquisition: "• 顧客獲得分析：新規顧客獲得トレンドを理解"
+    retention: "• 顧客リテンション分析：リテンション率とチャーンリスクを追跡"
+    engagement: "• エンゲージメント分析：顧客エンゲージメントを評価"
+    revenue_pulse: "• 売上パルス分析：売上貢献を分析"
+    dna: "• 顧客DNA分析：深層顧客グループ分析とAIインサイト"
+
+# データ制限
+limits:
+  max_file_size: 200  # MB
+  max_files: 12
+  min_rows: 10
+  max_rows: 1000000
+  min_customers: 10
+  min_months: 3
+  max_months: 36
+  recommended_months: 12
+  max_file_size_display: "200MB"
+
+# 対応形式
+formats:
+  supported: "対応形式"
+  csv: "CSV ファイル (.csv)"
+  excel: "Excel ファイル (.xlsx, .xls)"
+  description: "標準CSV形式とExcel形式に対応、UTF-8エンコードを推奨"
+
+# データテンプレート
+template:
+  title: "データ形式テンプレート"
+  description: "テンプレートファイルをダウンロードして正しいデータ形式を確認"
+  columns:
+    customer_id: "customer_id"
+    payment_time: "payment_time"
+    lineitem_price: "lineitem_price"
+    platform_id: "platform_id (オプション)"
+    product_id: "product_id (オプション)"
+  sample_data:
+    row1: "customer001@email.com, 2024-01-15 10:30:00, 1500"
+    row2: "customer002@email.com, 2024-01-16 14:20:00, 2300"
+    row3: "customer001@email.com, 2024-02-10 09:15:00, 1800"
+
+# 説明テキスト
+help:
+  overview: |
+    VitalSigns データアップロードモジュールはCSVおよびExcel形式の顧客取引データに対応しています。
+    システムはファイル形式を自動検出し、データの完全性を検証します。
+
+  file_requirements: |
+    ファイル要件：
+    - CSV (.csv) または Excel (.xlsx, .xls) 形式に対応
+    - ファイルサイズは 200MB 以下
+    - 1回に最大 12 ファイルまでアップロード可能（システムが自動的に統合）
+    - UTF-8 エンコードを推奨
+
+  data_requirements: |
+    データ要件：
+    - 最低 10 件の取引データ
+    - 最低 10 人のユニーク顧客
+    - 最低 3 ヶ月の取引記録（12 ヶ月を推奨）
+    - 顧客ID、時刻、金額の完全な項目を含む必要があります
+
+  column_requirements: |
+    必須項目説明：
+    - 顧客ID/Email：顧客を一意に識別する項目（Email、会員IDなど）
+    - 購入時刻：取引発生の日時
+    - 取引金額：1回の取引の金額（正の数である必要があります）
+
+    オプション項目説明：
+    - プラットフォームID：販売プラットフォームまたはチャネル（例：Amazon、公式サイト）
+    - 商品ID：商品識別コードまたはSKU
+
+  amazon_format: |
+    Amazon レポート形式対応：
+    システムはAmazon販売レポートを自動検出・処理できます。以下の項目に対応：
+    - Buyer Email → 顧客ID
+    - Purchase Date / Payments Date → 購入時刻
+    - Item Price → 取引金額
+
+    Amazon Seller Central からダウンロードしたレポートを直接アップロードできます。
+
+  multi_file_upload: |
+    複数ファイルアップロード機能：
+    - 一度に複数のファイルを選択可能（最大12件）
+    - システムがすべてのファイルを自動的に統合
+    - 月別に分かれたレポートファイルに適しています
+    - すべてのファイルは同じ項目構造を持つ必要があります
+
+  troubleshooting: |
+    よくある質問：
+
+    Q: なぜ項目を検出できないのですか？
+    A: ファイルの最初の行に項目名が含まれており、項目名が明確に記載されていることを確認してください
+
+    Q: 日付形式の問題を解決するには？
+    A: システムは複数の日付形式に対応していますが、YYYY-MM-DD または YYYY-MM-DD HH:MM:SS の使用を推奨します
+
+    Q: 異なるプラットフォームのデータをアップロードできますか？
+    A: はい、オプションの「プラットフォームID」項目を使用して異なるソースを区別してください
+
+    Q: データを事前にクリーニングする必要がありますか？
+    A: システムは一般的な形式の問題を自動的に処理しますが、明らかなエラーデータは削除することをお勧めします
+
+# 検証ルール説明
+validation_rules:
+  customer_id:
+    title: "顧客ID検証"
+    rules:
+      - "空白値は不可"
+      - "Email形式の使用を推奨"
+      - "最低10人のユニーク顧客"
+
+  payment_time:
+    title: "購入時刻検証"
+    rules:
+      - "空白値は不可"
+      - "有効な日時形式である必要があります"
+      - "データ範囲は最低3ヶ月をカバー"
+      - "未来の日付は不可"
+
+  lineitem_price:
+    title: "取引金額検証"
+    rules:
+      - "空白値は不可"
+      - "数値形式である必要があります"
+      - "マイナス値は不可"
+      - "最大値は 1,000,000 を超えないことを推奨"
+
+# ヒントテキスト（ヒントシステム用）
+hints:
+  upload_area: "ファイルをここにドラッグ＆ドロップするか、クリックしてファイルを選択してください。CSVおよびExcel形式に対応し、一度に複数のファイルをアップロードできます。"
+  required_fields: "これらはシステムが分析を実行するために必要な最も基本的な項目です。"
+  optional_fields: "これらの項目はより詳細な分析ディメンションを提供できますが、必須ではありません。"
+  column_mapping: "システムは項目マッピング関係を自動検出します。検出が正しくない場合は手動で調整できます。"
+  validation_results: "検証結果はデータが分析要件を満たしているかどうかを示します。エラーがある場合は、指示に従って修正してください。"
+  summary_stats: "アップロードされたデータの基本統計情報を素早く理解できます。"

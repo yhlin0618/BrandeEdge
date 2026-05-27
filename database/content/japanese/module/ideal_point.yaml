@@ -1,0 +1,101 @@
+# ==========================================
+# BrandEdge - 理想点分析モジュール（日本語）
+# ==========================================
+# Version: 1.0
+# Last Updated: 2025-10-08
+
+# モジュール情報
+title: "理想点分析"
+subtitle: "ブランドの理想点近接度評価"
+description: "理想点に基づいて各ブランドの近接度スコアを計算しランキング"
+
+# UI テキスト
+ui:
+  # データなし状態
+  no_data:
+    title: "理想点分析"
+    message: "理想点分析を行うには、まずレビューデータをアップロードしてください"
+    upload_button: "データアップロードへ"
+
+  # セクションタイトル
+  sections:
+    key_factors: "重要要因分析"
+    ranking: "ブランド理想点ランキング"
+
+  # 重要要因
+  key_factors:
+    label: "重要要因："
+    description: "ブランドの理想点スコアに影響を与える主要属性"
+
+  # ランキングテーブル
+  ranking_table:
+    title: "ブランドランキング"
+    subtitle: "理想点への近接度順"
+
+  # テーブルコントロール
+  table:
+    search: "検索："
+    length_menu: "_MENU_ 件表示"
+    info: "_TOTAL_ 件中 _START_ から _END_ まで表示"
+    previous: "前へ"
+    next: "次へ"
+
+# メッセージテキスト
+messages:
+  # ナビゲーションメッセージ
+  redirect_to_upload: "サイドバーから「データアップロード」ページを選択してください"
+
+  # 成功メッセージ
+  success:
+    analysis_completed: "✅ 理想点分析が完了しました"
+    ranking_generated: "✅ ブランドランキングが生成されました"
+
+  # エラーメッセージ
+  error:
+    no_data: "❌ データが見つかりません"
+    no_ideal_point: "❌ データに理想点 (Ideal) レコードがありません"
+    calculation_failed: "❌ 計算に失敗しました: {error}"
+
+  # 情報メッセージ
+  info:
+    calculating: "理想点への近接度を計算中..."
+    ranking_brands: "ブランドをランキング中..."
+
+# テーブル列名
+columns:
+  variation: "Variation"
+  brand: "ブランド"
+  score: "理想点スコア"
+  rank: "ランク"
+  distance: "理想点までの距離"
+
+# 統計ラベル
+stats:
+  total_brands: "総ブランド数"
+  top_brand: "理想点に最も近い"
+  avg_score: "平均スコア"
+  score_range: "スコア範囲"
+
+# チャートタイトル
+charts:
+  ranking_bar: "ブランド理想点スコアランキング"
+  distance_scatter: "ブランドと理想点の距離分布"
+
+# ヘルプテキスト
+help:
+  overview: |
+    理想点分析は、各ブランドが理想基準にどれだけ近いかを評価します。
+    システムはすべての属性における各ブランドの総合スコアを計算し、
+    理想点までの距離に基づいてランク付けします。
+
+  interpretation: |
+    スコアの解釈：
+    - 高スコア：ブランドのパフォーマンスが理想基準に近い
+    - 低スコア：ブランドと理想基準との間に大きなギャップがある
+    - ランキング：理想点スコアの高い順に並べ替え
+
+  key_factors: |
+    重要要因の説明：
+    - 理想点スコアに最も大きな影響を与える属性を表示
+    - これらの要因はブランド改善の優先分野
+    - 戦略調整の参考として使用可能

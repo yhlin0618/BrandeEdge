@@ -1,0 +1,55 @@
+# ==========================================
+# 關於我們模組文字內容 - 中文
+# ==========================================
+
+title: "關於我們"
+subtitle: "精準行銷平台"
+menu: "關於我們"
+description: "AI驅動的精準行銷平台"
+
+pages:
+  about:
+    title: "關於我們"
+    menu_title: "關於我們"
+
+ui:
+  card:
+    title: "關於我們"
+    loading: "載入中..."
+    error: "無法載入內容"
+
+content:
+  title: "精準行銷平台"
+  description: "我們是一套由 AI 驅動的精準行銷平台，協助品牌根據客戶特徵與行為數據，制定個人化行銷策略。"
+
+services:
+  title: "提供服務"
+  items:
+    - name: "客群分群建模"
+      description: "Segmentation Modeling"
+      icon: "🎯"
+    - name: "意圖辨識與推薦系統"
+      description: "Intent Detection & Recommendation"
+      icon: "🧠"
+    - name: "評論內容語意分析"
+      description: "Sentiment & Aspect Analysis"
+      icon: "💬"
+    - name: "行銷活動預測與績效追蹤"
+      description: "Campaign Forecasting & Tracking"
+      icon: "📈"
+    - name: "多管道數據整合與儀表板"
+      description: "Omni-channel Dashboard & ETL"
+      icon: "📊"
+
+contact:
+  title: "聯絡方式"
+  company: "公司"
+  company_name: "祈鋒行銷科技有限公司"
+  email: "聯絡資訊"
+  email_address: "mr.no.one01@gmail.com"
+  message: "如需商業合作或平台體驗，請聯絡資料分析團隊。"
+
+messages:
+  content_not_found: "找不到內容"
+  markdown_error: "Markdown 檔案載入失敗"
+  loading: "載入中..."

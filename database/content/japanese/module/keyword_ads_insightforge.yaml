@@ -1,0 +1,65 @@
+# ==========================================
+# Keyword Advertising Module Text Content - Japanese
+# ==========================================
+
+title: "🔍 キーワード広告の推奨事項"
+subtitle: "製品属性分析結果に基づいて、最適なキーワード広告戦略を推奨します"
+description: "AI駆動による高効率キーワード組み合わせの生成で、広告ROIを向上させます"
+
+settings:
+  title: "📋 分析設定"
+  brand_selection: "ブランド/製品を選択"
+  keyword_count: "推奨キーワード数"
+  platform: "広告プラットフォーム"
+  budget: "予算範囲"
+
+platforms:
+  google: "Google広告"
+  facebook: "Facebook広告"
+  instagram: "Instagram広告"
+  all: "すべてのプラットフォーム"
+
+analysis:
+  title: "分析パラメータ"
+  target_audience: "ターゲットオーディエンス"
+  geographic: "地理的位置"
+  language: "言語設定"
+  device: "デバイスタイプ"
+
+generation:
+  button: "キーワード推奨を生成"
+  processing: "🔄 キーワードを分析中..."
+  complete: "✅ キーワード推奨が生成されました！"
+
+results:
+  title: "📌 キーワード広告の推奨事項"
+  keyword_list: "推奨キーワード"
+  search_volume: "検索ボリューム"
+  competition: "競争レベル"
+  suggested_bid: "推奨入札額"
+  relevance_score: "関連性スコア"
+  core_attributes: "コア優位属性："
+
+optimization:
+  title: "最適化の推奨事項"
+  ad_group: "広告グループの推奨"
+  negative_keywords: "除外キーワード"
+  match_types: "マッチタイプの推奨"
+
+export:
+  button: "キーワードレポートをダウンロード"
+  format: "エクスポート形式"
+  include_metrics: "メトリックデータを含む"
+
+messages:
+  no_brand_selected: "最初にブランドまたは製品を選択してください"
+  generation_failed: "生成に失敗しました：{error}"
+  export_success: "キーワードレポートがダウンロードされました"
+  basic_generation: "基本的なキーワード生成を使用しています"
+  no_suggestions: "まだキーワードの提案がありません"
+
+console:
+  generating_keywords: "🔍 キーワードを生成中..."
+  analyzing_competition: "競争を分析中..."
+  calculating_bids: "入札額を計算中..."
+  keywords_generated: "✅ {count}件のキーワードを生成しました"

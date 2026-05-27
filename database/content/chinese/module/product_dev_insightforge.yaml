@@ -1,0 +1,95 @@
+# ==========================================
+# 新品開發模組文字內容 - 中文
+# ==========================================
+
+title: "🚀 新品開發建議"
+subtitle: "基於市場屬性分析，提供新產品開發方向建議"
+description: "發掘市場機會，制定產品創新策略"
+
+strategy:
+  title: "🎯 開發策略設定"
+  approach: "開發策略"
+  priority_count: "優先開發數量"
+  timeline: "開發時程"
+
+strategies:
+  gap: "填補市場空缺"
+  strength: "強化優勢領域"
+
+analysis:
+  button: "分析開發機會"
+  processing: "🔄 正在分析市場機會..."
+  complete: "✅ 新品開發建議生成完成！"
+
+market_gaps:
+  title: "📊 市場缺口分析"
+  low_score_attrs: "市場缺口（低分屬性）"
+  high_score_attrs: "競爭優勢（高分屬性）"
+  opportunity_score: "機會分數"
+  market_size: "市場規模"
+  # Gap strategy labels
+  focus_improve: "🎯 重點改進屬性（市場缺口）："
+  existing_advantages: "✅ 現有優勢（保持）："
+  avg_score: "平均分"
+  urgent_improve: "（急需改進）"
+  # Strength strategy labels
+  core_strengths: "⭐ 核心優勢（繼續強化）："
+  competitive_advantage: "（競爭優勢）"
+  areas_to_improve: "⚠️ 待改進領域："
+  # Balanced strategy labels
+  market_gaps_low: "市場缺口（低分屬性）："
+  competitive_high: "競爭優勢（高分屬性）："
+  current_strategy: "當前策略："
+
+suggestions:
+  title: "💡 新品開發建議"
+  product_concept: "產品概念"
+  key_features: "核心功能"
+  target_price: "建議售價"
+  development_cost: "預估開發成本"
+  roi_forecast: "投資報酬預測"
+
+roadmap:
+  title: "🗓️ 開發路線圖"
+  priority: "優先級"
+  phase: "開發階段"
+  milestone: "里程碑"
+  resources: "所需資源"
+  timeline: "時程規劃"
+
+risks:
+  title: "風險評估"
+  technical: "技術風險"
+  market: "市場風險"
+  competition: "競爭風險"
+  mitigation: "風險緩解策略"
+
+messages:
+  analysis_complete: "市場機會分析完成"
+  suggestions_ready: "已生成 {count} 個產品開發建議"
+  roadmap_created: "開發路線圖已建立"
+  analysis_failed: "分析失敗：{error}"
+
+strategy_descriptions:
+  gap: "填補市場空缺 - 優先改進低分屬性"
+  strength: "強化優勢領域 - 繼續提升高分屬性"
+
+action_verbs:
+  gap: "改進"
+  strength: "強化"
+
+strategy_details:
+  gap: "優先填補市場空缺，快速回應客戶需求"
+  strength: "持續強化競爭優勢，鞏固市場地位"
+  default: "制定明確的產品開發策略"
+
+console:
+  analyzing_market: "🔍 分析市場機會..."
+  identifying_gaps: "尋找市場缺口..."
+  evaluating_opportunities: "評估開發機會..."
+  generating_concepts: "💡 生成產品概念..."
+  concepts_generated: "✅ 已生成 {count} 個產品概念"
+  creating_roadmap: "📅 建立開發路線圖..."
+  risk_assessment: "⚠️ 進行風險評估..."
+  analysis_done: "🎉 分析完成"
+

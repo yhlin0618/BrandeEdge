@@ -1,0 +1,5 @@
+module_id: "login"
+enabled: true
+settings:
+  auth_type: "database"
+  remember_me: true

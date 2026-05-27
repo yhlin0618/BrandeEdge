@@ -1,0 +1,148 @@
+# VitalSigns Retention Module - Chinese (Traditional)
+# 客戶留存模組 - 繁體中文
+
+title: "顧客留存分析"
+subtitle: "客戶狀態監控與流失風險管理"
+description: "追蹤客戶生命週期、識別流失風險、制定挽留策略，維護客戶基盤穩定性"
+
+ui:
+  kpis:
+    retention_rate: "顧客留存率"
+    churn_rate: "顧客流失率"
+    at_risk_customers: "流失風險客戶"
+    core_ratio: "主力客比率"
+    dormant_prediction: "靜止戶預測"
+    dormant_prediction_footer: "30天內預測"
+    new_customers: "新客(N)"
+    core_customers: "主力客(E0)"
+    drowsy_customers: "瞌睡客(S1)"
+    semi_sleeping: "半睡客(S2)"
+    sleeping_customers: "沉睡客(S3)"
+
+  cards:
+    customer_structure: "客戶狀態結構"
+    churn_risk_analysis: "流失風險分析"
+    ai_analysis: "🤖 AI 智能分析與建議"
+
+  ai_tabs:
+    retention_analysis: "留存分析"
+    new_customer_strategy: "新客策略"
+    core_customer_deepening: "主力客深化"
+    drowsy_awakening: "瞌睡客喚醒"
+    semi_dormant_retention: "半睡客挽留"
+    sleeping_activation: "沉睡客激活"
+    structure_optimization: "結構優化"
+
+  charts:
+    customer_structure_title: "客戶狀態分布 (N→E0→S1→S2→S3)"
+    risk_distribution_title: "流失風險評估"
+
+  buttons:
+    download_structure: "下載CSV"
+    download_risk: "下載CSV"
+
+hints:
+  retention_rate: "留存率計算方式：回頭購買客戶數 ÷ 總客戶數。反映客戶忠誠度和產品滿意度"
+  churn_rate: "流失率計算方式：流失客戶數 ÷ 總客戶數。流失客戶指在觀察期內未產生任何購買行為的客戶"
+  at_risk_customers: "流失風險客戶定義：根據 RFM 和 NES 指標，預測未來可能流失的客戶數量"
+  core_ratio: "主力客比率：主力客戶（E0）佔總客戶的百分比。主力客戶是最有價值且最忠誠的客戶群"
+  dormant_prediction: "靜止戶預測公式：S1客戶數 × 0.3 + S2客戶數 × 0.5，預測未來30天內可能進入沉睡狀態的客戶數"
+  new_customers: "新客(N)：首次購買的新客戶，需要培養成為長期客戶"
+  core_customers: "主力客戶(E0)：最忠誠且最有價值的客戶，需要持續維護"
+  drowsy_customers: "瞌睡客戶(S1)：購買頻率開始下降，需要及時喚醒的客戶"
+  semi_sleeping: "半睡客戶(S2)：較長時間未購買，流失風險較高的客戶"
+  sleeping_customers: "沉睡客戶(S3)：長時間未購買，需要強力激活策略的客戶"
+
+server:
+  notifications:
+    ai_analysis_failed: "AI 分析失敗"
+    data_loading: "正在載入留存數據..."
+    calculation_complete: "計算完成"
+
+  customer_types:
+    N: "新客"
+    E0: "主力客"
+    S1: "瞌睡客"
+    S2: "半睡客"
+    S3: "沉睡客"
+
+  risk_levels:
+    low: "低風險"
+    medium: "中風險"
+    high: "高風險"
+    critical: "極高風險"
+
+  charts:
+    customer_count: "客戶數"
+    customer_status: "客戶狀態"
+    ratio: "占比"
+    people_unit: "人"
+
+  ai_analysis:
+    retention:
+      title: "📊 留存健康度評估"
+      current_rate: "當前留存率"
+      excellent: "表現優異"
+      needs_improvement: "需要改善"
+      suggestions_title: "💡 建議策略"
+      suggestion1: "優先關注"
+      at_risk_suffix: "位風險客戶"
+      suggestion2: "強化主力客戶經營，提升忠誠度"
+      suggestion3: "建立客戶流失預警機制"
+
+    new_customer:
+      title: "🆕 新客特徵"
+      count_prefix: "共"
+      count_suffix: "位新客"
+      strategy_title: "🎯 二購提升策略"
+      suggestion1: "首購後 7-14 天發送感謝信與優惠券"
+      suggestion2: "推薦相關產品，提升客單價"
+      suggestion3: "建立新客專屬社群，增加黏著度"
+
+    core_customer:
+      title: "🏆 主力客戶分析"
+      count_prefix: "共"
+      count_suffix: "位主力客戶"
+      strategy_title: "💎 VIP經營策略"
+      suggestion1: "建立VIP會員制度與專屬權益"
+      suggestion2: "提供個人化服務與優先支援"
+      suggestion3: "定期舉辦專屬活動增強黏著度"
+      suggestion4: "推薦高價值產品提升客單價"
+
+    drowsy:
+      title: "😴 瞌睡客診斷"
+      count_prefix: "共"
+      count_suffix: "位瞌睡客戶"
+      strategy_title: "🔔 喚醒策略"
+      suggestion1: "發送個人化關懷訊息"
+      suggestion2: "提供限時獨家優惠"
+      suggestion3: "推薦新品或熱銷商品"
+
+    semi_dormant:
+      title: "😴 半睡客戶分析"
+      count_prefix: "共"
+      count_suffix: "位半睡客戶"
+      strategy_title: "⚡ 深度喚醒策略"
+      suggestion1: "提供大額折扣券刺激回購"
+      suggestion2: "推出買一送一或滿額贈活動"
+      suggestion3: "多管道觸達提醒未結帳商品"
+      suggestion4: "問卷調查了解流失原因並改善"
+
+    sleeping:
+      title: "💤 沉睡客分析"
+      count_prefix: "共"
+      count_suffix: "位沉睡客戶"
+      strategy_title: "♻️ 激活策略"
+      suggestion1: "發送「我們想念您」主題郵件"
+      suggestion2: "提供大幅折扣或贈品"
+      suggestion3: "重新介紹品牌價值與改進"
+
+    structure:
+      title: "📊 結構健康度"
+      description: "客戶結構分析顯示當前狀態分布"
+      optimization_title: "🎯 優化目標"
+      goal1: "提升主力客比率至 30% 以上"
+      goal2: "降低沉睡客比率至 20% 以下"
+      goal3: "維持新客獲取與流失的平衡"
+
+language: "zh_TW"

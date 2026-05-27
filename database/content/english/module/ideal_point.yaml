@@ -1,0 +1,101 @@
+# ==========================================
+# BrandEdge - Ideal Point Analysis Module (English)
+# ==========================================
+# Version: 1.0
+# Last Updated: 2025-10-08
+
+# Module Information
+title: "Ideal Point Analysis"
+subtitle: "Brand Proximity to Ideal Assessment"
+description: "Calculate and rank brands based on their proximity to the ideal point"
+
+# UI Text
+ui:
+  # No Data State
+  no_data:
+    title: "Ideal Point Analysis"
+    message: "Please upload review data first to perform ideal point analysis"
+    upload_button: "Go to Data Upload"
+
+  # Section Titles
+  sections:
+    key_factors: "Key Factors Analysis"
+    ranking: "Brand Ideal Point Ranking"
+
+  # Key Factors
+  key_factors:
+    label: "Key Factors: "
+    description: "Key attributes affecting brand ideal point scores"
+
+  # Ranking Table
+  ranking_table:
+    title: "Brand Ranking"
+    subtitle: "Sorted by proximity to ideal point"
+
+  # Table Controls
+  table:
+    search: "Search: "
+    length_menu: "Show _MENU_ entries"
+    info: "Showing _START_ to _END_ of _TOTAL_ entries"
+    previous: "Previous"
+    next: "Next"
+
+# Messages
+messages:
+  # Navigation Messages
+  redirect_to_upload: "Please select 'Data Upload' from the sidebar"
+
+  # Success Messages
+  success:
+    analysis_completed: "✅ Ideal point analysis completed"
+    ranking_generated: "✅ Brand ranking generated"
+
+  # Error Messages
+  error:
+    no_data: "❌ No data found"
+    no_ideal_point: "❌ Missing ideal point (Ideal) record in data"
+    calculation_failed: "❌ Calculation failed: {error}"
+
+  # Info Messages
+  info:
+    calculating: "Calculating proximity to ideal point..."
+    ranking_brands: "Ranking brands..."
+
+# Table Column Names
+columns:
+  variation: "Variation"
+  brand: "Brand"
+  score: "Ideal Point Score"
+  rank: "Rank"
+  distance: "Distance to Ideal"
+
+# Statistics Labels
+stats:
+  total_brands: "Total Brands"
+  top_brand: "Closest to Ideal"
+  avg_score: "Average Score"
+  score_range: "Score Range"
+
+# Chart Titles
+charts:
+  ranking_bar: "Brand Ideal Point Score Ranking"
+  distance_scatter: "Brand Distance to Ideal Point Distribution"
+
+# Help Text
+help:
+  overview: |
+    Ideal Point Analysis evaluates how closely each brand approaches the ideal standard.
+    The system calculates a comprehensive score for each brand across all attributes,
+    and ranks them based on their distance to the ideal point.
+
+  interpretation: |
+    Score Interpretation:
+    - High Score: Brand performance is close to the ideal standard
+    - Low Score: Brand has a larger gap from the ideal standard
+    - Ranking: Sorted by ideal point score from high to low
+
+  key_factors: |
+    Key Factors Explanation:
+    - Shows attributes with the greatest impact on ideal point scores
+    - These factors are priority areas for brand improvement
+    - Can serve as reference for strategy adjustments

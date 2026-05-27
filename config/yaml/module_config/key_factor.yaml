@@ -1,0 +1,194 @@
+# ==========================================
+# BrandEdge 關鍵因素分析模組配置
+# ==========================================
+# Module: key_factor
+# Path: modules/module_brandedge_key_factor.R
+# Version: 1.0.0
+
+module:
+  id: "key_factor"
+  name: "key_factor_module"
+  description: "key_factor_evaluation_analysis"
+  version: "1.0.0"
+  path: "modules/module_brandedge_key_factor.R"
+  type: "analysis"
+  icon: "key"
+
+# UI 配置
+ui:
+  title_key: "title"
+  subtitle_key: "subtitle"
+  card_status: "warning"
+
+  tabs:
+    overview:
+      id: "overview"
+      title_key: "tabs.overview"
+      icon: "dashboard"
+
+    key_factors:
+      id: "key_factors"
+      title_key: "tabs.key_factors"
+      icon: "star"
+
+    benchmarks:
+      id: "benchmarks"
+      title_key: "tabs.benchmarks"
+      icon: "trophy"
+
+    ideal_comparison:
+      id: "ideal_comparison"
+      title_key: "tabs.ideal_comparison"
+      icon: "crosshairs"
+
+# 關鍵因素評估（KFE）設定
+kfe_analysis:
+  # 門檻計算
+  threshold:
+    method: "mean_gate"                # mean_gate | median_gate | percentile
+    multiplier: 1.0                    # 敏感度調整倍數
+    min_multiplier: 0.5                # 最小倍數
+    max_multiplier: 2.0                # 最大倍數
+    default_multiplier: 1.0            # 預設倍數
+
+  # 理想點設定
+  ideal_point:
+    method: "max"                      # max | brand_ideal | custom
+    brand_ideal_name: "Ideal"          # 理想品牌名稱
+    fallback_to_max: true              # 找不到理想品牌時使用最大值
+
+  # 指標計算
+  indicators:
+    comparison: "gte"                  # gte (>=) | gt (>) | eq (=)
+    binary_output: true                # 1/0 輸出
+    handle_na: "zero"                  # zero | exclude | interpolate
+
+  # 關鍵因素識別
+  identification:
+    min_brands_meeting: 2              # 至少N個品牌達到理想點才算關鍵因素
+    min_achievement_rate: 0.3          # 最低達成率（30%）
+    sort_by: "achievement_rate"        # achievement_rate | importance | name
+
+# 標竿品牌分析
+benchmark_analysis:
+  # 標竿識別
+  identification:
+    min_factors_met: 1                 # 至少達到N個關鍵因素
+    sort_by: "factors_count"           # factors_count | brand_name
+
+  # 顯示設定
+  display:
+    max_brands_per_factor: 10          # 每個因素最多顯示N個標竿品牌
+    show_scores: true                  # 顯示分數
+    show_achievement_rate: true        # 顯示達成率
+
+# 理想點比較分析
+ideal_comparison:
+  # 比較設定
+  comparison:
+    show_gap: true                     # 顯示與理想點的差距
+    show_percentage: true              # 顯示達成百分比
+    highlight_above_ideal: true        # 高亮超過理想點的
+
+  # 排序
+  sort:
+    by: "total_achievement"            # total_achievement | brand_name | gap
+    order: "desc"                      # desc | asc
+
+# 排除變數設定
+exclusions:
+  # 預設排除的欄位
+  default_exclude:
+    - "Variation"
+    - "sales"
+    - "rating"
+    - "review_count"
+
+  # 允許用戶自訂排除
+  user_customizable: true
+
+# 資料驗證
+validation:
+  min_brands: 2                        # 最少品牌數
+  min_attributes: 3                    # 最少屬性數
+  require_scored_data: true            # 需要評分資料
+  require_numeric_attributes: true     # 需要數值屬性
+
+# 視覺化設定
+visualization:
+  # 關鍵因素圖表
+  key_factors_chart:
+    type: "bar"                        # bar | lollipop | radar
+    color_scheme: "viridis"            # viridis | Set1 | custom
+    show_threshold_line: true          # 顯示門檻線
+    height: 400
+
+  # 品牌表現圖表
+  brand_performance_chart:
+    type: "heatmap"                    # heatmap | bar | scatter
+    color_scale: "RdYlGn"              # RdYlGn | Blues | custom
+    show_values: true                  # 顯示數值
+    height: 500
+
+  # 理想點達成圖表
+  ideal_achievement_chart:
+    type: "bar"                        # bar | radar | bullet
+    show_ideal_line: true              # 顯示理想點線
+    color_above: "#28a745"             # 超過理想點的顏色
+    color_below: "#ffc107"             # 未達理想點的顏色
+    height: 400
+
+# 輸出設定
+output:
+  # 表格
+  tables:
+    key_factors_table:
+      show: true
+      format: "datatable"
+      page_length: 10
+      sortable: true
+
+    benchmark_table:
+      show: true
+      export_enabled: true
+      decimal_places: 2
+
+    ideal_comparison_table:
+      show: true
+      show_gaps: true
+      highlight_top: 3
+
+    language_url: "//cdn.datatables.net/plug-ins/1.10.11/i18n/Chinese-traditional.json"
+    decimal_places: 2
+
+  # 摘要統計
+  summary:
+    show_total_factors: true
+    show_key_factors_count: true
+    show_average_achievement: true
+    show_top_brands: true
+    top_brands_count: 3
+
+# 報告生成
+report:
+  # 自動生成
+  auto_generate: false
+  include_charts: true
+  include_tables: true
+  include_recommendations: true
+
+  # 格式
+  format: "html"                       # html | pdf | markdown
+  template: "default"
+
+# 效能設定
+performance:
+  cache_results: true
+  cache_duration: 1800                 # 30分鐘
+  parallel_processing: false
+  max_concurrent_calculations: 4
+
+# 語言內容路徑
+language:
+  content_path: "database/content/{language}/module/key_factor.yaml"
+  fallback_path: "database/content/chinese/module/key_factor.yaml"

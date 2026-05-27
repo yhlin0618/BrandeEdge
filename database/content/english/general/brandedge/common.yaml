@@ -1,0 +1,643 @@
+# ==========================================
+# BrandEdge Brand Positioning Engine - Common Language Content (English)
+# ==========================================
+# Version: 3.2.1
+# Last Updated: 2025-10-06
+
+# ==========================================
+# Application Basic Information
+# ==========================================
+app:
+  title: "BrandEdge<br>Brand Positioning Engine"
+  subtitle: "Enterprise Brand Positioning Analysis Platform"
+  tagline: "AI-Driven Brand Strategy Engine"
+  version: "v3.2.1 Flagship Edition"
+  description: "AI-powered deep analysis of customer reviews for comprehensive brand strategy recommendations"
+  welcome: "Welcome to BrandEdge Brand Positioning Engine"
+  footer_left: "BrandEdge v3.2 - Brand Positioning Engine"
+  footer_right: "© 2025 PeakEdges. All Rights Reserved"
+
+# ==========================================
+# Navigation Menu
+# ==========================================
+navigation:
+  home: "Home"
+  dashboard: "Dashboard"
+  upload: "Data Upload"
+  analysis: "Brand Analysis"
+  results: "Analysis Results"
+  settings: "Settings"
+  help: "Help"
+  about: "About System"
+  logout: "Logout"
+
+# ==========================================
+# Common Buttons
+# ==========================================
+buttons:
+  submit: "Submit"
+  cancel: "Cancel"
+  confirm: "Confirm"
+  save: "Save"
+  delete: "Delete"
+  edit: "Edit"
+  download: "Download"
+  upload: "Upload"
+  export: "Export"
+  import: "Import"
+  reset: "Reset"
+  refresh: "Refresh"
+  back: "Back"
+  next: "Next"
+  previous: "Previous"
+  finish: "Finish"
+  close: "Close"
+  search: "Search"
+  filter: "Filter"
+  apply: "Apply"
+  clear: "Clear"
+  select: "Select"
+  browse: "Browse"
+  run_analysis: "Run Analysis"
+  view_results: "View Results"
+  generate_report: "Generate Report"
+  generate_attributes: "Generate Attributes"
+  start_scoring: "Start Scoring"
+
+# ==========================================
+# Common Messages
+# ==========================================
+messages:
+  success: "Operation successful"
+  error: "Operation failed"
+  warning: "Warning"
+  info: "Info"
+  loading: "Loading..."
+  processing: "Processing..."
+  saving: "Saving..."
+  deleting: "Deleting..."
+  uploading: "Uploading..."
+  downloading: "Downloading..."
+  analyzing: "Analyzing..."
+  generating: "Generating..."
+  complete: "Complete"
+  failed: "Failed"
+  pending: "Pending"
+
+  # Error messages
+  error_occurred: "Error occurred: {error}"
+  invalid_input: "Invalid input data"
+  missing_field: "Missing required field: {field}"
+  file_not_found: "File not found"
+  connection_error: "Connection error"
+  authentication_failed: "Authentication failed"
+  permission_denied: "Permission denied"
+  timeout: "Operation timeout"
+
+  # Success messages
+  save_success: "Saved successfully"
+  upload_success: "Uploaded successfully"
+  delete_success: "Deleted successfully"
+  analysis_complete: "Analysis complete"
+  ready_for_analysis: "✅ Data uploaded successfully! Please select an analysis module from the sidebar to begin"
+  upload_with_detection: "✅ Uploaded review data: {count} reviews, {brands} brands"
+
+  # Confirmation messages
+  confirm_delete: "Are you sure you want to delete?"
+  confirm_reset: "Are you sure you want to reset?"
+  confirm_cancel: "Are you sure you want to cancel?"
+  unsaved_changes: "There are unsaved changes, are you sure you want to leave?"
+
+# ==========================================
+# Status Labels
+# ==========================================
+status:
+  active: "Active"
+  inactive: "Inactive"
+  enabled: "Enabled"
+  disabled: "Disabled"
+  online: "Online"
+  offline: "Offline"
+  connected: "Connected"
+  disconnected: "Disconnected"
+  running: "Running"
+  stopped: "Stopped"
+  completed: "Completed"
+  failed: "Failed"
+  pending: "Pending"
+  in_progress: "In Progress"
+
+# ==========================================
+# Data Related
+# ==========================================
+data:
+  upload_title: "Upload Data"
+  upload_description: "Please upload your review data file (Excel or CSV format supported)"
+  required_columns: "Required Columns"
+  column_variation: "Brand/Product Name (Variation)"
+  column_title: "Review Title (Title)"
+  column_body: "Review Content (Body)"
+  column_rating: "Rating (Rating, optional)"
+  column_date: "Date (Date, optional)"
+
+  file_format: "File Format"
+  file_size: "File Size"
+  row_count: "Row Count"
+  brand_count: "Brand Count"
+
+  validation_success: "Data validation successful"
+  validation_failed: "Data validation failed"
+  invalid_format: "Invalid file format"
+  missing_columns: "Missing required columns: {columns}"
+  exceeds_limit: "Exceeds data limit: {limit}"
+
+# ==========================================
+# Analysis Related
+# ==========================================
+analysis:
+  # General
+  title: "Brand Analysis"
+  start_analysis: "Start Analysis"
+  analysis_settings: "Analysis Settings"
+  analysis_progress: "Analysis Progress"
+  analysis_results: "Analysis Results"
+
+  # Attributes
+  attributes: "Product Attributes"
+  attribute_extraction: "Attribute Extraction"
+  attribute_scoring: "Attribute Scoring"
+  num_attributes: "Number of Attributes"
+  select_attributes: "Select number of attributes (10-30)"
+  extracting_attributes: "Extracting product attributes..."
+  scoring_attributes: "Scoring product attributes..."
+
+  # Brands
+  brands: "Brands"
+  brand_comparison: "Brand Comparison"
+  brand_performance: "Brand Performance"
+  select_brands: "Select Brands"
+  all_brands: "All Brands"
+
+  # Analysis Types
+  market_profile: "Market Profile Analysis"
+  market_track: "Market Track Analysis"
+  dna_analysis: "DNA Analysis"
+  key_factors: "Key Factors Analysis"
+  ideal_point: "Ideal Point Analysis"
+  strategy_positioning: "Strategy Positioning Analysis"
+  brand_identity: "Brand Identity Analysis"
+  ai_insights: "AI Comprehensive Insights"
+
+# ==========================================
+# Workflow Steps Indicator (Top Bar)
+# ==========================================
+workflow:
+  steps:
+    step1_short: "Upload"
+    step2_short: "Attributes"
+    step3_short: "Scoring"
+    step4_short: "Analysis"
+
+    step1_full: "Step 1: Upload Review Data"
+    step2_full: "Step 2: Attribute Extraction"
+    step3_full: "Step 3: Attribute Scoring"
+
+# ==========================================
+# Sidebar Structure (Matching Original BrandEdge)
+# ==========================================
+sidebar:
+  # Sidebar Section Headers
+  sections:
+    data_preparation: "Data Preparation"
+    core_analysis: "Core Analysis"
+    strategy_recommendations: "Strategy Recommendations"
+    system_info: "System Information"
+
+  # Data Preparation Section (1-3)
+  data_preparation:
+    item1: "1. Upload Review Data"
+    item2: "2. Attribute Extraction (10-30)"
+    item3: "3. Attribute Scoring"
+
+  # Core Analysis Section (4-7)
+  core_analysis:
+    item4: "4. Target Market Profile"
+    item5: "5. Market Track Analysis"
+    item6: "6. Brand DNA Comparison"
+    item7: "7. Key Factors Analysis"
+
+  # Strategy Recommendations Section (8-10)
+  strategy_recommendations:
+    item8: "8. Ideal Point Analysis"
+    item9: "9. Positioning Strategy Recommendations"
+    item10: "10. Identity Strategy"
+
+  # System Information Section
+  system_info:
+    about: "About System"
+
+# ==========================================
+# Eight Analysis Modules (Matching Original BrandEdge)
+# ==========================================
+modules:
+  market_profile:
+    title: "Target Market Profile"
+    full_title: "Target Market Profile Analysis"
+    subtitle: "Market Segmentation & Customer Analysis"
+    description: "AI-powered dynamic naming for customer segments"
+
+  market_track:
+    title: "Market Track Analysis"
+    subtitle: "Growth Opportunity Identification & Strategic Priorities"
+    description: "Identify high-growth potential attributes, four-quadrant strategy"
+
+  advanced_dna:
+    title: "Brand DNA Comparison"
+    full_title: "Advanced DNA Analysis"
+    subtitle: "Brand DNA Radar Chart"
+    description: "Multi-dimensional competitive analysis"
+
+  key_factors:
+    title: "Key Factors Analysis"
+    subtitle: "Success Factor Identification"
+    description: "Find core attributes affecting success"
+    sensitivity: "Analysis Sensitivity"
+    summary: "Key Factors Summary"
+    achievement_ranking: "Brand Achievement Ranking"
+    factor_details: "Key Factor Details"
+    benchmarks: "Benchmark Brands"
+    analyzing: "Analyzing key factors..."
+    analysis_complete: "✅ Key factor analysis complete"
+    no_factors: " No key factors identified, please adjust sensitivity"
+    identified: "Identified {count} key success factors:"
+    threshold_info: "Threshold: "
+    no_data: "No analysis data"
+    brand_achievement: "Brand Key Factor Achievement Rate"
+    no_details: "No detail data"
+    ideal_value: "Ideal value: "
+    top_brands: "Top performing brands: "
+    no_benchmarks: "No benchmark brand data"
+
+  ideal_point:
+    title: "Ideal Point Analysis"
+    subtitle: "Target Achievement Analysis"
+    description: "Measure distance from ideal state"
+
+  strategy_positioning:
+    title: "Positioning Strategy Recommendations"
+    full_title: "Brand Positioning Strategy Recommendations"
+    subtitle: "Four-Quadrant Strategy Recommendations"
+    description: "Clear improvement priorities"
+
+  brand_identity:
+    title: "Identity Strategy"
+    full_title: "Brand Identity Analysis"
+    subtitle: "Differentiation Analysis"
+    description: "Build unique market positioning"
+
+  # Attribute Scoring (Corresponding to Advanced Attribute Evaluation)
+  scoring:
+    title: "Attribute Scoring"
+    original_title: "Advanced Brand Attribute Evaluation"
+    subtitle: "Product Attribute Extraction & Scoring"
+    description: "Extract 10-30 product attributes and score 1-5"
+
+  # Advanced Attribute (Independent Module)
+  advanced_attribute:
+    title: "Advanced Brand Attribute Evaluation"
+    subtitle: "In-depth Attribute Analysis"
+    description: "Extract 10-30 product attributes from reviews and score them"
+    attr_count: "Generated attributes (total: {count})"
+
+  ai_insights:
+    title: "AI Comprehensive Insights"
+    subtitle: "Comprehensive Strategy Report"
+    description: "Intelligent recommendations integrating all analyses"
+
+# ==========================================
+# Legacy Modules (Backward Compatibility)
+# ==========================================
+legacy:
+  pca:
+    need_data: "Please complete attribute scoring first, at least 2 numerical attributes are required for PCA analysis."
+    constant_cols: "⚠️ Data contains constant columns (variance = 0), unable to perform PCA analysis. Please check data variability."
+    removed_cols: "ℹ️ Automatically removed {removed} constant columns, using {used} variables for PCA analysis."
+    using_attrs: "✅ Using {count} attributes for PCA analysis"
+    brand_label: "Brand:"
+    attribute_label: "Attribute:"
+    map_title: "PCA Brand Positioning Map"
+    error: "PCA Analysis Error:"
+    check_data: "Please check data quality and variability"
+    analysis_title: "PCA Analysis"
+
+  ideal:
+    key_factors_label: "Key Factors:"
+
+  strategy:
+    appeal: "Appeal"
+    change: "Change"
+    improve: "Improve"
+    weakness: "Weakness"
+    analyzing: "Strategy analysis in progress..."
+    not_generated: "Strategy analysis not generated yet, please click 'Strategy Exploration'."
+
+# ==========================================
+# Charts Related
+# ==========================================
+charts:
+  title: "Charts"
+  type: "Chart Type"
+  radar: "Radar Chart"
+  bar: "Bar Chart"
+  line: "Line Chart"
+  scatter: "Scatter Plot"
+  heatmap: "Heatmap"
+  table: "Table"
+
+  axis_x: "X-Axis"
+  axis_y: "Y-Axis"
+  legend: "Legend"
+  download_chart: "Download Chart"
+  fullscreen: "Fullscreen"
+
+# ==========================================
+# Reports Related
+# ==========================================
+reports:
+  title: "Analysis Report"
+  generate: "Generate Report"
+  download: "Download Report"
+  export_pdf: "Export PDF"
+  export_word: "Export Word"
+  export_ppt: "Export PPT"
+  export_excel: "Export Excel"
+
+  summary: "Summary"
+  overview: "Overview"
+  details: "Details"
+  recommendations: "Recommendations"
+  conclusion: "Conclusion"
+
+# ==========================================
+# Help & Tips
+# ==========================================
+help:
+  title: "Help"
+  user_guide: "User Guide"
+  faq: "FAQ"
+  tutorial: "Tutorial"
+  contact_support: "Contact Support"
+  documentation: "Documentation"
+  video_tutorial: "Video Tutorial"
+
+  # System Info
+  system_info: "System Information"
+  version: "Version"
+  build_date: "Build Date"
+  license: "License"
+
+# ==========================================
+# Settings
+# ==========================================
+settings:
+  title: "Settings"
+  general: "General Settings"
+  language: "Language"
+  theme: "Theme"
+  notifications: "Notifications"
+  privacy: "Privacy"
+  account: "Account"
+
+  # Language Options
+  chinese: "繁體中文"
+  english: "English"
+  japanese: "日本語"
+
+# ==========================================
+# About System
+# ==========================================
+about:
+  title: "About System"
+  description: "BrandEdge Brand Positioning Engine is an enterprise-level brand positioning analysis platform that provides comprehensive brand strategy recommendations through AI-powered deep analysis of customer reviews."
+
+  features:
+    title: "Core Features"
+    feature_1: "Multi-dimensional analysis supporting 10-30 product attributes"
+    feature_2: "Analyze up to 1000 reviews and 20 brands simultaneously"
+    feature_3: "Eight analysis modules providing complete brand strategy coverage"
+    feature_4: "AI-driven intelligent text analysis"
+    feature_5: "Centralized Prompt and Hint management system"
+
+  contact:
+    title: "Contact Us"
+    email: "mr.no.one01@gmail.com"
+    website: "https://www.peakedges.com"
+    support: "Technical Support"
+
+  copyright: "© 2025 PeakEdges. All Rights Reserved"
+  version_info: "Version {version}"
+
+# ==========================================
+# Time Related
+# ==========================================
+time:
+  date: "Date"
+  time: "Time"
+  datetime: "Date Time"
+  today: "Today"
+  yesterday: "Yesterday"
+  tomorrow: "Tomorrow"
+  this_week: "This Week"
+  last_week: "Last Week"
+  this_month: "This Month"
+  last_month: "Last Month"
+  this_year: "This Year"
+  last_year: "Last Year"
+
+# ==========================================
+# Units
+# ==========================================
+units:
+  items: "items"
+  records: "records"
+  files: "files"
+  rows: "rows"
+  columns: "columns"
+  percent: "percent"
+  score: "score"
+  count: "count"
+  total: "total"
+  average: "average"
+  maximum: "maximum"
+  minimum: "minimum"
+
+# ==========================================
+# Page Titles
+# ==========================================
+pages:
+  login_brandedge: "Login Module"
+  upload_brandedge: "Data Upload"
+  brandedge_scoring: "Attribute Scoring"
+  market_profile: "Market Profile Analysis"
+  market_track: "Market Track Analysis"
+  advanced_attribute: "Advanced Attribute Evaluation"
+  key_factor: "Key Factors Analysis"
+  advanced_dna: "Advanced DNA Analysis"
+  brand_identity: "Brand Identity Analysis"
+  ideal_point: "Ideal Point Analysis"
+  positioning_strategy: "Positioning Strategy Recommendations"
+  brandedge_flagship: "BrandEdge Engine"
+  about: "About Us"
+
+# ==========================================
+# System Notifications
+# ==========================================
+system:
+  notifications:
+    switch_to_scoring: "✅ Switched to scoring page"
+    enter_analysis: "✅ Entered analysis module"
+    switch_to_analysis: "✅ Switched to analysis page"
+    data_uploaded: "✅ Data uploaded successfully"
+    scoring_complete: "✅ Scoring complete"
+    analysis_complete: "✅ Analysis complete"
+
+  # Progress and error messages for scoring module
+  messages:
+    info:
+      analyzing_reviews: "Analyzing review content, extracting product attributes..."
+      scoring_in_progress: "Scoring in progress, please wait..."
+      processing_item: "Processing item {current}/{total} (Brand: {brand})"
+
+    success:
+      attributes_extracted: "Successfully extracted"
+      scoring_complete: "✅ Scoring complete! Successfully processed {total} reviews"
+      data_ready: "✅ Scoring data ready for analysis"
+
+    warning:
+      scoring_warning: "⚠️ Scoring complete, but {error_count}/{total} reviews were skipped due to API errors"
+
+    error:
+      extraction_failed: "Attribute extraction failed: "
+      scoring_failed: "Scoring failed: "
+      check_api: "Please verify OpenAI API configuration and sufficient quota"
+
+    labels:
+      product_attributes: "product attributes:"
+      reviews_scored: "reviews scored"
+
+    console:
+      start_extraction: "🚀 Starting attribute extraction, target attributes: "
+      partial_extraction: "⚠️ Only extracted"
+      partial_extraction_suffix: " attributes, less than target"
+      extraction_success: "✅ Successfully extracted"
+      attributes_count: " attributes"
+      extraction_failed: "❌ Attribute extraction failed: "
+      start_scoring: "🚀 Starting scoring, sample size: "
+      attributes_num: ", attributes: "
+      scoring_error_detail: "⚠️ Scoring error (item {index}, brand: {brand}): {error}"
+      scoring_complete: "✅ Scoring complete, total "
+      reviews_count: " reviews"
+      scoring_failed: "❌ Scoring failed: "
+
+  ui:
+    tables:
+      avg_scores_caption: "Average Brand Attribute Scores"
+
+  # Legacy formats (for backward compatibility)
+  extraction_success: "✅ Successfully extracted {count} product attributes:"
+  scoring_success: "✅ Successfully scored attributes"
+  extracting: "Extracting product attributes..."
+  analyzing: "Analyzing data..."
+
+# ==========================================
+# Market Profile Module
+# ==========================================
+market_profile:
+  controls:
+    segmentation_method: "Segmentation Method"
+    num_segments: "Number of Segments"
+    run_analysis: "Run Analysis"
+    run_ai_analysis: "Run AI Analysis"
+
+  methods:
+    kmeans: "K-means Clustering"
+    performance: "Performance-based"
+    combined: "Combined Analysis"
+
+  tabs:
+    overview: "Market Segmentation Overview"
+    detailed: "Detailed Segmentation Analysis"
+    preferences: "Customer Preference Analysis"
+    opportunities: "Market Opportunities"
+    summary: "Analysis Summary"
+
+  charts:
+    segment_distribution: "Market Segment Distribution"
+    segment_characteristics: "Segment Characteristics Distribution"
+    preference_heatmap: "Customer Preference Heatmap"
+    preference_radar: "Segment Preference Radar Chart"
+    opportunity_matrix: "Market Opportunity Matrix"
+
+  positions:
+    leader: "Market Leader"
+    strong: "Strong Competitor"
+    mainstream: "Mainstream Brand"
+    challenger: "Challenger"
+
+  labels:
+    brands: " brands"
+    avg_score: "Average Score"
+    top_attributes: "Top Attributes Count"
+    segment: "Segment"
+    attribute: "Attribute"
+    score: "Score"
+    product_attributes: "Product Attributes"
+    market_segment: "Market Segment"
+    growth_potential: "Growth Potential"
+    market_size: "Market Size"
+    developing: "Under Development"
+    ai_insights: "AI Customer Insights"
+    ai_opportunities: "AI Market Opportunities Analysis"
+    ai_loading: "🤖 AI Analysis in progress..."
+    ai_complete: "✅ AI Analysis complete!"
+
+    # AI Analysis Progress Details
+    ai_progress_segment_naming: "Generating segment names..."
+    ai_progress_customer_analysis: "Analyzing customer preferences..."
+    ai_progress_market_opportunities: "Identifying market opportunities..."
+    ai_progress_complete: "Complete..."
+
+  quadrants:
+    high_potential_large: "High Potential Large Market"
+    mature_large: "Mature Large Market"
+    emerging_small: "Emerging Small Market"
+    saturated_small: "Saturated Small Market"
+
+  tables:
+    segment_summary: "Market Segmentation Summary"
+
+  messages:
+    no_data: "Please upload data and complete attribute scoring first"
+
+  report:
+    segmentation_title: "Market Segmentation Profile Analysis"
+    target_customer_title: "Target Customer Preference Analysis"
+    market_opportunity_title: "Potential Market Opportunity Analysis"
+    has: "Has "
+    companies: " companies, "
+    market_share: "market share of "
+    avg_score: "average score of "
+    features: "Features include "
+    developing: "Under development."
+    highest_score: "has the highest average score ("
+    score_close: "), "
+    should_enhance: "should enhance "
+    core_advantages: "core advantages"
+    attract_target: " to attract target customers."
+    run_ai_analysis: "Please run AI analysis to generate customer preference analysis."
+    considering: "Considering that "
+    lower_share: "has lower market share ("
+    but_avg: "but average score of "
+    indicates_opportunity: ", this indicates potential market opportunity."
+    suggest_enhance: "Suggest strengthening the market strategy for this segment."
+    run_ai_for_opportunities: "Please run AI analysis to generate market opportunity analysis."
