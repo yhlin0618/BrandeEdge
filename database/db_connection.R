@@ -45,49 +45,47 @@ init_pool <- function(force = FALSE) {
       cat("[Pool] ⚠️ SUPABASE_DB_HOST 未設定！\n")
       cat("[Pool]   檢查 .env 檔案或 Posit Connect Variable Set\n")
       cat("[Pool]   目前 SUPABASE_DB_HOST =", Sys.getenv("SUPABASE_DB_HOST", "(空)"), "\n")
-      return(FALSE)
-    }
-
-    if (!nzchar(db_config$password)) {
+      FALSE
+    } else if (!nzchar(db_config$password)) {
       cat("[Pool] ⚠️ SUPABASE_DB_PASSWORD 未設定！\n")
-      return(FALSE)
+      FALSE
+    } else {
+      # 所有檢查通過，建立連接池
+      cat("[Pool] 建立 PostgreSQL 連接池...\n")
+      cat("[Pool] Host:", substr(db_config$host, 1, 30), "...\n")
+      cat("[Pool] User:", db_config$user, "\n")
+
+      # 使用 pool 套件建立連接池
+      # gssencmode = "disable" 避免 Supabase Pooler GSSAPI 錯誤
+      db_pool <<- pool::dbPool(
+        drv = RPostgres::Postgres(),
+        host     = db_config$host,
+        port     = as.integer(db_config$port %||% 5432),
+        user     = db_config$user,
+        password = db_config$password,
+        dbname   = db_config$dbname,
+        sslmode  = db_config$sslmode %||% "require",
+        gssencmode = "disable",  # 禁用 GSSAPI 加密（Supabase Pooler 需要）
+        minSize  = 2,           # 最小連接數
+        maxSize  = 15,          # 最大連接數（支援 4 workers × 多並發用戶）
+        idleTimeout = 60000,    # 閒置 60 秒後回收
+        validationInterval = 60 # 每 60 秒驗證連接
+      )
+
+      db_pool_info <<- list(
+        type = "PostgreSQL",
+        host = db_config$host,
+        port = db_config$port,
+        dbname = db_config$dbname,
+        icon = "🐘",
+        color = "#336791",
+        status = "正式環境 (Pool)",
+        pool_size = "2-10"
+      )
+
+      cat("[Pool] ✅ PostgreSQL 連接池建立成功 (minSize=2, maxSize=15)\n")
+      TRUE
     }
-
-    # 所有檢查通過，建立連接池
-    cat("[Pool] 建立 PostgreSQL 連接池...\n")
-    cat("[Pool] Host:", substr(db_config$host, 1, 30), "...\n")
-    cat("[Pool] User:", db_config$user, "\n")
-
-    # 使用 pool 套件建立連接池
-    # gssencmode = "disable" 避免 Supabase Pooler GSSAPI 錯誤
-    db_pool <<- pool::dbPool(
-      drv = RPostgres::Postgres(),
-      host     = db_config$host,
-      port     = as.integer(db_config$port %||% 5432),
-      user     = db_config$user,
-      password = db_config$password,
-      dbname   = db_config$dbname,
-      sslmode  = db_config$sslmode %||% "require",
-      gssencmode = "disable",  # 禁用 GSSAPI 加密（Supabase Pooler 需要）
-      minSize  = 2,           # 最小連接數
-      maxSize  = 15,          # 最大連接數（支援 4 workers × 多並發用戶）
-      idleTimeout = 60000,    # 閒置 60 秒後回收
-      validationInterval = 60 # 每 60 秒驗證連接
-    )
-
-    db_pool_info <<- list(
-      type = "PostgreSQL",
-      host = db_config$host,
-      port = db_config$port,
-      dbname = db_config$dbname,
-      icon = "🐘",
-      color = "#336791",
-      status = "正式環境 (Pool)",
-      pool_size = "2-10"
-    )
-
-    cat("[Pool] ✅ PostgreSQL 連接池建立成功 (minSize=2, maxSize=15)\n")
-    TRUE
   }, error = function(e) {
     cat("[Pool] PostgreSQL 連接池建立失敗:", e$message, "\n")
     FALSE
@@ -101,14 +99,14 @@ init_pool <- function(force = FALSE) {
     if (nzchar(writable_dir)) {
       writable_dir <- file.path(writable_dir, "sqlite")
     } else {
-      writable_dir <- file.path(tempdir(), "insightforge_sqlite")
+      writable_dir <- file.path(tempdir(), "brandedge_sqlite")
     }
 
     if (!dir.exists(writable_dir)) {
       dir.create(writable_dir, recursive = TRUE, showWarnings = FALSE)
     }
 
-    db_path <- file.path(writable_dir, "insightforge_test.db")
+    db_path <- file.path(writable_dir, "brandedge_test.db")
 
     db_pool <<- tryCatch({
       DBI::dbConnect(RSQLite::SQLite(), db_path)
@@ -148,7 +146,7 @@ init_tables <- function() {
         CREATE TABLE IF NOT EXISTS users (
           id           INTEGER PRIMARY KEY AUTOINCREMENT,
           username     TEXT UNIQUE,
-          password_hash TEXT,
+          hash          TEXT,
           role         TEXT DEFAULT 'user',
           login_count  INTEGER DEFAULT 0
         );
@@ -187,7 +185,7 @@ init_tables <- function() {
           CREATE TABLE IF NOT EXISTS users (
             id           SERIAL PRIMARY KEY,
             username     TEXT UNIQUE,
-            password_hash TEXT,
+            hash          TEXT,
             role         TEXT DEFAULT 'user',
             login_count  INTEGER DEFAULT 0
           );
@@ -222,6 +220,28 @@ init_tables <- function() {
       })
     }
 
+    user_columns <- if (is_sqlite) {
+      DBI::dbGetQuery(db_pool, "PRAGMA table_info(users)")$name
+    } else {
+      DBI::dbGetQuery(db_pool, "
+        SELECT column_name
+        FROM information_schema.columns
+        WHERE table_name = 'users'
+      ")$column_name
+    }
+
+    if (!"hash" %in% user_columns) {
+      DBI::dbExecute(db_pool, "ALTER TABLE users ADD COLUMN hash TEXT")
+    }
+
+    if ("password_hash" %in% user_columns) {
+      DBI::dbExecute(db_pool, "
+        UPDATE users
+        SET hash = password_hash
+        WHERE hash IS NULL AND password_hash IS NOT NULL
+      ")
+    }
+
     # 檢查並創建測試用戶
     existing_users <- DBI::dbGetQuery(db_pool, "SELECT COUNT(*) as count FROM users")
     user_count <- as.integer(existing_users$count[1])  # 確保正確轉換為整數
@@ -229,12 +249,12 @@ init_tables <- function() {
       cat("[Pool] 創建測試用戶...\n")
 
       DBI::dbExecute(db_pool, "
-        INSERT INTO users (username, password_hash, role, login_count)
+        INSERT INTO users (username, hash, role, login_count)
         VALUES (?, ?, 'admin', 0)
       ", list("admin", bcrypt::hashpw("admin123")))
 
       DBI::dbExecute(db_pool, "
-        INSERT INTO users (username, password_hash, role, login_count)
+        INSERT INTO users (username, hash, role, login_count)
         VALUES (?, ?, 'user', 0)
       ", list("testuser", bcrypt::hashpw("user123")))
 
@@ -465,16 +485,12 @@ db_execute <- function(sql, params = list()) {
   con <- get_con()
   sql <- convert_placeholders(sql, con)
   if (length(params) > 0) {
-    # 修復：強制將所有參數轉為正確類型，避免 RPostgres 類型推斷錯誤
-    # 特別是 UUID 字串可能被誤判為其他類型
-    params <- lapply(params, function(x) {
-      if (is.character(x)) {
-        # 使用 I() 包裝字串，防止 RPostgres 進行類型推斷
-        I(as.character(x))
-      } else {
-        x
-      }
-    })
+    if (inherits(con, "Pool") || inherits(con, "PqConnection")) {
+      # RPostgres sometimes infers UUID-like strings incorrectly.
+      params <- lapply(params, function(x) {
+        if (is.character(x)) I(as.character(x)) else x
+      })
+    }
     result <- DBI::dbExecute(con, sql, params = params)
   } else {
     result <- DBI::dbExecute(con, sql)
