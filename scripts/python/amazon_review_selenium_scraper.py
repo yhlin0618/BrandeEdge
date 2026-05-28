@@ -241,21 +241,56 @@ def friendly_status_message(scrape_status: str, error_code: str = "") -> str:
     return "評論抓取失敗，請稍後再試"
 
 
+CHROME_BINARY_CANDIDATES = [
+    "/usr/bin/google-chrome-stable",
+    "/usr/bin/google-chrome",
+    "/usr/bin/chromium",
+    "/usr/bin/chromium-browser",
+]
+
+
+def _resolve_chrome_binary() -> str | None:
+    chrome_bin = os.getenv("CHROME_BIN", "").strip()
+    candidates = [chrome_bin] + CHROME_BINARY_CANDIDATES if chrome_bin else CHROME_BINARY_CANDIDATES
+    for candidate in candidates:
+        if candidate and Path(candidate).exists():
+            return candidate
+    return None
+
+
+def _log_chrome_diagnostics() -> str:
+    lines: list[str] = []
+    for c in CHROME_BINARY_CANDIDATES:
+        lines.append(f"  {c}: {'EXISTS' if Path(c).exists() else 'missing'}")
+    chromedriver_path = os.getenv("CHROMEDRIVER_PATH", "").strip()
+    if chromedriver_path:
+        lines.append(f"  CHROMEDRIVER_PATH={chromedriver_path}: {'EXISTS' if Path(chromedriver_path).exists() else 'missing'}")
+    diag = "\n".join(lines)
+    log(f"Chrome binary scan:\n{diag}")
+    return diag
+
+
 def build_driver() -> WebDriver:
     if SELENIUM_IMPORT_ERROR is not None or webdriver is None or Options is None:
         raise RuntimeError(f"Selenium is unavailable: {SELENIUM_IMPORT_ERROR}")
 
     log("Building Chrome Selenium driver.")
+    diag = _log_chrome_diagnostics()
+
     options = Options()
-    chrome_bin = os.getenv("CHROME_BIN", "").strip()
-    if chrome_bin and Path(chrome_bin).exists():
-        options.binary_location = chrome_bin
-        log(f"Using Chrome binary from CHROME_BIN: {chrome_bin}")
+    resolved_chrome = _resolve_chrome_binary()
+    if resolved_chrome:
+        options.binary_location = resolved_chrome
+        log(f"Chrome binary resolved: {resolved_chrome}")
+    else:
+        log(f"WARNING: no Chrome binary found. Selenium Manager will attempt auto-detection. Diagnostics:\n{diag}")
+
     if parse_bool_env("AMAZON_REVIEW_HEADLESS", default=True):
         options.add_argument("--headless=new")
     options.add_argument("--window-size=1440,1400")
     options.add_argument("--disable-gpu")
     options.add_argument("--no-sandbox")
+    options.add_argument("--disable-setuid-sandbox")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_argument(f"--user-agent={USER_AGENT}")
@@ -636,7 +671,16 @@ def main() -> None:
             all_reviews.extend(result["reviews"])
             summaries.append(result["summary"])
     except Exception as exc:  # noqa: BLE001 - never emit non-JSON from this script.
-        error_message = str(exc)
+        raw_error = str(exc)
+        # Attach binary diagnostics to the error so frontend can show them.
+        diag_lines = []
+        resolved = _resolve_chrome_binary()
+        diag_lines.append(f"Chrome binary: {resolved or 'NOT FOUND'}")
+        chromedriver_env = os.getenv("CHROMEDRIVER_PATH", "").strip()
+        if chromedriver_env:
+            diag_lines.append(f"CHROMEDRIVER_PATH={chromedriver_env} ({'EXISTS' if Path(chromedriver_env).exists() else 'MISSING'})")
+        diag_lines.append(f"Python: {sys.version.split()[0]}, platform: {sys.platform}")
+        error_message = raw_error + " | 診斷: " + "; ".join(diag_lines)
         log_exception("Amazon Selenium review scraper failed", exc)
     finally:
         if driver is not None:
