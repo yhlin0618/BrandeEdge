@@ -42,7 +42,7 @@ ENV PATH="/opt/venv/bin:$PATH"
 ENV CHROME_BIN=/usr/bin/google-chrome-stable
 # 不設定 CHROMEDRIVER_PATH，讓 Selenium Manager 自動管理
 
-# 安裝 R 套件
+# 安裝 R 套件（使用 Posit Package Manager binary，跳過 C/C++ 編譯）
 RUN Rscript -e "install.packages(c( \
     'shiny', 'bs4Dash', 'shinyjs', 'shinyWidgets', \
     'DT', 'DBI', 'RSQLite', 'RPostgres', \
@@ -53,7 +53,7 @@ RUN Rscript -e "install.packages(c( \
     'bcrypt', 'processx', 'future', 'furrr', \
     'yaml', 'readxl', 'writexl', 'pool', 'waiter', \
     'dotenv', 'bslib', 'markdown' \
-), repos='https://cran.rstudio.com/')"
+), repos='https://packagemanager.posit.co/cran/__linux__/noble/latest')"
 
 # 覆蓋 Shiny Server 預設設定檔（必須在 COPY . 之前單獨複製）
 COPY shiny-server.conf /etc/shiny-server/shiny-server.conf
