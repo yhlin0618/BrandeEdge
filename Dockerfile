@@ -2,7 +2,7 @@ FROM rocker/shiny:4.5.0
 
 # 安裝系統套件、Python、Chrome
 RUN apt-get update && apt-get install -y \
-    python3 python3-pip \
+    python3 python3-pip python3-venv \
     chromium chromium-driver \
     libssl-dev libcurl4-openssl-dev libxml2-dev \
     && rm -rf /var/lib/apt/lists/*
