@@ -1371,9 +1371,19 @@ server <- function(input, output, session) {
     script_dir <- file.path(getwd(), "scripts", "python")
     script_path <- file.path(script_dir, "amazon_review_selenium_scraper.py")
     scraper_engine <- "selenium"
-    python_command <- trimws(Sys.getenv("AMAZON_REVIEW_PYTHON", "python3"))
+    python_command <- trimws(Sys.getenv("AMAZON_REVIEW_PYTHON", ""))
     if (!nzchar(python_command)) {
-      python_command <- "python3"
+      python_candidates <- c(
+        file.path(getwd(), ".venv-selenium", "bin", "python"),
+        file.path(dirname(getwd()), "ai_martech2", ".venv-selenium", "bin", "python"),
+        "/opt/venv/bin/python"
+      )
+      existing_python <- python_candidates[file.exists(python_candidates)]
+      python_command <- if (length(existing_python) > 0) {
+        existing_python[1]
+      } else {
+        "python3"
+      }
     }
 
     if (!file.exists(script_path)) {
@@ -1437,18 +1447,17 @@ server <- function(input, output, session) {
 
     if (isTRUE(as.integer(total_reviews_found) == 0L)) {
       summary_df <- parsed_result$summary
-      summary_message <- ""
+      summary_parts <- c(parsed_result$error_message %||% "")
       if (!is.null(summary_df) && is.data.frame(summary_df) && nrow(summary_df) > 0) {
         status_values <- unique(as.character(summary_df$scrape_status %||% ""))
         error_values <- unique(as.character(summary_df$error_message %||% ""))
-        summary_message <- paste(
-          c(
-            paste0("status=", paste(status_values[nzchar(status_values)], collapse = ",")),
-            paste0("message=", paste(error_values[nzchar(error_values)], collapse = "; "))
-          ),
-          collapse = ", "
+        summary_parts <- c(
+          summary_parts,
+          paste0("status=", paste(status_values[nzchar(status_values)], collapse = ",")),
+          paste0("message=", paste(error_values[nzchar(error_values)], collapse = "; "))
         )
       }
+      summary_message <- paste(summary_parts[nzchar(summary_parts)], collapse = ", ")
       stop("Amazon Selenium 評論爬蟲沒有取得任何評論。", if (nzchar(summary_message)) paste0(" ", summary_message) else "")
     }
 

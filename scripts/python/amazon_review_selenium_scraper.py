@@ -138,6 +138,35 @@ def parse_review_date(date_text: str) -> str:
     return clean_text(cleaned)
 
 
+def fallback_review_content(element_text: str) -> str:
+    lines = [clean_text(line) for line in element_text.splitlines()]
+    lines = [line for line in lines if line]
+    if not lines:
+        return ""
+
+    filtered_lines = []
+    skip_patterns = (
+        r"^[1-5](?:\.\d)?\s+out\s+of\s+5\s+stars$",
+        r"^reviewed in .* on .*$",
+        r"^verified purchase$",
+        r"^helpful$",
+        r"^\d+\s+people found this helpful$",
+    )
+    for line in lines:
+        lowered = line.lower()
+        if any(re.search(pattern, lowered, flags=re.I) for pattern in skip_patterns):
+            continue
+        if lowered in {"read more", "report", "show more"}:
+            continue
+        filtered_lines.append(line)
+
+    if not filtered_lines:
+        return ""
+
+    # Prefer a longer line because Amazon review bodies are often the longest text block.
+    return max(filtered_lines, key=len)
+
+
 def product_page_url(base_url: str, asin: str) -> str:
     return urllib.parse.urljoin(base_url, f"/dp/{asin}")
 
@@ -308,6 +337,8 @@ def safe_find_attr(element: WebElement, selectors: list[str], attr_name: str) ->
 def parse_review_element(element: WebElement, asin: str) -> dict[str, Any]:
     title = clean_review_title(safe_find_text(element, ['[data-hook="review-title"]']))
     content = safe_find_text(element, ['[data-hook="review-body"]'])
+    if not content:
+        content = fallback_review_content(element.text)
     author = safe_find_text(
         element,
         [
